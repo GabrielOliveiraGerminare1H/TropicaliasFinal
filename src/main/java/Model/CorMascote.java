@@ -1,4 +1,4 @@
-package Daos.Model;
+package Model;
 
 public class CorMascote {
     private String textoFundo;

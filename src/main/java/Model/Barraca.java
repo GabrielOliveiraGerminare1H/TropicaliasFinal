@@ -1,4 +1,4 @@
-package Daos.Model;
+package Model;
 
 public class Barraca {
     private String nome;
