@@ -7,7 +7,7 @@ public class BarracaDAO {
 
     public boolean cadastrarBarraca(String nome, int fk_int_id_evento){
         try {
-//            Abrindo conexão com o banco de dados
+//            hgtfdsAbrindo conexão com o banco de dados
             conexao.conectar();
 //            Comandos SQL
             PreparedStatement pstmt = conexao.getConn().prepareStatement("INSERT INTO tb_barraca (var_nome, fk_int_id_evento,createdAt) VALUES (?,?,current_date)");
