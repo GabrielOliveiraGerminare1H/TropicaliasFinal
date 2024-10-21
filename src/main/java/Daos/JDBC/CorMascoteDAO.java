@@ -1,5 +1,7 @@
 package Daos.JDBC;
 
+import Daos.Model.CorMascote;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,7 +10,7 @@ import java.sql.SQLException;
 public class CorMascoteDAO {
     ConexaoDAO conexao = new ConexaoDAO();
 
-    public boolean cadastrarCorMascote(String textoFundo, String textoPri,String textoSec){
+    public boolean cadastrarCorMascote(CorMascote corMascote){
         try{
             //Abrindo conexão com o banco
             conexao.conectar();
@@ -17,9 +19,9 @@ public class CorMascoteDAO {
                     ("INSERT INTO tb_cor_mascote (text_fundo, text_primaria, text_secundaria, createdAt) " +
                             "VALUES(?,?,?,current_date)");
             //Setando os parâmetros para fazer a inserção no banco de dados
-            pstmt.setString(1,textoFundo);
-            pstmt.setString(2,textoPri);
-            pstmt.setString(3,textoSec);
+            pstmt.setString(1,corMascote.getTextoFundo());
+            pstmt.setString(2,corMascote.getTextoPri());
+            pstmt.setString(3, corMascote.getTextoSec());
 //          Executando os comandos SQL no banco e se der certo retorna true, caso contrário será pego na exceçãp e irá retornar false
             pstmt.execute();
             return true;

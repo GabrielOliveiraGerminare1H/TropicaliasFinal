@@ -1,19 +1,21 @@
 package Daos.JDBC;
 
+import Daos.Model.Barraca;
+
 import java.sql.*;
 
 public class BarracaDAO {
     ConexaoDAO conexao = new ConexaoDAO();
 
-    public boolean cadastrarBarraca(String nome, int fk_int_id_evento){
+    public boolean cadastrarBarraca(Barraca barraca){
         try {
-//            hgtfdsAbrindo conexão com o banco de dados
+//            Abrindo conexão com o banco de dados
             conexao.conectar();
 //            Comandos SQL
             PreparedStatement pstmt = conexao.getConn().prepareStatement("INSERT INTO tb_barraca (var_nome, fk_int_id_evento,createdAt) VALUES (?,?,current_date)");
 //          Setando os parâmetros para fazer a inserção no banco de dados
-            pstmt.setString(1, nome);
-            pstmt.setInt(2, fk_int_id_evento);
+            pstmt.setString(1, barraca.getNome());
+            pstmt.setInt(2, barraca.getFk_int_id_evento());
 //          Executando os comandos SQL no banco e se der certo retorna true, caso contrário será pego na exceçãp e irá retornar false
             pstmt.execute();
             return true;

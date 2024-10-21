@@ -1,16 +1,23 @@
 package Daos.Model;
 
+import java.sql.Date;
+
 public class Evento {
     private String nome;
     private String local;
     private double precoTicket;
     private int fk_int_id_usuario;
 
-    public Evento(String nome, String local, double preco_ticket, int fk_int_id_usuario){
+    private Date dt_inicio;
+    private Date dt_final;
+
+    public Evento(String nome, String local, double precoTicket, int fk_int_id_usuario, Date dt_inicio, Date dt_final){
         this.nome = nome;
         this.local = local;
         this.precoTicket = precoTicket;
         this.fk_int_id_usuario = fk_int_id_usuario;
+        this.dt_inicio=dt_inicio;
+        this.dt_final=dt_final;
     }
 
     public String getNome(){
@@ -27,6 +34,14 @@ public class Evento {
 
     public int getFk_int_id_usuario(){
         return this.fk_int_id_usuario;
+    }
+
+    public Date getDt_inicio() {
+        return dt_inicio;
+    }
+
+    public Date getDt_final() {
+        return dt_final;
     }
 
     public void setNome(String novoNome){
