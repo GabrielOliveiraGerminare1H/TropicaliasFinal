@@ -1,4 +1,4 @@
-package Model;
+package Daos.Model;
 
 import java.sql.Date;
 
@@ -7,6 +7,7 @@ public class Evento {
     private String local;
     private double precoTicket;
     private int fk_int_id_usuario;
+
     private Date dt_inicio;
     private Date dt_final;
 
@@ -64,3 +65,4 @@ public class Evento {
                 "\n-->Foreign key do usuário: "+ this.fk_int_id_usuario;
     }
 }
+
