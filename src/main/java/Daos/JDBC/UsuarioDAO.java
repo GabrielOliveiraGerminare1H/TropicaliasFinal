@@ -21,7 +21,7 @@ public class UsuarioDAO {
             //Abrindo conexão com o banco
             conexao.conectar();
 
-            pstmt = conexao.getConn().prepareStatement("select * from usuario where usuario.deletedat <> null");
+            pstmt = conexao.getConn().prepareStatement("select * from usuario where usuario.deletedat is not null");
 
             //Executando o comando e guardando o resultset
             rs= pstmt.executeQuery();
@@ -50,5 +50,36 @@ public class UsuarioDAO {
         return usuarios;
 
 
+    }
+
+    private boolean validarLogin(String email, String senha){
+        boolean valido=false ;
+        try{
+
+            conexao.conectar();
+
+            pstmt=conexao.getConn().prepareStatement
+                    ("select var_email, var_senha from usuario where var_email=? and var_senha=?");
+            pstmt.setString(1,"email");
+            pstmt.setString(2,"senha");
+
+            rs= pstmt.executeQuery();
+
+
+            if(rs.next()){
+                valido=true;
+            }
+
+
+
+        }catch (SQLException sqle){
+            sqle.printStackTrace();
+
+
+        }
+        finally {
+            conexao.desconectar();
+        }
+        return valido;
     }
 }
