@@ -8,9 +8,12 @@ body, html {
     overflow-x: hidden;
 }
 
-li{
-    margin-left: 50px;
-    cursor: pointer;
+main {
+    min-height: 50rem;
+}
+
+.navbar li {
+    margin-right: 50px;
 }
 
 .lado{
@@ -19,9 +22,9 @@ li{
 }
 
 .navbar ul {
-    list-style: none; 
+    list-style: none;
     display: flex;
-    align-items: center; 
+    align-items: center;
 }
 
 .navbar{
@@ -32,16 +35,17 @@ li{
     color: #EBDFC5;
     font-size: 18px;
     font-family: Montserrat;
-    word-wrap: break-word
+    word-wrap: break-word;
 }
 
-.navbar li:hover{
+.navbar + li:hover {
     transition: 0.5s ease;
     color: #E45F15;
+    cursor: pointer;
 }
 
 .navbar img {
-    height: 40px; 
+    height: 40px;
     margin-right: 2%;
 }
 
@@ -55,18 +59,29 @@ li{
     color: #E45F15;
 }
 
+.menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0.5rem;
+}
+
 .menu li {
     color: #EBDFC5;
     font-size: 20px;
     font-family: Montserrat;
     font-weight: 600;
     word-wrap: break-word;
-    margin-left: 110px;
     margin-top: 8px;
     width: 326px;
     height: 43px;
     border-radius: 31px;
-    background: var(--Laranja, #E45F15);
+    background-color: var(--Laranja, #E45F15);
     text-align: center;
     padding-top: 18px;
 }
@@ -77,25 +92,34 @@ li{
     padding: 20px;
 }
 
-.menu ul {
-    list-style: none; 
-    display: flex;
-    align-items: center;
+.menu div {
+    padding: 0px;
+}
+
+.titulo {
+    width: 550px;
 }
 
 h1 {
     font-size: 7rem;
     margin: 0;
+    margin-right: 50px;
     font-weight: 800;
     font-family: Oswald;
     color: #E45F15;
     text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
-    margin-left: 15%;
+    word-wrap: break-word;
 }
 
-#cima {
-    margin-top: 60px;
-    margin-bottom: -55px;
+h2 {
+    font-size: 6rem;
+    margin: 0;
+    font-weight: 800;
+    font-family: Oswald;
+    color: #EBDFC5;
+    text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    word-wrap: break-word;
 }
 
 input {
@@ -105,17 +129,18 @@ input {
     border-radius: 30px;
     border: 2px solid #EBDFC5;
     box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+    color: #EBDFC5;
+    padding-left: 40px;
     background-color: #006996;
 }
 
 ::placeholder {
     color: #EBDFC5;
     opacity: 0.6;
-    padding-left: 40px;
 }
 
 button {
-    width: 450px;
+    width: 497px;
     height: 70px;
     border-radius: 30px;
     background: var(--Laranja, #E45F15);
@@ -127,104 +152,89 @@ button {
     margin-bottom: 70px;
 }
 
+.container2 h1 {
+    margin-bottom: 50px;
+    line-height: 110px;
+}
+
 form {
     display: flex;
     flex-direction: column;
     align-items: center;
     font-family: Montserrat;
-    margin-top: 30px;
+    margin-top: 70px;
+    margin-bottom: 60px;
 }
 
-.titulo {
-    width: 750px;
-    height: 500px;
-}
-
-.container1 {
-    width: 95.375rem;
-    height: 19.8125rem;
+.container3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background: #E45F15;
+    height: 18rem;
 }
 
-.display1 p {
+.container3 p {
     color: #EBDFC5;
-    text-align: center;
     font-family: Montserrat;
     font-size: 1.3rem;
     font-weight: 400;
-    margin: auto;
-    padding-top: 6rem;
-    padding-left: 35rem;
 }
 
-.display1 {
-    display: flex;
+.container3 img {
+    width: 8%;
 }
 
-footer img {
-    padding-right: 38rem;
-    padding-top: 6rem;
-}
-
-#tabEvento {
+#tabUsuariosAtivos, #tabSelecionarMascote, #tabNovaCor, #tabDeletarCor,
+#tabAtualizarCor, #tabUsuariosInativos, #tabEventosAtivos, #tabCriarEvento,
+#tabDeletarEvento, #tabAtualizarEvento, #tabAnunciosAtivos, #tabBarracaAtiva,
+#tabCadastrarBarraca, #tabDeletarBarraca, #tabAtualizarBarraca {
     display: none;
 }
 
-#tabEvento:target {
+#tabUsuariosAtivos:target, #tabSelecionarMascote:target, #tabNovaCor:target,
+#tabDeletarCor:target, #tabAtualizarCor:target, #tabUsuariosInativos:target,
+#tabEventosAtivos:target, #tabCriarEvento:target, #tabDeletarEvento:target,
+#tabAtualizarEvento:target, #tabAnunciosAtivos:target, #tabBarracaAtiva:target,
+#tabCadastrarBarraca:target, #tabDeletarBarraca:target, #tabAtualizarBarraca:target {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
-#tabBarraca {
-    display: none;
-}
-
-#tabBarraca:target {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#tabMascote {
-    display: none;
-}
-
-#tabMascote:target {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 
 @media screen and (max-width: 1060px) {
-    .menu ul {
-        display: inline;
+
+    .menu li {
+        font-size: 15px;
+        font-weight: 600;
+        width: 250px;
+        height: 33px;
     }
 
-    #tabEvento:target {
-        display: inline;
-        justify-content: center;
-        align-items: center;
+    h2 {
+        font-size: 5rem;
     }
 
-    #tabBarraca:target {
-        display: inline;
-        justify-content: center;
-        align-items: center;
+    .menu a {
+        color: #006996;
+        text-decoration: none;
+        padding: 10px;
     }
 
-    #tabMascote:target {
-        display: inline;
-        justify-content: center;
-        align-items: center;
+}
+
+@media screen and (max-width: 740px) {
+
+    h2 {
+        font-size: 4rem;
     }
 
-    .titulo {
-        height: 300px;
+}
+
+@media screen and (max-width: 740px) {
+
+    h2 {
+        font-size: 3rem;
     }
 
-    display1 {
-        display: inline;
-    }
 }
