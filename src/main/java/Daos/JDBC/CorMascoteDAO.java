@@ -1,5 +1,7 @@
 package Daos.JDBC;
 
+import Model.CorMascote;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,7 +10,7 @@ import java.sql.SQLException;
 public class CorMascoteDAO {
     ConexaoDAO conexao = new ConexaoDAO();
 
-    public boolean cadastrarCorMascote(String textoFundo, String textoPri,String textoSec){
+    public boolean cadastrarCorMascote(CorMascote corMascote){
         try{
             //Abrindo conexão com o banco
             conexao.conectar();
@@ -17,9 +19,9 @@ public class CorMascoteDAO {
                     ("INSERT INTO tb_cor_mascote (text_fundo, text_primaria, text_secundaria, createdAt) " +
                             "VALUES(?,?,?,current_date)");
             //Setando os parâmetros para fazer a inserção no banco de dados
-            pstmt.setString(1,textoFundo);
-            pstmt.setString(2,textoPri);
-            pstmt.setString(3,textoSec);
+            pstmt.setString(1,corMascote.getTextoFundo());
+            pstmt.setString(2,corMascote.getTextoPri());
+            pstmt.setString(3, corMascote.getTextoSec());
 //          Executando os comandos SQL no banco e se der certo retorna true, caso contrário será pego na exceçãp e irá retornar false
             pstmt.execute();
             return true;
@@ -35,18 +37,23 @@ public class CorMascoteDAO {
         }
     }
 
-    public ResultSet buscarCorMascote(){
+    public ResultSet buscarCorMascoteAtivo(){
         try{
             //abrindo conexão com o banco
             conexao.conectar();
-            PreparedStatement pstmt= conexao.getConn().prepareStatement("SELECT * FROM tb_endereco ORDER BY pk_int_id_cor_mascote");
+//            Comando SQL
+            PreparedStatement pstmt= conexao.getConn().prepareStatement("SELECT * FROM tb_cor_mascote where deletedat is null ORDER BY pk_int_id_cor_mascote");
             //executando o comando e guardando o resultset
             ResultSet rset = pstmt.executeQuery();
+//            Se tudo deu certo irá retornar o resultset
             return rset;
-        }catch (SQLException sqle){
+        }
+//        Tratando exceção do banco e voltando null
+        catch (SQLException sqle){
             sqle.printStackTrace();
             return null;
         }
+//        Fechando conexão com banco de dados
         finally {
             conexao.desconectar();
         }
@@ -75,4 +82,3 @@ public class CorMascoteDAO {
         }
     }
 }
-
