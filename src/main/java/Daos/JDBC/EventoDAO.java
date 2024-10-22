@@ -1,6 +1,6 @@
 package Daos.JDBC;
 
-import Daos.Model.Evento;
+import Model.Evento;
 
 import java.sql.*;
 

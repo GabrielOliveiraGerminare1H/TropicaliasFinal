@@ -1,8 +1,7 @@
 package Daos.JDBC;
 
-import Daos.Model.CorMascote;
+import Model.CorMascote;
 
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;

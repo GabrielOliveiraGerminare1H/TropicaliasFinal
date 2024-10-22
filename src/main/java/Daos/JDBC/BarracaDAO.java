@@ -1,6 +1,6 @@
 package Daos.JDBC;
 
-import Daos.Model.Barraca;
+import Model.Barraca;
 
 import java.sql.*;
 
