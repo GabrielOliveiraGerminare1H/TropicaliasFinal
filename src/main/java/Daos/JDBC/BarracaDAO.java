@@ -7,12 +7,12 @@ import java.sql.*;
 public class BarracaDAO {
     ConexaoDAO conexao = new ConexaoDAO();
 
-    public boolean cadastrarBarraca(Barraca barraca){
+    public boolean cadastrarBarraca(Barraca barraca ){
         try {
 //            Abrindo conexão com o banco de dados
             conexao.conectar();
 //            Comandos SQL
-            PreparedStatement pstmt = conexao.getConn().prepareStatement("INSERT INTO tb_barraca (var_nome, fk_int_id_evento,createdAt) VALUES (?,?,current_date)");
+            PreparedStatement pstmt = conexao.getConn().prepareStatement("INSERT INTO tb_barraca (var_nome, fk_int_id_evento,createdat) VALUES (?,?,current_date)");
 //          Setando os parâmetros para fazer a inserção no banco de dados
             pstmt.setString(1, barraca.getNome());
             pstmt.setInt(2, barraca.getFk_int_id_evento());
@@ -35,15 +35,19 @@ public class BarracaDAO {
         try{
             //abrindo conexão com o banco
             conexao.conectar();
-            PreparedStatement pstmt= conexao.getConn().prepareStatement("SELECT * FROM tb_barraca ORDER BY pk_int_id_barraca");
+//            Comandos SQL
+            PreparedStatement pstmt= conexao.getConn().prepareStatement("SELECT * FROM tb_barraca where deletedat is null ORDER BY pk_int_id_barraca");
             //executando o comando e guardando o resultset
             ResultSet rset = pstmt.executeQuery();
+//            Se tudo der certo irá retornar o resultset
             return rset;
-
-        }catch (SQLException sqle){
+        }
+//        Tratando a exceção do banco de dados e retornado null pq deu erro
+        catch (SQLException sqle){
             sqle.printStackTrace();
             return null;
         }
+//        Desconectando do banco de dados
         finally {
             conexao.desconectar();
         }

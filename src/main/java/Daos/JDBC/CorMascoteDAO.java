@@ -36,18 +36,23 @@ public class CorMascoteDAO {
         }
     }
 
-    public ResultSet buscarCorMascote(){
+    public ResultSet buscarCorMascoteAtivo(){
         try{
             //abrindo conexão com o banco
             conexao.conectar();
-            PreparedStatement pstmt= conexao.getConn().prepareStatement("SELECT * FROM tb_endereco ORDER BY pk_int_id_cor_mascote");
+//            Comando SQL
+            PreparedStatement pstmt= conexao.getConn().prepareStatement("SELECT * FROM tb_cor_mascote where deletedat is null ORDER BY pk_int_id_cor_mascote");
             //executando o comando e guardando o resultset
             ResultSet rset = pstmt.executeQuery();
+//            Se tudo deu certo irá retornar o resultset
             return rset;
-        }catch (SQLException sqle){
+        }
+//        Tratando exceção do banco e voltando null
+        catch (SQLException sqle){
             sqle.printStackTrace();
             return null;
         }
+//        Fechando conexão com banco de dados
         finally {
             conexao.desconectar();
         }
@@ -76,4 +81,3 @@ public class CorMascoteDAO {
         }
     }
 }
-
