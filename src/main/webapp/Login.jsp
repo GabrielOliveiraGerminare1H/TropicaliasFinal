@@ -23,7 +23,7 @@
         <div class="display1">
             <div class="conjunto">
                 <h2 id="cima">ACESSE</h2>
-                <h2 id="debaixo">SUA CONTA!</h2>
+                <h2 id="debaixo">SUA CONTA!!</h2>
             </div>
         
             <section class="criar">
