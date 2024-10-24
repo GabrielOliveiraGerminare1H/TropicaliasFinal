@@ -23,16 +23,17 @@
         <div class="display1">
             <div class="conjunto">
                 <h2 id="cima">ACESSE</h2>
-                <h2 id="debaixo">SUA CONTA!</h2>
+                <h2 id="debaixo">SUA CONTA!!</h2>
             </div>
         
             <section class="criar">
-                <form action="conta">
+                <form action="conta" method="post">
                     <input type="email" name="email" id="email" placeholder="abc@gmail.com" required>
                     <br><br>
                     <input type="password" name="senha" id="senha" placeholder="senha" required>
                     <br><br>
                     <button type="submit">Login</button>
+                    <p>${resultado}</p>
                 </form>
                 <p><a href="CriarConta.html">Não tem cadastro ainda? Crie sua conta!</a></p>
             </section>
