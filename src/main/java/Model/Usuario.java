@@ -1,4 +1,4 @@
-package Daos.Model;
+package Model;
 
 import java.sql.Date;
 
@@ -99,5 +99,3 @@ public class Usuario {
         Fk_int_id_endereco = fk_int_id_endereco;
     }
 }
-
-

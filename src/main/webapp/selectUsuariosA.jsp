@@ -17,9 +17,16 @@
 
 <table>
     <tr>
-        <th>ID</th>
-        <th>Nome</th>
-        <th>Status</th>
+        <th>textFoto</th>
+        <th>email</th>
+        <th>senha</th>
+        <th>userName</th>
+        <th>dt_nascimento</th>
+        <th>descricaoUsa</th>
+        <th>cpf</th>
+        <th>nome</th>
+        <th>fk_int_id_endereco</th>
+
     </tr>
     <%
         List<Usuario> usuarios = (List<Usuario>) request.getAttribute("usuarios");
