@@ -1,10 +1,6 @@
 package Controller;
-//Fazer a verificação das datas, verificar se a data inicial é maior que a data final,
-// e verificar se o preço está correto,,,, caso dê erro reenvia para a mesma página jsp com a mensagem do que errou!
 import java.io.*;
 import java.time.LocalDate;
-import java.util.Date;
-
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -43,7 +39,11 @@ public class CadastrarEvento extends HttpServlet {
             req.getRequestDispatcher("cadastrarEvento.jsp").forward(req, resp);
         }
 
-        LocalDate dataVerificacao = datafimDate - datainiDate;
+        if (!datainiDate.isBefore(datafimDate)) {
+            req.setAttribute("resultado","A data de início deve ser menor que a data de término");
+            req.getRequestDispatcher("cadastrarEvento.jsp").forward(req, resp);
+        }
+            
     }
 
     public void destroy() {
