@@ -1,5 +1,5 @@
 <%@ page import="java.util.List" %>
-<%@ page import="Daos.Model.Usuario" %>
+<%@ page import="Model.Usuario.Usuario" %>
 
 <!DOCTYPE html>
 <html lang="pt-br">
