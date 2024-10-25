@@ -1,26 +1,22 @@
-package Daos.JDBC;
+package Daos;
 
-import Model.CorMascote;
+import Daos.JDBC.ConexaoDAO;
+import Model.Barraca;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
-public class CorMascoteDAO {
+public class BarracaDAO {
     ConexaoDAO conexao = new ConexaoDAO();
 
-    public boolean cadastrarCorMascote(CorMascote corMascote){
-        try{
-            //Abrindo conexão com o banco
+    public boolean cadastrarBarraca(Barraca barraca ){
+        try {
+//            Abrindo conexão com o banco de dados
             conexao.conectar();
-            //Comandos sql
-            PreparedStatement pstmt =conexao.getConn().prepareStatement
-                    ("INSERT INTO tb_cor_mascote (text_fundo, text_primaria, text_secundaria, createdAt) " +
-                            "VALUES(?,?,?,current_date)");
-            //Setando os parâmetros para fazer a inserção no banco de dados
-            pstmt.setString(1,corMascote.getTextoFundo());
-            pstmt.setString(2,corMascote.getTextoPri());
-            pstmt.setString(3, corMascote.getTextoSec());
+//            Comandos SQL
+            PreparedStatement pstmt = conexao.getConn().prepareStatement("INSERT INTO tb_barraca (var_nome, fk_int_id_evento,createdat) VALUES (?,?,current_date)");
+//          Setando os parâmetros para fazer a inserção no banco de dados
+            pstmt.setString(1, barraca.getNome());
+            pstmt.setInt(2, barraca.getFk_int_id_evento());
 //          Executando os comandos SQL no banco e se der certo retorna true, caso contrário será pego na exceçãp e irá retornar false
             pstmt.execute();
             return true;
@@ -36,36 +32,37 @@ public class CorMascoteDAO {
         }
     }
 
-    public ResultSet buscarCorMascoteAtivo(){
+    public ResultSet buscarBarraca(){
         try{
             //abrindo conexão com o banco
             conexao.conectar();
-//            Comando SQL
-            PreparedStatement pstmt= conexao.getConn().prepareStatement("SELECT * FROM tb_cor_mascote where deletedat is null ORDER BY pk_int_id_cor_mascote");
+//            Comandos SQL
+            PreparedStatement pstmt= conexao.getConn().prepareStatement("SELECT * FROM tb_barraca where deletedat is null ORDER BY pk_int_id_barraca");
             //executando o comando e guardando o resultset
             ResultSet rset = pstmt.executeQuery();
-//            Se tudo deu certo irá retornar o resultset
+//            Se tudo der certo irá retornar o resultset
             return rset;
         }
-//        Tratando exceção do banco e voltando null
+//        Tratando a exceção do banco de dados e retornado null pq deu erro
         catch (SQLException sqle){
             sqle.printStackTrace();
             return null;
         }
-//        Fechando conexão com banco de dados
+//        Desconectando do banco de dados
         finally {
             conexao.desconectar();
         }
+
     }
 
-    public boolean softDeleteCorMascote(int idCorMascote){
+    public boolean softDeleteBarraca(int idBarraca){
         try{
 //            Conectando ao banco de dados
             conexao.conectar();
 //            Comando SQl
-            PreparedStatement pstmt = conexao.getConn().prepareStatement("UPDATE tb_cor_mascote SET deletedAt = current_date and updatedAt = current_date WHERE pk_int_id_cor_mascote = ?");
+            PreparedStatement pstmt = conexao.getConn().prepareStatement("UPDATE tb_barraca SET deletedAt = current_date and updatedAt = current_date pk_int_id_barraca = ?");
 //            Setando os parâmetros
-            pstmt.setInt(1, idCorMascote);
+            pstmt.setInt(1, idBarraca);
 //          Executando os comandos SQL no banco e se der certo retorna true, caso contrário será pego na exceçãp e irá retornar false
             pstmt.execute();
             return true;
@@ -77,7 +74,8 @@ public class CorMascoteDAO {
         }
 //        Fechando conexão com o banco de dados
         finally {
-            conexao.desconectar();
+            conexao.conectar();
         }
     }
 }
+

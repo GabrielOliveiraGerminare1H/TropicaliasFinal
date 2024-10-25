@@ -1,5 +1,5 @@
 package Controller;
-import Daos.JDBC.UsuarioDAO;
+import Daos.UsuarioDAO;
 import Model.Usuario;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebServlet;
