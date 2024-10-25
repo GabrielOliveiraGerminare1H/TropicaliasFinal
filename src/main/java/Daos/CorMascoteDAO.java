@@ -6,6 +6,8 @@ import Model.CorMascote;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CorMascoteDAO {
     ConexaoDAO conexao = new ConexaoDAO();
@@ -28,6 +30,7 @@ public class CorMascoteDAO {
         }
 //        Tratando exceção SQL
         catch (SQLException sqles) {
+            //
             sqles.printStackTrace();
             return false;
         }
@@ -81,4 +84,68 @@ public class CorMascoteDAO {
             conexao.desconectar();
         }
     }
+
+
+    public List<CorMascote> listarCorMascoteAtivo(){
+        List<CorMascote> corMascotes = new ArrayList<>();
+        try{
+            //abrindo conexão com o banco
+            conexao.conectar();
+//            Comando SQL
+            PreparedStatement pstmt= conexao.getConn().prepareStatement("SELECT * FROM tb_cor_mascote where deletedat is null");
+            //executando o comando e guardando o resultset
+            ResultSet rset = pstmt.executeQuery();
+//            Se tudo deu certo irá retornar o resultset
+            while (rset.next()){
+                CorMascote corMascote = new CorMascote();
+                corMascote.setTextoFundo(rset.getString("text_fundo"));
+                corMascote.setTextoPri(rset.getString("text_primaria"));
+                corMascote.setTextoSec(rset.getString("text_secundaria"));
+
+                corMascotes.add(corMascote);
+            }
+        }
+//        Tratando exceção do banco e voltando null
+        catch (SQLException sqle){
+            sqle.printStackTrace();
+            return null;
+        }
+//        Fechando conexão com banco de dados
+        finally {
+            conexao.desconectar();
+        }
+
+        return corMascotes;
+    }
+
+    public int atualizarCorMascote(String nomeCampo,String atualizacaoCampo, int pk_int_id_cor_mascote){
+        try{
+            //abrindo conexão com o banco
+            conexao.conectar();
+//            Comando SQL
+            PreparedStatement pstmt= conexao.getConn().prepareStatement("update tb_cor_mascote set ? = ? where pk_int_id_cor_mascote = ? ");
+            //executando o comando e guardando o resultset
+            pstmt.setString(1,nomeCampo);
+            pstmt.setString(2,atualizacaoCampo);
+            pstmt.setInt(3,pk_int_id_cor_mascote);
+
+            //Se tudo deu certo irá retornar o executeUpdate
+            return pstmt.executeUpdate();
+        }
+//        Tratando exceção do banco e voltando null
+        catch (SQLException sqle){
+            sqle.printStackTrace();
+            return -1;
+        }
+//        Fechando conexão com banco de dados
+        finally {
+            conexao.desconectar();
+        }
+    }
+
+
+
+
+
+
 }

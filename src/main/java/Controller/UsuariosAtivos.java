@@ -19,9 +19,9 @@ public class UsuariosAtivos extends HttpServlet {
 
         List<Usuario> usuariosA = usuarioDAO.buscarUsuario();
 
-        request.setAttribute(usuariosA.toString(),"usuariosA");
+       request.setAttribute(usuariosA.toString(),"usuariosA");
 
-        request.getRequestDispatcher("selectUsuariosA").forward(request,response);
+        request.getRequestDispatcher("selectUsuariosA.jsp").forward(request,response);
 
 
     }
