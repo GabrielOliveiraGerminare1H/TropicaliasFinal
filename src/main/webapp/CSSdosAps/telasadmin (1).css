@@ -69,6 +69,7 @@ main {
 .menu ul {
     list-style: none;
     padding: 0.5rem;
+    margin-top: 10%;
 }
 
 .menu li {
@@ -79,15 +80,20 @@ main {
     word-wrap: break-word;
     margin-top: 8px;
     width: 326px;
-    height: 43px;
+    height: 40px;
     border-radius: 31px;
-    background-color: var(--Laranja, #E45F15);
+    background-color: #E45F15;
     text-align: center;
     padding-top: 18px;
 }
 
+.menu li:hover {
+    background-color: #eb6f2d;
+    transition: 1s;
+}
+
 .menu a {
-    color: #006996;
+    color: #00577c;
     text-decoration: none;
     padding: 20px;
 }
@@ -97,14 +103,15 @@ main {
 }
 
 .titulo {
-    width: 550px;
+    width: 100%;
 }
 
 h1 {
     font-size: 7rem;
-    margin: 0;
     margin-right: 50px;
     font-weight: 800;
+    line-height: 100px;
+    margin-top: 0;
     font-family: Oswald;
     color: #E45F15;
     text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
@@ -114,7 +121,9 @@ h1 {
 h2 {
     font-size: 6rem;
     margin: 0;
+    margin-top: 2%;
     font-weight: 800;
+    line-height: 50px;
     font-family: Oswald;
     color: #EBDFC5;
     text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
@@ -143,7 +152,7 @@ button {
     width: 497px;
     height: 70px;
     border-radius: 30px;
-    background: var(--Laranja, #E45F15);
+    background: #E45F15;
     color: #EBDFC5;
     text-align: center;
     font-family: Montserrat;
@@ -152,9 +161,9 @@ button {
     margin-bottom: 70px;
 }
 
-.container2 h1 {
-    margin-bottom: 50px;
-    line-height: 110px;
+.container2{
+    margin-left: 12%;
+    margin-right: 12%;
 }
 
 form {
@@ -182,7 +191,7 @@ form {
 }
 
 .container3 img {
-    width: 8%;
+    width: 100px;
 }
 
 #tabUsuariosAtivos, #tabSelecionarMascote, #tabNovaCor, #tabDeletarCor,
@@ -208,7 +217,7 @@ form {
         font-size: 15px;
         font-weight: 600;
         width: 250px;
-        height: 33px;
+        height: 38px;
     }
 
     h2 {
@@ -221,9 +230,31 @@ form {
         padding: 10px;
     }
 
+    .container2 h1 {
+        font-size: 6rem;
+        font-weight: 800;
+        font-family: Oswald;
+        word-wrap: break-word;
+        line-height: 90px;
+    }
 }
 
-@media screen and (max-width: 740px) {
+@media screen and (max-width: 950px) {
+
+    #tabUsuariosAtivos:target, #tabSelecionarMascote:target, #tabNovaCor:target,
+    #tabDeletarCor:target, #tabAtualizarCor:target, #tabUsuariosInativos:target,
+    #tabEventosAtivos:target, #tabCriarEvento:target, #tabDeletarEvento:target,
+    #tabAtualizarEvento:target, #tabAnunciosAtivos:target, #tabBarracaAtiva:target,
+    #tabCadastrarBarraca:target, #tabDeletarBarraca:target, #tabAtualizarBarraca:target {
+        display: inline;
+    }
+
+    .container2 h1 {
+        text-align: center;
+        font-size: 5rem;
+        margin-top: 60px;
+        width: 100%;
+    }
 
     h2 {
         font-size: 4rem;
@@ -233,8 +264,104 @@ form {
 
 @media screen and (max-width: 740px) {   
 
+    .titulo {
+        text-align: center;
+    }
+
+    .container2 h1 {
+        text-align: center;
+        font-size: 4rem;
+        margin: auto;
+        margin-top: 40px;
+    }
+
     h2 {
         font-size: 3rem;
+    }
+
+}
+
+@media screen and (max-width: 650px) {
+
+    .navbar li {
+        font-size: 16px;
+        margin-right: 5%;
+    }
+
+    .navbar img {
+        height: 22px;
+        margin-right: 2%;
+    }
+
+    .titulo {
+        text-align: center;
+    }
+
+    .container2 h1 {
+        text-align: center;
+        font-size: 4rem;
+    }
+
+}
+
+@media screen and (max-width: 530px) {
+
+    .titulo {
+        text-align: center;
+    }
+
+    .container2 h1 {
+        text-align: center;
+        font-size: 4rem;
+        width: 300px;
+        line-height: 60px;
+    }
+
+    h2 {
+        font-size: 3rem;
+    }
+
+}
+
+@media screen and (max-width: 500px) {
+
+    .navbar li {
+        font-size: 14px;
+        margin-right: 6%;
+    }
+
+    .navbar img {
+        height: 20px;
+        margin-right: 2%;
+    }
+
+    input {
+        width: 300px;
+    }
+
+    button {
+        width: 345px;
+    }
+
+    .menuTitulo {
+        width: 100%;
+    }
+
+    h2 {
+        font-size: 2.5rem;
+        margin-top: 8%;
+    }
+
+    .container3 {
+        height: 100px;
+    }
+
+    .container3 p {
+        font-size: 1rem;
+    }
+
+    .container3 img {
+        width: 75px;
     }
 
 }

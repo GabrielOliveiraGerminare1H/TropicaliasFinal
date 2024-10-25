@@ -11,7 +11,7 @@ public class EventoDAO {
     private ResultSet rs;
     ConexaoDAO conexao = new ConexaoDAO();
 
-    public boolean cadastrarEvento (Evento evento){
+    public boolean cadastrarEvento(Evento evento) {
         try {
 //            Abrindo conexão com o banco
             conexao.conectar();
@@ -20,8 +20,8 @@ public class EventoDAO {
             pstmt = conexao.getConn().prepareStatement("INSERT INTO tb_evento (dt_inicio,dt_final,var_nome, var_local, num_preco_ticket, fk_int_id_usuario, updatedAt)\n" +
                     "VALUES(?,?,?,?,?,?,current_date)");
 //            Setando os parâmetros para fazer a inserção no banco de dados
-            pstmt.setDate(1,evento.getDt_inicio());
-            pstmt.setDate(2,evento.getDt_final());
+            pstmt.setDate(1, evento.getDt_inicio());
+            pstmt.setDate(2, evento.getDt_final());
             pstmt.setString(3, evento.getNome());
             pstmt.setString(4, evento.getLocal());
             pstmt.setDouble(5, evento.getPrecoTicket());
@@ -39,22 +39,107 @@ public class EventoDAO {
         finally {
             conexao.desconectar();
         }
+
     }
-    public ResultSet buscarEvento(){
-        try{
+
+    public ResultSet buscarEvento() {
+        try {
             //abrindo conexão com o banco
             conexao.conectar();
-            pstmt= conexao.getConn().prepareStatement("SELECT nome FROM tb_evento ORDER BY pk_int_id_evento");
+            pstmt = conexao.getConn().prepareStatement("SELECT nome FROM tb_evento ORDER BY pk_int_id_evento");
             //executando o comando e guardando o resultset
             ResultSet rset = pstmt.executeQuery();
             return rset;
 
-        }catch (SQLException sqle){
+        } catch (SQLException sqle) {
             sqle.printStackTrace();
             return null;
-        }
-        finally {
+        } finally {
             conexao.desconectar();
+        }
+
+    }
+
+    public boolean atualizarEvento(String nomeCampo, String atualizacaoCampo, int pk_int_id_evento) {
+
+        conexao.conectar(); //Abrindo a conexão com o banco
+
+        try {
+
+            pstmt = conn.prepareStatement("UPDATE tb_evento SET ? = ? WHERE pk_int_id_evento = ?");
+
+            pstmt.setString(1, nomeCampo);
+            pstmt.setString(2, atualizacaoCampo);
+
+            pstmt.setInt(3, pk_int_id_evento);
+
+
+            if (pstmt.executeUpdate() > 0) {
+                return true;
+            } else {
+                return false;
+            }
+
+        } catch (SQLException sqle) {
+            sqle.printStackTrace();
+            return false;
+        } finally {
+            conexao.desconectar(); //Fechando a conexão com o banco
+        }
+
+    }
+
+    public boolean atualizarEvento(String nomeCampo, int atualizacaoCampo, int pk_int_id_evento) {
+
+        conexao.conectar(); //Abrindo a conexão com o banco
+
+        try {
+
+            pstmt = conn.prepareStatement("UPDATE tb_evento SET ? = ? WHERE pk_int_id_evento = ?");
+
+            pstmt.setString(1, nomeCampo);
+            pstmt.setInt(2, atualizacaoCampo);
+
+            pstmt.setInt(3, pk_int_id_evento);
+
+
+            if (pstmt.executeUpdate() > 0) {
+                return true;
+            } else {
+                return false;
+            }
+
+        } catch (SQLException sqle) {
+            sqle.printStackTrace();
+            return false;
+        } finally {
+            conexao.desconectar(); //Fechando a conexão com o banco
+        }
+    }
+
+    public boolean atualizarEvento(String nomeCampo, Date atualizacaoCampo, int pk_int_id_evento) {
+
+        conexao.conectar(); //Abrindo a conexão com o banco
+
+        try {
+
+            pstmt = conn.prepareStatement("UPDATE tb_evento SET ? = ? WHERE pk_int_id_evento = ?");
+
+            pstmt.setString(1, nomeCampo);
+            pstmt.setDate(2, atualizacaoCampo);
+            pstmt.setInt(3, pk_int_id_evento);
+
+            if (pstmt.executeUpdate() > 0) {
+                return true;
+            } else {
+                return false;
+            }
+
+        } catch (SQLException sqle) {
+            sqle.printStackTrace();
+            return false;
+        } finally {
+            conexao.desconectar(); //Fechando a conexão com o banco
         }
 
     }

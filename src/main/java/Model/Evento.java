@@ -7,7 +7,6 @@ public class Evento {
     private String local;
     private double precoTicket;
     private int fk_int_id_usuario;
-
     private Date dt_inicio;
     private Date dt_final;
 
