@@ -1,6 +1,7 @@
 package Model;
 
 public class CorMascote {
+    //MUDAR NOME
     private String textoFundo;
     private String textoPri;
     private String textoSec;
@@ -9,6 +10,10 @@ public class CorMascote {
         this.textoFundo = textoFundo;
         this.textoPri = textoPri;
         this.textoSec = textoSec;
+    }
+
+    public CorMascote(){
+
     }
 
     public String getTextoFundo(){

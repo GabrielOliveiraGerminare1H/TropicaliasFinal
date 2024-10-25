@@ -27,17 +27,13 @@ public class UsuarioDAO {
             //Executando o comando e guardando o resultset
             rs= pstmt.executeQuery();
 
-
-
             while(rs.next()){
-
                 Usuario usuario= new Usuario(rs.getString("text_foto"),rs.getString("var_email"),
                         rs.getString("var_senha"),rs.getString("var_user_name"),
                         rs.getDate("dt_nascimento"),rs.getString("var_descricao_usuario"),
                         rs.getLong("var_cpf"),rs.getString("var_nome"),rs.getInt("fk_int_id_endereco"));
 
                 usuarios.add(usuario);
-
             }
 
         }catch (SQLException sqle){
