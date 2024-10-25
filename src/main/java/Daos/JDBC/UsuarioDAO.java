@@ -22,7 +22,7 @@ public class UsuarioDAO {
             //Abrindo conexão com o banco
             conexao.conectar();
 
-            pstmt = conexao.getConn().prepareStatement("select * from usuario where usuario.deletedat <> null");
+            pstmt = conexao.getConn().prepareStatement("select * from usuario where deletedat is null");
 
             //Executando o comando e guardando o resultset
             rs= pstmt.executeQuery();
