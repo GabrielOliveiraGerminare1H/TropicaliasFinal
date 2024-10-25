@@ -4,6 +4,8 @@ import Daos.JDBC.ConexaoDAO;
 import Model.Evento;
 
 import java.sql.*;
+import java.time.LocalDate;
+import java.util.Objects;
 
 public class EventoDAO {
     private Connection conn;
@@ -66,67 +68,23 @@ public class EventoDAO {
 
         try {
 
-            pstmt = conn.prepareStatement("UPDATE tb_evento SET ? = ? WHERE pk_int_id_evento = ?");
+            pstmt = conn.prepareStatement("UPDATE tb_evento SET ? = ?, updatedat = current_date WHERE pk_int_id_evento = ?");
 
             pstmt.setString(1, nomeCampo);
-            pstmt.setString(2, atualizacaoCampo);
-
-            pstmt.setInt(3, pk_int_id_evento);
-
-
-            if (pstmt.executeUpdate() > 0) {
-                return true;
+            
+            if (Objects.equals(nomeCampo, "var_nome") || Objects.equals(nomeCampo, "var_local")) {
+                pstmt.setString(2, atualizacaoCampo);
+            } else if (Objects.equals(nomeCampo, "dt_inicio") || Objects.equals(nomeCampo, "dt_final")) {
+                LocalDate campo = LocalDate.parse(atualizacaoCampo);
+                pstmt.setDate(2, Date.valueOf(campo));
+            } else if (Objects.equals(nomeCampo, "num_preco_ticket")) {
+                pstmt.setDouble(2, Double.parseDouble(atualizacaoCampo));
+            } else if (Objects.equals(nomeCampo, "fk_int_id_usuario")) {
+                pstmt.setInt(2, Integer.parseInt(atualizacaoCampo));
             } else {
                 return false;
             }
 
-        } catch (SQLException sqle) {
-            sqle.printStackTrace();
-            return false;
-        } finally {
-            conexao.desconectar(); //Fechando a conexão com o banco
-        }
-
-    }
-
-    public boolean atualizarEvento(String nomeCampo, int atualizacaoCampo, int pk_int_id_evento) {
-
-        conexao.conectar(); //Abrindo a conexão com o banco
-
-        try {
-
-            pstmt = conn.prepareStatement("UPDATE tb_evento SET ? = ? WHERE pk_int_id_evento = ?");
-
-            pstmt.setString(1, nomeCampo);
-            pstmt.setInt(2, atualizacaoCampo);
-
-            pstmt.setInt(3, pk_int_id_evento);
-
-
-            if (pstmt.executeUpdate() > 0) {
-                return true;
-            } else {
-                return false;
-            }
-
-        } catch (SQLException sqle) {
-            sqle.printStackTrace();
-            return false;
-        } finally {
-            conexao.desconectar(); //Fechando a conexão com o banco
-        }
-    }
-
-    public boolean atualizarEvento(String nomeCampo, Date atualizacaoCampo, int pk_int_id_evento) {
-
-        conexao.conectar(); //Abrindo a conexão com o banco
-
-        try {
-
-            pstmt = conn.prepareStatement("UPDATE tb_evento SET ? = ? WHERE pk_int_id_evento = ?");
-
-            pstmt.setString(1, nomeCampo);
-            pstmt.setDate(2, atualizacaoCampo);
             pstmt.setInt(3, pk_int_id_evento);
 
             if (pstmt.executeUpdate() > 0) {
@@ -136,7 +94,6 @@ public class EventoDAO {
             }
 
         } catch (SQLException sqle) {
-            sqle.printStackTrace();
             return false;
         } finally {
             conexao.desconectar(); //Fechando a conexão com o banco
