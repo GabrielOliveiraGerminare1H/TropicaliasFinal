@@ -1,5 +1,5 @@
 package Controller;
-import Daos.JDBC.UsuarioDAO;
+import Daos.UsuarioDAO;
 import Model.Usuario;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebServlet;
@@ -14,15 +14,19 @@ public class UsuariosAtivos extends HttpServlet {
     private UsuarioDAO usuarioDAO = new UsuarioDAO();
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        try {
 
-        List<Usuario> usuariosA = usuarioDAO.buscarUsuario();
+            List<Usuario> usuariosA = usuarioDAO.buscarUsuario();
 
-       request.setAttribute(usuariosA.toString(),"usuariosA");
+            request.setAttribute(usuariosA.toString(), "usuariosA");
 
-        request.getRequestDispatcher("selecionarUsuariosA.jsp").forward(request,response);
+            request.getRequestDispatcher("selectUsuariosA.jsp").forward(request, response);
 
 
+        } catch (NumberFormatException nfe) {
+            request.getRequestDispatcher("SelecionarUsuariosA.jsp").forward(request, response);
+        }
     }
 }

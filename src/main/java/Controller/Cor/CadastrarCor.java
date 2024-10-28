@@ -31,11 +31,11 @@ public class CadastrarCor extends HttpServlet {
             }
             else {
                 req.setAttribute("resultado","Não foi possível cadastrar!");
-                req.getRequestDispatcher("cadastrarCorMascote.jsp").forward(req, resp);
+                req.getRequestDispatcher("CadastrarCorMascote.jsp").forward(req, resp);
             }
         } else {
             req.setAttribute("resultado","Você digitou o código de cor RGB de maneira errada!");
-            req.getRequestDispatcher("cadastrarCorMascote.jsp").forward(req, resp);
+            req.getRequestDispatcher("CadastrarCorMascote.jsp").forward(req, resp);
         }
     }
 }

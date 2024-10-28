@@ -2,11 +2,11 @@
   Created by IntelliJ IDEA.
   User: isabelaneu-ieg
   Date: 25/10/2024
-  Time: 15:16
+  Time: 15:14
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ include file="menu.jsp"%>
+<%@ include file="Menu.jsp"%>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -21,20 +21,20 @@
     <title>Telas de Administrador</title>
 </head>
 <body>
-
 <main>
-    <div class="container2" id="tabDeletarEvento">
+    <div class="container2" id="tabAtualizarEvento">
         <div class="titulo">
-            <h1>DELETAR EVENTO</h1>
+            <h1>ATUALIZAR EVENTO</h1>
         </div>
-        <section class="deletarEvento">
-            <form action="deletarEvento" method="get">
-                <input type="number" name="pk_int_id_evento" id="pk_int_id_evento" placeholder="PK do evento" required>
-                <button type="submit">Deletar</button>
+        <section class="atualizarEvento">
+            <form action="atualizarEvento" method="post">
+                <input type="text" name="nomeCampo" id="nomeCampo" placeholder="Campo" required>
+                <input type="text" name="atualizacaoCampo" id="atualizacaoCampo" placeholder="Campo atualizado" required>
+                <input type="number" name="pk_int_id_evento" min="1" id="pk_int_id_evento" placeholder="PK do evento" required>
+                <button type="submit">Atualizar</button>
             </form>
         </section>
     </div>
-
 </main>
 
 <footer class="container3">

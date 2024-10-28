@@ -8,7 +8,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="Model.Usuario" %>
 <%@ page import="Model.CorMascote" %>
-<%@ include file="menu.jsp" %>
+<%@ include file="Menu.jsp" %>
 
 <!DOCTYPE html>
 <html lang="pt-br">

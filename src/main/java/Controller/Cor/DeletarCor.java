@@ -26,7 +26,7 @@ public class DeletarCor extends HttpServlet {
         }
         else {
             req.setAttribute("resultado","Não foi possível deletar!");
-            req.getRequestDispatcher("deletarCorMascote.jsp").forward(req, resp);
+            req.getRequestDispatcher("DeletarCorMascote.jsp").forward(req, resp);
         }
 
     }

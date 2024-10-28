@@ -26,17 +26,17 @@ public class AtualizarCor extends HttpServlet {
 
         if (atualizacaoCampo.matches("^#([A-Fa-f0-9]{6})$")){
             if (verifica){
-                req.getRequestDispatcher("mensagem.jsp").forward(req, resp);
+                req.getRequestDispatcher("Mensagem.jsp").forward(req, resp);
 
             }else {
                 req.setAttribute("mensagem","Não foi possível atualizar!");
-                req.getRequestDispatcher("mensagem.jsp").forward(req, resp);
+                req.getRequestDispatcher("Mensagem.jsp").forward(req, resp);
             }
         }
         else {
             req.setAttribute("mensagem","Você digitou o código de cor RGB de maneira errada!");
             req.setAttribute("verifica",false);
-            req.getRequestDispatcher("mensagem.jsp").forward(req, resp);
+            req.getRequestDispatcher("Mensagem.jsp").forward(req, resp);
         }
 
     }
