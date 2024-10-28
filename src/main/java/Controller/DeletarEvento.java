@@ -9,11 +9,24 @@ import java.io.IOException;
 
 public class DeletarEvento {
 
-    public void doGet(HttpServletRequest req, HttpServletResponse resp)
+    public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String id_evento = req.getParameter("id_evento");
-        int id_eventoInt = Integer.parseInt(id_evento);
+        try {
+
+            String id_evento = request.getParameter("id_evento");
+            int id_eventoInt = Integer.parseInt(id_evento);
+
+            EventoDAO eventoDAO = new EventoDAO();
+            eventoDAO.softDeleteEvento(id_eventoInt);
+
+        } catch (NumberFormatException nfe) {
+
+            request.setAttribute("verifica", false);
+            request.setAttribute("mensagem", nfe.getMessage());
+            request.getRequestDispatcher("mensagem.jsp").forward(request, response);
+
+        }
 
     }
 
