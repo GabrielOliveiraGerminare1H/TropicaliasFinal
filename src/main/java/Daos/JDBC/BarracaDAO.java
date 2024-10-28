@@ -7,7 +7,7 @@ import java.sql.*;
 public class BarracaDAO {
     ConexaoDAO conexao = new ConexaoDAO();
 
-    public boolean cadastrarBarraca(Barraca barraca ){
+    public boolean cadastrarBarraca(Barraca barraca){
         try {
 //            Abrindo conexão com o banco de dados
             conexao.conectar();
@@ -16,7 +16,7 @@ public class BarracaDAO {
 //          Setando os parâmetros para fazer a inserção no banco de dados
             pstmt.setString(1, barraca.getNome());
             pstmt.setInt(2, barraca.getFk_int_id_evento());
-//          Executando os comandos SQL no banco e se der certo retorna true, caso contrário será pego na exceçãp e irá retornar false
+//          Executando os comandos SQL no banco e se der certo retorna true, caso contrário será pego na exceção e irá retornar false
             pstmt.execute();
             return true;
         }

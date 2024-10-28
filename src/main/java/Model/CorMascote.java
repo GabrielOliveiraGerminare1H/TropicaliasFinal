@@ -16,6 +16,8 @@ public class CorMascote {
 
     }
 
+
+
     public String getTextoFundo(){
         return this.textoFundo;
     }

@@ -29,6 +29,10 @@ public class UsuariosAtivos extends HttpServlet {
 
         }
 
+<<<<<<< HEAD
+=======
+        request.getRequestDispatcher("selecionarUsuariosA.jsp").forward(request,response);
+>>>>>>> 84294669ad6cc2a103aab192ba282d2a9f0b2cf9
 
 
     }
