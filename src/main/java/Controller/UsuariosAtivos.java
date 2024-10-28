@@ -16,24 +16,17 @@ public class UsuariosAtivos extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try{
+        try {
 
             List<Usuario> usuariosA = usuarioDAO.buscarUsuario();
 
-            request.setAttribute(usuariosA.toString(),"usuariosA");
+            request.setAttribute(usuariosA.toString(), "usuariosA");
 
-            request.getRequestDispatcher("selectUsuariosA.jsp").forward(request,response);
+            request.getRequestDispatcher("selectUsuariosA.jsp").forward(request, response);
 
 
-        }catch (NumberFormatException nfe){
-
+        } catch (NumberFormatException nfe) {
+            request.getRequestDispatcher("selecionarUsuariosA.jsp").forward(request, response);
         }
-
-<<<<<<< HEAD
-=======
-        request.getRequestDispatcher("selecionarUsuariosA.jsp").forward(request,response);
->>>>>>> 84294669ad6cc2a103aab192ba282d2a9f0b2cf9
-
-
     }
 }

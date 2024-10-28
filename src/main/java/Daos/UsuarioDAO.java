@@ -49,9 +49,41 @@ public class UsuarioDAO {
         finally {
             conexao.desconectar();
         }
-
         return usuarios;
+    }
 
+    public List<Usuario> buscarUsuarioInativo(){
+        List<Usuario> usuarios = new ArrayList<>();
+        try {
+            //Abrindo conexão com o banco
+            conexao.conectar();
 
+            pstmt = conexao.getConn().prepareStatement("select * from usuario where deletedat is null");
+
+            //Executando o comando e guardando o resultset
+            rs= pstmt.executeQuery();
+
+            if(rs.next()){
+                do{
+                    Usuario usuario= new Usuario(rs.getString("text_foto"),rs.getString("var_email"),
+                            rs.getString("var_senha"),rs.getString("var_user_name"),
+                            rs.getDate("dt_nascimento"),rs.getString("var_descricao_usuario"),
+                            rs.getLong("var_cpf"),rs.getString("var_nome"),rs.getInt("fk_int_id_endereco"));
+
+                    usuarios.add(usuario);
+                } while(rs.next());
+            }
+            else{
+                return null;
+            }
+
+        }catch (SQLException sqle){
+            sqle.printStackTrace();
+            return null;
+        }
+        finally {
+            conexao.desconectar();
+        }
+        return usuarios;
     }
 }
