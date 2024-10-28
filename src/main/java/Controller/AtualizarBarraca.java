@@ -27,13 +27,13 @@ public class AtualizarBarraca extends HttpServlet {
            request.setAttribute("verifica",verifica);
            request.setAttribute("mensagem",mensagem);
 
-           request.getRequestDispatcher("Mensagem.jsp").forward(request,response);
+           request.getRequestDispatcher("mensagem.jsp").forward(request,response);
 
 
        }catch (NumberFormatException nfe){
            request.setAttribute("verifica",false);
            request.setAttribute("mensagem",nfe.getMessage());
-           request.getRequestDispatcher("Mensagem.jsp").forward(request,response);
+           request.getRequestDispatcher("mensagem.jsp").forward(request,response);
 
 
        }
