@@ -16,12 +16,12 @@ public class AtualizarBarraca extends HttpServlet {
             throws ServletException, IOException {
        try{
 
-           String nomeTab = request.getParameter("nomeTabela");
+
            String nomeCampo = request.getParameter("nomeCampo");
            String valorNovo = request.getParameter("valorNovo");
            int pkBarraca = Integer.parseInt(request.getParameter("pkBarraca"));
            BarracaDAO barracaDAO = new BarracaDAO();
-           boolean verifica = barracaDAO.atualizarBarraca(nomeTab,nomeCampo,valorNovo,pkBarraca);
+           boolean verifica = barracaDAO.atualizarBarraca(nomeCampo,valorNovo,pkBarraca);
            String mensagem = verifica ? "Barraca atualizada com sucesso!" : "Erro em atualizar barraca.";
 
            request.setAttribute("verifica",verifica);

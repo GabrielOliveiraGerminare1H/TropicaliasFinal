@@ -77,14 +77,13 @@ public class BarracaDAO {
         }
     }
 
-    public boolean atualizarBarraca(String nomeTabela, String nomeCampo, String valorNovo, int pkCampo) {
+    public boolean atualizarBarraca(String nomeCampo, String valorNovo, int pkCampo) {
         try {
             conexao.conectar();
-            PreparedStatement pstmt = conexao.getConn().prepareStatement("Update ? set ? = ? where id = ?");
-            pstmt.setString(1, nomeTabela);
-            pstmt.setString(2, nomeCampo);
-            pstmt.setString(3, valorNovo);
-            pstmt.setInt(4, pkCampo);
+            PreparedStatement pstmt = conexao.getConn().prepareStatement("Update tb_barraca set ? = ? where id = ?");
+            pstmt.setString(1, nomeCampo);
+            pstmt.setString(2, valorNovo);
+            pstmt.setInt(3, pkCampo);
             ResultSet rs = pstmt.executeQuery();
             if (pstmt.executeUpdate() > 0) {
                 return true;
