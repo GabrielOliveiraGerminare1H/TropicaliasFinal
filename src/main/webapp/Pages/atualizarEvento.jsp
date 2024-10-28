@@ -21,21 +21,20 @@
     <title>Telas de Administrador</title>
 </head>
 <body>
-<div class="container2" id="tabAtualizarEvento">
-    <div class="titulo">
-        <h1>ATUALIZAR EVENTO</h1>
+<main>
+    <div class="container2" id="tabAtualizarEvento">
+        <div class="titulo">
+            <h1>ATUALIZAR EVENTO</h1>
+        </div>
+        <section class="atualizarEvento">
+            <form action="atualizarEvento" method="post">
+                <input type="text" name="campoEvento" id="campoEvento" placeholder="Campo" required>
+                <input type="text" name="atualizaoEvento" id="atualizaoEvento" placeholder="Campo atualizado" required>
+                <input type="number" name="pk_int_id_evento" min="1" id="pk_int_id_evento" placeholder="PK do evento" required>
+                <button type="submit">Atualizar</button>
+            </form>
+        </section>
     </div>
-    <section class="deletarEvento">
-        <form action="deletarEvento">
-            <input type="text" name="campoEvento" id="campoEvento" placeholder="Campo" required>
-            <input type="text" name="atualizaoEvento" id="atualizaoEvento" placeholder="Campo atualizado" required>
-            <input type="number" name="pk_int_id_evento" min="1" id="pk_int_id_evento" placeholder="PK do evento" required>
-            <button type="submit">Atualizar</button>
-        </form>
-    </section>
-</div>
-
-
 </main>
 
 <footer class="container3">

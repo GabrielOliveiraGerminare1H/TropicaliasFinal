@@ -27,14 +27,15 @@
         <div class="titulo">
             <h1>CADASTRAR BARRACA</h1>
         </div>
-        <section class="cadastrar">
-            <form action="barraca">
+        <section class="cadastrarBarraca">
+            <form action="cadastrarBarraca" method="post">
                 <input type="text" name="nome" id="nome" placeholder="Nome" required>
-                <input type="text" name="fk_int_id_evento" id="fk_int_id_evento" placeholder="FK do evento" required>
+                <input type="text" name="fk_int_id_barraca" id="fk_int_id_barraca" placeholder="FK da barraca" required>
                 <button type="submit">Cadastrar</button>
             </form>
         </section>
     </div>
+
 </main>
 
 <footer class="container3">

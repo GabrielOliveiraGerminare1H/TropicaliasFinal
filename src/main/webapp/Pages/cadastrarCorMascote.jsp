@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ include file="menu.jsp"%>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -26,8 +27,8 @@
         <div class="titulo">
             <h1>CADASTRAR COR DO MASCOTE</h1>
         </div>
-        <section class="cor">
-            <form action="mascote">
+        <section class="corMascote">
+            <form action="cadastrarCor" method="post">
                 <input type="text" name="text_fundo" id="text_fundo" placeholder="Cor do fundo" required>
                 <input type="text" name="text_secundaria" id="text_secundaria" placeholder="Cor secundária" required>
                 <input type="text" name="text_primaria" id="text_primaria" placeholder="Cor primária" required>
@@ -35,6 +36,7 @@
             </form>
         </section>
     </div>
+
 </main>
 
 <footer class="container3">

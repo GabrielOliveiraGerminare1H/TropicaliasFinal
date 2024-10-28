@@ -1,5 +1,6 @@
 <%@ page import="java.util.List" %>
 <%@ page import="Model.Usuario" %>
+<%@ include file="menu.jsp"%>
 
 <!DOCTYPE html>
 <html lang="pt-br">

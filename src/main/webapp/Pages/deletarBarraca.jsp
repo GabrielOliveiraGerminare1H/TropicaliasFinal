@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="menu.jsp"%>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -27,8 +28,8 @@
         <div class="titulo">
             <h1>DELETAR BARRACA</h1>
         </div>
-        <section class="deletarEvento">
-            <form action="deletarEvento">
+        <section class="deletarBarraca">
+            <form action="deletarBarraca" method="get">
                 <input type="number" name="pk_int_id_barraca" id="pk_int_id_barraca" placeholder="PK da barraca" required>
                 <button type="submit">Deletar</button>
             </form>

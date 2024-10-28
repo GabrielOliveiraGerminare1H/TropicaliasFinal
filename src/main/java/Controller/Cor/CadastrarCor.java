@@ -1,4 +1,4 @@
-package Controller;
+package Controller.Cor;
 
 import Daos.JDBC.CorMascoteDAO;
 import Model.CorMascote;
@@ -12,7 +12,7 @@ import java.sql.*;
 import java.io.IOException;
 import java.sql.SQLException;
 
-@WebServlet(name = "CadastroCor" , value = "/tabCadastrarCor")
+@WebServlet(name = "cadastrarCor" , value = "/cadastrarCor")
 public class CadastrarCor extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
@@ -31,18 +31,11 @@ public class CadastrarCor extends HttpServlet {
             }
             else {
                 req.setAttribute("resultado","Não foi possível cadastrar!");
-                req.getRequestDispatcher("cadastrarCor.jsp").forward(req, resp);
+                req.getRequestDispatcher("cadastrarCorMascote.jsp").forward(req, resp);
             }
         } else {
             req.setAttribute("resultado","Você digitou o código de cor RGB de maneira errada!");
-            req.getRequestDispatcher("cadastrarCor.jsp").forward(req, resp);
+            req.getRequestDispatcher("cadastrarCorMascote.jsp").forward(req, resp);
         }
-
-
-
-
-
-
-
     }
 }

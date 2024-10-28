@@ -6,6 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %><!DOCTYPE html>
+<%@ include file="menu.jsp"%>
+<%@ include file="selecionarCorMascote.jsp"%>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -25,8 +27,8 @@
         <div class="titulo">
             <h1>DELETAR COR DO MASCOTE</h1>
         </div>
-        <section class="deletarEvento">
-            <form action="deletarEvento">
+        <section class="deletarCorMascote">
+            <form action="deletarCor" method="get">
                 <input type="number" name="pk_int_id_cor_mascote" min="1" id="pk_int_id_cor_mascote" placeholder="PK cor do mascote" required>
                 <button type="submit">Deletar</button>
             </form>
