@@ -22,18 +22,21 @@ public class AtualizarCor extends HttpServlet {
         int pkCorMascote = Integer.parseInt(pkCorMascoteStr);
 
         CorMascoteDAO corMascoteDAO = new CorMascoteDAO();
+        boolean verifica = corMascoteDAO.atualizarCorMascote(nomeCampo,atualizacaoCampo,pkCorMascote);
 
         if (atualizacaoCampo.matches("^#([A-Fa-f0-9]{6})$")){
-            if (corMascoteDAO.atualizarCorMascote(nomeCampo,atualizacaoCampo,pkCorMascote)==0){
-                req.getRequestDispatcher("telasadmin.jsp").forward(req, resp);
+            if (verifica){
+                req.getRequestDispatcher("mensagem.jsp").forward(req, resp);
+
             }else {
-                req.setAttribute("resultado","Não foi possível atualizar!");
-                req.getRequestDispatcher("atualizarCorMascote.jsp").forward(req, resp);
+                req.setAttribute("mensagem","Não foi possível atualizar!");
+                req.getRequestDispatcher("mensagem.jsp").forward(req, resp);
             }
         }
         else {
-            req.setAttribute("resultado","Você digitou o código de cor RGB de maneira errada!");
-            req.getRequestDispatcher("atualizarCorMascote.jsp").forward(req, resp);
+            req.setAttribute("mensagem","Você digitou o código de cor RGB de maneira errada!");
+            req.setAttribute("verifica",false);
+            req.getRequestDispatcher("mensagem.jsp").forward(req, resp);
         }
 
     }

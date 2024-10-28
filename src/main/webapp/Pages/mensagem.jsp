@@ -6,7 +6,7 @@
 </head>
 
 <body>
-<jsp:include page="telasadmin.html">
+<jsp:include page="../telasadmin.html">
 </jsp:include>>
 
 <%
