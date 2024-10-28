@@ -8,7 +8,7 @@ import java.sql.*;
 public class BarracaDAO {
     ConexaoDAO conexao = new ConexaoDAO();
 
-    public boolean cadastrarBarraca(Barraca barraca ){
+    public boolean cadastrarBarraca(Barraca barraca){
         try {
 //            Abrindo conexão com o banco de dados
             conexao.conectar();
@@ -17,7 +17,7 @@ public class BarracaDAO {
 //          Setando os parâmetros para fazer a inserção no banco de dados
             pstmt.setString(1, barraca.getNome());
             pstmt.setInt(2, barraca.getFk_int_id_evento());
-//          Executando os comandos SQL no banco e se der certo retorna true, caso contrário será pego na exceçãp e irá retornar false
+//          Executando os comandos SQL no banco e se der certo retorna true, caso contrário será pego na exceção e irá retornar false
             pstmt.execute();
             return true;
         }
@@ -68,14 +68,41 @@ public class BarracaDAO {
             return true;
         }
 //       Tratando exceção
-        catch(SQLException sqles){
-            sqles.printStackTrace();
+        catch(SQLException sqle){
+            sqle.printStackTrace();
             return false;
         }
 //        Fechando conexão com o banco de dados
         finally {
-            conexao.conectar();
+            conexao.desconectar();
         }
     }
+
+    public boolean atualizarBarraca(String nomeTabela, String nomeCampo, String valorNovo, int pkCampo) {
+        try {
+            conexao.conectar();
+            PreparedStatement pstmt = conexao.getConn().prepareStatement("Update ? set ? = ? where id = ?");
+            pstmt.setString(1, nomeTabela);
+            pstmt.setString(2, nomeCampo);
+            pstmt.setString(3, valorNovo);
+            pstmt.setInt(4, pkCampo);
+            ResultSet rs = pstmt.executeQuery();
+            if (pstmt.executeUpdate() > 0) {
+                return true;
+            }
+            else {
+                return false;
+            }
+
+
+        } catch (SQLException sqle) {
+            return false;
+
+
+        } finally {
+            conexao.desconectar();
+        }
+    }
+
 }
 

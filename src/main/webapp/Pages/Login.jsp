@@ -6,7 +6,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CSSdosAps/Login%20(1).css">
+    <link rel="stylesheet" href="../CSSdosAps/Login%20(1).css">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
     <title>Navegação Tropicalias</title>
 </head>
@@ -15,9 +15,9 @@
     <div class="container1">
         <div class="navbar">
             <ul>
-                <img src="Assets/Araci%20(1).png" alt="">
+                <img src="../Assets/Araci%20(1).png" alt="">
                 <li class="lado">Tropicalias</li>
-                <li><a href="index.html">Inicio</a></li>
+                <li><a href="../index.html">Inicio</a></li>
             </ul>
         </div>
         <div class="display1">
@@ -43,7 +43,7 @@
     
     <div class="container2">
         <p>Desenvolvido por</p>
-        <img src="Assets/mocBrancaSemFUndo.png" alt="">
+        <img src="../Assets/mocBrancaSemFUndo.png" alt="">
     </div>
     
 </body>
