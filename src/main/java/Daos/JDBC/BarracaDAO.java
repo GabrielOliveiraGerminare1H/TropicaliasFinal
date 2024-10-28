@@ -67,14 +67,41 @@ public class BarracaDAO {
             return true;
         }
 //       Tratando exceção
-        catch(SQLException sqles){
-            sqles.printStackTrace();
+        catch(SQLException sqle){
+            sqle.printStackTrace();
             return false;
         }
 //        Fechando conexão com o banco de dados
         finally {
-            conexao.conectar();
+            conexao.desconectar();
         }
     }
+
+    public boolean atualizarBarraca(String nomeTabela, String nomeCampo, String valorNovo, int pkCampo) {
+        try {
+            conexao.conectar();
+            PreparedStatement pstmt = conexao.getConn().prepareStatement("Update ? set ? = ? where id = ?");
+            pstmt.setString(1, nomeTabela);
+            pstmt.setString(2, nomeCampo);
+            pstmt.setString(3, valorNovo);
+            pstmt.setInt(4, pkCampo);
+            ResultSet rs = pstmt.executeQuery();
+            if (pstmt.executeUpdate() > 0) {
+                return true;
+            }
+            else {
+                return false;
+            }
+
+
+        } catch (SQLException sqle) {
+            return false;
+
+
+        } finally {
+            conexao.desconectar();
+        }
+    }
+
 }
 

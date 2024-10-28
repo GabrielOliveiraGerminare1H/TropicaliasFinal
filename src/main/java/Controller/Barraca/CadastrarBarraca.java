@@ -1,4 +1,4 @@
-package Controller.Barraca;
+package Controller;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -9,7 +9,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet(name = "CadastroBarraca" , value = "/tabCadastrarBarraca")
-public class CadastrarBarraca extends HttpServlet {
+public class CadastroBarraca extends HttpServlet {
      protected void doGet(HttpServletRequest request, HttpServletResponse response)
      throws ServletException, IOException {
 
