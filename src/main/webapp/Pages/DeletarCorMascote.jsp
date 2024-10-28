@@ -2,12 +2,12 @@
   Created by IntelliJ IDEA.
   User: isabelaneu-ieg
   Date: 25/10/2024
-  Time: 15:16
+  Time: 15:17
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ include file="menu.jsp"%>
-<!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %><!DOCTYPE html>
+<%@ include file="Menu.jsp"%>
+<%@ include file="SelecionarCorMascote.jsp"%>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -23,18 +23,17 @@
 <body>
 
 <main>
-    <div class="container2" id="tabDeletarEvento">
+    <div class="container2" id="tabDeletarCor">
         <div class="titulo">
-            <h1>DELETAR EVENTO</h1>
+            <h1>DELETAR COR DO MASCOTE</h1>
         </div>
-        <section class="deletarEvento">
-            <form action="deletarEvento" method="get">
-                <input type="number" name="pk_int_id_evento" id="pk_int_id_evento" placeholder="PK do evento" required>
+        <section class="deletarCorMascote">
+            <form action="deletarCor" method="get">
+                <input type="number" name="pk_int_id_cor_mascote" min="1" id="pk_int_id_cor_mascote" placeholder="PK cor do mascote" required>
                 <button type="submit">Deletar</button>
             </form>
         </section>
     </div>
-
 </main>
 
 <footer class="container3">

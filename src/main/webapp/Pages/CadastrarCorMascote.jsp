@@ -2,11 +2,11 @@
   Created by IntelliJ IDEA.
   User: isabelaneu-ieg
   Date: 25/10/2024
-  Time: 15:13
+  Time: 09:25
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ include file="menu.jsp"%>
+<%@ include file="Menu.jsp"%>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -23,19 +23,20 @@
 <body>
 
 <main>
-    <div class="container2" id="tabAtualizarBarraca">
+    <div class="container2" id="tabNovaCor">
         <div class="titulo">
-            <h1>ATUALIZAR BARRACA</h1>
+            <h1>CADASTRAR COR DO MASCOTE</h1>
         </div>
-        <section class="atualizarBarraca">
-            <form action="atualizarBarraca" method="post">
-                <input type="text" name="campoBarraca" id="campoBarraca" placeholder="Campo" required>
-                <input type="text" name="atualizaoBarraca" id="atualizaoBarraca" placeholder="Campo atualizado" required>
-                <input type="number" name="pk_int_id_barraca" min="1" id="pk_int_id_barraca" placeholder="PK da barraca" required>
-                <button type="submit">Atualizar</button>
+        <section class="corMascote">
+            <form action="cadastrarCor" method="post">
+                <input type="text" name="text_fundo" id="text_fundo" placeholder="Cor do fundo" required>
+                <input type="text" name="text_secundaria" id="text_secundaria" placeholder="Cor secundária" required>
+                <input type="text" name="text_primaria" id="text_primaria" placeholder="Cor primária" required>
+                <button type="submit">Cadastrar</button>
             </form>
         </section>
     </div>
+
 </main>
 
 <footer class="container3">
@@ -45,3 +46,5 @@
 
 </body>
 </html>
+
+

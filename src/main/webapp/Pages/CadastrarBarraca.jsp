@@ -2,11 +2,11 @@
   Created by IntelliJ IDEA.
   User: isabelaneu-ieg
   Date: 25/10/2024
-  Time: 15:14
+  Time: 09:23
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ include file="menu.jsp"%>
+<%@ include file="Menu.jsp"%>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -21,20 +21,21 @@
     <title>Telas de Administrador</title>
 </head>
 <body>
+
 <main>
-    <div class="container2" id="tabAtualizarEvento">
+    <div class="container2" id="tabCadastrarBarraca">
         <div class="titulo">
-            <h1>ATUALIZAR EVENTO</h1>
+            <h1>CADASTRAR BARRACA</h1>
         </div>
-        <section class="atualizarEvento">
-            <form action="atualizarEvento" method="post">
-                <input type="text" name="campoEvento" id="campoEvento" placeholder="Campo" required>
-                <input type="text" name="atualizaoEvento" id="atualizaoEvento" placeholder="Campo atualizado" required>
-                <input type="number" name="pk_int_id_evento" min="1" id="pk_int_id_evento" placeholder="PK do evento" required>
-                <button type="submit">Atualizar</button>
+        <section class="cadastrarBarraca">
+            <form action="cadastrarBarraca" method="post">
+                <input type="text" name="nome" id="nome" placeholder="Nome" required>
+                <input type="text" name="fk_int_id_barraca" id="fk_int_id_barraca" placeholder="FK da barraca" required>
+                <button type="submit">Cadastrar</button>
             </form>
         </section>
     </div>
+
 </main>
 
 <footer class="container3">
@@ -44,3 +45,6 @@
 
 </body>
 </html>
+
+
+

@@ -26,7 +26,7 @@ public class UsuariosAtivos extends HttpServlet {
 
 
         } catch (NumberFormatException nfe) {
-            request.getRequestDispatcher("selecionarUsuariosA.jsp").forward(request, response);
+            request.getRequestDispatcher("SelecionarUsuariosA.jsp").forward(request, response);
         }
     }
 }

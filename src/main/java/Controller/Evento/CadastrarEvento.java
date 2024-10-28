@@ -27,7 +27,7 @@ public class CadastrarEvento extends HttpServlet {
             precoDouble = Double.parseDouble(preco);
         } else {
             req.setAttribute("resultado","Você digitou o preço de maneira errada!");
-            req.getRequestDispatcher("cadastrarEvento.jsp").forward(req, resp);
+            req.getRequestDispatcher("CadastrarEvento.jsp").forward(req, resp);
         }
 
         LocalDate dt_inicioDate = null;
@@ -35,7 +35,7 @@ public class CadastrarEvento extends HttpServlet {
             dt_inicioDate = LocalDate.parse(dt_inicio);
         } else {
             req.setAttribute("resultado","Você digitou a data de maneira errada!");
-            req.getRequestDispatcher("cadastrarEvento.jsp").forward(req, resp);
+            req.getRequestDispatcher("CadastrarEvento.jsp").forward(req, resp);
         }
 
         LocalDate dt_finalDate = null;
@@ -43,12 +43,12 @@ public class CadastrarEvento extends HttpServlet {
             dt_finalDate = LocalDate.parse(dt_inicio);
         } else {
             req.setAttribute("resultado","Você digitou a data de maneira errada!");
-            req.getRequestDispatcher("cadastrarEvento.jsp").forward(req, resp);
+            req.getRequestDispatcher("CadastrarEvento.jsp").forward(req, resp);
         }
 
         if (!dt_inicioDate.isBefore(dt_finalDate)) {
             req.setAttribute("resultado","A data de início deve ser menor que a data de término");
-            req.getRequestDispatcher("cadastrarEvento.jsp").forward(req, resp);
+            req.getRequestDispatcher("CadastrarEvento.jsp").forward(req, resp);
         }
 
         int fk_int_id_usuarioInt = 0;
