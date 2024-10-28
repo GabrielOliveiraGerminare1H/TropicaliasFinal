@@ -1,16 +1,16 @@
 package Model;
 
-import java.sql.Date;
+import java.time.LocalDate;
 
 public class Evento {
     private String nome;
     private String local;
     private double precoTicket;
     private int fk_int_id_usuario;
-    private Date dt_inicio;
-    private Date dt_final;
+    private LocalDate dt_inicio;
+    private LocalDate dt_final;
 
-    public Evento(String nome, String local, double precoTicket, int fk_int_id_usuario, Date dt_inicio, Date dt_final){
+    public Evento(String nome, String local, double precoTicket, int fk_int_id_usuario, LocalDate dt_inicio, LocalDate dt_final){
         this.nome = nome;
         this.local = local;
         this.precoTicket = precoTicket;
@@ -35,11 +35,11 @@ public class Evento {
         return this.fk_int_id_usuario;
     }
 
-    public Date getDt_inicio() {
+    public LocalDate getDt_inicio() {
         return dt_inicio;
     }
 
-    public Date getDt_final() {
+    public LocalDate getDt_final() {
         return dt_final;
     }
 
