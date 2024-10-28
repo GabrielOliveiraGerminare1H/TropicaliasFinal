@@ -118,7 +118,7 @@ public class CorMascoteDAO {
         return corMascotes;
     }
 
-    public int atualizarCorMascote(String nomeCampo,String atualizacaoCampo, int pk_int_id_cor_mascote){
+    public boolean atualizarCorMascote(String nomeCampo,String atualizacaoCampo, int pk_int_id_cor_mascote){
         try{
             //abrindo conexão com o banco
             conexao.conectar();
@@ -130,12 +130,17 @@ public class CorMascoteDAO {
             pstmt.setInt(3,pk_int_id_cor_mascote);
 
             //Se tudo deu certo irá retornar o executeUpdate
-            return pstmt.executeUpdate();
+            if (pstmt.executeUpdate() > 0) {
+                return true;
+            }
+            else {
+                return false;
+            }
         }
 //        Tratando exceção do banco e voltando null
         catch (SQLException sqle){
             sqle.printStackTrace();
-            return -1;
+            return false;
         }
 //        Fechando conexão com banco de dados
         finally {
