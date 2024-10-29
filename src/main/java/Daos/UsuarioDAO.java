@@ -1,7 +1,7 @@
 package Daos;
 
 
-import Daos.JDBC.ConexaoDAO;
+import Daos.JDBC.Conexao;
 import Model.Usuario;
 
 import java.sql.Connection;
@@ -15,7 +15,7 @@ public class UsuarioDAO {
     private Connection conn;
     private PreparedStatement pstmt;
     private ResultSet rs;
-    ConexaoDAO conexao = new ConexaoDAO();
+    Conexao conexao = new Conexao();
 
     public List<Usuario> buscarUsuario(){
         List<Usuario> usuarios = new ArrayList<>();

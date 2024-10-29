@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSSdosAps/telasadmin%20(1).css">
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
@@ -22,11 +22,11 @@
                 <li><a href="Termos.html">Termos</a></li>
             </ul>
         </div>
-        
+
         <div class="menuTitulo">
             <h2>SELECIONE UM ITEM</h2>
         </div>
-        <div class="menu">            
+        <div class="menu">
             <div>
                 <ul>
                     <li><a href="#tabUsuariosAtivos">Selecionar usuários ativos</a></li>
@@ -37,7 +37,7 @@
 
                 </ul>
             </div>
-            
+
             <div>
                 <ul>
                     <li><a href="#tabUsuariosInativos">Selecionar usuários inativos</a></li>
@@ -57,7 +57,7 @@
                     <li><a href="#tabAtualizarBarraca">Atualizar barraca</a></li>
                 </ul>
             </div>
-            
+
         </div>
 
 
@@ -92,8 +92,8 @@
             <div class="titulo">
                 <h1>COR DO MASCOTE</h1>
             </div>
-            <section class="cor">
-                <form action="mascote">
+            <section class="corMascote">
+                <form action="cadastrarCor" method="post">
                     <input type="text" name="text_fundo" id="text_fundo" placeholder="Cor do fundo" required>
                     <input type="text" name="text_secundaria" id="text_secundaria" placeholder="Cor secundária" required>
                     <input type="text" name="text_primaria" id="text_primaria" placeholder="Cor primária" required>
@@ -102,12 +102,31 @@
             </section>
         </div>
 
+        <div class="container2" id="tabSelecionarMascote">
+            <table>
+                <tr>
+                    <th>Cor Fundo</th>
+                    <th>Cor Primária</th>
+                    <th>Cor Secundária</th>
+                </tr>
+                <%
+                List<CorMascote> corMascotes = (List<CorMascote>) request.getAttribute("cores");
+                for (CorMascote corMascote : corMascotes) {
+                %>
+                <tr>
+                    <td><%= corMascote.getTextoFundo() %></td>
+                    <td><%= corMascote.getTextoPri() %></td>
+                    <td><%= corMascote.getTextoSec() %></td>
+                </tr>
+            </table>
+        </div>
+
     </main>
 
     <footer class="container3">
         <p>Desenvolvido por</p>
         <img src="../im/mocBrancaSemFUndo.png" alt="img6" width="10%">
     </footer>
-     
+
 </body>
 </html>

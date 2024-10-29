@@ -1,6 +1,6 @@
 package Daos;
 
-import Daos.JDBC.ConexaoDAO;
+import Daos.JDBC.Conexao;
 import Model.CorMascote;
 
 import java.sql.PreparedStatement;
@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CorMascoteDAO {
-    ConexaoDAO conexao = new ConexaoDAO();
+    Conexao conexao = new Conexao();
 
     public boolean cadastrarCorMascote(CorMascote corMascote){
         try{
