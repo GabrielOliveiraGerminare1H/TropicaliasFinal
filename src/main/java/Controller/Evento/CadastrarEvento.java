@@ -1,8 +1,8 @@
-package Controller;
+package Controller.Evento;
 import java.io.*;
 import java.time.LocalDate;
 
-import Daos.JDBC.EventoDAO;
+import Daos.EventoDAO;
 import Model.Evento;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
