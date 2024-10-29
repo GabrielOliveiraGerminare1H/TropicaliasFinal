@@ -10,7 +10,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="CSSdosAps/telasadm.css">
+        <link rel="stylesheet" href="src/main/webapp/CSSdosAps/telasadmin (1).css">
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,7 +39,7 @@
                 <li><a href="#tabUsuariosAtivos">Selecionar usuários ativos</a></li>
                 <li><a href="#tabSelecionarMascote">Selecionar cor do mascote</a></li>
                 <li><a href="#tabNovaCor">Cadastrar cor do mascote</a></li>
-                <li><a href="#tabDeletarCor">Deletar cor do mascote</a></li>
+                <li><a href="DeletarCorMascote.jsp">Deletar cor do mascote</a></li>
                 <li><a href="#tabAtualizarCor">Atualizar cores do mascote</a></li>
 
             </ul>
@@ -49,7 +49,7 @@
             <ul>
                 <li><a href="#tabUsuariosInativos">Selecionar usuários inativos</a></li>
                 <li><a href="#tabEventosAtivos">Selecionar eventos ativos</a></li>
-                <li><a href="#tabCriarEvento">Cadastrar evento</a></li>
+                <li><a href="CadastrarEvento.jsp">Cadastrar evento</a></li>
                 <li><a href="#tabDeletarEvento">Deletar evento</a></li>
                 <li><a href="#tabAtualizarEvento">Atualizar evento</a></li>
             </ul>

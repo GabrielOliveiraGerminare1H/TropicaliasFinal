@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class DeletarEvento {
+
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
