@@ -2,13 +2,13 @@ package Controller.Evento;
 import java.io.*;
 import java.time.LocalDate;
 
-import Daos.JDBC.EventoDAO;
+import Daos.EventoDAO;
 import Model.Evento;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
-@WebServlet(name = "evento", value = "/evento")
+@WebServlet(name = "cadastrarEvento", value = "/cadastrarEvento")
 public class CadastrarEvento extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response  )

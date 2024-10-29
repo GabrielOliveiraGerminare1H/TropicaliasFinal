@@ -1,6 +1,6 @@
 package Controller.Barraca;
 
-import Daos.JDBC.BarracaDAO;
+import Daos.BarracaDAO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;

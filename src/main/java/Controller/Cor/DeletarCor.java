@@ -1,6 +1,6 @@
 package Controller.Cor;
 
-import Daos.JDBC.CorMascoteDAO;
+import Daos.CorMascoteDAO;
 import Model.CorMascote;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;

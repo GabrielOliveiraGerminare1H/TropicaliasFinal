@@ -1,6 +1,6 @@
-package Controller;
+package Controller.Evento;
 
-import Daos.JDBC.EventoDAO;
+import Daos.EventoDAO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
