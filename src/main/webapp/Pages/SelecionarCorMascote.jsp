@@ -1,12 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: isabelaneu-ieg
-  Date: 25/10/2024
-  Time: 17:59
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page import="java.util.List" %>
-<%@ page import="Model.Usuario" %>
 <%@ page import="Model.CorMascote" %>
 <%@ include file="Menu.jsp" %>
 
@@ -24,25 +16,43 @@
 <body>
 <h2 style="text-align: center;">Lista de Cores do Mascote</h2>
 
+<%--<div id="tabSelecionarMascote">--%>
+<%--    <table>--%>
+<%--        <tr>--%>
+<%--            <th>Cor Fundo</th>--%>
+<%--            <th>Cor Primária</th>--%>
+<%--            <th>Cor Secundária</th>--%>
+<%--        </tr>--%>
+<%--        <%--%>
+<%--            List<CorMascote> corMascotes = (List<CorMascote>) request.getAttribute("cores");--%>
+<%--            for (CorMascote corMascote : corMascotes) {--%>
+<%--        %>--%>
+<%--        <tr>--%>
+<%--            <td><%= corMascote.getTextoFundo() %></td>--%>
+<%--            <td><%= corMascote.getTextoPri() %></td>--%>
+<%--            <td><%= corMascote.getTextoSec() %></td>--%>
+<%--        </tr>--%>
+<%--        <%--%>
+<%--            }--%>
+<%--        %>--%>
+<%--    </table>--%>
+<%--</div>--%>
+
 <div id="tabSelecionarMascote">
     <table>
+        <caption>Lista de combinações de cores do mascote</caption>
         <tr>
             <th>Cor Fundo</th>
             <th>Cor Primária</th>
             <th>Cor Secundária</th>
         </tr>
-        <%
-            List<CorMascote> corMascotes = (List<CorMascote>) request.getAttribute("cores");
-            for (CorMascote corMascote : corMascotes) {
-        %>
-        <tr>
-            <td><%= corMascote.getTextoFundo() %></td>
-            <td><%= corMascote.getTextoPri() %></td>
-            <td><%= corMascote.getTextoSec() %></td>
-        </tr>
-        <%
-            }
-        %>
+        <c:forEach var="corMascote" items="${cores}">
+            <tr>
+                <td>${corMascote.textoFundo}</td>
+                <td>${corMascote.textoPri}</td>
+                <td>${corMascote.textoSec}</td>
+            </tr>
+        </c:forEach>
     </table>
 </div>
 </body>
