@@ -4,9 +4,7 @@ import java.sql.*;
 
 public class Conexao {
     private Connection conn;
-    public Connection getConn(){
-        return this.conn;
-    }
+
     public void conectar() {
         try {
             Class.forName("org.postgresql.Driver");
@@ -27,5 +25,12 @@ public class Conexao {
         } catch (SQLException sqles) {
             sqles.printStackTrace();
         }
+    }
+
+    public Connection getConn(){
+        if (this.conn == null) {
+            conectar();
+        }
+        return this.conn;
     }
 }
