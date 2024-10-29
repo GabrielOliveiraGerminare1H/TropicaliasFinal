@@ -2,7 +2,7 @@ package Daos.JDBC;
 
 import java.sql.*;
 
-public class ConexaoDAO {
+public class Conexao {
     private Connection conn;
     public Connection getConn(){
         return this.conn;

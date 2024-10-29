@@ -1,12 +1,12 @@
 package Daos;
 
-import Daos.JDBC.ConexaoDAO;
+import Daos.JDBC.Conexao;
 import Model.Barraca;
 
 import java.sql.*;
 
 public class BarracaDAO {
-    ConexaoDAO conexao = new ConexaoDAO();
+    Conexao conexao = new Conexao();
 
     public boolean cadastrarBarraca(Barraca barraca){
         try {

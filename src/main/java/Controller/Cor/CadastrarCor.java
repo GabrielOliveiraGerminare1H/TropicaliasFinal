@@ -23,19 +23,22 @@ public class CadastrarCor extends HttpServlet {
 
         CorMascoteDAO corMascoteDAO = new CorMascoteDAO();
         CorMascote corMascote = new CorMascote(textFundo,textPrimaria,textSecundaria);
+        boolean verifica = corMascoteDAO.cadastrarCorMascote(corMascote);
 
         if (textFundo.matches("^#([A-Fa-f0-9]{6})$")) {
-
-            if (corMascoteDAO.cadastrarCorMascote(corMascote)) {
-                req.getRequestDispatcher("telasadmin.jsp").forward(req, resp);
+            if (verifica) {
+                req.getRequestDispatcher("mensagem.jsp").forward(req, resp);
             }
             else {
-                req.setAttribute("resultado","Não foi possível cadastrar!");
-                req.getRequestDispatcher("CadastrarCorMascote.jsp").forward(req, resp);
+                req.setAttribute("mensagem","Não foi possível cadastrar!");
+                req.getRequestDispatcher("mensagem.jsp").forward(req, resp);
             }
         } else {
-            req.setAttribute("resultado","Você digitou o código de cor RGB de maneira errada!");
-            req.getRequestDispatcher("CadastrarCorMascote.jsp").forward(req, resp);
+            req.setAttribute("verifica",false);
+            req.setAttribute("mensagem","Você digitou o código de cor RGB de maneira errada!");
+            req.getRequestDispatcher("mensagem.jsp").forward(req, resp);
         }
     }
 }
+
+

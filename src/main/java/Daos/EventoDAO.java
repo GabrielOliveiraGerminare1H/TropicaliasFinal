@@ -1,6 +1,6 @@
 package Daos;
 
-import Daos.JDBC.ConexaoDAO;
+import Daos.JDBC.Conexao;
 import Model.Evento;
 
 import java.sql.*;
@@ -11,7 +11,7 @@ public class EventoDAO {
     private Connection conn;
     private PreparedStatement pstmt;
     private ResultSet rs;
-    ConexaoDAO conexao = new ConexaoDAO();
+    Conexao conexao = new Conexao();
 
     public boolean cadastrarEvento(Evento evento) {
         try {
