@@ -11,8 +11,8 @@
 </head>
 
 <body>
-<jsp:include page="../telasadmin%20(1).html" />
-
+<jsp:include page="../telasadmin.html">
+</jsp:include>>
 
 <%
     Boolean verifica = (Boolean) request.getAttribute("verifica");
