@@ -1,4 +1,4 @@
-package Controller.Evento;
+package Controller.Usuarios;
 
 public class UsuariosInativos {
 

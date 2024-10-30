@@ -8,7 +8,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
-@WebServlet(name = "cadastrarEvento", value = "/cadastrarEvento")
+@WebServlet(name = "criarEvento", value = "/criarEvento")
 public class CadastrarEvento extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response  )

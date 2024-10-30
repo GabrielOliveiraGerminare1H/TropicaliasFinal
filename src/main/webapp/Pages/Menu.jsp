@@ -10,7 +10,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="/CSSdosAps/telasadmin (1).css">
+        <link rel="stylesheet" href="CSSdosAps/telasadm.css">
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,7 +25,6 @@
         <ul>
             <img src="../Im/Araci (1).png" alt="">
             <li class="lado">Tropicalias</li>
-            <li><a href="/index.html">Inicio</a></li>
             <li><a href="Login.jsp">Login</a></li>
             <li><a href="Termos.html">Termos</a></li>
         </ul>

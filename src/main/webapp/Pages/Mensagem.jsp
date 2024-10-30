@@ -6,10 +6,8 @@
 </head>
 
 <body>
-<<<<<<< HEAD
-< include page="/Pages/Menu.jsp" />
-
->>>>>>> dd1658816a47f0ca0ad83346fc2007d8422aa25a
+<jsp:include page="../telasadmin.html">
+</jsp:include>>
 
 <%
     Boolean verifica = (Boolean) request.getAttribute("verifica");

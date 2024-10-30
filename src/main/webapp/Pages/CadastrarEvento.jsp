@@ -28,7 +28,7 @@
             <h1>CADASTRAR EVENTO</h1>
         </div>
         <section class="cadastrarEvento">
-            <form action="cadastrarEvento" method="post">
+            <form action="criarEvento" method="post">
                 <input type="date" name="dt_inicio" id="dt_inicio" placeholder="Data de início" required>
                 <input type="date" name="dt_final" id="dt_final" placeholder="Data de término" required>
                 <input type="text" name="var_nome" id="var_nome" placeholder="Nome" required>
