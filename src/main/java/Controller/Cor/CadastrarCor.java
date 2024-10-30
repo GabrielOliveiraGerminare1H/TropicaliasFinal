@@ -28,12 +28,15 @@ public class CadastrarCor extends HttpServlet {
             CorMascote corMascote = new CorMascote(textFundo,textPrimaria,textSecundaria);
             boolean verifica = corMascoteDAO.cadastrarCorMascote(corMascote);
             if (verifica) {
+                req.setAttribute("verifica",true);
                 req.setAttribute("mensagem","Cadastrado no Banco");
-                req.getRequestDispatcher("Mensagem.jsp").forward(req, resp);
+                req.getRequestDispatcher("/Pages/Mensagem.jsp").forward(req, resp);
+
             }
             else {
                 req.setAttribute("mensagem","Não foi possível cadastrar!");
-                req.getRequestDispatcher("Mensagem.jsp").forward(req, resp);
+                req.getRequestDispatcher("/Pages/Mensagem.jsp").forward(req, resp);
+
             }
         } else {
             req.setAttribute("verifica",false);

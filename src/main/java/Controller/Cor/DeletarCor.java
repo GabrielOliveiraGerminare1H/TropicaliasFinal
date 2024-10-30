@@ -23,11 +23,11 @@ public class DeletarCor extends HttpServlet {
 
 
         if (verifica) {
-            req.getRequestDispatcher("mensagem.jsp").forward(req, resp);
+            req.getRequestDispatcher("Mensagem.jsp").forward(req, resp);
         }
         else {
             req.setAttribute("mensagem","Não foi possível deletar!");
-            req.getRequestDispatcher("mensagem.jsp").forward(req, resp);
+            req.getRequestDispatcher("Mensagem.jsp").forward(req, resp);
             req.setAttribute("verifica",false);
         }
 

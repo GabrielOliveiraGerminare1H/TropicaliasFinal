@@ -26,11 +26,14 @@ public class AtualizarCor extends HttpServlet {
 
         if (atualizacaoCampo.matches("^#([A-Fa-f0-9]{6})$")){
             if (verifica){
-                req.getRequestDispatcher("Mensagem.jsp").forward(req, resp);
+                req.setAttribute("verifica",true);
+                req.setAttribute("mensagem","Cadastro realizado com sucesso!");
+                req.getRequestDispatcher("/Pages/Mensagem.jsp").forward(req, resp);
 
             }else {
                 req.setAttribute("mensagem","Não foi possível atualizar!");
-                req.getRequestDispatcher("Mensagem.jsp").forward(req, resp);
+                req.getRequestDispatcher("/Pages/Mensagem.jsp").forward(req, resp);
+
             }
         }
         else {

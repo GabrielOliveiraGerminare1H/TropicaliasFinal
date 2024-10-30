@@ -7,6 +7,6 @@ RUN mvn clean package -DskipTests
 # Etapa de execução
 FROM openjdk:17-jdk-slim
 WORKDIR /app
-COPY --from=build /app/target/NovoTropicaliasServlet-1.0-SNAPSHOT.war app.war
+COPY --from=build /app/target/NovoTropicaliasServlet-1.0-SNAPSHOT.jar app.jar
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "app.war"]
+ENTRYPOINT ["java", "-jar", "app.jar"]
