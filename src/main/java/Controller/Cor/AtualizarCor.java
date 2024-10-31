@@ -10,7 +10,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet(name = "atualizarCor" , value = "/atualizarCor")
+@WebServlet(name = "atualizarCor" , value = "/AtualizarCor")
 
 public class AtualizarCor extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)

@@ -17,10 +17,15 @@ public class EventosAtivos extends HttpServlet  {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        List<Evento> eventosA = eventoDAO.selecionarEventoA();
-        request.setAttribute(eventosA.toString(),"eventosA");
+        try {
+            List<Evento> eventosA = eventoDAO.selecionarEventoA();
+            request.setAttribute(eventosA.toString(), "eventosA");
 
-        request.getRequestDispatcher("SelecionarEventosA.jsp");
+            request.getRequestDispatcher("SelecionarEventosA.jsp");
+        }
+        catch (NumberFormatException nfe){
+
+        }
 
 
     }

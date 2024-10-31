@@ -16,7 +16,7 @@
 <body>
 
 <main>
-    <div class="container2" id="tabNovaCor">
+    <div class="container2" id="NovaCor">
         <div class="titulo">
             <h1>CADASTRAR COR DO MASCOTE</h1>
         </div>

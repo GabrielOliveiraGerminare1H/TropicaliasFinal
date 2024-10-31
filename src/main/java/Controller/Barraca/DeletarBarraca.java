@@ -9,7 +9,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet(name = "DeletarBarraca", value = "/tabdeletarBarraca")
+@WebServlet(name = "DeletarBarraca", value = "/DeletarBarraca")
 public class DeletarBarraca extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
