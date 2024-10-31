@@ -1,6 +1,6 @@
 <%@ page import="java.util.List" %>
 <%@ page import="Model.CorMascote" %>
-<%@ include file="ADM.jsp" %>
+<%--<%@ include file="ADM.html" %>--%>
 
 <!DOCTYPE html>
 <html lang="pt-br">
