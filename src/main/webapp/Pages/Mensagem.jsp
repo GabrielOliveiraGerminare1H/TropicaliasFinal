@@ -11,8 +11,8 @@
 </head>
 
 <body>
-<jsp:include page="ADM.jsp">
-</jsp:include>>
+<%--<jsp:include page="ADM.html">--%>
+<%--</jsp:include>>--%>
 
 <%
     Boolean verifica = (Boolean) request.getAttribute("verifica");
