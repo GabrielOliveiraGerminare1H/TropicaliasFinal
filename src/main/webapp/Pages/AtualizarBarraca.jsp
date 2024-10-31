@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ include file="Menu.jsp"%>
+<%@ include file="ADM.jsp"%>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -28,7 +28,7 @@
             <h1>ATUALIZAR BARRACA</h1>
         </div>
         <section class="atualizarBarraca">
-            <form action="atualizarBarraca" method="post">
+            <form action="AtualizarBarraca" method="post">
                 <input type="text" name="campoBarraca" id="campoBarraca" placeholder="Campo" required>
                 <input type="text" name="atualizaoBarraca" id="atualizaoBarraca" placeholder="Campo atualizado" required>
                 <input type="number" name="pk_int_id_barraca" min="1" id="pk_int_id_barraca" placeholder="PK da barraca" required>

@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ include file="Menu.jsp"%>
+<%@ include file="ADM.jsp"%>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -28,7 +28,7 @@
             <h1>CADASTRAR BARRACA</h1>
         </div>
         <section class="cadastrarBarraca">
-            <form action="cadastrarBarraca" method="post">
+            <form action="CadastrarBarraca" method="post">
                 <input type="text" name="nome" id="nome" placeholder="Nome barraca" required>
                 <input type="int" name="fk_int_id_evento" id="fk_int_id_evento" placeholder="FK do evento" required>
                 <button type="submit">Cadastrar</button>

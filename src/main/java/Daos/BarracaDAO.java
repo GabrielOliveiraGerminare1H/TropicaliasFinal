@@ -2,10 +2,16 @@ package Daos;
 
 import Daos.JDBC.Conexao;
 import Model.Barraca;
+import Model.Usuario;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class BarracaDAO {
+    private Connection conn;
+    private PreparedStatement pstmt;
+    private ResultSet rs;
     Conexao conexao = new Conexao();
 
     public boolean cadastrarBarraca(Barraca barraca){
@@ -13,7 +19,7 @@ public class BarracaDAO {
 //            Abrindo conexão com o banco de dados
             conexao.conectar();
 //            Comandos SQL
-            PreparedStatement pstmt = conexao.getConn().prepareStatement("INSERT INTO tb_barraca (var_nome, fk_int_id_evento,createdat) VALUES (?,?,current_date)");
+            pstmt = conexao.getConn().prepareStatement("INSERT INTO tb_barraca (var_nome, fk_int_id_evento,createdat) VALUES (?,?,current_date)");
 //          Setando os parâmetros para fazer a inserção no banco de dados
             pstmt.setString(1, barraca.getNome());
             pstmt.setInt(2, barraca.getFk_int_id_evento());
@@ -32,27 +38,35 @@ public class BarracaDAO {
         }
     }
 
-    public ResultSet buscarBarraca(){
-        try{
-            //abrindo conexão com o banco
+
+    public List<Barraca> selecionarBarracaA(){
+        List<Barraca> barracaList = new ArrayList<>();
+        try {
+            //Abrindo conexão com o banco
             conexao.conectar();
-//            Comandos SQL
-            PreparedStatement pstmt= conexao.getConn().prepareStatement("SELECT * FROM tb_barraca where deletedat is null ORDER BY pk_int_id_barraca");
-            //executando o comando e guardando o resultset
-            ResultSet rset = pstmt.executeQuery();
-//            Se tudo der certo irá retornar o resultset
-            return rset;
-        }
-//        Tratando a exceção do banco de dados e retornado null pq deu erro
-        catch (SQLException sqle){
-            sqle.printStackTrace();
+
+            pstmt = conexao.getConn().prepareStatement("SELECT * FROM tb_barraca where deletedat is null ORDER BY pk_int_id_barraca+-*9/8");
+
+            //Executando o comando e guardando o resultset
+            rs = pstmt.executeQuery();
+
+            if(rs.next()){
+                do{
+                    Barraca barraca= new Barraca(rs.getString("var_nome"),rs.getInt("fk_int_id_evento"));
+                    barracaList.add(barraca);
+                } while(rs.next());
+            }
+            else{
+                return null;
+            }
+
+        }catch (SQLException sqle){
             return null;
         }
-//        Desconectando do banco de dados
         finally {
             conexao.desconectar();
         }
-
+        return barracaList;
     }
 
     public boolean softDeleteBarraca(int idBarraca){
@@ -60,7 +74,7 @@ public class BarracaDAO {
 //            Conectando ao banco de dados
             conexao.conectar();
 //            Comando SQl
-            PreparedStatement pstmt = conexao.getConn().prepareStatement("UPDATE tb_barraca SET deletedAt = current_date and updatedAt = current_date pk_int_id_barraca = ?");
+            pstmt = conexao.getConn().prepareStatement("UPDATE tb_barraca SET deletedAt = current_date and updatedAt = current_date pk_int_id_barraca = ?");
 //            Setando os parâmetros
             pstmt.setInt(1, idBarraca);
 //          Executando os comandos SQL no banco e se der certo retorna true, caso contrário será pego na exceçãp e irá retornar false
@@ -81,7 +95,7 @@ public class BarracaDAO {
     public boolean atualizarBarraca(String nomeCampo, String valorNovo, int pkCampo) {
         try {
             conexao.conectar();
-            PreparedStatement pstmt = conexao.getConn().prepareStatement("Update tb_barraca set ? = ? where id = ?");
+            pstmt = conexao.getConn().prepareStatement("Update tb_barraca set ? = ? where id = ?");
             pstmt.setString(1, nomeCampo);
             pstmt.setString(2, valorNovo);
             pstmt.setInt(3, pkCampo);
@@ -104,4 +118,3 @@ public class BarracaDAO {
     }
 
 }
-

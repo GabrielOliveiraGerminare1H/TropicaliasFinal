@@ -17,8 +17,8 @@ public class UsuarioDAO {
     private ResultSet rs;
     Conexao conexao = new Conexao();
 
-    public List<Usuario> buscarUsuario(){
-        List<Usuario> usuarios = new ArrayList<>();
+    public List<Usuario> selecionarUsuarioA(){
+        List<Usuario> usuarioList = new ArrayList<>();
         try {
             //Abrindo conexão com o banco
             conexao.conectar();
@@ -26,7 +26,7 @@ public class UsuarioDAO {
             pstmt = conexao.getConn().prepareStatement("select * from usuario where deletedat is null");
 
             //Executando o comando e guardando o resultset
-            rs= pstmt.executeQuery();
+            rs = pstmt.executeQuery();
 
             if(rs.next()){
                 do{
@@ -35,7 +35,7 @@ public class UsuarioDAO {
                             rs.getDate("dt_nascimento"),rs.getString("var_descricao_usuario"),
                             rs.getLong("var_cpf"),rs.getString("var_nome"),rs.getInt("fk_int_id_endereco"));
 
-                    usuarios.add(usuario);
+                    usuarioList.add(usuario);
                 } while(rs.next());
             }
             else{
@@ -43,16 +43,15 @@ public class UsuarioDAO {
             }
 
         }catch (SQLException sqle){
-            sqle.printStackTrace();
             return null;
         }
         finally {
             conexao.desconectar();
         }
-        return usuarios;
+        return usuarioList;
     }
 
-    public List<Usuario> buscarUsuarioInativo(){
+    public List<Usuario> selecionarUsuarioI(){
         List<Usuario> usuarios = new ArrayList<>();
         try {
             //Abrindo conexão com o banco
