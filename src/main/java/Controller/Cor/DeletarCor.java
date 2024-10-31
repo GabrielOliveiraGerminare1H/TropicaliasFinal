@@ -13,8 +13,8 @@ import java.io.IOException;
 @WebServlet(name = "deletarCor" , value = "/deletarCor")
 public class DeletarCor extends HttpServlet {
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String pkCorMascoteStr = req.getParameter("pk_int_id_cor_mascote");
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String pkCorMascoteStr = request.getParameter("pk_int_id_cor_mascote");
         int pkCorMascote = Integer.parseInt(pkCorMascoteStr);
 
         CorMascoteDAO corMascoteDAO = new CorMascoteDAO();
@@ -23,12 +23,12 @@ public class DeletarCor extends HttpServlet {
 
 
         if (verifica) {
-            req.getRequestDispatcher("Mensagem.jsp").forward(req, resp);
+            request.getRequestDispatcher("Mensagem.jsp").forward(request, response);
         }
         else {
-            req.setAttribute("mensagem","Não foi possível deletar!");
-            req.getRequestDispatcher("Mensagem.jsp").forward(req, resp);
-            req.setAttribute("verifica",false);
+            request.setAttribute("mensagem","Não foi possível deletar!");
+            request.getRequestDispatcher("Mensagem.jsp").forward(request, response);
+            request.setAttribute("verifica",false);
         }
 
     }

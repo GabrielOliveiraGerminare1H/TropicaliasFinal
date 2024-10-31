@@ -13,17 +13,17 @@ import java.io.IOException;
 
 public class SelecionarCor extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         CorMascoteDAO corMascoteDAO = new CorMascoteDAO();
         corMascoteDAO.buscarCorMascoteAtivo();
         try {
-            req.setAttribute("verifica",true);
-            req.setAttribute("corMascote", corMascoteDAO.buscarCorMascoteAtivo());
-            req.getRequestDispatcher("/Pages/Mensagem.jsp").forward(req, resp);
+            request.setAttribute("verifica",true);
+            request.setAttribute("corMascote", corMascoteDAO.buscarCorMascoteAtivo());
+            request.getRequestDispatcher("/Pages/Mensagem.jsp").forward(request, response);
 
         } catch (Exception e) {
             e.printStackTrace();
-            req.getRequestDispatcher("/Pages/Mensagem.jsp").forward(req, resp);
+            request.getRequestDispatcher("/Pages/Mensagem.jsp").forward(request, response);
         }
 
     }

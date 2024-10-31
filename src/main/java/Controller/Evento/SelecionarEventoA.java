@@ -21,15 +21,11 @@ public class SelecionarEventoA extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try{
-            List<Evento> eventoA = eventoDAO.selecionarEventoA() ;
+        List<Evento> eventoA = eventoDAO.selecionarEventoA() ;
 
-            request.setAttribute("eventoA", eventoDAO.toString() );
+        request.setAttribute("eventoA", eventoDAO.toString() );
 
-            request.getRequestDispatcher("SelecionarEventosA").forward(request,response);
+        request.getRequestDispatcher("SelecionarEventosA").forward(request,response);
 
-        }catch (SQLException sqle){
-
-        }
     }
 }

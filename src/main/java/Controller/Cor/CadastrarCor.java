@@ -14,12 +14,12 @@ import java.sql.SQLException;
 
 @WebServlet(name = "cadastrarCor" , value = "/cadastrarCor")
 public class CadastrarCor extends HttpServlet {
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String textFundo =req.getParameter("text_fundo");
-        String textPrimaria = req.getParameter("text_primaria");
-        String textSecundaria = req.getParameter("text_secundaria");
+        String textFundo =request.getParameter("text_fundo");
+        String textPrimaria = request.getParameter("text_primaria");
+        String textSecundaria = request.getParameter("text_secundaria");
 
         CorMascoteDAO corMascoteDAO = new CorMascoteDAO();
 
@@ -28,20 +28,20 @@ public class CadastrarCor extends HttpServlet {
             CorMascote corMascote = new CorMascote(textFundo,textPrimaria,textSecundaria);
             boolean verifica = corMascoteDAO.cadastrarCorMascote(corMascote);
             if (verifica) {
-                req.setAttribute("verifica",true);
-                req.setAttribute("mensagem","Cadastrado no Banco");
-                req.getRequestDispatcher("/Pages/Mensagem.jsp").forward(req, resp);
+                request.setAttribute("verifica",true);
+                request.setAttribute("mensagem","Cadastrado no Banco");
+                request.getRequestDispatcher("/Pages/Mensagem.jsp").forward(request, response);
 
             }
             else {
-                req.setAttribute("mensagem","Não foi possível cadastrar!");
-                req.getRequestDispatcher("/Pages/Mensagem.jsp").forward(req, resp);
+                request.setAttribute("mensagem","Não foi possível cadastrar!");
+                request.getRequestDispatcher("/Pages/Mensagem.jsp").forward(request, response);
 
             }
         } else {
-            req.setAttribute("verifica",false);
-            req.setAttribute("mensagem","Você digitou o código de cor RGB de maneira errada!");
-            req.getRequestDispatcher("/Pages/Mensagem.jsp").forward(req, resp);
+            request.setAttribute("verifica",false);
+            request.setAttribute("mensagem","Você digitou o código de cor RGB de maneira errada!");
+            request.getRequestDispatcher("/Pages/Mensagem.jsp").forward(request, response);
         }
     }
 }

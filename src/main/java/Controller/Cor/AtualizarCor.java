@@ -13,12 +13,12 @@ import java.io.IOException;
 @WebServlet(name = "atualizarCor" , value = "/atualizarCor")
 
 public class AtualizarCor extends HttpServlet {
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String nomeCampo =req.getParameter("nomeCampo");
-        String atualizacaoCampo = req.getParameter("atualizacaoCampo");
-        String pkCorMascoteStr = req.getParameter("pk_int_id_cor_mascote");
+        String nomeCampo =request.getParameter("nomeCampo");
+        String atualizacaoCampo = request.getParameter("atualizacaoCampo");
+        String pkCorMascoteStr = request.getParameter("pk_int_id_cor_mascote");
         int pkCorMascote = Integer.parseInt(pkCorMascoteStr);
 
         CorMascoteDAO corMascoteDAO = new CorMascoteDAO();
@@ -26,20 +26,20 @@ public class AtualizarCor extends HttpServlet {
 
         if (atualizacaoCampo.matches("^#([A-Fa-f0-9]{6})$")){
             if (verifica){
-                req.setAttribute("verifica",true);
-                req.setAttribute("mensagem","Cadastro realizado com sucesso!");
-                req.getRequestDispatcher("/Pages/Mensagem.jsp").forward(req, resp);
+                request.setAttribute("verifica",true);
+                request.setAttribute("mensagem","Cadastro realizado com sucesso!");
+                request.getRequestDispatcher("/Pages/Mensagem.jsp").forward(request, response);
 
             }else {
-                req.setAttribute("mensagem","Não foi possível atualizar!");
-                req.getRequestDispatcher("/Pages/Mensagem.jsp").forward(req, resp);
+                request.setAttribute("mensagem","Não foi possível atualizar!");
+                request.getRequestDispatcher("/Pages/Mensagem.jsp").forward(request, response);
 
             }
         }
         else {
-            req.setAttribute("mensagem","Você digitou o código de cor RGB de maneira errada!");
-            req.setAttribute("verifica",false);
-            req.getRequestDispatcher("/Pages/Mensagem.jsp").forward(req, resp);
+            request.setAttribute("mensagem","Você digitou o código de cor RGB de maneira errada!");
+            request.setAttribute("verifica",false);
+            request.getRequestDispatcher("/Pages/Mensagem.jsp").forward(request, response);
         }
 
     }
