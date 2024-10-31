@@ -1,12 +1,11 @@
-# Etapa de construção
-FROM maven:3.8.5-openjdk-17 AS build
+FROM maven:3.8.3-openjdk-17 AS build
 WORKDIR /app
-COPY . .
+COPY pom.xml .
+COPY src ./src
 RUN mvn clean package -DskipTests
 
-# Etapa de execução
-FROM openjdk:17-jdk-slim
-WORKDIR /app
-COPY --from=build /app/target/NovoTropicaliasServlet-1.0-SNAPSHOT.jar app.jar
+# Fase 2: Execução com Tomcat
+FROM tomcat:10.1.19-jdk11
+COPY --from=build /app/target/NovoTropicaliasServlet-1.0-SNAPSHOT.jar/ /usr/local/tomcat/webapps/app/
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "app.jar"]
+CMD ["catalina.sh", "run"]
