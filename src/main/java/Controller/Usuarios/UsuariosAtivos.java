@@ -18,7 +18,7 @@ public class UsuariosAtivos extends HttpServlet {
             throws ServletException, IOException {
         try{
 
-            List<Usuario> usuariosA = usuarioDAO.buscarUsuario();
+            List<Usuario> usuariosA = usuarioDAO.selecionarUsuarioA();
 
             request.setAttribute(usuariosA.toString(),"usuariosA");
 

@@ -11,15 +11,19 @@ body, html {
     overflow-x: hidden;
 }
 
+.navbar{
+    padding-right: 20rem;
+    padding-top: 2.5%;
+}
 
 li{
-    margin-left: 5%;
+    margin-left: 20px;
     cursor: pointer;
 }
 .navbar ul {
-    list-style: none; 
+    list-style: none;
     display: flex;
-    align-items: center; 
+    align-items: center;
 }
 
 .navbar li {
@@ -27,7 +31,7 @@ li{
     color: #EBDFC5;
     font-size: 18px;
     font-family: Montserrat;
-    word-wrap: break-word
+    margin-left: 2%;
 }
 .navbar li:hover{
     transition: 0.5s ease;
@@ -35,7 +39,7 @@ li{
 }
 .navbar img {
     margin-top: 1.5%;
-    height: 40px; 
+    height: 40px;
     margin-left: 5%;
 }
 
@@ -59,7 +63,7 @@ h2{
     line-height: 90%;
 }
 
-input{  
+input{
     /* border-radius: 2.3125rem; */
     border-radius: 1.900rem;
     border: 2px solid #EBDFC5;
@@ -155,17 +159,17 @@ a:hover{
     h2{
         font-size: 7rem;
     }
-    
+
 }
 @media screen and (max-width: 1182px){
     h2{
         font-size: 6rem;
     }
-    
+
 }
 @media screen and (max-width: 1036px){
-    
-   
+
+
     .display1{
         grid-template-columns: none;
         grid-template-rows: 1fr 1fr;
@@ -176,14 +180,14 @@ a:hover{
         justify-content: center;
         padding-top: 5%;
         padding-left: 3%;
-        
+
     }
     .conjunto{
         margin-left: 17%;
         margin-bottom: 5%;
         display: flex;
-          
-        
+
+
     }
 
     .criar{
@@ -192,7 +196,7 @@ a:hover{
         align-items: center;
         padding: 0%;
         margin: 0%;
-               
+
     }
     .criar p{
         margin: 25px 0px 0px 0px;
@@ -202,9 +206,9 @@ a:hover{
 
 }
 @media screen and (max-width: 962px){
-    
+
     .container2{
-        grid-template-columns: none;    
+        grid-template-columns: none;
     }
     .container2 p{
         margin: auto;
@@ -219,14 +223,14 @@ a:hover{
     .conjunto{
         margin-left: 6%;
         margin-bottom: 5%;
-        flex-wrap: wrap;        
-        
+        flex-wrap: wrap;
+
     }
 }
 @media screen and (max-width: 709px){
     .conjunto h2{
         font-size: 5rem;
-        flex-wrap: wrap;      
+        flex-wrap: wrap;
     }
     #cima{
         margin-left: 20%;
@@ -245,7 +249,7 @@ a:hover{
     }
     .conjunto{
         margin-bottom: 5%;
-        flex-wrap: wrap;   
+        flex-wrap: wrap;
     }
     #cima{
         margin-left: 14%;
@@ -258,7 +262,7 @@ a:hover{
     input{
         width: 22.000rem;
         height: 3.6875rem;
-    } 
+    }
     button{
         width: 22.000rem;
         height: 3.6875rem;
@@ -272,10 +276,13 @@ a:hover{
     input{
         width: 20.000rem;
         height: 3.6875rem;
-    } 
+    }
     button{
         width: 20.000rem;
         height: 3.6875rem;
+    }
+    .cima{
+        margin-left: 5%;
     }
 }
 
@@ -287,7 +294,7 @@ a:hover{
         width: 100%;
     }
     #cima{
-        margin-left: 14%;
+        margin-left: 16%;
     }
     #debaixo{
         margin-left: 5%;
@@ -296,10 +303,72 @@ a:hover{
     input{
         width: 18.000rem;
         height: 3.6875rem;
-    }   
+    }
     button{
         width: 18.000rem;
         height: 3.6875rem;
     }
 }
 
+
+@media (max-width: 751px) {
+
+    li{
+        padding-left: 10%;
+    }
+    .restrita a{
+        margin-right: 150px;
+    }
+}
+
+@media (max-width: 532px) {
+
+    li{
+        padding-left: 15%;
+    }
+    li a{
+        font-size: 15px;
+    }
+    .restrita a{
+        margin-right: 50px;
+    }
+}
+
+@media (max-width: 415px) {
+
+    li{
+        padding-left: 15px;
+    }
+    li a{
+        font-size: 12px;
+    }
+    .restrita a{
+        margin-right: 50px;
+    }
+
+}
+@media (max-width: 354px) {
+
+    li{
+        padding-left: 15px;
+    }
+    li a{
+        font-size: 10px;
+    }
+    .restrita a{
+        margin-right: 50px;
+    }
+
+}
+
+.restrita a{
+    margin-left: -20%;
+}
+
+@media (max-width: 1203px) {
+
+    .restrita a{
+        margin-left: -12%;
+    }
+
+}

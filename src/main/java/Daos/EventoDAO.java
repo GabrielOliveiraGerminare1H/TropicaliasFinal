@@ -5,6 +5,8 @@ import Model.Evento;
 
 import java.sql.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class EventoDAO {
@@ -44,23 +46,6 @@ public class EventoDAO {
 
     }
 
-    public ResultSet buscarEvento() {
-        try {
-            //abrindo conexão com o banco
-            conexao.conectar();
-            pstmt = conexao.getConn().prepareStatement("SELECT nome FROM tb_evento ORDER BY pk_int_id_evento");
-            //executando o comando e guardando o resultset
-            ResultSet rset = pstmt.executeQuery();
-            return rset;
-
-        } catch (SQLException sqle) {
-            sqle.printStackTrace();
-            return null;
-        } finally {
-            conexao.desconectar();
-        }
-
-    }
 
     public boolean atualizarEvento(String nomeCampo, String atualizacaoCampo, int pk_int_id_evento) {
 
@@ -123,4 +108,41 @@ public class EventoDAO {
             conexao.desconectar();
         }
     }
+
+    public List<Evento> selecionarEventoA(){
+        List<Evento> eventoList = new ArrayList<>();
+        try{
+            conexao.conectar();
+
+            pstmt = conexao.getConn().prepareStatement("select * from tb_evento where deletedat is null");
+            rs = pstmt.executeQuery();
+
+            if(rs.next()){
+               do {
+                   Evento evento = new Evento(rs.getObject("dt_inicio", LocalDate.class),
+                           rs.getObject("dt_final", LocalDate.class),
+                           rs.getString("var_nome"), rs.getString("var_local"),
+                           rs.getDouble("num_preco_ticket"), rs.getInt("fk_int_id_usuario"));
+                   eventoList.add(evento);
+               }while (rs.next());
+            }else {
+                return null;
+            }
+
+
+
+        }catch(SQLException sqle){
+            return null;
+
+        }
+        finally {
+            conexao.desconectar();
+
+        }
+        return eventoList;
+    }
+
+
 }
+
+

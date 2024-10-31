@@ -65,7 +65,7 @@ public class CadastrarEvento extends HttpServlet {
             }
 
             EventoDAO eventoDAO = new EventoDAO();
-            Evento evento = new Evento(nome, local, precoDouble, fk_int_id_usuarioInt, dt_inicioDate, dt_finalDate);
+            Evento evento = new Evento(dt_inicioDate, dt_finalDate,nome, local, precoDouble, fk_int_id_usuarioInt);
             eventoDAO.cadastrarEvento(evento);
 
         } catch (NumberFormatException nfe){

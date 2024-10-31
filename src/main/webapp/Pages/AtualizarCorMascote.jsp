@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ include file="Menu.jsp"%>
+<%@ include file="ADM.jsp"%>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -27,7 +27,7 @@
         <div class="titulo">
             <h1>ATUALIZAR COR DO MASCOTE</h1>
         </div>
-        <section class="atualizarCor">
+        <section class="AtualizarCor">
             <form action="atualizarCor" method="post">
                 <input type="text" name="campoCor" id="campoCor" placeholder="Campo" required>
                 <input type="text" name="atualizaoCor" id="atualizaoCor" placeholder="Campo atualizado" required>

@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ include file="Menu.jsp"%>
+<%@ include file="ADM.jsp"%>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -28,7 +28,7 @@
             <h1>DELETAR EVENTO</h1>
         </div>
         <section class="deletarEvento">
-            <form action="deletarEvento" method="get">
+            <form action="DeletarEvento" method="get">
                 <input type="number" name="pk_int_id_evento" id="pk_int_id_evento" placeholder="PK do evento" required>
                 <button type="submit">Deletar</button>
             </form>
