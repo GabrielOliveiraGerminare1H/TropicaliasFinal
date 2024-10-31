@@ -1,31 +1,31 @@
-//package Controller.Cor;
-//
-//import Daos.CorMascoteDAO;
-//import jakarta.servlet.ServletException;
-//import jakarta.servlet.annotation.WebServlet;
-//import jakarta.servlet.http.HttpServlet;
-//import jakarta.servlet.http.HttpServletRequest;
-//import jakarta.servlet.http.HttpServletResponse;
-//
-//import java.io.IOException;
-//
-//@WebServlet(name = "selecionarCor" , value = "/tabSelecionarMascote")
-//
-//public class SelecionarCor extends HttpServlet {
-//    @Override
-//    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        CorMascoteDAO corMascoteDAO = new CorMascoteDAO();
-//        corMascoteDAO.buscarCorMascoteAtivo();
-//        try {
-//            req.setAttribute("verifica",true);
-//            req.setAttribute("corMascote", corMascoteDAO.buscarCorMascoteAtivo());
-//            req.getRequestDispatcher("/Pages/Mensagem.jsp").forward(req, resp);
-//
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            req.getRequestDispatcher("/Pages/SelecionarCorMascote.jsp").forward(req, resp);
-//        }
-//
-//    }
-//}
-//
+package Controller.Cor;
+
+import Daos.CorMascoteDAO;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+import java.io.IOException;
+
+@WebServlet(name = "selecionarCor" , value = "/selecionarCor")
+
+public class SelecionarCor extends HttpServlet {
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        CorMascoteDAO corMascoteDAO = new CorMascoteDAO();
+        corMascoteDAO.buscarCorMascoteAtivo();
+        try {
+            request.setAttribute("verifica",true);
+            request.setAttribute("corMascote", corMascoteDAO.buscarCorMascoteAtivo());
+            request.getRequestDispatcher("/Pages/Mensagem.jsp").forward(request, response);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            request.getRequestDispatcher("/Pages/Mensagem.jsp").forward(request, response);
+        }
+
+    }
+}
+

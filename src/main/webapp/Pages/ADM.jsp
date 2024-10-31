@@ -34,10 +34,10 @@
             <img src="assets/Date range.png" alt="">
             <h1>Evento</h1>
             <ul>
-                <li><a href="#UsuariosAtivos">Selecionar usuários ativos</a></li>
-                <li><a href="#CriarEvento">Cadastrar evento</a></li>
-                <li><a href="#DeletarEvento">Deletar evento</a></li>
-                <li><a href="#AtualizarEvento">Atualizar evento</a></li>
+                <li><a href="SelecionarUsuariosA.jsp">Selecionar usuários ativos</a></li>
+                <li><a href="CadastrarEvento.jsp">Cadastrar evento</a></li>
+                <li><a href="DeletarEvento.jsp">Deletar evento</a></li>
+                <li><a href="AtualizarEvento.jsp">Atualizar evento</a></li>
             </ul>
         </div>
 
@@ -47,10 +47,10 @@
             <img src="assets/Colors.png" alt="">
             <h1>Mascote</h1>
             <ul>
-                <li><a href="#SelecionarMascote">Selecionar cor do mascote</a></li>
-                <li><a href="#NovaCor">Cadastrar cor do mascote</a></li>
-                <li><a href="#DeletarCor">Deletar cor do mascote</a></li>
-                <li><a href="#AtualizarCor">Atualizar cores do mascote</a></li>
+                <li><a href="SelecionarCorMascote.jsp">Selecionar cor do mascote</a></li>
+                <li><a href="CadastrarCorMascote.jsp">Cadastrar cor do mascote</a></li>
+                <li><a href="DeletarCorMascote.jsp">Deletar cor do mascote</a></li>
+                <li><a href="AtualizarCorMascote.jsp">Atualizar cores do mascote</a></li>
             </ul>
         </div>
 
@@ -62,7 +62,7 @@
             <img src="assets/Bookmark add.png" alt="">
             <h1>Anúncios</h1>
             <ul>
-                <li><a href="#AnunciosAtivos">Selecionar anúncios ativos</a></li>
+                <li><a href="SelecionarUsuariosA.jsp">Selecionar anúncios ativos</a></li>
             </ul>
         </div>
 
@@ -70,8 +70,8 @@
             <img src="assets/Person.png" alt="">
             <h1>Usuários</h1>
             <ul>
-                <li><a href="#UsuariosAtivos">Selecionar usuários ativos</a></li>
-                <li><a href="#UsuariosInativos">Selecionar usuários inativos</a></li>
+                <li><a href="SelecionarUsuariosA.jsp">Selecionar usuários ativos</a></li>
+                <li><a href="SelecionarUsuariosI.jsp">Selecionar usuários inativos</a></li>
             </ul>
         </div>
 
@@ -79,10 +79,10 @@
             <img src="assets/Warehouse.png" alt="">
             <h1>Barraca</h1>
             <ul>
-                <li><a href="#BarracaAtiva">Selecionar barracas ativas</a></li>
-                <li><a href="#CadastrarBarraca">Cadastrar barraca</a></li>
-                <li><a href="#DeletarBarraca">Deletar barraca</a></li>
-                <li><a href="#AtualizarBarraca">Atualizar barraca</a></li>
+                <li><a href="SelecionarBarraca.jsp">Selecionar barracas ativas</a></li>
+                <li><a href="CadastrarBarraca.jsp">Cadastrar barraca</a></li>
+                <li><a href="DeletarBarraca.jsp">Deletar barraca</a></li>
+                <li><a href="AtualizarBarraca.jsp">Atualizar barraca</a></li>
             </ul>
         </div>
 
