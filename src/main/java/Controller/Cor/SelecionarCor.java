@@ -15,7 +15,17 @@ public class SelecionarCor extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         CorMascoteDAO corMascoteDAO = new CorMascoteDAO();
-        corMascoteDAO.listarCorMascoteAtivo();
+        corMascoteDAO.buscarCorMascoteAtivo();
+        try {
+            req.setAttribute("verifica",true);
+            req.setAttribute("corMascote", corMascoteDAO.buscarCorMascoteAtivo());
+            req.getRequestDispatcher("/Pages/Mensagem.jsp").forward(req, resp);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            req.getRequestDispatcher("/Pages/Mensagem.jsp").forward(req, resp);
+        }
+
     }
 }
 //De acordo com a requisição do usuário  mostrar cor ativas (igual usuários ativos)
