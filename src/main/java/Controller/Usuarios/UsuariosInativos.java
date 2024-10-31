@@ -20,7 +20,7 @@ public class UsuariosInativos extends HttpServlet {
 
             List<Usuario> usuariosI = usuarioDAO.selecionarUsuarioI();
 
-            request.setAttribute(usuariosI.toString(),"usuariosI");
+            request.setAttribute("usuariosI",usuariosI.toString());
 
             request.getRequestDispatcher("selectUsuariosI.jsp").forward(request,response);
 

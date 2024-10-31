@@ -28,4 +28,4 @@ public class SelecionarCor extends HttpServlet {
 
     }
 }
-//De acordo com a requisição do usuário  mostrar cor ativas (igual usuários ativos)
+
