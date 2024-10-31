@@ -19,7 +19,7 @@ public class SelecionarBarracaA extends HttpServlet {
             throws ServletException, IOException {
         try{
 
-            List<Barraca> barracaA = barracaDAO.buscarBarraca();
+            List<Barraca> barracaA = barracaDAO.selecionarBarracaA();
 
             request.setAttribute("usuariosI",barracaA.toString());
 

@@ -39,7 +39,7 @@ public class AtualizarCor extends HttpServlet {
         else {
             req.setAttribute("mensagem","Você digitou o código de cor RGB de maneira errada!");
             req.setAttribute("verifica",false);
-            req.getRequestDispatcher("Mensagem.jsp").forward(req, resp);
+            req.getRequestDispatcher("/Pages/Mensagem.jsp").forward(req, resp);
         }
 
     }
