@@ -37,7 +37,7 @@
         <tbody>
         <%
             EventoDAO eventoDAO = new EventoDAO();
-            ResultSet EventoResultSet = eventoDAO.selecionarEventoA();
+            ResultSet EventoResultSet = eventoDAO.selecionarEventoI();
             try {
                 if(EventoResultSet.next() && EventoResultSet != null){
 

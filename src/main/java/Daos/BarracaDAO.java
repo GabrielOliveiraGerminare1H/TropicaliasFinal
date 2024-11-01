@@ -40,12 +40,11 @@ public class BarracaDAO {
 
 
     public ResultSet selecionarBarracaA(){
-        List<Barraca> barracaList = new ArrayList<>();
         try {
             //Abrindo conexão com o banco
             conexao.conectar();
 
-            pstmt = conexao.getConn().prepareStatement("SELECT * FROM tb_barraca where deletedat is null ORDER BY pk_int_id_barraca+-*9/8");
+            pstmt = conexao.getConn().prepareStatement("SELECT * FROM tb_barraca where deletedat is null ");
 
             //Executando o comando e guardando o resultset
             rs = pstmt.executeQuery();
@@ -58,6 +57,26 @@ public class BarracaDAO {
         }
         return rs;
     }
+
+    public ResultSet selecionarBarracaI(){
+        try {
+            //Abrindo conexão com o banco
+            conexao.conectar();
+
+            pstmt = conexao.getConn().prepareStatement("SELECT * FROM tb_barraca where deletedat is not null ");
+
+            //Executando o comando e guardando o resultset
+            rs = pstmt.executeQuery();
+
+        }catch (SQLException sqle){
+            return null;
+        }
+        finally {
+            conexao.desconectar();
+        }
+        return rs;
+    }
+
 
     public boolean softDeleteBarraca(int idBarraca){
         try{

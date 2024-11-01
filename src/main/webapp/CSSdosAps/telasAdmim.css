@@ -18,6 +18,7 @@ li {
     margin-left: 20px;
     cursor: pointer;
     margin: 0;
+    text-decoration: none;
 }
 
 ul {
@@ -166,6 +167,10 @@ footer img {
     width: 80px;
 }
 
+.container a {
+    color: #ebe6da;
+}
+
 .container li:hover {
     text-decoration: underline;
     transition: 0.3s;
@@ -242,4 +247,222 @@ button:hover {
 .container img {
     width: 80px;
     margin-bottom: 10px;
+}
+
+#restrita {
+    margin-left: -15%;
+}
+
+@media screen and (max-width: 1030px) {
+
+    .container2 {
+        display: inline;
+    }
+
+    .navbar li {
+        margin-top: 2.5%;
+    }
+
+    .navbar img {
+        margin-top: 2.5%;
+    }
+
+    .titulo > h1{
+        text-align: center;
+        margin: 0px;
+        font-size: 90px;
+        width: 100%;
+    }
+
+}
+
+@media screen and (max-width: 880px) {
+
+    .opcaoEvento {
+        height: 265px;
+    }
+
+    .opcaoEvento:hover {
+        height: 275px;
+    }
+
+    .opcaoMascote {
+        height: 265px;
+    }
+
+    .opcaoMascote:hover {
+        height: 275px;
+    }
+
+    .opcaoAnuncio {
+        height: 265px;
+    }
+
+    .opcaoAnuncio:hover {
+        height: 275px;
+    }
+
+    .opcaoUsuario {
+        height: 265px;
+    }
+
+    .opcaoUsuario:hover {
+        height: 275px;
+    }
+
+    .opcaoBarraca {
+        height: 265px;
+    }
+
+    .opcaoBarraca:hover {
+        height: 275px;
+    }
+
+    .container2 h1 {
+        width: 100%;
+        margin-right: 2000px;
+    }
+
+}
+
+@media screen and (max-width: 790px) {
+
+    .navbar li {
+        margin-top: 6%;
+        font-size: 80%;
+    }
+
+    .navbar img {
+        margin-top: 6%;
+        height: 30px;
+    }
+
+    .opcaoEvento {
+        width: 100%;
+        height: 265px;
+    }
+
+    .opcaoEvento:hover {
+        height: 275px;
+    }
+
+    .opcaoMascote {
+        width: 100%;
+        height: 265px;
+    }
+
+    .opcaoMascote:hover {
+        height: 275px;
+    }
+
+    .opcaoAnuncio {
+        height: 265px;
+    }
+
+    .opcaoAnuncio:hover {
+        height: 275px;
+    }
+
+    .opcaoUsuario {
+        height: 265px;
+    }
+
+    .opcaoUsuario:hover {
+        height: 275px;
+    }
+
+    .opcaoBarraca {
+        height: 265px;
+    }
+
+    .opcaoBarraca:hover {
+        height: 275px;
+    }
+
+    .titulo > h1 {
+        font-size: 5rem;
+        line-height: 75px;
+    }
+
+}
+
+@media screen and (max-width: 780px) {
+
+    .opcaoAnuncio {
+        width: 140px;
+    }
+
+    .opcaoUsuario {
+        width: 160px;
+    }
+
+    .opcaoBarraca {
+        width: 150px;
+    }
+
+    .container h1, li {
+        font-size: 80%;
+    }
+
+    #restrita {
+        margin-left: -10%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+
+    .menuCima, .menuBaixo {
+        display: inline;
+    }
+
+    .navbar li {
+        margin-top: 10%;
+    }
+
+    .opcaoEvento, .opcaoMascote, .opcaoAnuncio, .opcaoUsuario, .opcaoBarraca {
+        width: auto;
+        height: auto;
+    }
+
+    .opcaoEvento:hover, .opcaoMascote:hover, .opcaoAnuncio:hover, .opcaoUsuario:hover, .opcaoBarraca:hover {
+        width: auto;
+        height: auto;
+    }
+
+    .opcaoAnuncio {
+        background-color: #E45F15;
+    }
+
+    .opcaoUsuario {
+        background-color: #006996;
+    }
+
+    .opcaoBarraca {
+        background-color: #E45F15;
+    }
+
+    input {
+        width: 300px;
+    }
+
+    button {
+        width: 342px;
+    }
+
+    #restrita {
+        margin-left: -5%;
+    }
+
+}
+
+@media screen and (max-width: 500px) {
+    .navbar li {
+        margin-top: 20%;
+        margin-left: 10%;
+    }
+
+    .navbar img {
+        margin-top: 15%;
+        margin-left: 20%;
+    }
 }

@@ -2,7 +2,7 @@ package Controller;
 import java.io.*;
 import java.time.LocalDate;
 
-import Daos.JDBC.EventoDAO;
+import Daos.EventoDAO;
 import Model.Evento;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
@@ -57,7 +57,7 @@ public class CadastrarEvento extends HttpServlet {
         }
 
 
-        Evento evento = new Evento(nome, local, precoDouble, fk_int_id_usuarioInt, dt_inicioDate, dt_finalDate);
+        Evento evento = new Evento(dt_inicioDate,dt_finalDate,nome, local, precoDouble, fk_int_id_usuarioInt);
         eventoDAO.cadastrarEvento(evento);
 
     }

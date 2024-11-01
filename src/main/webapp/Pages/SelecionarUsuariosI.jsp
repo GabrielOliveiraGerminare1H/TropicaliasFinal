@@ -1,9 +1,8 @@
-<%@ page import="java.util.List" %>
 <%@ page import="Model.Usuario" %>
 <%@ page import="Daos.UsuarioDAO" %>
 <%@ page import="java.sql.ResultSet" %>
 <%@ page import="java.sql.SQLException" %>
-<%--<%@ include file="ADM.html"%>--%>
+<%@ include file="ADM.jsp"%>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -23,6 +22,7 @@
     <table class="select">
         <thead>
         <tr>
+            <th>pk_int_id_usuario</th>
             <th>text_foto</th>
             <th>var_email</th>
             <th>var_senha</th>
@@ -31,7 +31,11 @@
             <th>var_descricao_usariio</th>
             <th>var_cpf</th>
             <th>var_nome</th>
+            <th>createdat</th>
+            <th>deletedat</th>
             <th>fk_int_id_endereco</th>
+            <th>updatat</th>
+            <th>var_role</th>
         </tr>
         </thead>
         <tbody>
@@ -44,7 +48,8 @@
                     do {
         %>
         <tr>
-            <td><p><%=UsuIResultSet.getString("text_foto") %>></p></td>
+            <td><p> <%= UsuIResultSet.getString("text_foto") %>></p></td>
+            <td><p> <%= UsuIResultSet.getString("text_foto") %>></p></td>
             <td><p><%= UsuIResultSet.getString("var_email") %></p></td>
             <td><p><%= UsuIResultSet.getString("var_senha") %></p></td>
             <td><p><%= UsuIResultSet.getString("var_user_name") %>/<p></td>
@@ -52,7 +57,11 @@
             <td><p><%= UsuIResultSet.getString("var_descricao_usuario") %></p></td>
             <td><p><%= UsuIResultSet.getLong("var_cpf") %>/<p></td>
             <td><p><%= UsuIResultSet.getString("var_nome") %></p></td>
+            <td><p> <%= UsuIResultSet.getString("createdat") %>></p></td>
+            <td><p> <%= UsuIResultSet.getString("deletedat") %>></p></td>
             <td><p><%= UsuIResultSet.getInt("fk_int_id_endereco") %>/<p></td>
+            <td><p><%= UsuIResultSet.getInt("updatat") %>/<p></td>
+            <td><p><%= UsuIResultSet.getInt("var_role") %>/<p></td>
         </tr>
 
 

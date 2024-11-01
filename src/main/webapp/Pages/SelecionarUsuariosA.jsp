@@ -1,9 +1,8 @@
-<%@ page import="java.util.List" %>
 <%@ page import="Model.Usuario" %>
 <%@ page import="Daos.UsuarioDAO" %>
 <%@ page import="java.sql.ResultSet" %>
 <%@ page import="java.sql.SQLException" %>
-<%--<%@ include file="../ADM.jsp"%>--%>
+<%@ include file="ADM.jsp"%>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -22,15 +21,21 @@
     <table class="select">
         <thead>
     <tr>
+        <th>pk_int_id_usuario</th>
         <th>text_foto</th>
         <th>var_email</th>
         <th>var_senha</th>
         <th>var_user_name</th>
         <th>dt_nascimento</th>
-        <th>var_descricao_usariio</th>
+        <th>var_descricao_usuario</th>
         <th>var_cpf</th>
         <th>var_nome</th>
+        <th>createdat</th>
+        <th>deletedat</th>
         <th>fk_int_id_endereco</th>
+        <th>updateat</th>
+        <th>var_role</th>
+
 
     </tr>
         </thead>
@@ -44,15 +49,20 @@
                 do {
     %>
     <tr>
-        <td><p> <%= UsuAResultSet.getString("text_foto") %>></p></td>
+        <td><p><%= UsuAResultSet.getInt("pk_int_id_usuario") %>></p></td>
+        <td><p><%= UsuAResultSet.getString("text_foto") %>></p></td>
         <td><p><%= UsuAResultSet.getString("var_email") %></p></td>
         <td><p><%= UsuAResultSet.getString("var_senha") %></p></td>
         <td><p><%= UsuAResultSet.getString("var_user_name") %>/<p></td>
         <td><p><%= UsuAResultSet.getDate("dt_nascimento") %></p></td>
         <td><p><%= UsuAResultSet.getString("var_descricao_usuario") %></p></td>
-        <td><p><%= UsuAResultSet.getLong("var_cpf") %>/<p></td>
+        <td><p><%= UsuAResultSet.getString("var_cpf") %>/<p></td>
         <td><p><%= UsuAResultSet.getString("var_nome") %></p></td>
+        <td><p><%= UsuAResultSet.getString("createdat") %>></p></td>
+        <td><p><%= UsuAResultSet.getString("deletedat") %>></p></td>
         <td><p><%= UsuAResultSet.getInt("fk_int_id_endereco") %>/<p></td>
+        <td><p><%= UsuAResultSet.getString("updateat") %>/<p></td>
+        <td><p><%= UsuAResultSet.getString("var_role") %>/<p></td>
     </tr>
 
 
