@@ -9,7 +9,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet (name = "AtualizarBarraca" , value = "/atualizarBarraca")
+@WebServlet (name = "AtualizarBarraca" , value = "/AtualizarBarraca")
 public class AtualizarBarraca extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)

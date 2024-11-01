@@ -10,7 +10,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet(name = "deletarCor" , value = "/deletarCor")
+@WebServlet(name = "deletarCor" , value = "/DeletarCor")
 public class DeletarCor extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -18,7 +18,7 @@ public class DeletarCor extends HttpServlet {
         int pkCorMascote = Integer.parseInt(pkCorMascoteStr);
 
         CorMascoteDAO corMascoteDAO = new CorMascoteDAO();
-        CorMascote corMascote = new CorMascote();
+        //CorMascote corMascote = new CorMascote();
         boolean verifica = corMascoteDAO.softDeleteCorMascote(pkCorMascote);
 
 

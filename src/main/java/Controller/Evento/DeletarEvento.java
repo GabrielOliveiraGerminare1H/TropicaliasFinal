@@ -2,11 +2,13 @@ package Controller.Evento;
 
 import Daos.EventoDAO;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
+@WebServlet(name = "DeletarEvento", value = "/DeletarEvento")
 public class DeletarEvento {
 
     public void doPost(HttpServletRequest request, HttpServletResponse response)

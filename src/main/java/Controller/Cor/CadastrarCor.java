@@ -12,7 +12,7 @@ import java.sql.*;
 import java.io.IOException;
 import java.sql.SQLException;
 
-@WebServlet(name = "cadastrarCor" , value = "/cadastrarCor")
+@WebServlet(name = "cadastrarCor" , value = "/CadastrarCor")
 public class CadastrarCor extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {

@@ -3,6 +3,7 @@ package Daos;
 import Daos.JDBC.Conexao;
 import Model.CorMascote;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,6 +11,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CorMascoteDAO {
+    private Connection conn;
+    private PreparedStatement pstmt;
+    private ResultSet rs;
     Conexao conexao = new Conexao();
 
     public boolean cadastrarCorMascote(CorMascote corMascote){
@@ -40,16 +44,16 @@ public class CorMascoteDAO {
         }
     }
 
-    public ResultSet buscarCorMascoteAtivo(){
+    public ResultSet selecionarCorMascote(){
         try{
             //abrindo conexão com o banco
             conexao.conectar();
 //            Comando SQL
             PreparedStatement pstmt= conexao.getConn().prepareStatement("SELECT * FROM tb_cor_mascote where deletedat is null ORDER BY pk_int_id_cor_mascote");
             //executando o comando e guardando o resultset
-            ResultSet rset = pstmt.executeQuery();
+            rs = pstmt.executeQuery();
 //            Se tudo deu certo irá retornar o resultset
-            return rset;
+
         }
 //        Tratando exceção do banco e voltando null
         catch (SQLException sqle){
@@ -60,6 +64,7 @@ public class CorMascoteDAO {
         finally {
             conexao.desconectar();
         }
+        return rs;
     }
 
     public boolean softDeleteCorMascote(int idCorMascote){

@@ -12,10 +12,6 @@ public class CorMascote {
         this.textoSec = textoSec;
     }
 
-    public CorMascote(){
-
-    }
-
 
 
     public String getTextoFundo(){

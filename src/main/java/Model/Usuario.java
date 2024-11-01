@@ -13,9 +13,11 @@ public class Usuario {
     private String nome;
     private int Fk_int_id_endereco;
 
+    private String varying;
+
     public Usuario(String textFoto, String varEmail, String senha, String userName,
                        Date dt_nascimento, String descricaoUsua, Long cpf, String nome,
-                       int fk_int_id_endereco) {
+                       int fk_int_id_endereco,String varying) {
             this.textFoto = textFoto;
             this.varEmail = varEmail;
             this.senha = senha;
@@ -24,7 +26,8 @@ public class Usuario {
             this.descricaoUsua = descricaoUsua;
             this.cpf = cpf;
             this.nome = nome;
-            Fk_int_id_endereco = fk_int_id_endereco;
+            this.Fk_int_id_endereco = fk_int_id_endereco;
+            this.varying = varying;
         }
 
         public String getTextFoto() {
@@ -98,5 +101,13 @@ public class Usuario {
         public void setFk_int_id_endereco(int fk_int_id_endereco) {
             Fk_int_id_endereco = fk_int_id_endereco;
         }
+
+    public String getVarying() {
+        return varying;
     }
+
+    public void setVarying(String varying) {
+        this.varying = varying;
+    }
+}
 
