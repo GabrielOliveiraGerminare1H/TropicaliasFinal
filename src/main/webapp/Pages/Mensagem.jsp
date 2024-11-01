@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Mensagem</title>
-    <link rel="stylesheet" href="CSSdosAps/telasadm.css">
+    <link rel="stylesheet" href="../CSSdosAps/telasAdmim.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,8 +11,8 @@
 </head>
 
 <body>
-<%--<jsp:include page="ADM.html">--%>
-<%--</jsp:include>>--%>
+<jsp:include page="ADM.jsp">
+</jsp:include>
 
 <%
     Boolean verifica = (Boolean) request.getAttribute("verifica");
