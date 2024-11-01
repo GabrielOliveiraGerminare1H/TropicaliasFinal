@@ -7,8 +7,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+@WebServlet(name = "atualizarCor" , value = "/deletarEvento")
 
-@WebServlet(name = "DeletarEvento", value = "/DeletarEvento")
 public class DeletarEvento {
 
     public void doPost(HttpServletRequest request, HttpServletResponse response)

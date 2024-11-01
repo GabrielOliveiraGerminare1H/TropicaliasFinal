@@ -3,8 +3,7 @@
 <%@ page import="Daos.UsuarioDAO" %>
 <%@ page import="java.sql.ResultSet" %>
 <%@ page import="java.sql.SQLException" %>
-<%--<%@ include file="ADM.html"%>--%>
-
+<%--<%@ include file="../ADM.jsp"%>--%>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>

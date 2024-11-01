@@ -160,3 +160,50 @@ a:hover{
 #debaixo {
     margin-bottom: 400px;
 }
+
+@media screen and (max-width: 800px) {
+    .display1{
+        grid-template-columns: none;
+        grid-template-rows: 1fr 1fr;
+        display: inline;
+    }
+    .conjunto h2{
+        font-size: 400%;
+        /* padding-top: 5%; */
+        /* padding-bottom: 10%; */
+        padding-left: 10%;
+    }
+    input{
+        width: 15rem;
+        height: 50px;
+    }
+    button{
+        width: 15rem;
+        height: 50px;
+    }
+    .criar{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+       
+    }
+    .criar p{
+        margin: 25px 0px 0px 0px;
+        font-size: 90%;
+        text-align: center;
+    }
+    .container2 img{
+        width: 20%;
+    }
+    .container2{
+        grid-template-columns: none;    
+    }
+    .container2 p{
+        margin-left: 6%;
+    }
+    .container2 img{
+        margin-left: 45%;
+        margin-bottom: 25%;
+    }
+}

@@ -1,17 +1,19 @@
 <%--
   Created by IntelliJ IDEA.
   User: juliaporfirio-ieg
-  Date: 30/10/2024
-  Time: 11:06
+  Date: 22/10/2024
+  Time: 18:39
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%--<%@ include file="../ADM.jsp"%>--%>
 <html>
 <head>
-    <title>Title</title>
+    <title>Erro</title>
+
 </head>
 <body>
+<h1>...ERRO...</h1>
+<p>Erro:${errorMessage}</p>
 
 </body>
 </html>

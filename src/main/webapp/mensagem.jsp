@@ -2,17 +2,12 @@
 <html>
 <head>
     <title>Mensagem</title>
-    <link rel="stylesheet" href="../CSSdosAps/telasAdmim.css">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
-<jsp:include page="ADM.jsp">
-</jsp:include>
+<jsp:include page="telasadmin.html">
+</jsp:include>>
 
 <%
     Boolean verifica = (Boolean) request.getAttribute("verifica");

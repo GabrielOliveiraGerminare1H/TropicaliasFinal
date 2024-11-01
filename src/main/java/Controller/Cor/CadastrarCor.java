@@ -24,18 +24,21 @@ public class CadastrarCor extends HttpServlet {
         CorMascoteDAO corMascoteDAO = new CorMascoteDAO();
 
 
-        if (textFundo.matches("^#([A-Fa-f0-9]{6})$")) {
+        if ((textFundo.matches("^#([A-Fa-f0-9]{6})$"))&&(textPrimaria.matches("^#([A-Fa-f0-9]{6})$"))&&(textSecundaria.matches("^#([A-Fa-f0-9]{6})$"))) {
             CorMascote corMascote = new CorMascote(textFundo,textPrimaria,textSecundaria);
             boolean verifica = corMascoteDAO.cadastrarCorMascote(corMascote);
             if (verifica) {
+                request.getRequestDispatcher("../webapp/Pages/CadastrarCorMascote.jsp");
                 request.setAttribute("verifica",true);
-                request.setAttribute("mensagem","Cadastrado no Banco");
-                request.getRequestDispatcher("/Pages/Mensagem.jsp").forward(request, response);
+                request.setAttribute("mensagem","Cadastro realizado com sucesso!");
+                request.getRequestDispatcher("../webapp/Pages/Mensagem.jsp").forward(request, response);
+
 
             }
             else {
-                request.setAttribute("mensagem","Não foi possível cadastrar!");
                 request.getRequestDispatcher("/Pages/Mensagem.jsp").forward(request, response);
+                request.setAttribute("verifica",false);
+                request.setAttribute("mensagem","Não foi possível realizar o cadastro!");
 
             }
         } else {
