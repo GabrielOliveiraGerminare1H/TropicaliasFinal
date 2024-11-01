@@ -1,6 +1,9 @@
 <%@ page import="java.util.List" %>
 <%@ page import="Model.Usuario" %>
-<%@ include file="Menu.jsp"%>
+<%@ page import="Daos.UsuarioDAO" %>
+<%@ page import="java.sql.ResultSet" %>
+<%@ page import="java.sql.SQLException" %>
+<%--<%@ include file="ADM.html"%>--%>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -10,46 +13,75 @@
     <style>
         table { width: 50%; margin: auto; border-collapse: collapse; }
         th, td { border: 1px solid #000; padding: 10px; text-align: left; }
-        th { background-color: #f2f2f2; }
+        th { background-color: #ff7e32; }
     </style>
 </head>
 <body>
-<h2 style="text-align: center;">Lista de Usuários</h2>
+<h2 style="color: #3d59e7;" style="text-align: center;">Lista de Usuários Inativos</h2>
 
-<table>
-    <tr>
-        <th>textFoto</th>
-        <th>email</th>
-        <th>senha</th>
-        <th>userName</th>
-        <th>dt_nascimento</th>
-        <th>descricaoUsa</th>
-        <th>cpf</th>
-        <th>nome</th>
-        <th>fk_int_id_endereco</th>
+<div class="select-container">
+    <table class="select">
+        <thead>
+        <tr>
+            <th>text_foto</th>
+            <th>var_email</th>
+            <th>var_senha</th>
+            <th>var_user_name</th>
+            <th>dt_nascimento</th>
+            <th>var_descricao_usariio</th>
+            <th>var_cpf</th>
+            <th>var_nome</th>
+            <th>fk_int_id_endereco</th>
+        </tr>
+        </thead>
+        <tbody>
+        <%
+            UsuarioDAO usuarioDAO = new UsuarioDAO();
+            ResultSet UsuIResultSet = usuarioDAO.selecionarUsuarioI();
+            try {
+                if(UsuIResultSet.next() && UsuIResultSet != null){
 
-    </tr>
-    <%
-        List<Usuario> usuarios = (List<Usuario>) request.getAttribute("usuarios");
-        for (Usuario usuario : usuarios) {
-    %>
-    <tr>
-        <td><%= usuario.getTextFoto() %></td>
-        <td><%= usuario.getVarEmail() %></td>
-        <td><%= usuario.getSenha() %></td>
-        <td><%= usuario.getUserName() %></td>
-        <td><%= usuario.getDt_nascimento() %></td>
-        <td><%= usuario.getDescricaoUsua() %></td>
-        <td><%= usuario.getCpf() %></td>
-        <td><%= usuario.getNome() %></td>
-        <td><%= usuario.getFk_int_id_endereco() %></td>
+                    do {
+        %>
+        <tr>
+            <td><p><%=UsuIResultSet.getString("text_foto") %>></p></td>
+            <td><p><%= UsuIResultSet.getString("var_email") %></p></td>
+            <td><p><%= UsuIResultSet.getString("var_senha") %></p></td>
+            <td><p><%= UsuIResultSet.getString("var_user_name") %>/<p></td>
+            <td><p><%= UsuIResultSet.getDate("dt_nascimento") %></p></td>
+            <td><p><%= UsuIResultSet.getString("var_descricao_usuario") %></p></td>
+            <td><p><%= UsuIResultSet.getLong("var_cpf") %>/<p></td>
+            <td><p><%= UsuIResultSet.getString("var_nome") %></p></td>
+            <td><p><%= UsuIResultSet.getInt("fk_int_id_endereco") %>/<p></td>
+        </tr>
 
-    </tr>
-    <%
+
+
+        <%
+            } while(UsuIResultSet.next());
         }
-    %>
-</table>
+        else {
+        %>
+        <tr>
+            <td colspan="5"><p>Nenhum registro encontrado.</p></td>
+        </tr>
+        <%}
+
+        } catch (SQLException sql) {
+            sql.printStackTrace();
+        %>
+        <tr>
+            <td colspan="5"><p>Erro no banco de dados!</p></td>
+        </tr>
+        <%
+            }
+        %>
+        </tbody>
+    </table>
+
+
+</div>
+
 </body>
 </html>
-
 

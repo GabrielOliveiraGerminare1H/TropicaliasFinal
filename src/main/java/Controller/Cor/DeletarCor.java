@@ -18,7 +18,7 @@ public class DeletarCor extends HttpServlet {
         int pkCorMascote = Integer.parseInt(pkCorMascoteStr);
 
         CorMascoteDAO corMascoteDAO = new CorMascoteDAO();
-        CorMascote corMascote = new CorMascote();
+        //CorMascote corMascote = new CorMascote();
         boolean verifica = corMascoteDAO.softDeleteCorMascote(pkCorMascote);
 
 

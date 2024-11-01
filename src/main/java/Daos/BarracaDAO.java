@@ -39,7 +39,7 @@ public class BarracaDAO {
     }
 
 
-    public List<Barraca> selecionarBarracaA(){
+    public ResultSet selecionarBarracaA(){
         List<Barraca> barracaList = new ArrayList<>();
         try {
             //Abrindo conexão com o banco
@@ -50,23 +50,13 @@ public class BarracaDAO {
             //Executando o comando e guardando o resultset
             rs = pstmt.executeQuery();
 
-            if(rs.next()){
-                do{
-                    Barraca barraca= new Barraca(rs.getString("var_nome"),rs.getInt("fk_int_id_evento"));
-                    barracaList.add(barraca);
-                } while(rs.next());
-            }
-            else{
-                return null;
-            }
-
         }catch (SQLException sqle){
             return null;
         }
         finally {
             conexao.desconectar();
         }
-        return barracaList;
+        return rs;
     }
 
     public boolean softDeleteBarraca(int idBarraca){

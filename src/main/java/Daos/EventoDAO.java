@@ -109,25 +109,12 @@ public class EventoDAO {
         }
     }
 
-    public List<Evento> selecionarEventoA(){
-        List<Evento> eventoList = new ArrayList<>();
+    public ResultSet selecionarEventoA(){
         try{
             conexao.conectar();
 
             pstmt = conexao.getConn().prepareStatement("select * from tb_evento where deletedat is null");
             rs = pstmt.executeQuery();
-
-            if(rs.next()){
-               do {
-                   Evento evento = new Evento(rs.getObject("dt_inicio", LocalDate.class),
-                           rs.getObject("dt_final", LocalDate.class),
-                           rs.getString("var_nome"), rs.getString("var_local"),
-                           rs.getDouble("num_preco_ticket"), rs.getInt("fk_int_id_usuario"));
-                   eventoList.add(evento);
-               }while (rs.next());
-            }else {
-                return null;
-            }
 
 
 
@@ -139,7 +126,7 @@ public class EventoDAO {
             conexao.desconectar();
 
         }
-        return eventoList;
+        return rs;
     }
 
 
