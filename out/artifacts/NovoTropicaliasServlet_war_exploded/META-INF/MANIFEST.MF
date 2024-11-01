@@ -1,5 +1,9 @@
 Manifest-Version: 1.0
 Created-By: IntelliJ IDEA
+<<<<<<< HEAD
 Built-By: gabrieloliveira-ieg
+=======
+Built-By: juliaporfirio-ieg
+>>>>>>> c11db8393ff147dca2f479605d6d99f7c5c0ba71
 Build-Jdk: Oracle OpenJDK version 21.0.2
 
