@@ -1,11 +1,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%--<%@ include file="ADM.html"%>--%>
+<%--<%@ include file="../ADM.jsp"%>--%>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/CSSdosAps/telasadmin%20(1).css">
+    <link rel="stylesheet" href="../CSSdosAps/telasAdmim.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,7 +21,7 @@
             <h1>CADASTRAR COR DO MASCOTE</h1>
         </div>
         <section class="corMascote">
-            <form action="CadastrarCor" method="post">
+            <form action="cadastrarCor" method="post">
                 <input type="text" name="text_fundo" id="text_fundo" placeholder="Cor do fundo" required>
                 <input type="text" name="text_secundaria" id="text_secundaria" placeholder="Cor secundária" required>
                 <input type="text" name="text_primaria" id="text_primaria" placeholder="Cor primária" required>
