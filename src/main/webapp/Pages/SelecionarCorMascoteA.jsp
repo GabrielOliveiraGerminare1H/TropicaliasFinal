@@ -1,14 +1,13 @@
-<%@ page import="Model.Barraca" %>
-<%@ page import="Daos.BarracaDAO" %>
+<%@ page import="Model.CorMascote" %>
+<%@ page import="Daos.CorMascoteDAO" %>
 <%@ page import="java.sql.ResultSet" %>
 <%@ page import="java.sql.SQLException" %>
 <%@ include file="ADM.jsp"%>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Barraca</title>
+    <title>Cor Mascote</title>
     <style>
         table { width: 50%; margin: auto; border-collapse: collapse; }
         th, td { border: 1px solid #000; padding: 10px; text-align: left; }
@@ -16,44 +15,47 @@
     </style>
 </head>
 <body>
-<h2 style="color: #3d59e7;" style="text-align: center;">Lista de Barracas Ativas</h2>
+<h2 style="color: #3d59e7;" style="text-align: center;">Lista de Cores Mascote</h2>
 
 <div class="select-container">
     <table class="select">
         <thead>
         <tr>
-            <th>pk_int_id_barraca</th>
-            <th>var_nome</th>
+            <th>pk_int_id_cor_mascote</th>
+            <th>text_fundo</th>
             <th>createdat</th>
             <th>deletedat</th>
-            <th>fk_int_id_evento</th>
+            <th>text_secundaria</th>
+            <th>text_primaria</th>
             <th>updateat</th>
+
 
         </tr>
         </thead>
         <tbody>
         <%
-            BarracaDAO barracaDAO = new BarracaDAO();
-            ResultSet BarracaResultSet = barracaDAO.selecionarBarracaA();
+            CorMascoteDAO corMascoteDAO = new CorMascoteDAO();
+            ResultSet CorAResultSet = corMascoteDAO.selecionarCorMascoteA();
             try {
-                if(BarracaResultSet.next() && BarracaResultSet != null){
+                if(CorAResultSet.next() && CorAResultSet != null){
 
                     do {
         %>
         <tr>
-            <td><p><%=BarracaResultSet.getString("pk_int_id_barraca") %>></p></td>
-            <td><p><%=BarracaResultSet.getString("var_nome") %>></p></td>
-            <td><p><%=BarracaResultSet.getString("createdat") %>></p></td>
-            <td><p><%=BarracaResultSet.getString("deletedat") %>></p></td>
-            <td><p><%= BarracaResultSet.getInt("fk_int_id_evento") %>/<p></td>
-            <td><p><%=BarracaResultSet.getString("updateat") %>></p></td>
+            <td><p> <%= CorAResultSet.getInt("pk_int_id_cor_mascote") %>></p></td>
+            <td><p> <%= CorAResultSet.getString("text_fundo") %>></p></td>
+            <td><p> <%= CorAResultSet.getString("createdat") %>></p></td>
+            <td><p> <%= CorAResultSet.getString("deletedat") %>></p></td>
+            <td><p><%= CorAResultSet.getString("text_secundaria") %></p></td>
+            <td><p><%= CorAResultSet.getString("text_primaria") %></p></td>
+            <td><p> <%= CorAResultSet.getString("updateat") %>></p></td>
 
         </tr>
 
 
 
         <%
-            } while(BarracaResultSet.next());
+            } while(CorAResultSet.next());
         }
         else {
         %>

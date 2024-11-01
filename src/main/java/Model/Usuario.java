@@ -30,77 +30,77 @@ public class Usuario {
             this.varying = varying;
         }
 
-        public String getTextFoto() {
-            return textFoto;
-        }
+    public String getTextFoto() {
+        return textFoto;
+    }
 
-        public void setTextFoto(String textFoto) {
-            this.textFoto = textFoto;
-        }
+    public void setTextFoto(String textFoto) {
+        this.textFoto = textFoto;
+    }
 
-        public String getVarEmail() {
-            return varEmail;
-        }
+    public String getVarEmail() {
+        return varEmail;
+    }
 
-        public void setVarEmail(String varEmail) {
-            this.varEmail = varEmail;
-        }
+    public void setVarEmail(String varEmail) {
+        this.varEmail = varEmail;
+    }
 
-        public String getSenha() {
-            return senha;
-        }
+    public String getSenha() {
+        return senha;
+    }
 
-        public void setSenha(String senha) {
-            this.senha = senha;
-        }
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
 
-        public String getUserName() {
-            return userName;
-        }
+    public String getUserName() {
+        return userName;
+    }
 
-        public void setUserName(String userName) {
-            this.userName = userName;
-        }
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
 
-        public java.util.Date getDt_nascimento() {
-            return dt_nascimento;
-        }
+    public java.util.Date getDt_nascimento() {
+        return dt_nascimento;
+    }
 
-        public void setDt_nascimento(Date dt_nascimento) {
-            this.dt_nascimento = dt_nascimento;
-        }
+    public void setDt_nascimento(Date dt_nascimento) {
+        this.dt_nascimento = dt_nascimento;
+    }
 
-        public String getDescricaoUsua() {
-            return descricaoUsua;
-        }
+    public String getDescricaoUsua() {
+        return descricaoUsua;
+    }
 
-        public void setDescricaoUsua(String descricaoUsua) {
-            this.descricaoUsua = descricaoUsua;
-        }
+    public void setDescricaoUsua(String descricaoUsua) {
+        this.descricaoUsua = descricaoUsua;
+    }
 
-        public Long getCpf() {
-            return cpf;
-        }
+    public Long getCpf() {
+        return cpf;
+    }
 
-        public void setCpf(Long cpf) {
-            this.cpf = cpf;
-        }
+    public void setCpf(Long cpf) {
+        this.cpf = cpf;
+    }
 
-        public String getNome() {
-            return nome;
-        }
+    public String getNome() {
+        return nome;
+    }
 
-        public void setNome(String nome) {
-            this.nome = nome;
-        }
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
-        public int getFk_int_id_endereco() {
-            return Fk_int_id_endereco;
-        }
+    public int getFk_int_id_endereco() {
+        return Fk_int_id_endereco;
+    }
 
-        public void setFk_int_id_endereco(int fk_int_id_endereco) {
-            Fk_int_id_endereco = fk_int_id_endereco;
-        }
+    public void setFk_int_id_endereco(int fk_int_id_endereco) {
+        Fk_int_id_endereco = fk_int_id_endereco;
+    }
 
     public String getVarying() {
         return varying;

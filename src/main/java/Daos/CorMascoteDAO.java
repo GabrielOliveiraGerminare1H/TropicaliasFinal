@@ -44,12 +44,12 @@ public class CorMascoteDAO {
         }
     }
 
-    public ResultSet selecionarCorMascote(){
+    public ResultSet selecionarCorMascoteA(){
         try{
             //abrindo conexão com o banco
             conexao.conectar();
 //            Comando SQL
-            PreparedStatement pstmt= conexao.getConn().prepareStatement("SELECT * FROM tb_cor_mascote where deletedat is null ORDER BY pk_int_id_cor_mascote");
+             pstmt= conexao.getConn().prepareStatement("select * from tb_cor_mascote where deletedat is null ");
             //executando o comando e guardando o resultset
             rs = pstmt.executeQuery();
 //            Se tudo deu certo irá retornar o resultset
@@ -57,7 +57,29 @@ public class CorMascoteDAO {
         }
 //        Tratando exceção do banco e voltando null
         catch (SQLException sqle){
-            sqle.printStackTrace();
+            return null;
+        }
+//        Fechando conexão com banco de dados
+        finally {
+            conexao.desconectar();
+        }
+        return rs;
+    }
+
+
+    public ResultSet selecionarCorMascoteI(){
+        try{
+            //abrindo conexão com o banco
+            conexao.conectar();
+//            Comando SQL
+            pstmt= conexao.getConn().prepareStatement("select * from tb_cor_mascote where deletedat is not null ");
+            //executando o comando e guardando o resultset
+            rs = pstmt.executeQuery();
+//            Se tudo deu certo irá retornar o resultset
+
+        }
+//        Tratando exceção do banco e voltando null
+        catch (SQLException sqle){
             return null;
         }
 //        Fechando conexão com banco de dados

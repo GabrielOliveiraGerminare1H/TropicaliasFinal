@@ -1,28 +1,24 @@
 package Daos;
 
-
 import Daos.JDBC.Conexao;
-import Model.Usuario;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
-public class UsuarioDAO {
+public class AnuncioDAO {
     private Connection conn;
     private PreparedStatement pstmt;
     private ResultSet rs;
     Conexao conexao = new Conexao();
 
-    public ResultSet selecionarUsuarioA(){
+    public ResultSet selecionarAnuncioA(){
         try {
             //Abrindo conexão com o banco
             conexao.conectar();
 
-            pstmt = conexao.getConn().prepareStatement("select * from tb_usuario where deletedat is null");
+            pstmt = conexao.getConn().prepareStatement("select * from tb_anuncio where deletedat is null");
 
             //Executando o comando e guardando o resultset
             rs = pstmt.executeQuery();
@@ -37,12 +33,12 @@ public class UsuarioDAO {
         return rs;
     }
 
-    public ResultSet selecionarUsuarioI() {
+    public ResultSet selecionarAnuncioI() {
         try {
             //Abrindo conexão com o banco
             conexao.conectar();
 
-            pstmt = conexao.getConn().prepareStatement("select * from tb_usuario where deletedat is not null");
+            pstmt = conexao.getConn().prepareStatement("select * from tb_anuncio where deletedat is not null");
 
             //Executando o comando e guardando o resultset
             rs = pstmt.executeQuery();

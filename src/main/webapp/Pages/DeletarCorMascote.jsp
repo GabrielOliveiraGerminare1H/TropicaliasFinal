@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %><!DOCTYPE html>
-<%--<%@ include file="../ADM.jsp"%>--%>
+<%@ include file="ADM.jsp"%>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">

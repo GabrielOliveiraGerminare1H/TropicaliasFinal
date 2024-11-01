@@ -129,6 +129,26 @@ public class EventoDAO {
         return rs;
     }
 
+    public ResultSet selecionarEventoI(){
+        try{
+            conexao.conectar();
+
+            pstmt = conexao.getConn().prepareStatement("select * from tb_evento where deletedat is not null");
+            rs = pstmt.executeQuery();
+
+
+
+        }catch(SQLException sqle){
+            return null;
+
+        }
+        finally {
+            conexao.desconectar();
+
+        }
+        return rs;
+    }
+
 
 }
 

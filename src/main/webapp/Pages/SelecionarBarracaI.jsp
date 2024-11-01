@@ -34,7 +34,7 @@
         <tbody>
         <%
             BarracaDAO barracaDAO = new BarracaDAO();
-            ResultSet BarracaResultSet = barracaDAO.selecionarBarracaA();
+            ResultSet BarracaResultSet = barracaDAO.selecionarBarracaI();
             try {
                 if(BarracaResultSet.next() && BarracaResultSet != null){
 

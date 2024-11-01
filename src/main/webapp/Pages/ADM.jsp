@@ -31,10 +31,11 @@
 <div class="container">
     <div class="menuCima">
         <div class="opcaoEvento">
-<!--            <img src="Assets/Date range.png" alt="">-->
+            <img src="../Assets/Date range.png" alt="">
             <h1>Evento</h1>
             <ul>
-                <li><a href="SelecionarUsuariosA.jsp">Selecionar usuários ativos</a></li>
+                <li><a href="SelecionarEventosA.jsp">Selecionar eventos ativos</a></li>
+                <li><a href="SelecionarEventosI.jsp">Selecionar eventos inativos</a></li>
                 <li><a href="CadastrarEvento.jsp">Cadastrar evento</a></li>
                 <li><a href="DeletarEvento.jsp">Deletar evento</a></li>
                 <li><a href="AtualizarEvento.jsp">Atualizar evento</a></li>
@@ -44,11 +45,12 @@
         <div class="opcaoEventoBlur"></div>
 
         <div class="opcaoMascote">
-            <img src="assets/Colors.png" alt="">
+            <img src="../Assets/Colors.png" alt="">
             <h1>Mascote</h1>
             <ul>
-                <li><a href="SelecionarCorMascote.jsp">Selecionar cor do mascote</a></li>
-                <li><a href="CadastrarCorMascote.jsp">Cadastrar cor do mascote</a></li>
+                <li><a href="SelecionarCorMascoteA.jsp">Selecionar cores ativas do mascote</a></li>
+                <li><a href="SelecionarCorMascoteI.jsp">Selecionar cores inativas do mascote</a></li>
+                <li><a href="CadastrarCorMascote.jsp#corMascote" >Cadastrar cor do mascote</a></li>
                 <li><a href="DeletarCorMascote.jsp">Deletar cor do mascote</a></li>
                 <li><a href="AtualizarCorMascote.jsp">Atualizar cores do mascote</a></li>
             </ul>
@@ -59,15 +61,17 @@
     <div class="menuBaixo">
 
         <div class="opcaoAnuncio">
-            <img src="assets/Bookmark add.png" alt="">
+            <img src="../Assets/Bookmark add.png" alt="">
             <h1>Anúncios</h1>
             <ul>
-                <li><a href="SelecionarUsuariosA.jsp">Selecionar anúncios ativos</a></li>
+                <li><a href="SelecionarAnuncioA.jsp">Selecionar anúncios ativos</a></li>
+                <li><a href="SelecionarAnuncioI.jsp">Selecionar anúncios inativos</a></li>
+
             </ul>
         </div>
 
         <div class="opcaoUsuario">
-            <img src="assets/Person.png" alt="">
+            <img src="../Assets/Person.png" alt="">
             <h1>Usuários</h1>
             <ul>
                 <li><a href="SelecionarUsuariosA.jsp">Selecionar usuários ativos</a></li>
@@ -76,10 +80,11 @@
         </div>
 
         <div class="opcaoBarraca">
-            <img src="assets/Warehouse.png" alt="">
+            <img src="../Assets/Warehouse.png" alt="">
             <h1>Barraca</h1>
             <ul>
-                <li><a href="SelecionarBarraca.jsp">Selecionar barracas ativas</a></li>
+                <li><a href="SelecionarBarracaA.jsp">Selecionar barracas ativas</a></li>
+                <li><a href="SelecionarBarracaI.jsp">Selecionar barracas inativas</a></li>
                 <li><a href="CadastrarBarraca.jsp">Cadastrar barraca</a></li>
                 <li><a href="DeletarBarraca.jsp">Deletar barraca</a></li>
                 <li><a href="AtualizarBarraca.jsp">Atualizar barraca</a></li>
