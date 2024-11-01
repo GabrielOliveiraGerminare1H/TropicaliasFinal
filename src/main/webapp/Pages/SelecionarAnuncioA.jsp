@@ -43,7 +43,6 @@
             ResultSet AnuncioResulSet = anuncioDAO.selecionarAnuncioA();
             try {
                 if(AnuncioResulSet.next() && AnuncioResulSet != null){
-
                     do {
         %>
         <tr>
