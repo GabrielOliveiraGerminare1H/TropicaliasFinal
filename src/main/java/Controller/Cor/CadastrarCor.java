@@ -28,13 +28,13 @@ public class CadastrarCor extends HttpServlet {
             CorMascote corMascote = new CorMascote(textFundo,textPrimaria,textSecundaria);
             boolean verifica = corMascoteDAO.cadastrarCorMascote(corMascote);
             if (verifica) {
-                request.getRequestDispatcher("../webapp/Pages/CadastrarCorMascote.jsp");
+//                request.getRequestDispatcher("../webapp/Pages/CadastrarCorMascote.jsp");
                 request.setAttribute("verifica",true);
                 request.setAttribute("mensagem","Cadastro realizado com sucesso!");
-                request.getRequestDispatcher("../webapp/Pages/Mensagem.jsp").forward(request, response);
+                request.getRequestDispatcher("mensagem.jsp").forward(request, response);
             }
             else {
-                request.getRequestDispatcher("/Pages/Mensagem.jsp").forward(request, response);
+//                request.getRequestDispatcher("/Pages/Mensagem.jsp").forward(request, response);
                 request.setAttribute("verifica",false);
                 request.setAttribute("mensagem","Não foi possível realizar o cadastro!");
 
@@ -42,7 +42,7 @@ public class CadastrarCor extends HttpServlet {
         } else {
             request.setAttribute("verifica",false);
             request.setAttribute("mensagem","Você digitou o código de cor RGB de maneira errada!");
-            request.getRequestDispatcher("/Pages/Mensagem.jsp").forward(request, response);
+            request.getRequestDispatcher("mensagem.jsp").forward(request, response);
         }
     }
 }

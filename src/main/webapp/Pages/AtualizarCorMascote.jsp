@@ -28,9 +28,9 @@
             <h1>ATUALIZAR COR DO MASCOTE</h1>
         </div>
         <section class="AtualizarCor">
-            <form action=../atualizarCor" method="post">
-                <input type="text" name="campoCor" id="campoCor" placeholder="Campo" required>
-                <input type="text" name="atualizaoCor" id="atualizaoCor" placeholder="Campo atualizado" required>
+            <form action="../atualizarCor" method="post">
+                <input type="text" name="nomeCampo" id="nomeCampo" placeholder="Campo" required>
+                <input type="text" name="atualizacaoCor" id="atualizacaoCor" placeholder="Campo atualizado" required>
                 <input type="number" name="pk_int_id_cor_mascote" min="1" id="pk_int_id_cor_mascote" placeholder="PK cor do mascote" required>
                 <button type="submit">Atualizar</button>
             </form>

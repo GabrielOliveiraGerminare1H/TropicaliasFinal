@@ -89,28 +89,32 @@ public class CorMascoteDAO {
         return rs;
     }
 
-    public boolean softDeleteCorMascote(int idCorMascote){
-        try{
-//            Conectando ao banco de dados
+    public boolean softDeleteCorMascote(int idCorMascote) {
+        try {
+            // Conectando ao banco de dados
             conexao.conectar();
-//            Comando SQl
-            PreparedStatement pstmt = conexao.getConn().prepareStatement("UPDATE tb_cor_mascote SET deletedAt = current_date and updatedAt = current_date WHERE pk_int_id_cor_mascote = ?");
-//            Setando os parâmetros
+
+            // Comando SQL
+            PreparedStatement pstmt = conexao.getConn().prepareStatement(
+                    "UPDATE tb_cor_mascote SET deletedAt = current_date, updatedAt = current_date WHERE pk_int_id_cor_mascote = ?"
+            );
+
+            // Setando os parâmetros
             pstmt.setInt(1, idCorMascote);
-//          Executando os comandos SQL no banco e se der certo retorna true, caso contrário será pego na exceçãp e irá retornar false
-            pstmt.execute();
-            return true;
-        }
-//       Tratando exceção
-        catch(SQLException sqles){
+
+            // Executando o comando SQL e retornando o resultado da verificação
+            return pstmt.executeUpdate() > 0;
+
+        } catch (SQLException sqles) {
             sqles.printStackTrace();
             return false;
-        }
-//        Fechando conexão com o banco de dados
-        finally {
+
+        } finally {
+            // Fechando a conexão com o banco de dados
             conexao.desconectar();
         }
     }
+
 
 
 //    public List<CorMascote> listarCorMascoteAtivo(){
@@ -145,39 +149,42 @@ public class CorMascoteDAO {
 //        return corMascotes;
 //    }
 
-    public boolean atualizarCorMascote(String nomeCampo,String atualizacaoCampo, int pk_int_id_cor_mascote){
-        try{
-            //abrindo conexão com o banco
-            conexao.conectar();
-//            Comando SQL
-            PreparedStatement pstmt= conexao.getConn().prepareStatement("update tb_cor_mascote set ? = ? where pk_int_id_cor_mascote = ? ");
-            //executando o comando e guardando o resultset
-            pstmt.setString(1,nomeCampo);
-            pstmt.setString(2,atualizacaoCampo);
-            pstmt.setInt(3,pk_int_id_cor_mascote);
 
-            //Se tudo deu certo irá retornar o executeUpdate
-            if (pstmt.executeUpdate() > 0) {
-                return true;
-            }
-            else {
-                return false;
-            }
-        }
-//        Tratando exceção do banco e voltando null
-        catch (SQLException sqle){
-            sqle.printStackTrace();
+    public boolean atualizarCorMascote(String nomeCampo, String atualizacaoCampo, int pkCorMascote) {
+        // Lista de campos válidos para evitar SQL injection
+        if (!nomeCampo.equals("text_fundo") && !nomeCampo.equals("text_primaria") && !nomeCampo.equals("text_secundaria")) {
+            System.out.println("Campo inválido: " + nomeCampo);
             return false;
         }
-//        Fechando conexão com banco de dados
-        finally {
+
+        try {
+            // Conectar ao banco de dados
+            conexao.conectar();
+
+            // Criar consulta SQL com o nome do campo diretamente na string (já validado)
+            String sql = "UPDATE tb_cor_mascote SET " + nomeCampo + " = ?, updatedAt = current_date WHERE pk_int_id_cor_mascote = ?";
+            PreparedStatement pstmt = conexao.getConn().prepareStatement(sql);
+
+            // Definir os parâmetros
+            pstmt.setString(1, atualizacaoCampo);
+            pstmt.setInt(2, pkCorMascote);
+
+            // Executar atualização e retornar o sucesso da operação
+            return pstmt.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            // Fechar conexão com o banco de dados
             conexao.desconectar();
         }
-    }
+    }}
 
 
 
 
 
 
-}
+
+
+
