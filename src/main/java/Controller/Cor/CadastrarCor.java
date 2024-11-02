@@ -12,7 +12,7 @@ import java.sql.*;
 import java.io.IOException;
 import java.sql.SQLException;
 
-@WebServlet(name = "cadastrarCor" , value = "/CadastrarCor")
+@WebServlet(name = "cadastrarCor" , value = "/cadastrarCor")
 public class CadastrarCor extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -32,8 +32,6 @@ public class CadastrarCor extends HttpServlet {
                 request.setAttribute("verifica",true);
                 request.setAttribute("mensagem","Cadastro realizado com sucesso!");
                 request.getRequestDispatcher("../webapp/Pages/Mensagem.jsp").forward(request, response);
-
-
             }
             else {
                 request.getRequestDispatcher("/Pages/Mensagem.jsp").forward(request, response);

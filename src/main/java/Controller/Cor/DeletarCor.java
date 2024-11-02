@@ -10,7 +10,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet(name = "deletarCor" , value = "/DeletarCor")
+@WebServlet(name = "deletarCor" , value = "/deletarCor")
 public class DeletarCor extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

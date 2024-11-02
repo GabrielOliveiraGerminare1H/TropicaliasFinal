@@ -27,7 +27,7 @@
             <h1>DELETAR COR DO MASCOTE</h1>
         </div>
         <section class="deletarCorMascote">
-            <form action="deletarCor" method="post">
+            <form action="../deletarCor" method="post">
                 <input type="number" name="pk_int_id_cor_mascote" min="1" id="pk_int_id_cor_mascote" placeholder="PK cor do mascote" required>
                 <button type="submit">Deletar</button>
             </form>
