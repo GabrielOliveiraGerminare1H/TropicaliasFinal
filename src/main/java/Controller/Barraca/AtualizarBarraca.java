@@ -15,8 +15,6 @@ public class AtualizarBarraca extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
        try{
-
-
            String nomeCampo = request.getParameter("nomeCampo");
            String valorNovo = request.getParameter("valorNovo");
            int pkBarraca = Integer.parseInt(request.getParameter("pkBarraca"));
