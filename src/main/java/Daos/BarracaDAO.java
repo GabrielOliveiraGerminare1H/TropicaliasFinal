@@ -83,7 +83,8 @@ public class BarracaDAO {
 //            Conectando ao banco de dados
             conexao.conectar();
 //            Comando SQl
-             pstmt = conexao.getConn().prepareStatement("UPDATE tb_barraca SET deletedAt = current_date and updatedAt = current_date pk_int_id_barraca = ?");
+             pstmt = conexao.getConn().prepareStatement("UPDATE tb_barraca SET deletedat = current_date, updateat = current_date WHERE pk_int_id_barraca = ?"
+             );
 //            Setando os parâmetros
             pstmt.setInt(1, idBarraca);
 //          Executando os comandos SQL no banco e se der certo retorna true, caso contrário será pego na exceçãp e irá retornar false
@@ -104,10 +105,11 @@ public class BarracaDAO {
     public boolean atualizarBarraca(String nomeCampo, String valorNovo, int pkCampo) {
         try {
             conexao.conectar();
-            pstmt = conexao.getConn().prepareStatement("Update tb_barraca set ? = ? where id = ?");
-            pstmt.setString(1, nomeCampo);
-            pstmt.setString(2, valorNovo);
-            pstmt.setInt(3, pkCampo);
+            pstmt = conexao.getConn().prepareStatement(
+                    "UPDATE tb_barraca SET " + nomeCampo + " = ?, updateat = current_date WHERE pk_int_id_barraca = ?"
+            );
+            pstmt.setString(1, valorNovo);
+            pstmt.setInt(2, pkCampo);
             ResultSet rs = pstmt.executeQuery();
             if (pstmt.executeUpdate() > 0) {
                 return true;

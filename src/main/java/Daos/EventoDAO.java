@@ -53,7 +53,9 @@ public class EventoDAO {
 
         try {
 
-            pstmt = conn.prepareStatement("UPDATE tb_evento SET ? = ?, updatedat = current_date WHERE pk_int_id_evento = ?");
+            pstmt = conn.prepareStatement("UPDATE tb_evento SET " + nomeCampo + " = ?, updateat = current_date WHERE pk_int_id_evento = ?"
+            );
+
 
             pstmt.setString(1, nomeCampo);
             
@@ -91,7 +93,8 @@ public class EventoDAO {
 //            Conectando ao banco de dados
             conexao.conectar();
 //            Comando SQl
-            pstmt = conexao.getConn().prepareStatement("UPDATE tb_evento SET deletedAt = current_date and updatedAt = current_date WHERE pk_int_id_evento = ?");
+            pstmt = conexao.getConn().prepareStatement("UPDATE tb_evento SET deletedat = current_date, updateat = current_date WHERE pk_int_id_evento = ?"
+            );
 //            Setando os parâmetros
             pstmt.setInt(1, idEvento);
 //          Executando os comandos SQL no banco e se der certo retorna true, caso contrário será pego na exceçãp e irá retornar false
