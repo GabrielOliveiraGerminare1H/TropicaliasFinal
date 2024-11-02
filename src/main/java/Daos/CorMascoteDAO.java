@@ -93,7 +93,7 @@ public class CorMascoteDAO {
             conexao.conectar();
             // Comando SQL para atualizar o campo deletedAt
             PreparedStatement pstmt = conexao.getConn().prepareStatement(
-                    "UPDATE tb_cor_mascote SET deletedAt = current_date, updatedAt = current_date WHERE pk_int_id_cor_mascote = ?"
+                    "UPDATE tb_cor_mascote SET deletedat = current_date, updateat = current_date WHERE pk_int_id_cor_mascote = ?"
             );
 
             // Setando os parâmetros
@@ -121,7 +121,7 @@ public class CorMascoteDAO {
             // Conectar ao banco de dados
             conexao.conectar();
             // Criar consulta SQL com o nome do campo diretamente na string (já validado)
-            String sql = "UPDATE tb_cor_mascote SET " + nomeCampo + " = ?, updatedAt = current_date WHERE pk_int_id_cor_mascote = ?";
+            String sql = "UPDATE tb_cor_mascote SET " + nomeCampo + " = ?, updateat = current_date WHERE pk_int_id_cor_mascote = ?";
             PreparedStatement pstmt = conexao.getConn().prepareStatement(sql);
 
             // Definir os parâmetros
@@ -138,4 +138,9 @@ public class CorMascoteDAO {
             conexao.desconectar(); // Garante que a conexão será fechada
         }
     }
+
+
+
+
+
 }
