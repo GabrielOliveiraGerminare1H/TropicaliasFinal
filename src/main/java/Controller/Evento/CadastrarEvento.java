@@ -130,8 +130,8 @@ public class CadastrarEvento extends HttpServlet {
             // Obtém os parâmetros da requisição para o cadastro do evento
             String dt_inicio = request.getParameter("dt_inicio");
             String dt_final = request.getParameter("dt_final");
-            String nome = request.getParameter("nome");
-            String local = request.getParameter("local");
+            String nome = request.getParameter("var_nome");
+            String local = request.getParameter("var_local");
             String preco = request.getParameter("preco");
             String fk_int_id_usuario = request.getParameter("fk_int_id_usuario");
 
