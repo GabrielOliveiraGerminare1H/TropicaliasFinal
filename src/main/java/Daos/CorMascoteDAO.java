@@ -22,7 +22,7 @@ public class CorMascoteDAO {
             conexao.conectar();
             // Comando SQL para inserir uma nova cor de mascote
             PreparedStatement pstmt = conexao.getConn().prepareStatement(
-                    "INSERT INTO tb_cor_mascote (text_fundo, text_primaria, text_secundaria, createdAt) " +
+                    "INSERT INTO tb_cor_mascote (text_fundo, text_primaria, text_secundaria, createdat) " +
                             "VALUES(?,?,?,current_date)"
             );
             // Setando os parâmetros para a inserção no banco de dados

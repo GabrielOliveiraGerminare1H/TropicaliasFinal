@@ -17,7 +17,8 @@
     </style>
 </head>
 <body>
-<h2 style="color: #3d59e7; text-align: center;">Lista de Cores Mascote</h2> <%-- Título da seção centralizado e com cor personalizada --%>
+<h2 style="color: #006996; font-size: 5rem; text-align: center; line-height: 80px;
+font-family: Oswald, sans-serif;">LISTA CORES DO MASCOTE INATIVAS</h2> <%-- Título da seção centralizado e com cor personalizada --%>
 
 <div class="select-container"> <%-- Contêiner para a tabela --%>
     <table class="select"> <%-- Início da tabela para exibir os dados das cores dos mascotes --%>
