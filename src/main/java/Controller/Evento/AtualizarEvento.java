@@ -3,38 +3,52 @@ package Controller.Evento;
 import Daos.EventoDAO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
-@WebServlet(name = "atualizarCor" , value = "/atualizarEvento")
 
-public class AtualizarEvento {
+@WebServlet(name = "atualizarEvento", value = "/atualizarEvento")
+public class AtualizarEvento extends HttpServlet {
 
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
+        // Obtém parâmetros da requisição
+        String nomeCampo = request.getParameter("nomeCampo"); // Nome do campo a ser atualizado
+        String atualizacaoCampo = request.getParameter("atualizacaoCampo"); // Novo valor para o campo
+        String pkEventoStr = request.getParameter("pk_int_id_evento"); // ID do evento
+        int pkEvento;
+
+        // Tenta converter o ID do evento de String para int
         try {
-
-            String nomeCampo = request.getParameter("nomeCampo");
-            String atualizacaoCampo = request.getParameter("atualizacaoCampo");
-            String pk_int_id_evento = request.getParameter("pk_int_id_evento");
-            int pkEvento = Integer.parseInt(pk_int_id_evento);
-
-            EventoDAO eventoDAO = new EventoDAO();
-            boolean verifica = eventoDAO.atualizarEvento(nomeCampo, atualizacaoCampo, pkEvento);
-            String mensagem = verifica ? "Evento atualizado com sucesso!" : "Erro em atualizar evento.";
-
-            request.setAttribute("verifica",verifica);
-            request.setAttribute("mensagem",mensagem);
-
-            request.getRequestDispatcher("mensagem.jsp").forward(request,response);
-
-        } catch (NumberFormatException nfe) {
+            pkEvento = Integer.parseInt(pkEventoStr);
+        } catch (NumberFormatException e) {
+            // Caso o ID seja inválido, define mensagem de erro e redireciona
             request.setAttribute("verifica", false);
-            request.setAttribute("mensagem", nfe.getMessage());
+            request.setAttribute("mensagem", "ID inválido fornecido!");
             request.getRequestDispatcher("mensagem.jsp").forward(request, response);
+            return; // Sai do método
         }
 
-    }
+        // Cria uma instância do DAO e tenta atualizar o evento no banco de dados
+        EventoDAO eventoDAO = new EventoDAO();
+        boolean verifica = eventoDAO.atualizarEvento(nomeCampo, atualizacaoCampo, pkEvento);
 
+        // Define mensagem de acordo com o resultado da atualização
+        if (verifica) {
+            // Se a atualização foi bem-sucedida, define mensagem de sucesso
+            request.setAttribute("verifica", true);
+            request.setAttribute("mensagem", "Evento atualizado com sucesso!");
+        } else {
+            // Se não foi possível atualizar, define mensagem de erro
+            request.setAttribute("verifica", false);
+            request.setAttribute("mensagem", "Erro ao atualizar o evento.");
+        }
+
+        // Redireciona para a página de mensagens
+        request.getRequestDispatcher("mensagem.jsp").forward(request, response);
+    }
 }

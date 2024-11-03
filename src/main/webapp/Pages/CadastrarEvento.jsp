@@ -14,12 +14,14 @@
             <h1>CADASTRAR EVENTO</h1>
         </div>
         <section class="cadastrarEvento">
-            <form action="cadastrarEvento" method="post">
+            <form action="../cadastrarEvento" method="post">
                 <input type="date" name="dt_inicio" id="dt_inicio" placeholder="Data de início" required>
                 <input type="date" name="dt_final" id="dt_final" placeholder="Data de término" required>
                 <input type="text" name="var_nome" id="var_nome" placeholder="Nome" required>
                 <input type="text" name="var_local" id="var_local" placeholder="Local" required>
                 <input type="text" name="num_preco_ticket" id="preco" placeholder="Preço" required>
+                <input type="int" name="fk_int_id_usuario" id="fk_int_id_usuario" placeholder="Fk do usuário" required>
+
                 <button type="submit">Cadastrar</button>
             </form>
         </section>

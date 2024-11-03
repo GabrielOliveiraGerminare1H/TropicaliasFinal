@@ -7,7 +7,7 @@
             <h1>DELETAR EVENTO</h1>
         </div>
         <section class="deletarEvento">
-            <form action="deletarEvento" method="get">
+            <form action="../deletarEvento" method="post">
                 <input type="number" name="pk_int_id_evento" id="pk_int_id_evento" placeholder="PK do evento" required>
                 <button type="submit">Deletar</button>
             </form>
