@@ -78,29 +78,28 @@ public class BarracaDAO {
     }
 
 
-    public boolean softDeleteBarraca(int idBarraca){
-        try{
-//            Conectando ao banco de dados
+    public boolean softDeleteBarraca(int idBarraca) {
+        try {
+            // Conectando ao banco de dados
             conexao.conectar();
-//            Comando SQl
-             pstmt = conexao.getConn().prepareStatement("UPDATE tb_barraca SET deletedat = current_date, updateat = current_date WHERE pk_int_id_barraca = ?"
-             );
-//            Setando os parâmetros
+            // Comando SQL para atualizar o campo deletedAt
+            PreparedStatement pstmt = conexao.getConn().prepareStatement(
+                    "UPDATE tb_barraca SET deletedat = current_date, updateat = current_date WHERE pk_int_id_barraca = ?"
+            );
+
+            // Setando os parâmetros
             pstmt.setInt(1, idBarraca);
-//          Executando os comandos SQL no banco e se der certo retorna true, caso contrário será pego na exceçãp e irá retornar false
-            pstmt.execute();
-            return true;
-        }
-//       Tratando exceção
-        catch(SQLException sqle){
+            // Executando o comando SQL e retornando o resultado da verificação
+            return pstmt.executeUpdate() > 0; // Retorna true se a atualização afetou alguma linha
+        } catch (SQLException sqle) {
             sqle.printStackTrace();
-            return false;
-        }
-//        Fechando conexão com o banco de dados
-        finally {
-            conexao.desconectar();
+            return false; // Retorna false em caso de falha
+        } finally {
+            // Fechando a conexão com o banco de dados
+            conexao.desconectar(); // Garante que a conexão será fechada
         }
     }
+
 
     public boolean atualizarBarraca(String nomeCampo, String valorNovo, int pkCampo) {
         try {

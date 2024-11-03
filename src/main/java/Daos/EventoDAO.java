@@ -69,17 +69,23 @@ public class EventoDAO {
 
     public boolean softDeleteEvento(int idEvento) {
         try {
-            conexao.conectar(); // Conectando ao banco de dados
-            try (PreparedStatement pstmt = conexao.getConn().prepareStatement("UPDATE tb_evento SET deletedat = current_date, updateat = current_date WHERE pk_int_id_evento = ?")) {
-                pstmt.setInt(1, idEvento);
-                pstmt.executeUpdate(); // Use executeUpdate para UPDATE
-                return true;
-            }
+            // Conectando ao banco de dados
+            conexao.conectar();
+            // Comando SQL para atualizar o campo deletedAt
+            PreparedStatement pstmt = conexao.getConn().prepareStatement(
+                    "UPDATE tb_evento SET deletedat = current_date, updateat = current_date WHERE pk_int_id_evento = ?"
+            );
+
+            // Setando os parâmetros
+            pstmt.setInt(1, idEvento);
+            // Executando o comando SQL e retornando o resultado da verificação
+            return pstmt.executeUpdate() > 0; // Retorna true se a atualização afetou alguma linha
         } catch (SQLException sqles) {
-            sqles.printStackTrace(); // Imprimindo a pilha de erros
-            return false;
+            sqles.printStackTrace();
+            return false; // Retorna false em caso de falha
         } finally {
-            conexao.desconectar(); // Fechando conexão com o banco de dados
+            // Fechando a conexão com o banco de dados
+            conexao.desconectar(); // Garante que a conexão será fechada
         }
     }
 
