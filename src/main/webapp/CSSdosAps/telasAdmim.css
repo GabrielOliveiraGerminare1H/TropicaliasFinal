@@ -157,19 +157,19 @@ ul {
     transition: 0.2s;
 }
 
-/*footer {*/
-/*    display: flex;*/
-/*    justify-content: center;*/
-/*    align-items: center;*/
-/*    background-color: #E45F15;*/
-/*    color: #EBDFC5;*/
-/*    font-family: Montserrat;*/
-/*    height: 200px;*/
-/*}*/
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #E45F15;
+    color: #EBDFC5;
+    font-family: Montserrat;
+    height: 200px;
+}
 
-/*footer img {*/
-/*    width: 80px;*/
-/*}*/
+footer img {
+    width: 80px;
+}
 
 .container a {
     color: #ebe6da;
