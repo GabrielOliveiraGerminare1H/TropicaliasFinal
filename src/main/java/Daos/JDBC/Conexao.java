@@ -4,6 +4,8 @@ import java.sql.*;
 
 public class Conexao {
     private Connection conn;
+    private PreparedStatement pstmt;
+    private ResultSet rs;
 
     public void conectar() {
         try {
@@ -35,5 +37,13 @@ public class Conexao {
             conectar();
         }
         return this.conn;
+    }
+
+    public PreparedStatement getPstmt() {
+        return pstmt;
+    }
+
+    public ResultSet getRs() {
+        return rs;
     }
 }

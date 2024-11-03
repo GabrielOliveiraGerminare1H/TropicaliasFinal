@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="Model.Usuario" %>
 <%@ page import="Daos.UsuarioDAO" %>
 <%@ page import="java.sql.ResultSet" %>
@@ -10,16 +11,18 @@
     <meta charset="UTF-8">
     <title>Usuários</title>
     <style>
-        table { width: 50%; margin: auto; border-collapse: collapse; }
-        th, td { border: 1px solid #000; padding: 10px; text-align: left; }
+        table { width: 50%; margin: auto; border-collapse: collapse; font-family: Montserrat }
+        th { color: #ebe6da }
+        th, td { border: 1px solid #E45F15; padding: 10px; text-align: left; }
         th { background-color: #ff7e32; }
     </style>
 </head>
 <body>
-<h2 style="color: #3d59e7;" style="text-align: center;">Lista de Usuários Inativos</h2>
-
+<h2 style="color: #006996; font-size: 5rem; text-align: center; line-height: 80px;
+font-family: Oswald, sans-serif;">LISTA DE USUÁRIOS INATIVOS</h2>
+<br>
 <div class="select-container">
-    <table class="select">
+    <table class="select" style="box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);">
         <thead>
         <tr>
             <th>pk_int_id_usuario</th>
@@ -87,7 +90,7 @@
         %>
         </tbody>
     </table>
-
+    <br><br><br>
 
 </div>
 

@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: isabelaneu-ieg
-  Date: 25/10/2024
-  Time: 15:17
-  To change this template use File | Settings | File Templates.
---%>
+
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %> <%-- Define o tipo de conteúdo da página e a linguagem utilizada --%>
 <!DOCTYPE html> <%-- Declara o tipo de documento HTML --%>
@@ -43,5 +37,4 @@
     <img src="../im/mocBrancaSemFUndo.png" alt="img6" width="10%"> <%-- Imagem no footer --%>
 </footer>
 
-</body>
-</html>
+

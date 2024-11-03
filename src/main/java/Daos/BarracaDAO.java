@@ -104,27 +104,21 @@ public class BarracaDAO {
 
     public boolean atualizarBarraca(String nomeCampo, String valorNovo, int pkCampo) {
         try {
-            conexao.conectar();
+            conexao.conectar(); // Abre a conexão com o banco
             pstmt = conexao.getConn().prepareStatement(
                     "UPDATE tb_barraca SET " + nomeCampo + " = ?, updateat = current_date WHERE pk_int_id_barraca = ?"
             );
-            pstmt.setString(1, valorNovo);
-            pstmt.setInt(2, pkCampo);
-            ResultSet rs = pstmt.executeQuery();
-            if (pstmt.executeUpdate() > 0) {
-                return true;
-            }
-            else {
-                return false;
-            }
+            pstmt.setString(1, valorNovo); // Define o novo valor para o campo
+            pstmt.setInt(2, pkCampo); // Define o ID da barraca
 
+            // Executa a atualização e retorna true se pelo menos uma linha for afetada
+            return pstmt.executeUpdate() > 0;
 
         } catch (SQLException sqle) {
-            return false;
-
-
+            sqle.printStackTrace(); // Exibe o stack trace para depuração
+            return false; // Retorna false em caso de erro
         } finally {
-            conexao.desconectar();
+            conexao.desconectar(); // Fecha a conexão com o banco
         }
     }
 

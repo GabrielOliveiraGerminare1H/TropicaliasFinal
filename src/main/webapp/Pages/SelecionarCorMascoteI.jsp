@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="Model.CorMascote" %> <%-- Importa a classe CorMascote do pacote Model --%>
 <%@ page import="Daos.CorMascoteDAO" %> <%-- Importa a classe CorMascoteDAO do pacote Daos --%>
 <%@ page import="java.sql.ResultSet" %> <%-- Importa a classe ResultSet para manipulação de resultados de consultas SQL --%>
@@ -9,9 +10,10 @@
     <meta charset="UTF-8"> <%-- Define a codificação de caracteres para a página --%>
     <title>Cor Mascote</title> <%-- Título da página exibido na aba do navegador --%>
     <style>
-        table { width: 50%; margin: auto; border-collapse: collapse; } <%-- Estilo para a tabela, com largura de 50% e colapso de bordas --%>
-        th, td { border: 1px solid #000; padding: 10px; text-align: left; } <%-- Estilo para células da tabela --%>
-        th { background-color: #ff7e32; } <%-- Cor de fundo para os cabeçalhos da tabela --%>
+        table { width: 50%; margin: auto; border-collapse: collapse; font-family: Montserrat }
+        th { color: #ebe6da }
+        th, td { border: 1px solid #E45F15; padding: 10px; text-align: left; }
+        th { background-color: #ff7e32; }
     </style>
 </head>
 <body>
