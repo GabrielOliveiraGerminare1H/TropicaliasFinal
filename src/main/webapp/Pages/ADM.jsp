@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -18,12 +19,13 @@
 <div class="container1">
     <div class="navbar">
         <ul>
-            <img src="../assets/Araci%20(1).png" alt="">
+            <img src="../Assets/Araci%20(1).png" alt="">
             <li><a href="../index.html">Inicio</a></li>
             <li><a href="../Eventos.html">Evento</a></li>
-            <li><a href="../Suporte.html">Ajuda</a></li>
+            <li><a href="../Suporte.html">Suporte</a></li>
             <li><a href="../Termos.html">Termos</a></li>
             <li><a href="../Login.html">Área restrita</a></li>
+            <li><a href="ADM.jsp">ADM</a></li>
         </ul>
     </div>
 </div>

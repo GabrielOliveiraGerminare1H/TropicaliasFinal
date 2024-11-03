@@ -83,7 +83,7 @@ public class BarracaDAO {
 //            Conectando ao banco de dados
             conexao.conectar();
 //            Comando SQl
-             pstmt = conexao.getConn().prepareStatement("UPDATE tb_barraca SET deletedAt = current_date and updatedAt = current_date pk_int_id_barraca = ?");
+             pstmt = conexao.getConn().prepareStatement("UPDATE tb_barraca SET deletedAt = current_date and updatedAt = current_date where pk_int_id_barraca = ?");
 //            Setando os parâmetros
             pstmt.setInt(1, idBarraca);
 //          Executando os comandos SQL no banco e se der certo retorna true, caso contrário será pego na exceçãp e irá retornar false

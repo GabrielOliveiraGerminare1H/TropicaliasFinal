@@ -10,36 +10,39 @@ body, html {
     font-family: Montserrat, sans-serif;
 }
 
-li {
-    margin-left: 20px; 
-    cursor: pointer;
+.navbar{
+    padding-right: 20rem;
+    background-color: #006996;
+    height: 70px;
 }
 
-.lado {
+li {
+    margin-left: 20px;
+    cursor: pointer;
     margin: 0;
-    font-weight: bold;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
 }
 
 .navbar ul {
-    list-style: none; 
-    display: flex; 
+    display: flex;
     align-items: center;
-    /* justify-content: flex-start; Alinha os itens à esquerda */
-    margin-left: 3%;
-}
-
-.navbar {
-    background-color: #006996; /* Cor de fundo para navbar */
-    width: 100%;
-    position: relative;
 }
 
 .navbar li {
     margin-top: 1.5%;
     color: #EBDFC5;
     font-size: 18px;
-    word-wrap: break-word;
+    font-family: Montserrat;
     margin-left: 2%;
+}
+
+.navbar a {
+    color: #EBDFC5;
+    text-decoration: none;
 }
 
 .navbar li:hover {
@@ -49,18 +52,8 @@ li {
 
 .navbar img {
     margin-top: 1.5%;
-    height: 40px; 
-    margin-right: 20px;
-}
-
-a {
-    color: #EBDFC5;
-    text-decoration: none;
-}
-
-a:hover {
-    transition: 0.5s ease;
-    color: #E45F15;
+    height: 40px;
+    margin-left: 5%;
 }
 
 .container1 {

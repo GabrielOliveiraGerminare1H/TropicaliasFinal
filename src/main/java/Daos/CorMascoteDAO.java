@@ -121,7 +121,7 @@ public class CorMascoteDAO {
             // Conectar ao banco de dados
             conexao.conectar();
             // Criar consulta SQL com o nome do campo diretamente na string (já validado)
-            String sql = "UPDATE tb_cor_mascote SET " + nomeCampo + " = ?, updatedAt = current_date WHERE pk_int_id_cor_mascote = ?";
+            String sql = "UPDATE tb_cor_mascote SET  = ?, updatedAt = current_date WHERE pk_int_id_cor_mascote = ?";
             PreparedStatement pstmt = conexao.getConn().prepareStatement(sql);
 
             // Definir os parâmetros
