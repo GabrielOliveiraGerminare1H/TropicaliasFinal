@@ -7,7 +7,7 @@
             <h1>CADASTRAR BARRACA</h1>
         </div>
         <section class="cadastrarBarraca">
-            <form action="cadastrarBarraca" method="post">
+            <form action="../cadastrarBarraca" method="post">
                 <input type="text" name="nome" id="nome" placeholder="Nome da barraca" required>
                 <input type="int" name="fk_int_id_evento" id="fk_int_id_evento" placeholder="ID do evento" required>
                 <button type="submit">Cadastrar</button>

@@ -10,7 +10,7 @@
             <h1>DELETAR BARRACA</h1>
         </div>
         <section class="deletarBarraca">
-            <form action="deletarBarraca" method="get">
+            <form action="../deletarBarraca" method="post">
                 <input type="number" name="pk_int_id_barraca" id="pk_int_id_barraca" placeholder="PK da barraca" required>
                 <button type="submit">Deletar</button>
             </form>
