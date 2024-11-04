@@ -35,6 +35,12 @@
                 <%-- Campo numérico para a chave estrangeira do usuário relacionado ao evento, obrigatório --%>
                 <input type="int" name="fk_int_id_usuario" id="fk_int_id_usuario" placeholder="Fk do usuário" required>
 
+                <%-- Campo de texto para a URL da imagem do evento, obrigatório --%>
+                <input type="text" name="var_imagem" id="var_imagem" placeholder="URL imagem" required>
+
+                <%-- Campo de texto para a descrição do evento, obrigatório --%>
+                <input type="text" name="var_descricao" id="var_descricao" placeholder="Descrição" required>
+
                 <%-- Botão para enviar o formulário e realizar o cadastro do evento --%>
                 <button type="submit">Cadastrar</button>
             </form>

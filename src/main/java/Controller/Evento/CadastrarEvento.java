@@ -24,7 +24,9 @@ public class CadastrarEvento extends HttpServlet {
             String nome = request.getParameter("var_nome");
             String local = request.getParameter("var_local");
             String preco = request.getParameter("preco");
-            String fk_int_id_usuario = request.getParameter("fk_int_id_usuario");
+            String fkUsuario = request.getParameter("fk_int_id_usuario");
+            String imagem = request.getParameter("var_imagem");
+            String descricao = request.getParameter("var_descricao");
 
 
             // Declara a variável de preço como double para conversão posterior
@@ -63,14 +65,14 @@ public class CadastrarEvento extends HttpServlet {
             // Converte o ID do usuário para inteiro e verifica validade
             int fk_int_id_usuarioInt;
             try {
-                fk_int_id_usuarioInt = Integer.parseInt(fk_int_id_usuario);
+                fk_int_id_usuarioInt = Integer.parseInt(fkUsuario);
             } catch (NumberFormatException e) {
                 setErrorMessage(request, response, "ID do usuário inválido!");
                 return;
             }
 
             // Cria um objeto Evento e realiza o cadastro no banco de dados
-            Evento evento = new Evento(dt_inicioDate, dt_finalDate, nome, local, precoDouble, fk_int_id_usuarioInt);
+            Evento evento = new Evento(dt_inicioDate, dt_finalDate, nome, local, precoDouble, fk_int_id_usuarioInt, imagem, descricao);
             EventoDAO eventoDAO = new EventoDAO();
             eventoDAO.cadastrarEvento(evento);
 

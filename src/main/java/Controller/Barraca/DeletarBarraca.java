@@ -15,12 +15,12 @@ public class DeletarBarraca extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Obtém o parâmetro que representa a chave primária da barraca
-        String pkBarracaStr = request.getParameter("pk_int_id_barraca");
-        int pkBarraca;
+        String pkBarraca = request.getParameter("pk_int_id_barraca");
+        int pkBarracaInt;
 
         // Tenta converter o parâmetro para um inteiro
         try {
-            pkBarraca = Integer.parseInt(pkBarracaStr);
+            pkBarracaInt = Integer.parseInt(pkBarraca);
         } catch (NumberFormatException e) {
             // Se a conversão falhar, define mensagem de erro e redireciona
             request.setAttribute("verifica", false);
@@ -33,7 +33,7 @@ public class DeletarBarraca extends HttpServlet {
         BarracaDAO barracaDAO = new BarracaDAO();
 
         // Tenta realizar a "exclusão" (SOFTDELETE) da barraca
-        boolean verifica = barracaDAO.softDeleteBarraca(pkBarraca);
+        boolean verifica = barracaDAO.softDeleteBarraca(pkBarracaInt);
 
         // Define mensagens de sucesso ou erro com base no resultado da operação
         if (verifica) {

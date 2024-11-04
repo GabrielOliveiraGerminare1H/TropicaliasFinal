@@ -19,12 +19,12 @@ public class AtualizarEvento extends HttpServlet {
         // Obtém parâmetros da requisição
         String nomeCampo = request.getParameter("nomeCampo"); // Nome do campo a ser atualizado
         String atualizacaoCampo = request.getParameter("atualizacaoCampo"); // Novo valor para o campo
-        String pkEventoStr = request.getParameter("pk_int_id_evento"); // ID do evento
-        int pkEvento;
+        String pkEvento = request.getParameter("pk_int_id_evento"); // ID do evento
+        int pkEventoInt;
 
-        // Tenta converter o ID do evento de String para int
+        // Converte o ID do evento de String para int
         try {
-            pkEvento = Integer.parseInt(pkEventoStr);
+            pkEventoInt = Integer.parseInt(pkEvento);
         } catch (NumberFormatException e) {
             // Caso o ID seja inválido, define mensagem de erro e redireciona
             request.setAttribute("verifica", false);
@@ -35,7 +35,7 @@ public class AtualizarEvento extends HttpServlet {
 
         // Cria uma instância do DAO e tenta atualizar o evento no banco de dados
         EventoDAO eventoDAO = new EventoDAO();
-        boolean verifica = eventoDAO.atualizarEvento(nomeCampo, atualizacaoCampo, pkEvento);
+        boolean verifica = eventoDAO.atualizarEvento(nomeCampo, atualizacaoCampo, pkEventoInt);
 
         // Define mensagem de acordo com o resultado da atualização
         if (verifica) {

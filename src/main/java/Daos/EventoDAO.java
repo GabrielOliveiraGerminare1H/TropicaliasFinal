@@ -51,8 +51,8 @@ public class EventoDAO {
             try (PreparedStatement pstmt = conexao.getConn().prepareStatement
                     ("INSERT INTO tb_evento " +
                             "(dt_inicio, dt_final, var_nome, var_local, num_preco_ticket," +
-                            "createdat, fk_int_id_usuario) " +
-                            "VALUES (?, ?, ?, ?, ?, current_date,?)")) {
+                            "createdat, fk_int_id_usuario, var_imagem, var_descricao) " +
+                            "VALUES (?, ?, ?, ?, ?, current_date,?,?,?)")) {
 
                 // Setando os parâmetros para fazer a inserção no banco de dados
                 pstmt.setDate(1, java.sql.Date.valueOf(evento.getDtInicio()));
@@ -61,6 +61,8 @@ public class EventoDAO {
                 pstmt.setString(4, evento.getLocal());
                 pstmt.setDouble(5, evento.getPrecoTicket());
                 pstmt.setInt(6, evento.getFkUsuario());
+                pstmt.setString(7,evento.getImagem());
+                pstmt.setString(8, evento.getDescricao());
 
                 // Executando o comando SQL no banco de dados
                 int resultado = pstmt.executeUpdate();

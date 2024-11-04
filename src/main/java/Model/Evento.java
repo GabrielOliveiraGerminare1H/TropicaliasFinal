@@ -7,19 +7,24 @@ public class Evento {
 
     private LocalDate dtInicio;         // Data de início do evento
     private LocalDate dtFinal;          // Data de término do evento
-    private String nome;                 // Nome do evento
-    private String local;                // Local onde o evento será realizado
-    private double precoTicket;          // Preço do ticket para o evento
+    private String nome;                // Nome do evento
+    private String local;               // Local onde o evento será realizado
+    private double precoTicket;         // Preço do ticket para o evento
     private int fkUsuario;       // Chave estrangeira para o usuário criador do evento
 
+    private String imagem;             // URL da imagem para o evento
+    private String descricao;          //Descrição do evento
+
     // Construtor da classe
-    public Evento(LocalDate dtInicio, LocalDate dtFinal, String nome, String local, double precoTicket, int fkUsuario) {
+    public Evento(LocalDate dtInicio, LocalDate dtFinal, String nome, String local, double precoTicket, int fkUsuario, String mensagem, String descricao) {
         this.dtInicio = dtInicio;
         this.dtFinal = dtFinal;
         this.nome = nome;
         this.local = local;
         this.precoTicket = precoTicket;
         this.fkUsuario = fkUsuario;
+        this.imagem=imagem;
+        this.descricao=descricao;
     }
 
     // Métodos getters e setters para acessar e modificar os atributos
@@ -70,6 +75,22 @@ public class Evento {
 
     public void setFkUsuario(int fkUsuario) {
         this.fkUsuario = fkUsuario;
+    }
+
+    public String getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(String imagem) {
+        this.imagem = imagem;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
     // Método toString para representar o objeto Evento
