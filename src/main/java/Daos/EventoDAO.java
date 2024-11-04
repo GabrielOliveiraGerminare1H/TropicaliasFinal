@@ -88,7 +88,7 @@ public class EventoDAO {
 
             //Comando SQL
             String query ="UPDATE tb_evento SET " + nomeCampo + " = '" + campoAtualizado +
-                    "' ,updateat = current_date WHERE pkEvento = " + pkEvento;
+                    "' ,updateat = current_date WHERE pkEvento = " + pkEvento + "and deletedat is null";
 
             // Método chamado para executar a query e retornar um integer da quantidade de linhas afetadas
             int resultado= conexao.executarUpdate(query);

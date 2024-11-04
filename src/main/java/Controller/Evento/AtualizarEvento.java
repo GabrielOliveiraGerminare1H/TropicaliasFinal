@@ -45,7 +45,7 @@ public class AtualizarEvento extends HttpServlet {
         } else {
             // Se não foi possível atualizar, define mensagem de erro
             request.setAttribute("verifica", false);
-            request.setAttribute("mensagem", "Erro ao atualizar o evento.");
+            request.setAttribute("mensagem", "Erro ao atualizar o evento. ATENÇÃO verifique os campos e se o evento existe");
         }
 
         // Redireciona para a página de mensagens

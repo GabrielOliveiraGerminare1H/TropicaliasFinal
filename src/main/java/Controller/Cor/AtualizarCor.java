@@ -46,7 +46,7 @@ public class AtualizarCor extends HttpServlet {
             } else {
                 // Se não foi possível atualizar, define mensagem de erro
                 request.setAttribute("verifica", false);
-                request.setAttribute("mensagem", "Não foi possível atualizar a cor.");
+                request.setAttribute("mensagem", "Não foi possível atualizar a cor. ATENÇÃO verifique os campos e se a cor existe");
             }
         } else {
             // Se o formato da cor for inválido, define mensagem de erro

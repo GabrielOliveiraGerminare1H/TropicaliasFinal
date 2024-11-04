@@ -89,7 +89,7 @@ public class CorMascoteDAO {
 
             //Comando SQL
             String query ="UPDATE tb_cor_mascote SET " + nomeCampo + " = '" + campoAtualizado +
-                    "' ,updateat = current_date WHERE pk_int_id_cor_mascote = " + pkCorMascote;
+                    "' ,updateat = current_date WHERE pk_int_id_cor_mascote = " + pkCorMascote + "and deletedat is null";
 
             // Método chamado para executar a query e retornar um integer da quantidade de linhas afetadas
             int resultado= conexao.executarUpdate(query);

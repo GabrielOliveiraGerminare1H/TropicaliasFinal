@@ -43,7 +43,7 @@ public class AtualizarBarraca extends HttpServlet {
         } else {
             // Se não foi possível atualizar, define mensagem de erro
             request.setAttribute("verifica", false);
-            request.setAttribute("mensagem", "Erro ao atualizar a barraca.");
+            request.setAttribute("mensagem", "Erro ao atualizar a barraca. ATENÇÃO verifique os campos e se a barraca existe");
         }
 
         // Redireciona para a página de mensagens
