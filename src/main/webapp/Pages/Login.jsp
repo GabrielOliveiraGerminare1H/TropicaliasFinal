@@ -6,7 +6,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSSdosAps/Login.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/CSSdosAps/Login.css">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
     <title>Navegação Tropicalias</title>
 </head>
@@ -33,6 +33,7 @@
                     <input type="password" name="senha" id="senha" placeholder="senha" required>
                     <br><br>
                     <button type="submit">Login</button>
+                    <p>${resultado}</p>
                 </form>
             </section>
         
