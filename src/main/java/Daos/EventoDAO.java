@@ -60,9 +60,9 @@ public class EventoDAO {
                 pstmt.setString(3, evento.getNome());
                 pstmt.setString(4, evento.getLocal());
                 pstmt.setDouble(5, evento.getPrecoTicket());
-                pstmt.setInt(6, evento.getFkUsuario());
-                pstmt.setString(7,evento.getImagem());
-                pstmt.setString(8, evento.getDescricao());
+                pstmt.setInt(7, evento.getFkUsuario());
+                pstmt.setString(8,evento.getImagem());
+                pstmt.setString(9, evento.getDescricao());
 
                 // Executando o comando SQL no banco de dados
                 int resultado = pstmt.executeUpdate();
