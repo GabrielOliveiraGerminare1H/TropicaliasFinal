@@ -18,10 +18,9 @@
 </head>
 <body>
 <h2 style="color: #006996; font-size: 5rem; text-align: center; line-height: 80px;
-font-family: Oswald, sans-serif;">LISTA CORES DO MASCOTE INATIVAS</h2> <%-- Título da seção centralizado e com cor personalizada --%>
-
-<div class="select-container"> <%-- Contêiner para a tabela --%>
-    <table class="select"> <%-- Início da tabela para exibir os dados das cores dos mascotes --%>
+font-family: Oswald, sans-serif;">LISTA CORES INATIVAS DO MASCOTE</h2> <%-- Título da seção centralizado e com cor personalizada --%>
+<div class="select-container" style="overflow-x: auto; margin: 40px;"> <%-- Contêiner para a tabela --%>
+    <table class="select" style="box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);"> <%-- Início da tabela para exibir os dados das cores dos mascotes --%>
         <thead> <%-- Cabeçalho da tabela --%>
         <tr>
             <th>pk_int_id_cor_mascote</th> <%-- Coluna para a PK da cor do mascote --%>
@@ -74,9 +73,10 @@ font-family: Oswald, sans-serif;">LISTA CORES DO MASCOTE INATIVAS</h2> <%-- Tít
         </tbody>
     </table>
 </div>
+<br><br><br>
 <footer class="container3"> <%-- footer da página --%>
     <p>Desenvolvido por</p> <%-- Texto no footer --%>
-    <img src="../im/mocBrancaSemFUndo.png" alt="img6" width="10%"> <%-- Imagem no footer --%>
+    <img src="../Assets/mocBrancaSemFUndo.png" alt="img6" width="10%"> <%-- Imagem no footer --%>
 </footer>
 </body>
 </html>

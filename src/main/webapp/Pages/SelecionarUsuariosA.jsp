@@ -19,28 +19,25 @@
 <body>
 <h2 style="color: #006996; font-size: 5rem; text-align: center; line-height: 80px;
 font-family: Oswald, sans-serif;">LISTA DE USUÁRIOS ATIVOS</h2>
-<br>
-<div class="select-container">
+<div class="select-container" style="overflow-x: auto; margin: 40px;">
     <table class="select" style="box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);">
         <thead>
-    <tr>
-        <th>pk_int_id_usuario</th>
-        <th>text_foto</th>
-        <th>var_email</th>
-        <th>var_senha</th>
-        <th>var_user_name</th>
-        <th>dt_nascimento</th>
-        <th>var_descricao_usuario</th>
-        <th>var_cpf</th>
-        <th>var_nome</th>
-        <th>createdat</th>
-        <th>deletedat</th>
-        <th>fk_int_id_endereco</th>
-        <th>updateat</th>
-        <th>var_role</th>
-
-
-    </tr>
+        <tr>
+            <th>pk_int_id_usuario</th>
+            <th>text_foto</th>
+            <th>var_email</th>
+            <th>var_senha</th>
+            <th>var_user_name</th>
+            <th>dt_nascimento</th>
+            <th>var_descricao_usuario</th>
+            <th>var_cpf</th>
+            <th>var_nome</th>
+            <th>createdat</th>
+            <th>deletedat</th>
+            <th>fk_int_id_endereco</th>
+            <th>updateat</th>
+            <th>var_role</th>
+        </tr>
         </thead>
         <tbody>
     <%
@@ -68,8 +65,6 @@ font-family: Oswald, sans-serif;">LISTA DE USUÁRIOS ATIVOS</h2>
         <td><p><%= UsuAResultSet.getString("var_role") %>/<p></td>
     </tr>
 
-
-
     <%
             } while(UsuAResultSet.next());
     }
@@ -91,11 +86,12 @@ font-family: Oswald, sans-serif;">LISTA DE USUÁRIOS ATIVOS</h2>
     %>
         </tbody>
     </table>
-
-    <br><br><br>
-
 </div>
-
+<br><br><br>
+<footer class="container3"> <%-- footer da página --%>
+    <p>Desenvolvido por</p> <%-- Texto no footer --%>
+    <img src="../Assets/mocBrancaSemFUndo.png" alt="img6" width="10%"> <%-- Imagem no footer --%>
+</footer>
 </body>
 </html>
 
