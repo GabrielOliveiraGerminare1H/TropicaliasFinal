@@ -30,12 +30,12 @@ public class LoginServlet extends HttpServlet {
         // Verifica o código de resposta da API para determinar o resultado do login
         if (conn.getResponseCode() == 200) {
             // Redireciona para a página de administração em caso de sucesso
-            req.getRequestDispatcher("/telasadmin (1).html").forward(req, resp);
+            req.getRequestDispatcher("/Pages/ADM.jsp").forward(req, resp);
         } else if (conn.getResponseCode() == 401) {
             // Caso as credenciais estejam incorretas
             req.setAttribute("verifica", false);
             req.setAttribute("mensagem", "Email ou senha inválidos!");
-            req.getRequestDispatcher("/Pages/Mensagem.jsp").forward(req, resp);
+            req.getRequestDispatcher("/Pages/mensagem.jsp").forward(req, resp);
 
         } else if (conn.getResponseCode() == 403) {
             // Caso o usuário não tenha autorização para acessar o sistema

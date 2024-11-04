@@ -6,7 +6,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSSdosAps/Login%20(1).css">
+    <link rel="stylesheet" href="../CSSdosAps/Login.css">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
     <title>Navegação Tropicalias</title>
 </head>
@@ -27,15 +27,13 @@
             </div>
         
             <section class="criar">
-                <form action="conta" method="post">
+                <form action="../conta" method="post">
                     <input type="email" name="email" id="email" placeholder="abc@gmail.com" required>
                     <br><br>
                     <input type="password" name="senha" id="senha" placeholder="senha" required>
                     <br><br>
                     <button type="submit">Login</button>
-                    <p>${resultado}</p>
                 </form>
-                <p><a href="CriarConta.html">Não tem cadastro ainda? Crie sua conta!</a></p>
             </section>
         
         </div>
