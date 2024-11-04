@@ -29,7 +29,7 @@
     </div>
 </main>
 
-<footer class="container3">
+<footer class="container3"> <!-- Rodapé da página -->
     <p>Desenvolvido por</p>
     <img src="../im/mocBrancaSemFUndo.png" alt="img6" width="10%">
 </footer>
