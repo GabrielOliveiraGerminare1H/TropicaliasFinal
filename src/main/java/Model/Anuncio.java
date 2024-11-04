@@ -24,60 +24,58 @@ public class Anuncio {
         this.fkUsuario = fkUsuario;
     }
 
-    // Métodos getters para acessar os atributos
+    // Métodos getters e setters para acessar e modificar os atributos
 
     public String getNotaFiscal() {
         return notaFiscal;
+    }
+
+    public void setNotaFiscal(String notaFiscal) {
+        this.notaFiscal = notaFiscal;
     }
 
     public LocalDate getData() {
         return data;
     }
 
-    public double getValor() {
-        return valor;
-    }
-
-    public String getVarProduto() {
-        return varProduto;
-    }
-
-    public int getQuantidade() {
-        return quantidade;
-    }
-
-    public String getStatusVenda() {
-        return statusVenda;
-    }
-
-    public int getFkUsuario() {
-        return fkUsuario;
-    }
-
-    // Métodos setters para modificar os atributos
-
-    public void setNotaFiscal(String notaFiscal) {
-        this.notaFiscal = notaFiscal;
-    }
-
     public void setData(LocalDate data) {
         this.data = data;
+    }
+
+    public double getValor() {
+        return valor;
     }
 
     public void setValor(double valor) {
         this.valor = valor;
     }
 
+    public String getVarProduto() {
+        return varProduto;
+    }
+
     public void setVarProduto(String varProduto) {
         this.varProduto = varProduto;
+    }
+
+    public int getQuantidade() {
+        return quantidade;
     }
 
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
     }
 
+    public String getStatusVenda() {
+        return statusVenda;
+    }
+
     public void setStatusVenda(String statusVenda) {
         this.statusVenda = statusVenda;
+    }
+
+    public int getFkUsuario() {
+        return fkUsuario;
     }
 
     public void setFkUsuario(int fkUsuario) {

@@ -52,8 +52,7 @@ public class Conexao {
     }
 
 
-    // Método executarUpdate que executa o comando
-    // SQL do parâmetro
+    // Método executarUpdate que executa o comando SQL do parâmetro
     public int executarUpdate(String query) throws SQLException {
         try (PreparedStatement pstmt = conn.prepareStatement(query)){
 
