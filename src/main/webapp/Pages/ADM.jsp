@@ -96,24 +96,6 @@
     </div>
 </div>
 
-<!--<div class="container2" id="tabCriarEvento">-->
-<!--    <div class="titulo">-->
-<!--        <h1>CADASTRAR EVENTO</h1>-->
-<!--    </div>-->
-<!--    <form action="cadastrarEvento">-->
-<!--        <input type="date" name="dt_inicio" id="dt_inicio" placeholder="Data de início" required>-->
-<!--        <input type="date" name="dt_final" id="dt_final" placeholder="Data de término" required>-->
-<!--        <input type="text" name="var_nome" id="var_nome" placeholder="Nome" required>-->
-<!--        <input type="text" name="var_local" id="var_local" placeholder="Local" required>-->
-<!--        <input type="text" name="num_preco_ticket" id="preco" placeholder="Preço" required>-->
-<!--        <button type="submit">Cadastrar</button>-->
-<!--    </form>-->
-<!--</div>-->
-
-<!--<footer class="display1">-->
-<!--    <p>Desenvolvido por</p>-->
-<!--    <img src="assets/mocBrancaSemFUndo.png" alt="img6" width="10%">-->
-<!--</footer>-->
 
 </body>
 </html>

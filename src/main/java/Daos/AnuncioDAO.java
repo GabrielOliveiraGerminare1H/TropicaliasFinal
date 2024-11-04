@@ -1,36 +1,28 @@
 package Daos;
 
 import Daos.JDBC.Conexao;
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class AnuncioDAO {
-    private Connection conn;
-    private PreparedStatement pstmt;
-    private ResultSet rs;
-    Conexao conexao = new Conexao();
+    private Conexao conexao = new Conexao();
 
-    public ResultSet selecionarAnuncioA(){
+
+    public ResultSet selecionarAnuncioA() {
         try {
             //Abrindo conexão com o banco
             conexao.conectar();
 
-            pstmt = conexao.getConn().prepareStatement("select * from tb_anuncio where deletedat is null");
+            // Executa a consulta SQL para selecionar anúncios ativos e retorna um ResultSet
+            return conexao.executarSelect("SELECT * FROM tb_anuncio WHERE deletedat IS NULL");
 
-            //Executando o comando e guardando o resultset
-            rs = pstmt.executeQuery();
-
-
-        }catch (SQLException sqle){
+        } catch (SQLException sqle) {
+            sqle.printStackTrace();
             return null;
+
+        } finally {
+            conexao.desconectar(); // Fechando a conexão com o banco de dados
         }
-        finally {
-            conexao.desconectar();
-        }
-        return rs;
     }
 
     public ResultSet selecionarAnuncioI() {
@@ -38,17 +30,15 @@ public class AnuncioDAO {
             //Abrindo conexão com o banco
             conexao.conectar();
 
-            pstmt = conexao.getConn().prepareStatement("select * from tb_anuncio where deletedat is not null");
-
-            //Executando o comando e guardando o resultset
-            rs = pstmt.executeQuery();
-
+            // Executa a consulta SQL para selecionar anúnios inativos e retorna um ResultSet
+            return conexao.executarSelect("SELECT * FROM tb_anuncio WHERE deletedat IS NOT NULL");
 
         } catch (SQLException sqle) {
+            sqle.printStackTrace();
             return null;
+
         } finally {
-            conexao.desconectar();
+            conexao.desconectar(); // Fechando a conexão com o banco de dados
         }
-        return rs;
     }
 }

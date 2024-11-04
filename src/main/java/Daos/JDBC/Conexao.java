@@ -4,8 +4,8 @@ import java.sql.*;
 
 public class Conexao {
     private Connection conn;
-    private PreparedStatement pstmt;
-    private ResultSet rs;
+
+    //Método conectar que abre conexão com o banco de dados
 
     public void conectar() {
         try {
@@ -21,17 +21,20 @@ public class Conexao {
             sqle.printStackTrace();
         }
     }
-    //    metodo para fechar conexão com o banco de dados
+
+    // Método desconectar para fechar a conexão com o banco de dados
     public void desconectar() {
         try {
             if (conn != null && !conn.isClosed()) {
                 conn.close();
             }
         } catch (SQLException sqles) {
+            // Trata erro ao tentar fechar a conexão
             sqles.printStackTrace();
         }
     }
 
+   // Método getter do atributo conn
     public Connection getConn(){
         if (this.conn == null) {
             conectar();
@@ -39,11 +42,24 @@ public class Conexao {
         return this.conn;
     }
 
-    public PreparedStatement getPstmt() {
-        return pstmt;
+    // Método executarSelect que executa o comando SQL do parâmetro
+    public ResultSet executarSelect(String query) throws SQLException {
+        // Prepara a instrução SQL
+        PreparedStatement pstmt = conn.prepareStatement(query);
+
+        // Executa a consulta e retorna o conjunto de resultados
+        return pstmt.executeQuery();
     }
 
-    public ResultSet getRs() {
-        return rs;
+
+    // Método executarUpdate que executa o comando SQL do parâmetro
+    public int executarUpdate(String query) throws SQLException {
+        try (PreparedStatement pstmt = conn.prepareStatement(query)){
+
+            // Executa a consulta e retorna o número de linhas afetadas
+            return pstmt.executeUpdate();
+        }
     }
+
+
 }

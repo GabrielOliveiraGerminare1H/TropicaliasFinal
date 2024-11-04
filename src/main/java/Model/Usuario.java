@@ -3,32 +3,35 @@ package Model;
 import java.sql.Date;
 
 public class Usuario {
-    private String textFoto;
-    private String varEmail;
-    private String senha;
-    private String userName;
-    private Date dt_nascimento;
-    private String descricaoUsua;
-    private Long cpf;
-    private String nome;
-    private int Fk_int_id_endereco;
+    // Atributos da classe Usuario
+    private String textFoto;       // URL ou caminho da foto do usuário
+    private String varEmail;       // Email do usuário
+    private String senha;          // Senha do usuário
+    private String userName;       // Nome de usuário
+    private Date dtNascimento;     // Data de nascimento do usuário
+    private String descricaoUsua;  // Descrição do perfil do usuário
+    private Long cpf;              // CPF do usuário
+    private String nome;           // Nome do usuário
+    private int fkEndereco;// Chave estrangeira para o endereço do usuário
+    private String varRole;        // Tipo de usuário
 
-    private String varying;
-
+    // Método construtor da classe
     public Usuario(String textFoto, String varEmail, String senha, String userName,
-                       Date dt_nascimento, String descricaoUsua, Long cpf, String nome,
-                       int fk_int_id_endereco,String varying) {
-            this.textFoto = textFoto;
-            this.varEmail = varEmail;
-            this.senha = senha;
-            this.userName = userName;
-            this.dt_nascimento = dt_nascimento;
-            this.descricaoUsua = descricaoUsua;
-            this.cpf = cpf;
-            this.nome = nome;
-            this.Fk_int_id_endereco = fk_int_id_endereco;
-            this.varying = varying;
-        }
+                   Date dtNascimento, String descricaoUsua, Long cpf, String nome,
+                   int fkEndereco, String varRole) {
+        this.textFoto = textFoto;
+        this.varEmail = varEmail;
+        this.senha = senha;
+        this.userName = userName;
+        this.dtNascimento = dtNascimento;
+        this.descricaoUsua = descricaoUsua;
+        this.cpf = cpf;
+        this.nome = nome;
+        this.fkEndereco = fkEndereco;
+        this.varRole = varRole;
+    }
+
+    // Métodos getters e setters para acessar e modificar os atributos
 
     public String getTextFoto() {
         return textFoto;
@@ -62,12 +65,12 @@ public class Usuario {
         this.userName = userName;
     }
 
-    public java.util.Date getDt_nascimento() {
-        return dt_nascimento;
+    public Date getDtNascimento() {
+        return dtNascimento;
     }
 
-    public void setDt_nascimento(Date dt_nascimento) {
-        this.dt_nascimento = dt_nascimento;
+    public void setDtNascimento(Date dtNascimento) {
+        this.dtNascimento = dtNascimento;
     }
 
     public String getDescricaoUsua() {
@@ -94,20 +97,30 @@ public class Usuario {
         this.nome = nome;
     }
 
-    public int getFk_int_id_endereco() {
-        return Fk_int_id_endereco;
+    public int getFkEndereco() {
+        return fkEndereco;
     }
 
-    public void setFk_int_id_endereco(int fk_int_id_endereco) {
-        Fk_int_id_endereco = fk_int_id_endereco;
+    public void setFkEndereco(int fkEndereco) {
+        this.fkEndereco = fkEndereco;
     }
 
-    public String getVarying() {
-        return varying;
+    public String getVarRole() {
+        return varRole;
     }
 
-    public void setVarying(String varying) {
-        this.varying = varying;
+    public void setVarRole(String varRole) {
+        this.varRole = varRole;
+    }
+
+    // Método toString para exibir as informações do usuário
+    @Override
+    public String toString() {
+        return "USUÁRIO " +
+                "\n--Texto Foto:" + textFoto + "\n--Email:" + varEmail + "\n--Senha:" + senha +
+                "\n--UserName:" + userName  + "\n--Data Nascimento:" + dtNascimento +
+                "\n--Descrição do Usuário:" + descricaoUsua  + "\n--CPF:" + cpf +
+                "\n--Nome:" + nome + "\n--Foreign key do endereço do usuário:" + fkEndereco +
+                "\n--varRole:" + varRole;
     }
 }
-

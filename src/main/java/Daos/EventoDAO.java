@@ -2,106 +2,137 @@ package Daos;
 
 import Daos.JDBC.Conexao;
 import Model.Evento;
-
 import java.sql.*;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+
 
 public class EventoDAO {
-    private Conexao conexao = new Conexao();
-
-    public boolean cadastrarEvento(Evento evento) {
-        try {
-            // Abrindo conexão com o banco
-            conexao.conectar();
-
-            // Comandos SQL
-            try (PreparedStatement pstmt = conexao.getConn().prepareStatement("INSERT INTO tb_evento (dt_inicio, dt_final, var_nome, var_local, num_preco_ticket,createdat, fk_int_id_usuario) VALUES (?, ?, ?, ?, ?, current_date,?)")) {
-                // Setando os parâmetros para fazer a inserção no banco de dados
-                pstmt.setDate(1, java.sql.Date.valueOf(evento.getDt_inicio()));
-                pstmt.setDate(2, java.sql.Date.valueOf(evento.getDt_final()));
-                pstmt.setString(3, evento.getNome());
-                pstmt.setString(4, evento.getLocal());
-                pstmt.setDouble(5, evento.getPrecoTicket());
-                pstmt.setInt(6, evento.getFk_int_id_usuario());
-                // Executando os comandos SQL no banco
-                pstmt.executeUpdate(); // Use executeUpdate para INSERT
-                return true;
-            }
-        } catch (SQLException sqles) {
-            sqles.printStackTrace(); // Imprimindo a pilha de erros
-            return false;
-        } finally {
-            conexao.desconectar(); // Desconectando do Banco de dados
-        }
-    }
-
-    public boolean atualizarEvento(String nomeCampo, String atualizacaoCampo, int pk_int_id_evento) {
-        try {
-            conexao.conectar(); // Abrindo a conexão com o banco
-            try (PreparedStatement pstmt = conexao.getConn().prepareStatement("UPDATE tb_evento SET " + nomeCampo + " = ?, updateat = current_date WHERE pk_int_id_evento = ?")) {
-                if (Objects.equals(nomeCampo, "var_nome") || Objects.equals(nomeCampo, "var_local")) {
-                    pstmt.setString(1, atualizacaoCampo);
-                } else if (Objects.equals(nomeCampo, "dt_inicio") || Objects.equals(nomeCampo, "dt_final")) {
-                    LocalDate campo = LocalDate.parse(atualizacaoCampo);
-                    pstmt.setDate(1, Date.valueOf(campo));
-                } else if (Objects.equals(nomeCampo, "num_preco_ticket")) {
-                    pstmt.setDouble(1, Double.parseDouble(atualizacaoCampo));
-                } else if (Objects.equals(nomeCampo, "fk_int_id_usuario")) {
-                    pstmt.setInt(1, Integer.parseInt(atualizacaoCampo));
-                } else {
-                    return false;
-                }
-
-                pstmt.setInt(2, pk_int_id_evento);
-
-                return pstmt.executeUpdate() > 0; // Retorna true se a atualização foi bem-sucedida
-            }
-        } catch (SQLException sqle) {
-            sqle.printStackTrace(); // Imprimindo a pilha de erros
-            return false;
-        } finally {
-            conexao.desconectar(); // Fechando a conexão com o banco
-        }
-    }
-
-    public boolean softDeleteEvento(int idEvento) {
-        try {
-            conexao.conectar(); // Conectando ao banco de dados
-            try (PreparedStatement pstmt = conexao.getConn().prepareStatement("UPDATE tb_evento SET deletedat = current_date, updateat = current_date WHERE pk_int_id_evento = ?")) {
-                pstmt.setInt(1, idEvento);
-                pstmt.executeUpdate(); // Use executeUpdate para UPDATE
-                return true;
-            }
-        } catch (SQLException sqles) {
-            sqles.printStackTrace(); // Imprimindo a pilha de erros
-            return false;
-        } finally {
-            conexao.desconectar(); // Fechando conexão com o banco de dados
-        }
-    }
+    private Conexao conexao = new Conexao(); // Instância da classe Conexão
 
     public ResultSet selecionarEventoA() {
         try {
+            // Abrindo conexão com o banco de dados
             conexao.conectar();
-            PreparedStatement pstmt = conexao.getConn().prepareStatement("SELECT * FROM tb_evento WHERE deletedat IS NULL");
-            return pstmt.executeQuery(); // Retorna ResultSet, lembre-se de fechá-lo depois
+
+            // Executa a consulta SQL para selecionar eventos ativos e retorna um ResultSet
+            return conexao.executarSelect("SELECT * FROM tb_evento WHERE deletedat IS NULL");
+
         } catch (SQLException sqle) {
-            sqle.printStackTrace(); // Imprimindo a pilha de erros
+            sqle.printStackTrace();
             return null;
+        }
+        finally {
+            conexao.desconectar();//Fechando a conexão com o banco de dados
         }
     }
 
     public ResultSet selecionarEventoI() {
         try {
+            // Abrindo conexão com o banco de dados
             conexao.conectar();
-            PreparedStatement pstmt = conexao.getConn().prepareStatement("SELECT * FROM tb_evento WHERE deletedat IS NOT NULL");
-            return pstmt.executeQuery(); // Retorna ResultSet, lembre-se de fechá-lo depois
+
+            // Executa a consulta SQL para selecionar eventos inativas e retorna um ResultSet
+            return conexao.executarSelect("SELECT * FROM tb_evento WHERE deletedat IS NOT NULL");
+
         } catch (SQLException sqle) {
-            sqle.printStackTrace(); // Imprimindo a pilha de erros
+            sqle.printStackTrace();
             return null;
         }
+        finally {
+            conexao.desconectar(); //Fechando a conexão com o banco de dados
+        }
     }
+
+    public boolean cadastrarEvento(Evento evento) {
+        try {
+            // Abrindo conexão com o banco de dados
+            conexao.conectar();
+
+            // Comando SQL
+            try (PreparedStatement pstmt = conexao.getConn().prepareStatement
+                    ("INSERT INTO tb_evento " +
+                            "(dt_inicio, dt_final, var_nome, var_local, num_preco_ticket," +
+                            "createdat, fk_int_id_usuario) " +
+                            "VALUES (?, ?, ?, ?, ?, current_date,?)")) {
+
+                // Setando os parâmetros para fazer a inserção no banco de dados
+                pstmt.setDate(1, java.sql.Date.valueOf(evento.getDtInicio()));
+                pstmt.setDate(2, java.sql.Date.valueOf(evento.getDtFinal()));
+                pstmt.setString(3, evento.getNome());
+                pstmt.setString(4, evento.getLocal());
+                pstmt.setDouble(5, evento.getPrecoTicket());
+                pstmt.setInt(6, evento.getFkUsuario());
+
+                // Executando o comando SQL no banco de dados
+                int resultado = pstmt.executeUpdate();
+
+                //Validação das linhas afetadas
+                if (resultado>0){
+                    return true;}
+                else {
+                    return false;
+                }
+            }
+        } catch (SQLException sqles) {
+            sqles.printStackTrace();
+            return false;
+        } finally {
+            conexao.desconectar(); // Fechando a conexão com o banco de dados
+        }
+    }
+
+
+    public boolean atualizarEvento(String nomeCampo, String campoAtualizado, int pkEvento) {
+        try {
+            // Abre a conexão com o banco de dados
+            conexao.conectar();
+
+            //Comando SQL
+            String query ="UPDATE tb_evento SET " + nomeCampo + " = '" + campoAtualizado +
+                    "' ,updateat = current_date WHERE pkEvento = " + pkEvento;
+
+            // Método chamado para executar a query e retornar um integer da quantidade de linhas afetadas
+            int resultado= conexao.executarUpdate(query);
+
+            //Validação das linhas afetadas
+            if (resultado>0){
+                return true;}
+            else {
+                return false;
+            }
+
+        } catch (SQLException sqle) {
+            sqle.printStackTrace();
+            return false;
+        } finally {
+            conexao.desconectar(); // Fechando a conexão com o banco de dados
+        }
+    }
+
+    public boolean softDeleteEvento(int idEvento) {
+        try {
+        // Abre a conexão com o banco de dados
+        conexao.conectar();
+
+        //Comando SQL
+        String query ="UPDATE tb_evento SET deletedat = current_date," +
+                " updateat = current_date WHERE pk_int_id_evento = " + idEvento;
+
+        // Método chamado para executar a query e retornar um integer da quantidade de linhas afetadas
+        int resultado= conexao.executarUpdate(query);
+
+        //Validação das linhas afetadas
+        if (resultado>0){
+            return true;}
+        else {
+            return false;
+        }
+
+    } catch (SQLException sqle) {
+        sqle.printStackTrace();
+        return false;
+    } finally {
+        conexao.desconectar(); // Fechando a conexão com o banco de dados
+    }
+
+}
 }

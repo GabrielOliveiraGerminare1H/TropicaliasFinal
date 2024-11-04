@@ -1,58 +1,45 @@
 package Daos;
 
-
 import Daos.JDBC.Conexao;
-import Model.Usuario;
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class UsuarioDAO {
-    private Connection conn;
-    private PreparedStatement pstmt;
-    private ResultSet rs;
     Conexao conexao = new Conexao();
 
-    public ResultSet selecionarUsuarioA(){
+    public ResultSet selecionarUsuarioA() {
         try {
-            //Abrindo conexão com o banco
+            // Abre a conexão com o banco de dados
             conexao.conectar();
 
-            pstmt = conexao.getConn().prepareStatement("select * from tb_usuario where deletedat is null");
+            // Executa a consulta SQL para selecionar usuários ativos e retorna um ResultSet
+            return conexao.executarSelect("select * from tb_usuario where deletedat is null");
 
-            //Executando o comando e guardando o resultset
-            rs = pstmt.executeQuery();
-
-
-        }catch (SQLException sqle){
+        } catch (SQLException sqle) {
+           sqle.printStackTrace();
             return null;
+
+        } finally {
+            conexao.desconectar(); // Fechando a conexão com o banco de dados
         }
-        finally {
-            conexao.desconectar();
-        }
-        return rs;
     }
+
 
     public ResultSet selecionarUsuarioI() {
         try {
-            //Abrindo conexão com o banco
+            // Abre a conexão com o banco de dados
             conexao.conectar();
 
-            pstmt = conexao.getConn().prepareStatement("select * from tb_usuario where deletedat is not null");
-
-            //Executando o comando e guardando o resultset
-            rs = pstmt.executeQuery();
+            // Executa a consulta SQL para selecionar usuários inativos e retorna um ResultSet
+            return conexao.executarSelect("select * from tb_usuario where deletedat is not null");
 
 
         } catch (SQLException sqle) {
+            sqle.printStackTrace();
             return null;
+
         } finally {
-            conexao.desconectar();
+            conexao.desconectar(); // Fechando a conexão com o banco de dados
         }
-        return rs;
     }
 }
