@@ -35,11 +35,11 @@
             <img src="../Assets/calendario.png" alt="">
             <h1>Evento</h1>
             <ul>
-                <li><a href="SelecionarEventosA.jsp#selecionarEventosA">Selecionar eventos ativos</a></li>
-                <li><a href="SelecionarEventosI.jsp#selecionarEventosI">Selecionar eventos inativos</a></li>
-                <li><a href="CadastrarEvento.jsp#cadastrarEvento">Cadastrar evento</a></li>
-                <li><a href="DeletarEvento.jsp#deletarEvento">Deletar evento</a></li>
-                <li><a href="AtualizarEvento.jsp#atualizarEvento">Atualizar evento</a></li>
+                <li><a href="${pageContext.request.contextPath}/Pages/SelecionarEventosA.jsp#selecionarEventosA">Selecionar eventos ativos</a></li>
+                <li><a href="${pageContext.request.contextPath}/Pages/SelecionarEventosI.jsp#selecionarEventosI">Selecionar eventos inativos</a></li>
+                <li><a href="${pageContext.request.contextPath}/Pages/CadastrarEvento.jsp#cadastrarEvento">Cadastrar evento</a></li>
+                <li><a href="${pageContext.request.contextPath}/Pages/DeletarEvento.jsp#deletarEvento">Deletar evento</a></li>
+                <li><a href="${pageContext.request.contextPath}/Pages/AtualizarEvento.jsp#atualizarEvento">Atualizar evento</a></li>
             </ul>
         </div>
 
@@ -47,11 +47,11 @@
             <img src="../Assets/cores.png" alt="">
             <h1>Mascote</h1>
             <ul>
-                <li><a href="SelecionarCorMascoteA.jsp#selecionarCoresA">Selecionar cores ativas do mascote</a></li>
-                <li><a href="SelecionarCorMascoteI.jsp#selecionarCoresI">Selecionar cores inativas do mascote</a></li>
-                <li><a href="CadastrarCorMascote.jsp#cadastrarCor" >Cadastrar cor do mascote</a></li>
-                <li><a href="DeletarCorMascote.jsp#deletarCor">Deletar cor do mascote</a></li>
-                <li><a href="AtualizarCorMascote.jsp#atualizarCor">Atualizar cores do mascote</a></li>
+                <li><a href="${pageContext.request.contextPath}/Pages/SelecionarCorMascoteA.jsp#selecionarCoresA">Selecionar cores ativas do mascote</a></li>
+                <li><a href="${pageContext.request.contextPath}/Pages/SelecionarCorMascoteI.jsp#selecionarCoresI">Selecionar cores inativas do mascote</a></li>
+                <li><a href="${pageContext.request.contextPath}/Pages/CadastrarCorMascote.jsp#cadastrarCor" >Cadastrar cor do mascote</a></li>
+                <li><a href="${pageContext.request.contextPath}/Pages/DeletarCorMascote.jsp#deletarCor">Deletar cor do mascote</a></li>
+                <li><a href="${pageContext.request.contextPath}/Pages/.jsp#atualizarCor">Atualizar cores do mascote</a></li>
             </ul>
         </div>
 
@@ -63,8 +63,8 @@
             <img src="../Assets/anuncios.png" alt="">
             <h1>Anúncios</h1>
             <ul>
-                <li><a href="SelecionarAnuncioA.jsp#selecionarAnuncioA">Selecionar anúncios ativos</a></li>
-                <li><a href="SelecionarAnuncioI.jsp#selecionarAnuncioI">Selecionar anúncios inativos</a></li>
+                <li><a href="${pageContext.request.contextPath}/Pages/SelecionarAnuncioA.jsp#selecionarAnuncioA">Selecionar anúncios ativos</a></li>
+                <li><a href="${pageContext.request.contextPath}/Pages/SelecionarAnuncioI.jsp#selecionarAnuncioI">Selecionar anúncios inativos</a></li>
 
             </ul>
         </div>
@@ -73,8 +73,8 @@
             <img src="../Assets/user.png" alt="">
             <h1>Usuários</h1>
             <ul>
-                <li><a href="SelecionarUsuariosA.jsp#selecionarUsuarioA">Selecionar usuários ativos</a></li>
-                <li><a href="SelecionarUsuariosI.jsp#selecionarUsuarioI">Selecionar usuários inativos</a></li>
+                <li><a href="${pageContext.request.contextPath}/Pages/SelecionarUsuariosA.jsp#selecionarUsuarioA">Selecionar usuários ativos</a></li>
+                <li><a href="${pageContext.request.contextPath}/Pages/SelecionarUsuariosI.jsp#selecionarUsuarioI">Selecionar usuários inativos</a></li>
             </ul>
         </div>
 
@@ -82,11 +82,11 @@
             <img src="../Assets/barraca.png" alt="">
             <h1>Barraca</h1>
             <ul>
-                <li><a href="SelecionarBarracaA.jsp#selecionarBarracaA">Selecionar barracas ativas</a></li>
-                <li><a href="SelecionarBarracaI.jsp#selecionarBarracaI">Selecionar barracas inativas</a></li>
-                <li><a href="CadastrarBarraca.jsp#cadastrarBarraca">Cadastrar barraca</a></li>
-                <li><a href="DeletarBarraca.jsp#deletarBarraca">Deletar barraca</a></li>
-                <li><a href="AtualizarBarraca.jsp#atualizarBarraca">Atualizar barraca</a></li>
+                <li><a href="${pageContext.request.contextPath}/Pages/SelecionarBarracaA.jsp#selecionarBarracaA">Selecionar barracas ativas</a></li>
+                <li><a href="${pageContext.request.contextPath}/Pages/SelecionarBarracaI.jsp#selecionarBarracaI">Selecionar barracas inativas</a></li>
+                <li><a href="${pageContext.request.contextPath}/Pages/CadastrarBarraca.jsp#cadastrarBarraca">Cadastrar barraca</a></li>
+                <li><a href="${pageContext.request.contextPath}/Pages/DeletarBarraca.jsp#deletarBarraca">Deletar barraca</a></li>
+                <li><a href="${pageContext.request.contextPath}/Pages/AtualizarBarraca.jsp#atualizarBarraca">Atualizar barraca</a></li>
             </ul>
         </div>
 
