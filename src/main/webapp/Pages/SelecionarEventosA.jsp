@@ -37,6 +37,8 @@ font-family: Oswald, sans-serif;" id="selecionarEventosA">LISTA DE EVENTO ATIVOS
             <th>pk_int_id_evento</th>
             <th>fk_int_id_usuario</th>
             <th>updateat</th>
+            <th>var_imagem</th>
+            <th>var_descricao</th>
 
         </tr>
         </thead>
@@ -45,12 +47,11 @@ font-family: Oswald, sans-serif;" id="selecionarEventosA">LISTA DE EVENTO ATIVOS
             EventoDAO eventoDAO = new EventoDAO();
             ResultSet EventoResultSet = eventoDAO.selecionarEventoA();
             try {
-                if(EventoResultSet.next() && EventoResultSet != null){
-
+                if(EventoResultSet != null && EventoResultSet.next()){
                     do {
         %>
         <tr>
-            <td><p> <%= EventoResultSet.getString("dt_inicio") %>></p></td>
+            <td><p><%= EventoResultSet.getString("dt_inicio") %></p></td>
             <td><p><%= EventoResultSet.getString("dt_final") %></p></td>
             <td><p><%= EventoResultSet.getString("var_nome") %></p></td>
             <td><p><%= EventoResultSet.getString("var_local") %></p></td>
@@ -60,39 +61,34 @@ font-family: Oswald, sans-serif;" id="selecionarEventosA">LISTA DE EVENTO ATIVOS
             <td><p><%= EventoResultSet.getString("pk_int_id_evento") %></p></td>
             <td><p><%= EventoResultSet.getString("fk_int_id_usuario") %></p></td>
             <td><p><%= EventoResultSet.getString("updateat") %></p></td>
+            <td><p><%= EventoResultSet.getString("var_imagem") %></p></td>
+            <td><p><%= EventoResultSet.getString("var_descricao") %></p></td>
+
         </tr>
-
-
-
         <%
             } while(EventoResultSet.next());
-        }
-        else {
+        } else {
         %>
         <tr>
-            <td colspan="5"><p>Nenhum registro encontrado.</p></td>
+            <td colspan="10"><p>Nenhum registro encontrado.</p></td>
         </tr>
-        <%}
-
+        <% }
         } catch (SQLException sql) {
             sql.printStackTrace();
         %>
         <tr>
-            <td colspan="5"><p>Erro no banco de dados!</p></td>
+            <td colspan="10"><p>Erro no banco de dados!</p></td>
         </tr>
         <%
             }
         %>
-
         </tbody>
     </table>
 </div>
 <br><br><br>
 <footer class="container3"> <%-- footer da página --%>
     <p>Desenvolvido por</p> <%-- Texto no footer --%>
-    <img src="../Assets/mocBranco.png" alt="img6" width="10%"> <%-- Imagem no footer --%>
+    <img src="${pageContext.request.contextPath}/Assets/mocBrancaSemFUndo.png" alt="img6" width="10%"> <%-- Imagem no footer --%>
 </footer>
 </body>
 </html>
-
-

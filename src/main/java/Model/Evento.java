@@ -11,19 +11,18 @@ public class Evento {
     private String local;               // Local onde o evento será realizado
     private double precoTicket;         // Preço do ticket para o evento
     private int fkUsuario;       // Chave estrangeira para o usuário criador do evento
-
     private String imagem;             // URL da imagem para o evento
     private String descricao;          //Descrição do evento
 
     // Construtor da classe
-    public Evento(LocalDate dtInicio, LocalDate dtFinal, String nome, String local, double precoTicket, int fkUsuario, String mensagem, String descricao) {
+    public Evento(LocalDate dtInicio, LocalDate dtFinal, String nome, String local, double precoTicket, int fkUsuario, String imagem, String descricao) {
         this.dtInicio = dtInicio;
         this.dtFinal = dtFinal;
         this.nome = nome;
         this.local = local;
         this.precoTicket = precoTicket;
         this.fkUsuario = fkUsuario;
-        this.imagem=imagem;
+        this.imagem= imagem;
         this.descricao=descricao;
     }
 
