@@ -12,11 +12,11 @@ import jakarta.servlet.annotation.*;
 public class LoginServlet extends HttpServlet {
 
     @Override
-    public void doPost(HttpServletRequest req, HttpServletResponse resp)
+    public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         // Obtém os parâmetros de email e senha da solicitação
-        String email = req.getParameter("email");
-        String senha = req.getParameter("senha");
+        String email = request.getParameter("email");
+        String senha = request.getParameter("senha");
 
         // Define a URL da API para autenticação
         String url = "https://tropicalias-api-dev.onrender.com/user/authorization/" + email + "/" + senha;
@@ -30,36 +30,30 @@ public class LoginServlet extends HttpServlet {
         // Verifica o código de resposta da API para determinar o resultado do login
         if (conn.getResponseCode() == 200) {
             // Redireciona para a página de administração em caso de sucesso
-            req.getRequestDispatcher("/Pages/ADM.jsp").forward(req, resp);
+            request.getRequestDispatcher( "/Pages/ADM.jsp").forward(request, response);
         } else if (conn.getResponseCode() == 401) {
             // Caso as credenciais estejam incorretas
-            req.setAttribute("verifica", false);
-            req.setAttribute("mensagem", "Email ou senha inválidos!");
-            req.getRequestDispatcher("/Pages/mensagem.jsp").forward(req, resp);
+            request.setAttribute("resultado", "E-mail ou senha inválidos!");
+            request.getRequestDispatcher("/Pages/Login.jsp").forward(request, response);
 
         } else if (conn.getResponseCode() == 403) {
             // Caso o usuário não tenha autorização para acessar o sistema
-            req.setAttribute("verifica", false);
-            req.setAttribute("mensagem", "Usuário não autorizado!");
-            req.getRequestDispatcher("/Pages/Mensagem.jsp").forward(req, resp);
+            request.setAttribute("resultado", "Usuário não autorizado!");
+            request.getRequestDispatcher("/Pages/Login.jsp").forward(request, response);
 
         } else if (conn.getResponseCode() == 404) {
             // Caso o usuário não seja encontrado na base de dados
-            req.setAttribute("verifica", false);
-            req.setAttribute("mensagem", "Usuário não encontrado!");
-            req.getRequestDispatcher("/Pages/Mensagem.jsp").forward(req, resp);
-
+            request.setAttribute("resultado", "Usuário não encontrado!");
+            request.getRequestDispatcher("/Pages/Login.jsp").forward(request, response);
         } else if (conn.getResponseCode() == 418) {
             // Resposta personalizada do servidor para indicar uma condição especial
-            req.setAttribute("verifica", false);
-            req.setAttribute("mensagem", "Você é muito especial!");
-            req.getRequestDispatcher("/Pages/Mensagem.jsp").forward(req, resp);
+            request.setAttribute("resultado", "Você é muito especial!");
+            request.getRequestDispatcher("/Pages/Login.jsp").forward(request, response);
 
         } else if (conn.getResponseCode() == 500) {
             // Caso ocorra um erro interno no servidor
-            req.setAttribute("verifica", false);
-            req.setAttribute("mensagem", "Ocorreu um erro interno do servidor! Tente novamente mais tarde!");
-            req.getRequestDispatcher("/Pages/Mensagem.jsp").forward(req, resp);
+            request.setAttribute("resultado", "Ocorreu um erro interno do servidor! Tente novamente mais tarde!");
+            request.getRequestDispatcher("/Pages/Login.jsp").forward(request, response);
         }
 
         // Lê a resposta da API
