@@ -4,7 +4,7 @@
 <main> <%-- Início do conteúdo principal da página --%>
     <div class="container2" id="tabDeletarEvento"> <%-- Container para a seção de deletar evento, com ID específico para estilização ou scripts --%>
         <div class="titulo"> <%-- Div para o título da seção --%>
-            <h1>DELETAR EVENTO</h1> <%-- Título principal indicando a funcionalidade de deletar um evento --%>
+            <h1 id="deletarEvento">DELETAR EVENTO</h1> <%-- Título principal indicando a funcionalidade de deletar um evento --%>
         </div>
         <section class="deletarEvento"> <%-- Seção específica para o formulário de exclusão de eventos --%>
             <form action="../deletarEvento" method="post"> <%-- Formulário que envia dados para o servlet "deletarEvento" usando o método POST --%>
@@ -17,9 +17,10 @@
             </form>
         </section>
     </div>
+    <br><br>
 </main>
 
 <footer class="container3"> <%-- Início do rodapé da página --%>
     <p>Desenvolvido por</p> <%-- Texto indicando o responsável pelo desenvolvimento --%>
-    <img src="../im/mocBrancaSemFUndo.png" alt="img6" width="10%"> <%-- Imagem de marca ou logotipo, com largura ajustada para 10% --%>
+    <img src="../Assets/mocBranco.png" alt="img6" width="10%"> <%-- Imagem de marca ou logotipo, com largura ajustada para 10% --%>
 </footer>

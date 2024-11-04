@@ -12,7 +12,7 @@
 <main> <%-- Início do conteúdo principal da página --%>
     <div class="container2" id="tabCriarEvento"> <%-- Container para a seção de cadastro de eventos, com ID específico para estilização ou manipulação --%>
         <div class="titulo"> <%-- Div para o título da seção --%>
-            <h1>CADASTRAR EVENTO</h1> <%-- Título principal indicando a funcionalidade de cadastro de evento --%>
+            <h1 id="cadastrarEvento">CADASTRAR EVENTO</h1> <%-- Título principal indicando a funcionalidade de cadastro de evento --%>
         </div>
         <section class="cadastrarEvento"> <%-- Seção que contém o formulário para cadastrar eventos --%>
             <form action="../cadastrarEvento" method="post"> <%-- Formulário que envia os dados para o servlet "cadastrarEvento" usando o método POST --%>
@@ -50,5 +50,5 @@
 
 <footer class="container3"> <%-- Início do rodapé da página --%>
     <p>Desenvolvido por</p> <%-- Texto indicando o desenvolvedor ou equipe responsável --%>
-    <img src="../im/mocBrancaSemFUndo.png" alt="img6" width="10%"> <%-- Imagem de logotipo ou marca, redimensionada para 10% da largura --%>
+    <img src="../Assets/mocBranco.png" alt="img6" width="10%"> <%-- Imagem de logotipo ou marca, redimensionada para 10% da largura --%>
 </footer>

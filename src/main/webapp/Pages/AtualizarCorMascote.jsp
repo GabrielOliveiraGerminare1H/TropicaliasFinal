@@ -6,7 +6,7 @@
 <main> <%-- Elemento principal da página --%>
     <div class="container2" id="tabAtualizarCor"> <%-- Container para a seção de atualização da cor do mascote --%>
         <div class="titulo"> <%-- Div para o título da seção --%>
-            <h1>ATUALIZAR COR DO MASCOTE</h1> <%-- Cabeçalho principal da seção --%>
+            <h1 id="atualizarCor">ATUALIZAR COR DO MASCOTE</h1> <%-- Cabeçalho principal da seção --%>
         </div>
         <section class="AtualizarCor"> <%-- Seção específica para o formulário de atualização de cor --%>
             <form action="../atualizarCor" method="post"> <%-- Formulário que envia dados para o servlet "atualizarCor" usando método POST --%>
@@ -22,6 +22,6 @@
 
 <footer class="container3"> <%-- footer da página --%>
     <p>Desenvolvido por</p> <%-- Texto no footer --%>
-    <img src="../im/mocBrancaSemFUndo.png" alt="img6" width="10%"> <%-- Imagem no fotter --%>
+    <img src="../Assets/mocBranco.png" alt="img6" width="10%"> <%-- Imagem no fotter --%>
 </footer>
 

@@ -21,8 +21,8 @@
     String cor = verifica != null && verifica ? "green" : "red";
 %>
 
-<p style="color: <%= cor %>"> MENSAGEM: <%= mensagem != null ? mensagem : "Nenhuma mensagem disponível" %></p>
-
+<p style="color: <%= cor %>; font-family: Montserrat; text-align: center;"> MENSAGEM: <%= mensagem != null ? mensagem : "Nenhuma mensagem disponível" %></p>
+<br><br><br>
 </body>
 </html>
 

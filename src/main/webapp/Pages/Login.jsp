@@ -43,7 +43,7 @@
     
     <div class="container2">
         <p>Desenvolvido por</p>
-        <img src="../Assets/mocBrancaSemFUndo.png" alt="">
+        <img src="../Assets/mocBranco.png" alt="">
     </div>
     
 </body>

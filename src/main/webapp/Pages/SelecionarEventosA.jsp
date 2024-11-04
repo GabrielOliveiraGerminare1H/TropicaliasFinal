@@ -21,7 +21,7 @@
 </head>
 <body>
 <h2 style="color: #006996; font-size: 5rem; text-align: center; line-height: 80px;
-font-family: Oswald, sans-serif;">LISTA DE EVENTO ATIVOS</h2>
+font-family: Oswald, sans-serif;" id="selecionarEventosA">LISTA DE EVENTO ATIVOS</h2>
 <br>
 <div class="select-container" style="overflow-x: auto; margin: 40px;">
     <table class="select" style="box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);">
@@ -90,7 +90,7 @@ font-family: Oswald, sans-serif;">LISTA DE EVENTO ATIVOS</h2>
 <br><br><br>
 <footer class="container3"> <%-- footer da página --%>
     <p>Desenvolvido por</p> <%-- Texto no footer --%>
-    <img src="../Assets/mocBrancaSemFUndo.png" alt="img6" width="10%"> <%-- Imagem no footer --%>
+    <img src="../Assets/mocBranco.png" alt="img6" width="10%"> <%-- Imagem no footer --%>
 </footer>
 </body>
 </html>

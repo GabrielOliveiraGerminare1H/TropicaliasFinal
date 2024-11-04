@@ -21,7 +21,7 @@
 <main> <%-- Elemento principal da página --%>
     <div class="container2" id="tabDeletarCor"> <%-- Container para a seção de deletar a cor do mascote --%>
         <div class="titulo"> <%-- Div para o título da seção --%>
-            <h1>DELETAR COR DO MASCOTE</h1> <%-- Cabeçalho principal da seção --%>
+            <h1 id="deletarCor">DELETAR COR DO MASCOTE</h1> <%-- Cabeçalho principal da seção --%>
         </div>
         <section class="deletarCorMascote"> <%-- Seção específica para o formulário de deletar a cor do mascote --%>
             <form action="../deletarCor" method="post"> <%-- Formulário que envia dados para o servlet "deletarCor" usando método POST --%>
@@ -30,11 +30,12 @@
             </form>
         </section>
     </div>
+    <br><br>
 </main>
 
 <footer class="container3"> <%-- footer da página --%>
     <p>Desenvolvido por</p> <%-- Texto no footer --%>
-    <img src="../im/mocBrancaSemFUndo.png" alt="img6" width="10%"> <%-- Imagem no footer --%>
+    <img src="../Assets/mocBranco.png" alt="img6" width="10%"> <%-- Imagem no footer --%>
 </footer>
 
 

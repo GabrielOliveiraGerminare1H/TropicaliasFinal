@@ -5,7 +5,7 @@
 <main> <%-- Elemento principal da página --%>
     <div class="container2" id="NovaCor"> <%-- Container para a seção de cadastro da nova cor do mascote --%>
         <div class="titulo"> <%-- Div para o título da seção --%>
-            <h1>CADASTRAR COR DO MASCOTE</h1> <%-- Cabeçalho principal da seção --%>
+            <h1 id="cadastrarCor">CADASTRAR COR DO MASCOTE</h1> <%-- Cabeçalho principal da seção --%>
         </div>
         <section class="corMascote"> <%-- Seção específica para o formulário de cadastro da cor do mascote --%>
             <form action="../cadastrarCor" method="post"> <%-- Formulário que envia dados para o servlet "cadastrarCor" usando método POST --%>
@@ -21,7 +21,7 @@
 
 <footer class="container3"> <%-- footer da página --%>
     <p>Desenvolvido por</p> <%-- footer no rodapé --%>
-    <img src="../im/mocBrancaSemFUndo.png" alt="img6" width="10%"> <%-- Imagem no footer --%>
+    <img src="../Assets/mocBranco.png" alt="img6" width="10%"> <%-- Imagem no footer --%>
 </footer>
 
 
