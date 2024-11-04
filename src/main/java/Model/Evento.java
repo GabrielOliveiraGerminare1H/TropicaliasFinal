@@ -1,69 +1,107 @@
 package Model;
 
-import java.sql.Date;
 import java.time.LocalDate;
 
 public class Evento {
-    private String nome;
-    private String local;
-    private double precoTicket;
-    private int fk_int_id_usuario;
-    private LocalDate dt_inicio;
-    private LocalDate dt_final;
+    // Atributos da classe Evento
 
-    public Evento(LocalDate dt_inicio, LocalDate dt_final, String nome, String local, double precoTicket, int fk_int_id_usuario){
-        this.dt_inicio=dt_inicio;
-        this.dt_final=dt_final;
+    private LocalDate dtInicio;         // Data de início do evento
+    private LocalDate dtFinal;          // Data de término do evento
+    private String nome;                // Nome do evento
+    private String local;               // Local onde o evento será realizado
+    private double precoTicket;         // Preço do ticket para o evento
+    private int fkUsuario;       // Chave estrangeira para o usuário criador do evento
+
+    private String imagem;             // URL da imagem para o evento
+    private String descricao;          //Descrição do evento
+
+    // Construtor da classe
+    public Evento(LocalDate dtInicio, LocalDate dtFinal, String nome, String local, double precoTicket, int fkUsuario, String mensagem, String descricao) {
+        this.dtInicio = dtInicio;
+        this.dtFinal = dtFinal;
         this.nome = nome;
         this.local = local;
         this.precoTicket = precoTicket;
-        this.fk_int_id_usuario = fk_int_id_usuario;
-
+        this.fkUsuario = fkUsuario;
+        this.imagem=imagem;
+        this.descricao=descricao;
     }
 
-    public String getNome(){
-        return this.nome;
+    // Métodos getters e setters para acessar e modificar os atributos
+
+    public LocalDate getDtInicio() {
+        return dtInicio;
     }
 
-    public String getLocal(){
-        return this.local;
+    public void setDtInicio(LocalDate dtInicio) {
+        this.dtInicio = dtInicio;
     }
 
-    public double getPrecoTicket(){
-        return this.precoTicket;
+    public LocalDate getDtFinal() {
+        return dtFinal;
     }
 
-    public int getFk_int_id_usuario(){
-        return this.fk_int_id_usuario;
+    public void setDtFinal(LocalDate dtFinal) {
+        this.dtFinal = dtFinal;
     }
 
-    public LocalDate getDt_inicio() {
-        return dt_inicio;
+    public String getNome() {
+        return nome;
     }
 
-    public LocalDate getDt_final() {
-        return dt_final;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public void setNome(String novoNome){
-        this.nome = novoNome;
+    public String getLocal() {
+        return local;
     }
 
-    public void setLocal(String novoLocal){
-        this.local = novoLocal;
+    public void setLocal(String local) {
+        this.local = local;
     }
 
-    public void setPrecoTicket(double novoPrecoTicket){
-        this.precoTicket = novoPrecoTicket;
+    public double getPrecoTicket() {
+        return precoTicket;
     }
 
-    public void setTextoSec(int novoFk_int_id_usuario){
-        this.fk_int_id_usuario = novoFk_int_id_usuario;
+    public void setPrecoTicket(double precoTicket) {
+        this.precoTicket = precoTicket;
     }
 
-    public String toString(){
-        return "-->Nome: " + this.nome + "\n-->Local: "+ this.local +"\n-->Preço do ticket: "+ this.precoTicket +
-                "\n-->Foreign key do usuário: "+ this.fk_int_id_usuario;
+    public int getFkUsuario() {
+        return fkUsuario;
+    }
+
+    public void setFkUsuario(int fkUsuario) {
+        this.fkUsuario = fkUsuario;
+    }
+
+    public String getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(String imagem) {
+        this.imagem = imagem;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    // Método toString para representar o objeto Evento
+    @Override
+    public String toString() {
+        return "--EVENTO" +
+                "--Nome: " + this.nome +
+                "\n--Local: " + this.local +
+                "\n--Preço do ticket: " + this.precoTicket +
+                "\n--Foreign key do usuário: " + this.fkUsuario +
+                "\n--Data de início: " + this.dtInicio +
+                "\n--Data de término: " + this.dtFinal;
     }
 }
-

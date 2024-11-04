@@ -1,31 +1,39 @@
 package Model;
 
 public class Barraca {
-    private String nome;
-    private int fk_int_id_evento;
+    // Atributos da classe
+    private String nome;                // Nome da barraca
+    private int fkEvento;       // Chave estrangeira que referencia o evento ao qual a barraca pertence
 
-    public Barraca(String nome, int fk_int_id_evento){
+    // Construtor da classe Barraca
+    public Barraca(String nome, int fkEvento) {
         this.nome = nome;
-        this.fk_int_id_evento = fk_int_id_evento;
+        this.fkEvento = fkEvento;
     }
 
-    public String getNome(){
-        return this.nome;
+    // Métodos getters e setters para acessar e modificar os atributos
+
+
+    public String getNome() {
+        return nome;
     }
 
-    public int getFk_int_id_evento(){
-        return this.fk_int_id_evento;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public void setNome(String novoNome){
-        this.nome = novoNome;
+    public int getFkEvento() {
+        return fkEvento;
     }
 
-    public void setFk_int_id_evento(int novoFk_int_id_evento){
-        this.fk_int_id_evento = novoFk_int_id_evento;
+    public void setFkEvento(int fkEvento) {
+        this.fkEvento = fkEvento;
     }
 
-    public String toString(){
-        return "-->Nome: " + this.nome +"\nForeign Key: " + this.fk_int_id_evento;
+    // Método toString para representar o objeto Barraca
+    @Override
+    public String toString() {
+        return "--Nome: " + this.nome +
+                "\n--Foreign Key do evento: " + this.fkEvento;
     }
 }

@@ -1,63 +1,44 @@
 package Daos;
 
 import Daos.JDBC.Conexao;
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class AnuncioDAO {
-    // Variáveis de conexão e manipulação de dados
-    private Connection conn;
-    private PreparedStatement pstmt;
-    private ResultSet rs;
-    // Instância da classe Conexao para gerenciar a conexão com o banco de dados
-    Conexao conexao = new Conexao();
+    private Conexao conexao = new Conexao();
 
-    // Método para selecionar anúncios ativos (onde "deletedat" é nulo)
+
     public ResultSet selecionarAnuncioA() {
         try {
-            // Abrindo conexão com o banco de dados
+            //Abrindo conexão com o banco
             conexao.conectar();
 
-            // Preparando a consulta SQL para selecionar anúncios ativos
-            pstmt = conexao.getConn().prepareStatement("SELECT * FROM tb_anuncio WHERE deletedat IS NULL");
-
-            // Executando o comando e armazenando o resultado no ResultSet
-            rs = pstmt.executeQuery();
+            // Executa a consulta SQL para selecionar anúncios ativos e retorna um ResultSet
+            return conexao.executarSelect("SELECT * FROM tb_anuncio WHERE deletedat IS NULL");
 
         } catch (SQLException sqle) {
-            // Em caso de falha na consulta, retorna null
+            sqle.printStackTrace();
             return null;
+
         } finally {
-            // Fecha a conexão com o banco de dados, garantindo liberação de recursos
-            conexao.desconectar();
+            conexao.desconectar(); // Fechando a conexão com o banco de dados
         }
-        // Retorna o ResultSet contendo os anúncios ativos
-        return rs;
     }
 
-    // Método para selecionar anúncios inativos (onde "deletedat" não é nulo)
     public ResultSet selecionarAnuncioI() {
         try {
-            // Abrindo conexão com o banco de dados
+            //Abrindo conexão com o banco
             conexao.conectar();
 
-            // Preparando a consulta SQL para selecionar anúncios inativos
-            pstmt = conexao.getConn().prepareStatement("SELECT * FROM tb_anuncio WHERE deletedat IS NOT NULL");
-
-            // Executando o comando e armazenando o resultado no ResultSet
-            rs = pstmt.executeQuery();
+            // Executa a consulta SQL para selecionar anúnios inativos e retorna um ResultSet
+            return conexao.executarSelect("SELECT * FROM tb_anuncio WHERE deletedat IS NOT NULL");
 
         } catch (SQLException sqle) {
-            // Em caso de falha na consulta, retorna null
+            sqle.printStackTrace();
             return null;
+
         } finally {
-            // Fecha a conexão com o banco de dados, garantindo liberação de recursos
-            conexao.desconectar();
+            conexao.desconectar(); // Fechando a conexão com o banco de dados
         }
-        // Retorna o ResultSet contendo os anúncios inativos
-        return rs;
     }
 }

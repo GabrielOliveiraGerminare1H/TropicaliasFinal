@@ -14,12 +14,12 @@ public class DeletarEvento extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Obtém o parâmetro que representa a chave primária do evento
-        String eventoIdStr = request.getParameter("pk_int_id_evento");
-        int eventoId;
+        String pkEvento = request.getParameter("pk_int_id_evento");
+        int pkEventoInt;
 
         // Tenta converter o parâmetro para um inteiro
         try {
-            eventoId = Integer.parseInt(eventoIdStr);
+            pkEventoInt = Integer.parseInt(pkEvento);
         } catch (NumberFormatException e) {
             // Se a conversão falhar, define mensagem de erro e redireciona
             request.setAttribute("verifica", false);
@@ -32,7 +32,7 @@ public class DeletarEvento extends HttpServlet {
         EventoDAO eventoDAO = new EventoDAO();
 
         // Tenta realizar a "exclusão" (SOFTDELETE) do evento
-        boolean verifica = eventoDAO.softDeleteEvento(eventoId);
+        boolean verifica = eventoDAO.softDeleteEvento(pkEventoInt);
 
         // Define mensagens de sucesso ou erro com base no resultado da operação
         if (verifica) {

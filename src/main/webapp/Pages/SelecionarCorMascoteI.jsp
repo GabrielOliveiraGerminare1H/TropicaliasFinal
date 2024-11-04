@@ -18,7 +18,7 @@
 </head>
 <body>
 <h2 style="color: #006996; font-size: 5rem; text-align: center; line-height: 80px;
-font-family: Oswald, sans-serif;">LISTA CORES INATIVAS DO MASCOTE</h2> <%-- Título da seção centralizado e com cor personalizada --%>
+font-family: Oswald, sans-serif;" id="selecionarCoresI">LISTA CORES INATIVAS DO MASCOTE</h2> <%-- Título da seção centralizado e com cor personalizada --%>
 <div class="select-container" style="overflow-x: auto; margin: 40px;"> <%-- Contêiner para a tabela --%>
     <table class="select" style="box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);"> <%-- Início da tabela para exibir os dados das cores dos mascotes --%>
         <thead> <%-- Cabeçalho da tabela --%>
@@ -76,7 +76,7 @@ font-family: Oswald, sans-serif;">LISTA CORES INATIVAS DO MASCOTE</h2> <%-- Tít
 <br><br><br>
 <footer class="container3"> <%-- footer da página --%>
     <p>Desenvolvido por</p> <%-- Texto no footer --%>
-    <img src="../Assets/mocBrancaSemFUndo.png" alt="img6" width="10%"> <%-- Imagem no footer --%>
+    <img src="../Assets/mocBranco.png" alt="img6" width="10%"> <%-- Imagem no footer --%>
 </footer>
 </body>
 </html>

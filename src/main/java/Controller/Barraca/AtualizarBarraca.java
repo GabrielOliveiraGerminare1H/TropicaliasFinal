@@ -17,12 +17,12 @@ public class AtualizarBarraca extends HttpServlet {
         // Obtém parâmetros da requisição
         String nomeCampo = request.getParameter("campoBarraca"); // Nome do campo a ser atualizado
         String valorNovo = request.getParameter("atualizacaoBarraca"); // Novo valor para o campo
-        String pkBarracaStr = request.getParameter("pk_int_id_barraca"); // ID da barraca
-        int pkBarraca;
+        String pkBarraca = request.getParameter("pk_int_id_barraca"); // ID da barraca
+        int pkBarracaInt;
 
-        // Tenta converter o ID da barraca de String para int
+        // Converte o ID da barraca de String para int
         try {
-            pkBarraca = Integer.parseInt(pkBarracaStr);
+            pkBarracaInt = Integer.parseInt(pkBarraca);
         } catch (NumberFormatException e) {
             // Caso o ID seja inválido, define mensagem de erro e redireciona
             request.setAttribute("verifica", false);
@@ -33,7 +33,7 @@ public class AtualizarBarraca extends HttpServlet {
 
         // Cria uma instância do DAO e tenta atualizar a barraca no banco de dados
         BarracaDAO barracaDAO = new BarracaDAO();
-        boolean verifica = barracaDAO.atualizarBarraca(nomeCampo, valorNovo, pkBarraca);
+        boolean verifica = barracaDAO.atualizarBarraca(nomeCampo, valorNovo, pkBarracaInt);
 
         // Define mensagem de acordo com o resultado da atualização
         if (verifica) {
@@ -43,7 +43,7 @@ public class AtualizarBarraca extends HttpServlet {
         } else {
             // Se não foi possível atualizar, define mensagem de erro
             request.setAttribute("verifica", false);
-            request.setAttribute("mensagem", "Erro ao atualizar a barraca.");
+            request.setAttribute("mensagem", "Erro ao atualizar a barraca. ATENÇÃO verifique os campos e se a barraca existe");
         }
 
         // Redireciona para a página de mensagens

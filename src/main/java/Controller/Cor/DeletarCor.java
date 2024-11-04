@@ -8,36 +8,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
-//
-//@WebServlet(name = "deletarCor" , value = "/deletarCor")
-//public class DeletarCor extends HttpServlet {
-//    @Override
-//    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        String pkCorMascoteStr = request.getParameter("pk_int_id_cor_mascote");
-//        int pkCorMascote = Integer.parseInt(pkCorMascoteStr);
-//
-//        CorMascoteDAO corMascoteDAO = new CorMascoteDAO();
-//        boolean verifica = corMascoteDAO.softDeleteCorMascote(pkCorMascote);
-//
-//
-//        if (verifica) {
-//            request.setAttribute("verifica",true);
-//            request.setAttribute("mensagem","Cor deletada com sucesso!");
-//            request.getRequestDispatcher("mensagem.jsp").forward(request, response);
-//        }
-//        else {
-//            request.setAttribute("verifica",false);
-//            request.setAttribute("mensagem","Não foi possível deletar!");
-//            request.getRequestDispatcher("mensagem.jsp").forward(request, response);
-//
-//        }
-//
-//    }
-//}
-//De acordo com a requisição do usuário excluir cor
-
-
-
 
 @WebServlet(name = "deletarCor", value = "/deletarCor")
 public class DeletarCor extends HttpServlet {
@@ -45,12 +15,12 @@ public class DeletarCor extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Obtém o parâmetro que representa a chave primária da cor do mascote
-        String pkCorMascoteStr = request.getParameter("pk_int_id_cor_mascote");
-        int pkCorMascote;
+        String pkCorMascote = request.getParameter("pk_int_id_cor_mascote");
+        int pkCorMascoteInt;
 
         // Tenta converter o parâmetro para um inteiro
         try {
-            pkCorMascote = Integer.parseInt(pkCorMascoteStr);
+            pkCorMascoteInt = Integer.parseInt(pkCorMascote);
         } catch (NumberFormatException e) {
             // Se a conversão falhar, define mensagem de erro e redireciona
             request.setAttribute("verifica", false);
@@ -63,7 +33,7 @@ public class DeletarCor extends HttpServlet {
         CorMascoteDAO corMascoteDAO = new CorMascoteDAO();
 
         // Tenta realizar a "exclusão" (SOFTDELETE) da cor do mascote
-        boolean verifica = corMascoteDAO.softDeleteCorMascote(pkCorMascote);
+        boolean verifica = corMascoteDAO.softDeleteCorMascote(pkCorMascoteInt);
 
         // Define mensagens de sucesso ou erro com base no resultado da operação
         if (verifica) {

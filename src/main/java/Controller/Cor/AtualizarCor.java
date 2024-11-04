@@ -19,12 +19,12 @@ public class AtualizarCor extends HttpServlet {
         // Obtém parâmetros da requisição
         String nomeCampo = request.getParameter("nomeCampo"); // Nome do campo a ser atualizado
         String atualizacaoCampo = request.getParameter("atualizacaoCor"); // Novo valor para o campo
-        String pkCorMascoteStr = request.getParameter("pk_int_id_cor_mascote"); // ID do mascote
-        int pkCorMascote;
+        String pkCorMascote = request.getParameter("pk_int_id_cor_mascote"); // ID do mascote
+        int pkCorMascoteInt;
 
-        // Tenta converter o ID do mascote de String para int
+        // Converte o ID do mascote de String para int
         try {
-            pkCorMascote = Integer.parseInt(pkCorMascoteStr);
+            pkCorMascoteInt = Integer.parseInt(pkCorMascote);
         } catch (NumberFormatException e) {
             // Caso o ID seja inválido, define mensagem de erro e redireciona
             request.setAttribute("verifica", false);
@@ -35,7 +35,7 @@ public class AtualizarCor extends HttpServlet {
 
         // Cria uma instância do DAO e tenta atualizar a cor no banco de dados
         CorMascoteDAO corMascoteDAO = new CorMascoteDAO();
-        boolean verifica = corMascoteDAO.atualizarCorMascote(nomeCampo, atualizacaoCampo, pkCorMascote);
+        boolean verifica = corMascoteDAO.atualizarCorMascote(nomeCampo, atualizacaoCampo, pkCorMascoteInt);
 
         // Valida se o novo valor da cor está em formato hexadecimal correto
         if (atualizacaoCampo.matches("^#([A-Fa-f0-9]{6})$")) {
@@ -46,7 +46,7 @@ public class AtualizarCor extends HttpServlet {
             } else {
                 // Se não foi possível atualizar, define mensagem de erro
                 request.setAttribute("verifica", false);
-                request.setAttribute("mensagem", "Não foi possível atualizar a cor.");
+                request.setAttribute("mensagem", "Não foi possível atualizar a cor. ATENÇÃO verifique os campos e se a cor existe");
             }
         } else {
             // Se o formato da cor for inválido, define mensagem de erro
