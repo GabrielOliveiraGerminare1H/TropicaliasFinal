@@ -25,8 +25,7 @@
             <li><a href="../Eventos.html">Evento</a></li> <!-- Link para a página de eventos -->
             <li><a href="../Suporte.html">Suporte</a></li> <!-- Link para a página de suporte -->
             <li><a href="../Termos.html">Termos</a></li> <!-- Link para a página de termos de uso -->
-            <li><a href="../Login.html">Área restrita</a></li> <!-- Link para a página de login -->
-            <li><a href="ADM.jsp">ADM</a></li> <!-- Link para a área de administração -->
+            <li><a href="Login.jsp">Área restrita</a></li> <!-- Link para a página de login -->
         </ul>
     </div>
 </div>

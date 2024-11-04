@@ -10,7 +10,6 @@
 </head>
 
 <body>
-<%-- Remova ou modifique o include conforme necessário --%>
  <jsp:include page="/Pages/ADM.jsp"/>
 
 

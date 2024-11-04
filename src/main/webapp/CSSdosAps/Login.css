@@ -9,11 +9,18 @@
 }
 body, html {
     overflow-x: hidden;
+    font-family: Montserrat, sans-serif;
 }
 
+.navbar img {
+    margin-top: 25px;
+}
 .navbar{
-    padding-right: 20rem;
-    padding-top: 2.5%;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin-left: 3%;
+    padding-top: 20px;
 }
 
 li{
@@ -30,18 +37,24 @@ li{
     margin-top: 1.5%;
     color: #EBDFC5;
     font-size: 18px;
-    font-family: Montserrat;
     margin-left: 2%;
 }
+a {
+    color: #EBDFC5;
+    text-decoration: none;
+}
+
+a:hover {
+    transition: 0.5s ease;
+    color: #E45F15;
+}
+
 .navbar li:hover{
     transition: 0.5s ease;
     color: #E45F15;
 }
-.navbar img {
-    margin-top: 1.5%;
-    height: 40px;
-    margin-left: 5%;
-}
+
+
 
 .display1{
     display: grid;
@@ -81,16 +94,14 @@ input{
 
 button{
     background-color: #E45F15;
-    width: 25.625rem;
+    width: 27.8rem;
     height: 3.6875rem;
     border-radius: 2.3125rem;
     border: 1px solid #3A240A;
-    background:  #E45F15;
     color: #EBDFC5;
     text-align: center;
     font-family: Montserrat;
-    font-size: 1.5rem;
-    margin-left: 3.345%;
+    font-size: 1.1rem;
 }
 
 section{
@@ -103,7 +114,7 @@ section p{
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    margin-left: 15.84%;
+    margin-left: 10.84%;
     margin-top: 2rem;
 }
 .criar{
@@ -113,8 +124,6 @@ section p{
 .container2{
     background-color: #E45F15;
     width: 100%;
-    height: 15rem;
-    padding-top: 5%;
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
@@ -123,7 +132,7 @@ section p{
 .container2 p{
     color: #EBDFC5;
     font-family: Montserrat;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -131,7 +140,7 @@ section p{
     margin-left: 64%;
 }
 .container2 img{
-    margin-top: 2%;
+    width: 110px;
 }
 
 .criar p:hover{
@@ -167,9 +176,8 @@ a:hover{
     }
 
 }
+
 @media screen and (max-width: 1036px){
-
-
     .display1{
         grid-template-columns: none;
         grid-template-rows: 1fr 1fr;
@@ -186,8 +194,6 @@ a:hover{
         margin-left: 17%;
         margin-bottom: 5%;
         display: flex;
-
-
     }
 
     .criar{
@@ -205,7 +211,7 @@ a:hover{
     }
 
 }
-@media screen and (max-width: 962px){
+@media screen and (max-width: 1100px){
 
     .container2{
         grid-template-columns: none;
@@ -216,6 +222,7 @@ a:hover{
     }
     .container2 img{
         margin: auto;
+        padding-top: 28px;
     }
 }
 
@@ -225,6 +232,11 @@ a:hover{
         margin-bottom: 5%;
         flex-wrap: wrap;
 
+    }
+}
+@media screen and (max-width: 870px){
+    .navbar a{
+        font-size: 14px;
     }
 }
 @media screen and (max-width: 709px){
@@ -309,66 +321,16 @@ a:hover{
         height: 3.6875rem;
     }
 }
-
-
-@media (max-width: 751px) {
-
-    li{
-        padding-left: 10%;
+@media (max-width: 350px) {
+    .container1 li a{
+        font-size: 0.7rem;
     }
-    .restrita a{
-        margin-right: 150px;
+    .container1 ul img{
+        width: 20px;
     }
 }
-
-@media (max-width: 532px) {
-
-    li{
-        padding-left: 15%;
+@media (max-width: 280px) {
+    .container1 li a{
+        font-size: 0.5rem;
     }
-    li a{
-        font-size: 15px;
-    }
-    .restrita a{
-        margin-right: 50px;
-    }
-}
-
-@media (max-width: 415px) {
-
-    li{
-        padding-left: 15px;
-    }
-    li a{
-        font-size: 12px;
-    }
-    .restrita a{
-        margin-right: 50px;
-    }
-
-}
-@media (max-width: 354px) {
-
-    li{
-        padding-left: 15px;
-    }
-    li a{
-        font-size: 10px;
-    }
-    .restrita a{
-        margin-right: 50px;
-    }
-
-}
-
-.restrita a{
-    margin-left: -20%;
-}
-
-@media (max-width: 1203px) {
-
-    .restrita a{
-        margin-left: -12%;
-    }
-
 }
