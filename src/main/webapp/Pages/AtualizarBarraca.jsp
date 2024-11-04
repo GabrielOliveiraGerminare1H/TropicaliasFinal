@@ -1,23 +1,36 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %> <!-- Define o tipo de conteúdo e linguagem da página -->
+<!-- Define o tipo de conteúdo e a codificação da página para suportar caracteres acentuados -->
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="ADM.jsp"%> <!-- Inclui o conteúdo do arquivo ADM.jsp -->
 
 <main>
-    <div class="container2" id="tabAtualizarBarraca"> <!-- Container principal para a seção de atualização da barraca -->
+    <div class="container2" id="tabAtualizarBarraca">
         <div class="titulo">
-            <h1 id="atualizarBarraca">ATUALIZAR BARRACA</h1> <!-- Título da seção -->
+            <h1>ATUALIZAR BARRACA</h1>
         </div>
-        <section class="atualizarBarraca"> <!-- Seção específica para o formulário de atualização -->
-            <form action="../atualizarBarraca" method="post"> <!-- Formulário que será enviado para o endpoint /atualizarBarraca -->
-                <input type="text" name="campoBarraca" id="campoBarraca" placeholder="Campo" required> <!-- Campo a ser atualizado -->
-                <input type="text" name="atualizacaoBarraca" id="atualizacaoBarraca" placeholder="Campo atualizado" required> <!-- Novo valor para o campo -->
-                <input type="number" name="pk_int_id_barraca" min="1" id="pk_int_id_barraca" placeholder="PK da barraca" required> <!-- PK da barraca que será atualizada -->
-                <button type="submit">Atualizar</button> <!-- Botão para enviar o formulário -->
+
+        <!-- Seção específica para o formulário de atualização de informações da barraca -->
+        <section class="atualizarBarraca">
+
+            <!-- Formulário que envia os dados para o endpoint /atualizarBarraca usando o método POST -->
+            <form action="../atualizarBarraca" method="post">
+
+                <!-- Campo para o usuário inserir o nome do campo a ser atualizado -->
+                <input type="text" name="campoBarraca" id="campoBarraca" placeholder="Campo" required>
+
+                <!-- Campo para o usuário inserir o valor atualizado no banco de dados -->
+                <input type="text" name="atualizacaoBarraca" id="atualizacaoBarraca" placeholder="Campo atualizado" required>
+
+                <!-- Campo para o usuário inserir a (PK) da barraca que será atualizada -->
+                <input type="number" name="pk_int_id_barraca" min="1" id="pk_int_id_barraca" placeholder="PK da barraca" required>
+
+                <!-- Botão de envio do formulário para processar a atualização -->
+                <button type="submit">Atualizar</button>
             </form>
         </section>
     </div>
 </main>
 
-<footer class="container3"> <!-- Rodapé da página -->
-    <p>Desenvolvido por</p> <!-- Texto informativo sobre o desenvolvedor -->
-    <img src="../Assets/mocBranco.png" alt="img6" width="10%"> <!-- Imagem do desenvolvedor ou logo -->
+<footer class="container3">
+    <p>Desenvolvido por</p>
+    <img src="../im/mocBrancaSemFUndo.png" alt="img6" width="10%">
 </footer>
