@@ -44,7 +44,7 @@
                 <input type="text" name="preco" id="preco" placeholder="Preço" required>
 
                 <%-- Campo para o usuário inserir a chave estrangeira do usuário relacionado ao evento, obrigatório --%>
-                <input type="int" name="fk_int_id_usuario" id="fk_int_id_usuario" placeholder="Fk do usuário" required>
+                <input type="number" name="fk_int_id_usuario" id="fk_int_id_usuario" placeholder="Fk do usuário" required>
 
                 <%-- Campo para o usuário inserir a URL da imagem do evento, obrigatório --%>
                 <input type="text" name="var_imagem" id="var_imagem" placeholder="URL imagem" required>
@@ -62,5 +62,5 @@
 
 <footer class="container3"> <!-- Rodapé da página -->
     <p>Desenvolvido por</p>
-    <img src="../Assets/mocBranco.png" alt="Imagem de logo" width="10%">
+    <img src="${pageContext.request.contextPath}/Assets/mocBranco.png" alt="Imagem de logo" width="10%">
 </footer>

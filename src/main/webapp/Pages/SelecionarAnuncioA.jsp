@@ -107,7 +107,7 @@
 <br><br><br>
 <footer class="container3"> <!-- Rodapé da página -->
     <p>Desenvolvido por</p> <!-- Texto do rodapé -->
-    <img src="../Assets/mocBranco.png" alt="Imagem de logo" width="10%"> <!-- Imagem do rodapé -->
+    <img src="${pageContext.request.contextPath}/Assets/mocBranco.png" alt="Imagem de logo" width="10%"> <!-- Imagem do rodapé -->
 </footer>
 </body>
 </html>

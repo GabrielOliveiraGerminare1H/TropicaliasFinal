@@ -104,7 +104,7 @@ font-family: Oswald, sans-serif;" id="selecionarEventosI">LISTA DE USUÁRIOS INA
 <br><br><br>
 <footer class="container3"> <%-- Rodapé da página --%>
     <p>Desenvolvido por</p>
-    <img src="../Assets/mocBranco.png" alt="Imagem de logo" width="10%">
+    <img src="${pageContext.request.contextPath}/Assets/mocBranco.png" alt="Imagem de logo" width="10%">
 </footer>
 </body>
 </html>

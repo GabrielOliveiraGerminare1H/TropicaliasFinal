@@ -25,7 +25,7 @@
             <li><a href="${pageContext.request.contextPath}/Eventos.html">Evento</a></li> <!-- Link para a página de eventos -->
             <li><a href="${pageContext.request.contextPath}/Suporte.html">Suporte</a></li> <!-- Link para a página de suporte -->
             <li><a href="${pageContext.request.contextPath}/Termos.html">Termos</a></li> <!-- Link para a página de termos de uso -->
-            <li><a href="${pageContext.request.contextPath}Login.jsp">Área restrita</a></li> <!-- Link para a página de login -->
+            <li><a href="${pageContext.request.contextPath}/Login.jsp">Área restrita</a></li> <!-- Link para a página de login -->
         </ul>
     </div>
 </div>
@@ -33,7 +33,7 @@
 <div class="container"> <!-- Container principal da página -->
     <div class="menuCima"> <!-- Menu superior -->
         <div class="opcaoEvento"> <!-- Seção para opções de eventos -->
-            <img src="${pageContext.request.contextPath}/Assets/calendario.svg" alt="Ícone de eventos"> <!-- Ícone de eventos -->
+            <img src="${pageContext.request.contextPath}/Assets/eventos.png" alt="Ícone de eventos"> <!-- Ícone de eventos -->
             <h1>Evento</h1>
             <!-- Links que redirecionam para as páginas .jsp de cada função dos botões de evento -->
             <ul>
@@ -46,7 +46,7 @@
         </div>
 
         <div class="opcaoMascote"> <!-- Seção para opções de mascote -->
-            <img src="${pageContext.request.contextPath}/Assets/cores.png" alt="Ícone de cores"> <!-- Ícone de cores -->
+            <img src="${pageContext.request.contextPath}/Assets/corestrue.svg" alt="Ícone de cores"> <!-- Ícone de cores -->
             <h1>Mascote</h1>
             <!-- Links que redirecionam para as páginas .jsp de cada função dos botões de mascote -->
             <ul>
@@ -81,7 +81,7 @@
         </div>
 
         <div class="opcaoBarraca"> <!-- Seção para opções de barracas -->
-            <img src="${pageContext.request.contextPath}/Assets/barraca.png" alt="Ícone de barracas"> <!-- Ícone de barracas -->
+            <img src="${pageContext.request.contextPath}/Assets/Warehouse.png" alt="Ícone de barracas"> <!-- Ícone de barracas -->
             <h1>Barraca</h1>
             <!-- Links que redirecionam para as páginas .jsp de cada função dos botões de barraca -->
             <ul>

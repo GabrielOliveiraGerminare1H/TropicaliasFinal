@@ -35,7 +35,9 @@ public class CadastrarEvento extends HttpServlet {
             try {
                 precoDouble = Double.parseDouble(preco.replace(",", "."));
             } catch (NumberFormatException e) {
-                setErrorMessage(request, response, "Formato de preço inválido!");
+                request.setAttribute("verifica", false);
+                request.setAttribute("mensagem", "Formato de preço inválido!");
+                request.getRequestDispatcher("mensagem.jsp").forward(request, response);
             }
 
             // Converte e valida a data de início
@@ -43,7 +45,9 @@ public class CadastrarEvento extends HttpServlet {
             try {
                 dt_inicioDate = LocalDate.parse(dt_inicio);
             } catch (DateTimeParseException e) {
-                setErrorMessage(request, response, "Data de início inválida!");
+                request.setAttribute("verifica", false);
+                request.setAttribute("mensagem", "Data de início inválida!");
+                request.getRequestDispatcher("mensagem.jsp").forward(request, response);
             }
 
             // Converte e valida a data de término
@@ -51,12 +55,16 @@ public class CadastrarEvento extends HttpServlet {
             try {
                 dt_finalDate = LocalDate.parse(dt_final);
             } catch (DateTimeParseException e) {
-                setErrorMessage(request, response, "Data de término inválida!");
+                request.setAttribute("verifica", false);
+                request.setAttribute("mensagem", "Data de término inválida!");
+                request.getRequestDispatcher("mensagem.jsp").forward(request, response);
             }
 
             // Verifica se a data de início é anterior à data de término
             if (!dt_inicioDate.isBefore(dt_finalDate)) {
-                setErrorMessage(request, response, "A data de início deve ser anterior à data de término.");
+                request.setAttribute("verifica", false);
+                request.setAttribute("mensagem", "A data de início deve ser anterior à data de término.");
+                request.getRequestDispatcher("mensagem.jsp").forward(request, response);
             }
 
             // Converte o ID do usuário para inteiro e verifica validade
@@ -64,7 +72,9 @@ public class CadastrarEvento extends HttpServlet {
             try {
                 fk_int_id_usuarioInt = Integer.parseInt(fkUsuario);
             } catch (NumberFormatException e) {
-                setErrorMessage(request, response, "ID do usuário inválido!");
+                request.setAttribute("verifica", false);
+                request.setAttribute("mensagem", "ID do usuário inválido!");
+                request.getRequestDispatcher("mensagem.jsp").forward(request, response);
             }
 
             // Cria um objeto Evento e realiza o cadastro no banco de dados
@@ -79,14 +89,11 @@ public class CadastrarEvento extends HttpServlet {
 
         } catch (Exception e) {
             // Em caso de erro geral, define mensagem de erro e redireciona
-            setErrorMessage(request, response, "Erro ao cadastrar o evento: " + e.getMessage());
+
+            request.setAttribute("verifica", false);
+            request.setAttribute("mensagem", "Não foi possível criar o evento!");
+            request.getRequestDispatcher("mensagem.jsp").forward(request, response);
         }
     }
 
-    // Método auxiliar para definir a mensagem de erro e redirecionar
-    private void setErrorMessage(HttpServletRequest request, HttpServletResponse response, String mensagem) throws ServletException, IOException {
-        request.setAttribute("verifica", false);
-        request.setAttribute("mensagem", mensagem);
-        request.getRequestDispatcher("mensagem.jsp").forward(request, response);
-    }
 }

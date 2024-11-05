@@ -15,12 +15,12 @@
 
 <div class="container1">
     <ul class="navbar">
-        <img src="../Assets/araci.png" alt="Logo do site">
-        <li><a href="../index.html">Inicio</a></li>
-        <li><a href="../Eventos.html">Evento</a></li>
-        <li><a href="../Suporte.html">Ajuda</a></li>
-        <li><a href="../Termos.html">Termos</a></li>
-        <li><a href="Login.jsp">Área restrita</a></li>
+        <img src="${pageContext.request.contextPath}/Assets/araci.png" alt="Logo do site">
+        <li><a href="${pageContext.request.contextPath}/index.html">Inicio</a></li>
+        <li><a href="${pageContext.request.contextPath}/Eventos.html">Evento</a></li>
+        <li><a href="${pageContext.request.contextPath}/Suporte.html">Ajuda</a></li>
+        <li><a href="${pageContext.request.contextPath}/Termos.html">Termos</a></li>
+        <li><a href="${pageContext.request.contextPath}/Login.jsp">Área restrita</a></li>
     </ul>
 
     <div class="display1">
@@ -59,7 +59,7 @@
 
 <div class="container2">
     <p>Desenvolvido por</p>
-    <img src="../Assets/mocBranco.png" alt="Imagem do logo" width="10%">
+    <img src="${pageContext.request.contextPath}/Assets/mocBranco.png" alt="Imagem do logo" width="10%">
 </div>
 
 </body>

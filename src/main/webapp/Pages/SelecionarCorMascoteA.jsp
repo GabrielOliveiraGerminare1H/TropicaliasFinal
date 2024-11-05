@@ -92,7 +92,7 @@
 <br><br><br>
 <footer class="container3"> <%-- Footer da página --%>
     <p>Desenvolvido por</p>
-    <img src="../Assets/mocBranco.png" alt="Imagem de logo" width="10%">
+    <img src="${pageContext.request.contextPath}/Assets/mocBranco.png" alt="Imagem de logo" width="10%">
 </footer>
 </body>
 </html>
