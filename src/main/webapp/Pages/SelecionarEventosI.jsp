@@ -5,7 +5,7 @@
 <%@ page import="Daos.EventoDAO" %>
 <%@ page import="java.sql.ResultSet" %>
 <%@ page import="java.sql.SQLException" %>
-<%@ include file="ADM.jsp"%> <!-- Inclui o conteúdo do arquivo ADM.jsp -->
+<%@ include file="ADM.jsp" %> <!-- Inclui o conteúdo do arquivo ADM.jsp -->
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -38,51 +38,52 @@ font-family: Oswald, sans-serif;" id="selecionarEventosI">LISTA DE EVENTOS INATI
 <div class="select-container" style="overflow-x: auto; margin: 40px;"> <%-- Contêiner para a tabela com rolagem horizontal --%>
     <table class="select" style="box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);"> <%-- Início da tabela com sombra --%>
         <thead>
-        <tr> <%-- Cabeçalho da tabela --%>
-            <th>dt_inicio</th>
-            <th>dt_final</th>
-            <th>var_nome</th>
-            <th>var_local</th>
-            <th>num_preco_ticket</th>
-            <th>createdat</th>
-            <th>deletedat</th>
-            <th>pk_int_id_evento</th>
-            <th>fk_int_id_usuario</th>
-            <th>updateat</th>
-        </tr>
+            <tr> <%-- Cabeçalho da tabela --%>
+                <th>dt_inicio</th>
+                <th>dt_final</th>
+                <th>var_nome</th>
+                <th>var_local</th>
+                <th>num_preco_ticket</th>
+                <th>createdat</th>
+                <th>deletedat</th>
+                <th>pk_int_id_evento</th>
+                <th>fk_int_id_usuario</th>
+                <th>updateat</th>
+            </tr>
         </thead>
         <tbody> <%-- Corpo da tabela onde os dados serão exibidos --%>
         <%
             // Cria uma instância do DAO para acessar os dados dos eventos
             EventoDAO eventoDAO = new EventoDAO();
-            // Chama o método que seleciona os eventos ativos
+            // Chama o método que seleciona os eventos inativos
             ResultSet EventoResultSet = eventoDAO.selecionarEventoI();
             try {
-                // Verifica se há resultados e percorre  eles
-                if(EventoResultSet != null && EventoResultSet.next()){
+                // Verifica se há resultados e percorre eles
+                if (EventoResultSet.next()) {
                     // Loop para percorrer todos os registros retornados
                     do {
         %>
         <tr> <%-- Início da linha da tabela para cada evento inativo --%>
-            <td><p><%= EventoResultSet.getString("dt_inicio") %></p></td>
-            <td><p><%= EventoResultSet.getString("dt_final") %></p></td>
-            <td><p><%= EventoResultSet.getString("var_nome") %></p></td>
-            <td><p><%= EventoResultSet.getString("var_local") %></p></td>
-            <td><p><%= EventoResultSet.getString("num_preco_ticket") %></p></td>
-            <td><p><%= EventoResultSet.getString("createdat") %></p></td>
-            <td><p><%= EventoResultSet.getString("deletedat") %></p></td>
-            <td><p><%= EventoResultSet.getString("pk_int_id_evento") %></p></td>
-            <td><p><%= EventoResultSet.getString("fk_int_id_usuario") %></p></td>
-            <td><p><%= EventoResultSet.getString("updateat") %></p></td>
+            <td><%= EventoResultSet.getString("dt_inicio") %></td>
+            <td><%= EventoResultSet.getString("dt_final") %></td>
+            <td><%= EventoResultSet.getString("var_nome") %></td>
+            <td><%= EventoResultSet.getString("var_local") %></td>
+            <td><%= EventoResultSet.getString("num_preco_ticket") %></td>
+            <td><%= EventoResultSet.getString("createdat") %></td>
+            <td><%= EventoResultSet.getString("deletedat") %></td>
+            <td><%= EventoResultSet.getString("pk_int_id_evento") %></td>
+            <td><%= EventoResultSet.getString("fk_int_id_usuario") %></td>
+            <td><%= EventoResultSet.getString("updateat") %></td>
         </tr>
         <%
-            } while(EventoResultSet.next()); // Continua a iteração enquanto houver mais registros
-        } else {// Caso não haja resultados
+            } while (EventoResultSet.next()); // Continua a iteração enquanto houver mais registros
+        } else { // Caso não haja resultados
         %>
         <tr>
             <td colspan="10"><p>Nenhum registro encontrado.</p></td>
         </tr>
-        <% }// Fim da verificação de resultados
+        <%
+            }
         } catch (SQLException sql) { // Tratamento de exceção em caso de erro no SQL
             sql.printStackTrace();
         %>

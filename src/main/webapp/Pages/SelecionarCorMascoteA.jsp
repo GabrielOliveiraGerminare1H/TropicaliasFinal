@@ -5,7 +5,8 @@
 <%@ page import="Daos.CorMascoteDAO" %>
 <%@ page import="java.sql.ResultSet" %>
 <%@ page import="java.sql.SQLException" %>
-<%@ include file="ADM.jsp"%> <!-- Inclui o conteúdo do arquivo ADM.jsp -->
+<%@ include file="ADM.jsp" %> <!-- Inclui o conteúdo do arquivo ADM.jsp -->
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -21,31 +22,30 @@
         }
         th {
             color: #ebe6da; /* Cor do texto do cabeçalho */
+            background-color: #ff7e32; /* Cor de fundo do cabeçalho */
         }
         th, td {
-            border: 1px solid #E45F15; padding: 10px; text-align: left;
-        }
-        th {
-            background-color: #ff7e32; /* Cor de fundo do cabeçalho */
+            border: 1px solid #E45F15;
+            padding: 10px;
+            text-align: left;
         }
     </style>
 </head>
 <body>
-<h2 style="color: #006996; font-size: 5rem; text-align: center; line-height: 80px;
-font-family: Oswald, sans-serif;" id="selecionarCoresA">LISTA CORES ATIVAS DO MASCOTE</h2> <%-- Título da seção centralizado e com cor personalizada --%>
+<h2 style="color: #006996; font-size: 5rem; text-align: center; line-height: 80px; font-family: Oswald, sans-serif;" id="selecionarCoresA">LISTA CORES ATIVAS DO MASCOTE</h2> <%-- Título da seção centralizado e com cor personalizada --%>
 <br>
 <div class="select-container" style="overflow-x: auto; margin: 40px;">
     <table class="select" style="box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);"> <%-- Início da tabela para exibir os dados das cores dos mascotes --%>
         <thead>
-        <tr> <%-- Cabeçalho da tabela --%>
-            <th>pk_int_id_cor_mascote</th>
-            <th>text_fundo</th>
-            <th>createdat</th>
-            <th>deletedat</th>
-            <th>text_secundaria</th>
-            <th>text_primaria</th>
-            <th>updateat</th>
-        </tr>
+            <tr> <%-- Cabeçalho da tabela --%>
+                <th>pk_int_id_cor_mascote</th>
+                <th>text_fundo</th>
+                <th>createdat</th>
+                <th>deletedat</th>
+                <th>text_secundaria</th>
+                <th>text_primaria</th>
+                <th>updateat</th>
+            </tr>
         </thead>
         <tbody>
         <%
@@ -54,32 +54,34 @@ font-family: Oswald, sans-serif;" id="selecionarCoresA">LISTA CORES ATIVAS DO MA
             // Chama o método que seleciona as cores de mascote que não foram deletadas
             ResultSet CorAResultSet = corMascoteDAO.selecionarCorMascoteA();
             try {
-                // Verifica se há resultados e percorre eles
-                if (CorAResultSet.next() && CorAResultSet != null) {
+                // Verifica se o ResultSet não é nulo e se há resultados
+                if (CorAResultSet != null && CorAResultSet.next()) {
                     // Loop para percorrer todos os registros retornados
                     do {
         %>
         <tr> <%-- Início da linha da tabela para cada cor do mascote ativa --%>
-            <td><p> <%= CorAResultSet.getInt("pk_int_id_cor_mascote") %>></p></td>
-            <td><p> <%= CorAResultSet.getString("text_fundo") %>></p></td>
-            <td><p> <%= CorAResultSet.getString("createdat") %>></p></td>
-            <td><p> <%= CorAResultSet.getString("deletedat") %>></p></td>
-            <td><p><%= CorAResultSet.getString("text_secundaria") %></p></td>
-            <td><p><%= CorAResultSet.getString("text_primaria") %></p></td>
-            <td><p> <%= CorAResultSet.getString("updateat") %>></p></td>
+            <td><%= CorAResultSet.getInt("pk_int_id_cor_mascote") %></td>
+            <td><%= CorAResultSet.getString("text_fundo") %></td>
+            <td><%= CorAResultSet.getString("createdat") %></td>
+            <td><%= CorAResultSet.getString("deletedat") %></td>
+            <td><%= CorAResultSet.getString("text_secundaria") %></td>
+            <td><%= CorAResultSet.getString("text_primaria") %></td>
+            <td><%= CorAResultSet.getString("updateat") %></td>
+        </tr>
         <%
             } while (CorAResultSet.next()); // Continua a iteração enquanto houver mais registros
         } else { // Caso não haja resultados
         %>
         <tr>
-            <td colspan="7"><p>Nenhum registro encontrado.</p></td> <%-- Mensagem exibida se não houver registros --%>
+            <td colspan="7">Nenhum registro encontrado.</td> <%-- Mensagem exibida se não houver registros --%>
         </tr>
-        <% } // Fim da verificação de resultados
+        <%
+            }
         } catch (SQLException sql) { // Tratamento de exceção em caso de erro no SQL
             sql.printStackTrace();
         %>
         <tr>
-            <td colspan="7"><p>Erro no banco de dados!</p></td> <%-- Mensagem de erro exibida na tabela --%>
+            <td colspan="7">Erro no banco de dados!</td> <%-- Mensagem de erro exibida na tabela --%>
         </tr>
         <%
             } // Fim do bloco try-catch
@@ -88,7 +90,7 @@ font-family: Oswald, sans-serif;" id="selecionarCoresA">LISTA CORES ATIVAS DO MA
     </table>
 </div>
 <br><br><br>
-<footer class="container3"> <%-- footer da página --%>
+<footer class="container3"> <%-- Footer da página --%>
     <p>Desenvolvido por</p>
     <img src="../Assets/mocBranco.png" alt="img6" width="10%">
 </footer>

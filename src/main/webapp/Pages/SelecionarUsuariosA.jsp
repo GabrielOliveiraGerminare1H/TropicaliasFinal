@@ -5,7 +5,7 @@
 <%@ page import="Daos.UsuarioDAO" %>
 <%@ page import="java.sql.ResultSet" %>
 <%@ page import="java.sql.SQLException" %>
-<%@ include file="ADM.jsp"%> <!-- Inclui o conteúdo do arquivo ADM.jsp -->
+<%@ include file="ADM.jsp" %> <!-- Inclui o conteúdo do arquivo ADM.jsp -->
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -38,67 +38,65 @@ font-family: Oswald, sans-serif;" id="selecionarEventosI">LISTA DE USUÁRIOS ATI
 <div class="select-container" style="overflow-x: auto; margin: 40px;"> <%-- Contêiner para a tabela com rolagem horizontal --%>
     <table class="select" style="box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);"> <%-- Início da tabela com sombra --%>
         <thead>
-        <tr><%-- Cabeçalho da tabela --%>
-            <th>pk_int_id_usuario</th>
-            <th>text_foto</th>
-            <th>var_email</th>
-            <th>var_senha</th>
-            <th>var_user_name</th>
-            <th>dt_nascimento</th>
-            <th>var_descricao_usuario</th>
-            <th>var_cpf</th>
-            <th>var_nome</th>
-            <th>createdat</th>
-            <th>deletedat</th>
-            <th>fk_int_id_endereco</th>
-            <th>updateat</th>
-            <th>var_role</th>
-        </tr>
+            <tr><%-- Cabeçalho da tabela --%>
+                <th>pk_int_id_usuario</th>
+                <th>text_foto</th>
+                <th>var_email</th>
+                <th>var_senha</th>
+                <th>var_user_name</th>
+                <th>dt_nascimento</th>
+                <th>var_descricao_usuario</th>
+                <th>var_cpf</th>
+                <th>var_nome</th>
+                <th>createdat</th>
+                <th>deletedat</th>
+                <th>fk_int_id_endereco</th>
+                <th>updateat</th>
+                <th>var_role</th>
+            </tr>
         </thead>
         <tbody>
-    <%
-        UsuarioDAO usuarioDAO = new UsuarioDAO();
-        ResultSet UsuAResultSet = usuarioDAO.selecionarUsuarioA();
-        try {
-            // Verifica se há resultados e percorre  eles
-            if(UsuAResultSet.next() && UsuAResultSet != null){
-
-                do {
-    %>
-    <tr>
-        <td><p><%= UsuAResultSet.getInt("pk_int_id_usuario") %>></p></td>
-        <td><p><%= UsuAResultSet.getString("text_foto") %>></p></td>
-        <td><p><%= UsuAResultSet.getString("var_email") %></p></td>
-        <td><p><%= UsuAResultSet.getString("var_senha") %></p></td>
-        <td><p><%= UsuAResultSet.getString("var_user_name") %>/<p></td>
-        <td><p><%= UsuAResultSet.getDate("dt_nascimento") %></p></td>
-        <td><p><%= UsuAResultSet.getString("var_descricao_usuario") %></p></td>
-        <td><p><%= UsuAResultSet.getString("var_cpf") %>/<p></td>
-        <td><p><%= UsuAResultSet.getString("var_nome") %></p></td>
-        <td><p><%= UsuAResultSet.getString("createdat") %>></p></td>
-        <td><p><%= UsuAResultSet.getString("deletedat") %>></p></td>
-        <td><p><%= UsuAResultSet.getInt("fk_int_id_endereco") %>/<p></td>
-        <td><p><%= UsuAResultSet.getString("updateat") %>/<p></td>
-        <td><p><%= UsuAResultSet.getString("var_role") %>/<p></td>
-    </tr>
-
-    <%
-        } while(UsuAResultSet.next()); // Continua a iteração enquanto houver mais registros
-    } else {// Caso não haja resultados
-    %>
-    <tr>
-        <td colspan="5"><p>Nenhum registro encontrado.</p></td>
-    </tr>
-    <% }// Fim da verificação de resultados
-    } catch (SQLException sql) { // Tratamento de exceção em caso de erro no SQL
-        sql.printStackTrace();
-    %>
-    <tr>
-        <td colspan="5"><p>Erro no banco de dados!</p></td> <%-- Mensagem de erro exibida na tabela --%>
-    </tr>
-    <%
-        } // Fim do bloco try-catch
-    %>
+        <%
+            UsuarioDAO usuarioDAO = new UsuarioDAO();
+            ResultSet UsuAResultSet = usuarioDAO.selecionarUsuarioA();
+            try {
+                if (UsuAResultSet.next()) { // Verifica se há resultados e percorre eles
+                    do {
+        %>
+        <tr>
+            <td><p><%= UsuAResultSet.getInt("pk_int_id_usuario") %></p></td>
+            <td><p><%= UsuAResultSet.getString("text_foto") %></p></td>
+            <td><p><%= UsuAResultSet.getString("var_email") %></p></td>
+            <td><p><%= UsuAResultSet.getString("var_senha") %></p></td>
+            <td><p><%= UsuAResultSet.getString("var_user_name") %></p></td>
+            <td><p><%= UsuAResultSet.getDate("dt_nascimento") %></p></td>
+            <td><p><%= UsuAResultSet.getString("var_descricao_usuario") %></p></td>
+            <td><p><%= UsuAResultSet.getString("var_cpf") %></p></td>
+            <td><p><%= UsuAResultSet.getString("var_nome") %></p></td>
+            <td><p><%= UsuAResultSet.getString("createdat") %></p></td>
+            <td><p><%= UsuAResultSet.getString("deletedat") %></p></td>
+            <td><p><%= UsuAResultSet.getInt("fk_int_id_endereco") %></p></td>
+            <td><p><%= UsuAResultSet.getString("updateat") %></p></td>
+            <td><p><%= UsuAResultSet.getString("var_role") %></p></td>
+        </tr>
+        <%
+            } while (UsuAResultSet.next()); // Continua a iteração enquanto houver mais registros
+        } else { // Caso não haja resultados
+        %>
+        <tr>
+            <td colspan="14"><p>Nenhum registro encontrado.</p></td>
+        </tr>
+        <%
+            }
+        } catch (SQLException sql) { // Tratamento de exceção em caso de erro no SQL
+            sql.printStackTrace();
+        %>
+        <tr>
+            <td colspan="14"><p>Erro no banco de dados!</p></td> <%-- Mensagem de erro exibida na tabela --%>
+        </tr>
+        <%
+            } // Fim do bloco try-catch
+        %>
         </tbody>
     </table>
 </div>
