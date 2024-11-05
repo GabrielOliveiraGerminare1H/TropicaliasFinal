@@ -1,3 +1,4 @@
+/* Base styles (desktop) */
 * {
     padding: 0;
     margin: 0;
@@ -288,6 +289,7 @@ a:hover {
     position: relative;
     overflow: hidden; /* Esconde qualquer conteúdo que ultrapasse a borda */
     transition: background 1s ease; /* Suaviza a transição */
+    padding: 10px;
 }
 
 .card h3, .card p {
@@ -505,7 +507,7 @@ a:hover {
 
     }
     .texto4{
-        padding: 0%;
+        padding: 10px;
         margin-left: -25%;
     }
 

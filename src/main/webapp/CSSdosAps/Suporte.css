@@ -1,23 +1,21 @@
 .container1 {
     width: 100%;
     background-color: #006996;
-    height: 40rem;
+    height: 60rem;
 }
-
 *{
     padding: 0px;
     margin: 0px;
 }
-
 body, html {
     overflow-x: hidden;
     font-family: Montserrat, sans-serif;
 }
 
+
 .navbar img {
     margin-top: 25px;
 }
-
 .navbar{
     list-style: none;
     display: flex;
@@ -30,7 +28,6 @@ li{
     margin-left: 20px;
     cursor: pointer;
 }
-
 .navbar ul {
     list-style: none;
     display: flex;
@@ -43,7 +40,6 @@ li{
     font-size: 18px;
     margin-left: 2%;
 }
-
 a {
     color: #EBDFC5;
     text-decoration: none;
@@ -58,6 +54,7 @@ a:hover {
     transition: 0.5s ease;
     color: #E45F15;
 }
+
 
 .display1{
     display: grid;
@@ -94,7 +91,6 @@ input{
     background-color: #006996;
     color: white;
 }
-
 ::placeholder{
     color: white;
 }
@@ -115,7 +111,6 @@ button{
 section{
     margin-left: 15%;
 }
-
 section p{
     color: #EBDFC5;
     font-family: Montserrat;
@@ -127,6 +122,7 @@ section p{
     margin-top: 2rem;
 }
 
+
 .criar{
     margin-top: 7%;
 }
@@ -137,6 +133,7 @@ section p{
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
+    height: 15rem;
 }
 
 .container2 p{
@@ -164,11 +161,11 @@ a{
     color: #EBDFC5;
     text-decoration: none;
 }
-
 a:hover{
     transition: 0.5s ease;
     color: #E45F15;
 }
+
 
 @media screen and (max-width: 1036px){
 
@@ -242,7 +239,7 @@ a:hover{
         height: 3.6875rem;
     }
     button{
-        width: 22.000rem;
+        width: 23.000rem;
         height: 3.6875rem;
     }
 }
@@ -266,11 +263,10 @@ a:hover{
         height: 3.6875rem;
     }
     button{
-        width: 18.000rem;
+        width: 19.000rem;
         height: 3.6875rem;
     }
 }
-
 @media (max-width: 350px) {
     .container1 li a{
         font-size: 0.7rem;
@@ -279,7 +275,6 @@ a:hover{
         width: 20px;
     }
 }
-
 @media (max-width: 280px) {
     .container1 li a{
         font-size: 0.5rem;

@@ -1,7 +1,7 @@
 .container1 {
     width: 100%;
     background-color: #006996;
-    height: 44rem;
+    height: 60rem;
 }
 *{
     padding: 0px;
@@ -131,6 +131,7 @@ section p{
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
+    height: 15rem;
 }
 
 .container2 p{
@@ -264,7 +265,7 @@ a:hover{
         height: 3.6875rem;
     }
     button{
-        width: 20.000rem;
+        width: 21.4rem;
         height: 3.6875rem;
     }
 
@@ -293,7 +294,7 @@ a:hover{
         height: 3.6875rem;
     }
     button{
-        width: 18.000rem;
+        width: 19.000rem;
         height: 3.6875rem;
     }
 
