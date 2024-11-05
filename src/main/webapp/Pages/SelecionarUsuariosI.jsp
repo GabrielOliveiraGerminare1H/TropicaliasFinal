@@ -1,9 +1,11 @@
+<%-- Define o tipo de conteúdo da página como HTML com codificação UTF-8 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!-- Importação das classes necessárias -->
 <%@ page import="Model.Usuario" %>
 <%@ page import="Daos.UsuarioDAO" %>
 <%@ page import="java.sql.ResultSet" %>
 <%@ page import="java.sql.SQLException" %>
-<%@ include file="ADM.jsp"%>
+<%@ include file="ADM.jsp"%>  <!-- Inclui o conteúdo do arquivo ADM.jsp -->
 
 <!DOCTYPE html>
 <html lang="pt-br">

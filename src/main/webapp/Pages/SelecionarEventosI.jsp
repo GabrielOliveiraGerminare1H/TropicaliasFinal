@@ -1,12 +1,11 @@
 <%-- Define o tipo de conteúdo da página como HTML com codificação UTF-8 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
-<%-- Importação das classes necessárias --%>
-<%@ page import="Model.Evento" %> <%-- Importa a classe Evento do pacote Model --%>
-<%@ page import="Daos.EventoDAO" %> <%-- Importa a classe EventoDAO do pacote Daos --%>
-<%@ page import="java.sql.ResultSet" %> <%-- Importa a classe ResultSet para manipulação de dados SQL --%>
-<%@ page import="java.sql.SQLException" %> <%-- Importa a classe SQLException para tratamento de exceções SQL --%>
-<%@ include file="ADM.jsp"%> <%-- Inclui o conteúdo da página ADM.jsp --%>
+<!-- Importação das classes necessárias -->
+<%@ page import="Model.Evento" %>
+<%@ page import="Daos.EventoDAO" %>
+<%@ page import="java.sql.ResultSet" %>
+<%@ page import="java.sql.SQLException" %>
+<%@ include file="ADM.jsp"%> <!-- Inclui o conteúdo do arquivo ADM.jsp -->
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -14,10 +13,22 @@
     <meta charset="UTF-8"> <%-- Define a codificação de caracteres como UTF-8 --%>
     <title>Eventos</title> <%-- Título da página --%>
     <style>
-        table { width: 50%; margin: auto; border-collapse: collapse; font-family: Montserrat } <%-- Estilo da tabela --%>
-        th { color: #ebe6da } <%-- Cor do texto do cabeçalho da tabela --%>
-        th, td { border: 1px solid #E45F15; padding: 10px; text-align: left; } <%-- Bordas e espaçamento das células --%>
-        th { background-color: #ff7e32; } <%-- Cor de fundo do cabeçalho da tabela --%>
+        /* Estilo para a tabela */
+        table {
+            width: 50%; /* Largura da tabela */
+            margin: auto; /* Centraliza a tabela na página */
+            border-collapse: collapse; /* Remove espaços entre bordas da tabela */
+            font-family: Montserrat; /* Define a fonte da tabela */
+        }
+        th {
+            color: #ebe6da; /* Cor do texto do cabeçalho */
+        }
+        th, td {
+            border: 1px solid #E45F15; padding: 10px; text-align: left;
+        }
+        th {
+            background-color: #ff7e32; /* Cor de fundo do cabeçalho */
+        }
     </style>
 </head>
 <body>
@@ -42,11 +53,15 @@ font-family: Oswald, sans-serif;" id="selecionarEventosI">LISTA DE EVENTOS INATI
         </thead>
         <tbody> <%-- Corpo da tabela onde os dados serão exibidos --%>
         <%
-            EventoDAO eventoDAO = new EventoDAO(); <%-- Instancia a classe EventoDAO --%>
-        ResultSet EventoResultSet = eventoDAO.selecionarEventoI(); <%-- Chama o método para selecionar eventos inativos --%>
-        try {
-        if (EventoResultSet != null && EventoResultSet.next()) { <%-- Verifica se há registros no ResultSet --%>
-        do {
+            // Cria uma instância do DAO para acessar os dados dos eventos
+            EventoDAO eventoDAO = new EventoDAO();
+            // Chama o método que seleciona os eventos ativos
+            ResultSet EventoResultSet = eventoDAO.selecionarEventoI();
+            try {
+                // Verifica se há resultados no ResultSet
+                if(EventoResultSet != null && EventoResultSet.next()){
+                    // Loop para percorrer todos os registros retornados
+                    do {
         %>
         <tr> <%-- Linha da tabela para exibir cada registro de evento --%>
             <td><p><%= EventoResultSet.getString("dt_inicio") %></p></td> <%-- Exibe a data de início --%>
@@ -83,8 +98,8 @@ font-family: Oswald, sans-serif;" id="selecionarEventosI">LISTA DE EVENTOS INATI
 </div>
 <br><br><br>
 <footer class="container3"> <%-- Rodapé da página --%>
-    <p>Desenvolvido por</p> <%-- Texto no rodapé --%>
-    <img src="../Assets/mocBranco.png" alt="img6" width="10%"> <%-- Imagem no rodapé --%>
+    <p>Desenvolvido por</p>
+    <img src="../Assets/mocBranco.png" alt="img6" width="10%">
 </footer>
 </body>
 </html>

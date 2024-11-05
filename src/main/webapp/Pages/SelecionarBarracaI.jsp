@@ -5,7 +5,7 @@
 <%@ page import="Daos.BarracaDAO" %>
 <%@ page import="java.sql.ResultSet" %>
 <%@ page import="java.sql.SQLException" %>
-<%@ include file="ADM.jsp"%>
+<%@ include file="ADM.jsp"%> <!-- Inclui o conteúdo do arquivo ADM.jsp -->
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -13,10 +13,22 @@
     <meta charset="UTF-8">
     <title>Barraca</title>
     <style>
-        table { width: 50%; margin: auto; border-collapse: collapse; font-family: Montserrat } <%-- Estilo para a tabela --%>
-        th { color: #ebe6da } <%-- Cor do texto do cabeçalho da tabela --%>
-        th, td { border: 1px solid #E45F15; padding: 10px; text-align: left; } <%-- Estilo das células da tabela --%>
-        th { background-color: #ff7e32; } <%-- Cor de fundo do cabeçalho da tabela --%>
+        /* Estilo para a tabela */
+        table {
+            width: 50%; /* Largura da tabela */
+            margin: auto; /* Centraliza a tabela na página */
+            border-collapse: collapse; /* Remove espaços entre bordas da tabela */
+            font-family: Montserrat; /* Define a fonte da tabela */
+        }
+        th {
+            color: #ebe6da; /* Cor do texto do cabeçalho */
+        }
+        th, td {
+            border: 1px solid #E45F15; padding: 10px; text-align: left;
+        }
+        th {
+            background-color: #ff7e32; /* Cor de fundo do cabeçalho */
+        }
     </style>
 </head>
 <body>

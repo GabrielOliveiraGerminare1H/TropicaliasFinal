@@ -5,17 +5,29 @@
 <%@ page import="Daos.CorMascoteDAO" %>
 <%@ page import="java.sql.ResultSet" %>
 <%@ page import="java.sql.SQLException" %>
-<%@ include file="ADM.jsp"%>
+<%@ include file="ADM.jsp"%> <!-- Inclui o conteúdo do arquivo ADM.jsp -->
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <title>Cor Mascote</title>
     <style>
-        table { width: 50%; margin: auto; border-collapse: collapse; font-family: Montserrat }
-        th { color: #ebe6da }
-        th, td { border: 1px solid #E45F15; padding: 10px; text-align: left; }
-        th { background-color: #ff7e32; }
+        /* Estilo para a tabela */
+        table {
+            width: 50%; /* Largura da tabela */
+            margin: auto; /* Centraliza a tabela na página */
+            border-collapse: collapse; /* Remove espaços entre bordas da tabela */
+            font-family: Montserrat; /* Define a fonte da tabela */
+        }
+        th {
+            color: #ebe6da; /* Cor do texto do cabeçalho */
+        }
+        th, td {
+            border: 1px solid #E45F15; padding: 10px; text-align: left;
+        }
+        th {
+            background-color: #ff7e32; /* Cor de fundo do cabeçalho */
+        }
     </style>
 </head>
 <body>

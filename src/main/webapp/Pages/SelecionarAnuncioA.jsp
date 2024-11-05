@@ -57,7 +57,7 @@ font-family: Oswald, sans-serif;" id="selecionarAnuncioA">LISTA DE ANUNCIOS ATIV
             AnuncioDAO anuncioDAO = new AnuncioDAO(); // Criação de uma instância do DAO para acessar os anúncios
             ResultSet AnuncioResulSet = anuncioDAO.selecionarAnuncioA(); // Chamada ao método que retorna anúncios ativos
             try {
-                // Verifica se há resultados e itera sobre eles
+                // Verifica se há resultados e percorre eles
                 if(AnuncioResulSet.next() && AnuncioResulSet != null){
                     do {
         %>
