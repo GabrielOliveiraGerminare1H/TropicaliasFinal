@@ -1,4 +1,6 @@
+<%-- Define o tipo de conteúdo da página como HTML com codificação UTF-8 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!-- Importação das classes necessárias -->
 <%@ page import="Model.Barraca" %>
 <%@ page import="Daos.BarracaDAO" %>
 <%@ page import="java.sql.ResultSet" %>
@@ -11,77 +13,68 @@
     <meta charset="UTF-8">
     <title>Barraca</title>
     <style>
-        table { width: 50%; margin: auto; border-collapse: collapse; font-family: Montserrat }
-        th { color: #ebe6da }
-        th, td { border: 1px solid #E45F15; padding: 10px; text-align: left; }
-        th { background-color: #ff7e32; }
+        table { width: 50%; margin: auto; border-collapse: collapse; font-family: Montserrat } <%-- Estilo para a tabela --%>
+        th { color: #ebe6da } <%-- Cor do texto do cabeçalho da tabela --%>
+        th, td { border: 1px solid #E45F15; padding: 10px; text-align: left; } <%-- Estilo das células da tabela --%>
+        th { background-color: #ff7e32; } <%-- Cor de fundo do cabeçalho da tabela --%>
     </style>
 </head>
 <body>
 <h2 style="color: #006996; font-size: 5rem; text-align: center; line-height: 80px;
-font-family: Oswald, sans-serif;" id="selecionarBarracaI">LISTA DE BARRACAS INATIVAS</h2>
+font-family: Oswald, sans-serif;" id="selecionarBarracaI">LISTA DE BARRACAS INATIVAS</h2> <%-- Título da lista de barracas inativas --%>
 <br>
-<div class="select-container" style="overflow-x: auto; margin: 40px;">
-    <table class="select" style="box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);">
+<div class="select-container" style="overflow-x: auto; margin: 40px;"> <%-- Container para a tabela com rolagem horizontal --%>
+    <table class="select" style="box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);"> <%-- Tabela de barracas com sombra --%>
         <thead>
-        <tr>
+        <tr> <%-- Cabeçalho da tabela --%>
             <th>pk_int_id_barraca</th>
             <th>var_nome</th>
             <th>createdat</th>
             <th>deletedat</th>
             <th>fk_int_id_evento</th>
             <th>updateat</th>
-
         </tr>
         </thead>
         <tbody>
         <%
-            BarracaDAO barracaDAO = new BarracaDAO();
-            ResultSet BarracaResultSet = barracaDAO.selecionarBarracaI();
+            BarracaDAO barracaDAO = new BarracaDAO(); // Criação de uma instância do DAO para acessar as barracas inativas
+            ResultSet BarracaResultSet = barracaDAO.selecionarBarracaI(); // Chamada ao método que retorna as barracas inativas
             try {
-                if(BarracaResultSet.next() && BarracaResultSet != null){
-
+                if(BarracaResultSet.next() && BarracaResultSet != null){ // Verifica se há resultados e itera sobre eles
                     do {
         %>
-        <tr>
-            <td><p><%=BarracaResultSet.getString("pk_int_id_barraca") %>></p></td>
-            <td><p><%=BarracaResultSet.getString("var_nome") %>></p></td>
-            <td><p><%=BarracaResultSet.getString("createdat") %>></p></td>
-            <td><p><%=BarracaResultSet.getString("deletedat") %>></p></td>
-            <td><p><%= BarracaResultSet.getInt("fk_int_id_evento") %>/<p></td>
-            <td><p><%=BarracaResultSet.getString("updateat") %>></p></td>
-
+        <tr> <%-- Linha da tabela para cada barraca inativa --%>
+            <td><p><%=BarracaResultSet.getString("pk_int_id_barraca") %></p></td>
+            <td><p><%=BarracaResultSet.getString("var_nome") %></p></td>
+            <td><p><%=BarracaResultSet.getString("createdat") %></p></td>
+            <td><p><%=BarracaResultSet.getString("deletedat") %></p></td>
+            <td><p><%= BarracaResultSet.getInt("fk_int_id_evento") %></p></td>
+            <td><p><%=BarracaResultSet.getString("updateat") %></p></td>
         </tr>
-
-
-
         <%
-            } while(BarracaResultSet.next());
-        }
-        else {
+            } while(BarracaResultSet.next()); // Continua enquanto houver mais resultados
+        } else { // Se não houver resultados
         %>
         <tr>
-            <td colspan="5"><p>Nenhum registro encontrado.</p></td>
+            <td colspan="6"><p>Nenhum registro encontrado.</p></td> <%-- Mensagem indicando que não há barracas inativas --%>
         </tr>
         <%}
-
-        } catch (SQLException sql) {
+        } catch (SQLException sql) { // Tratamento de exceções SQL
             sql.printStackTrace();
         %>
         <tr>
-            <td colspan="5"><p>Erro no banco de dados!</p></td>
+            <td colspan="6"><p>Erro no banco de dados!</p></td> <%-- Mensagem de erro se houver uma exceção --%>
         </tr>
         <%
-            }
+            } // Fim do bloco do catch
         %>
         </tbody>
     </table>
 </div>
 <br><br><br>
-<footer class="container3"> <%-- footer da página --%>
-    <p>Desenvolvido por</p> <%-- Texto no footer --%>
-    <img src="../Assets/mocBranco.png" alt="img6" width="10%"> <%-- Imagem no footer --%>
+<footer class="container3"> <%-- Rodapé da página --%>
+    <p>Desenvolvido por</p>
+    <img src="../Assets/mocBranco.png" alt="img6" width="10%">
 </footer>
 </body>
 </html>
-
