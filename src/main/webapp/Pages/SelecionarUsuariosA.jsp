@@ -103,7 +103,7 @@ font-family: Oswald, sans-serif;" id="selecionarEventosI">LISTA DE USUÁRIOS ATI
 <br><br><br>
 <footer class="container3"> <%-- Rodapé da página --%>
     <p>Desenvolvido por</p>
-    <img src="../Assets/mocBranco.png" alt="img6" width="10%">
+    <img src="../Assets/mocBranco.png" alt="Imagem de logo" width="10%">
 </footer>
 </body>
 </html>
