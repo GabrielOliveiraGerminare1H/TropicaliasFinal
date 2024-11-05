@@ -16,7 +16,7 @@ public class DeletarCor extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Obtém o parâmetro que representa a chave primária da cor do mascote
         String pkCorMascote = request.getParameter("pk_int_id_cor_mascote");
-        int pkCorMascoteInt;
+        int pkCorMascoteInt = 0;
 
         // Tenta converter o parâmetro para um inteiro
         try {
@@ -26,7 +26,6 @@ public class DeletarCor extends HttpServlet {
             request.setAttribute("verifica", false);
             request.setAttribute("mensagem", "ID inválido fornecido!");
             request.getRequestDispatcher("mensagem.jsp").forward(request, response);
-            return; // Interrompe a execução do método
         }
 
         // Cria uma instância do DAO para interagir com o banco de dados

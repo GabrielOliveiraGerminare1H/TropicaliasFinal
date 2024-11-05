@@ -33,7 +33,7 @@
 </head>
 <body>
 <h2 style="color: #006996; font-size: 5rem; text-align: center; line-height: 80px;
-font-family: Oswald, sans-serif;" id="selecionarAnuncioA">LISTA DE ANUNCIOS ATIVOS</h2>
+font-family: Oswald, sans-serif;" id="selecionarAnuncioA">LISTA DE ANÚNCIOS ATIVOS</h2>
 <br>
 <div class="select-container" style="overflow-x: auto; margin: 40px;"> <!-- Container para a tabela com rolagem horizontal -->
     <table class="select" style="box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);"> <!-- Tabela de anúncios com sombra -->

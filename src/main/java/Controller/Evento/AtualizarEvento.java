@@ -20,7 +20,7 @@ public class AtualizarEvento extends HttpServlet {
         String nomeCampo = request.getParameter("nomeCampo"); // Nome do campo a ser atualizado
         String atualizacaoCampo = request.getParameter("atualizacaoCampo"); // Novo valor para o campo
         String pkEvento = request.getParameter("pk_int_id_evento"); // ID do evento
-        int pkEventoInt;
+        int pkEventoInt = 0;
 
         // Converte o ID do evento de String para int
         try {
@@ -30,7 +30,6 @@ public class AtualizarEvento extends HttpServlet {
             request.setAttribute("verifica", false);
             request.setAttribute("mensagem", "ID inválido fornecido!");
             request.getRequestDispatcher("mensagem.jsp").forward(request, response);
-            return; // Sai do método
         }
 
         // Cria uma instância do DAO e tenta atualizar o evento no banco de dados
