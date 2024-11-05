@@ -85,7 +85,7 @@ font-family: Oswald, sans-serif;" id="selecionarAnuncioA">LISTA DE ANUNCIOS ATIV
         <% } // Fecha o bloco do if
 
         } catch (SQLException sql) { // Tratamento de exceções SQL
-            sql.printStackTrace(); // Imprime a stack trace no console
+            sql.printStackTrace();
         %>
         <tr>
             <td colspan="11"><p>Erro no banco de dados!</p></td> <!-- Mensagem de erro se houver uma exceção -->

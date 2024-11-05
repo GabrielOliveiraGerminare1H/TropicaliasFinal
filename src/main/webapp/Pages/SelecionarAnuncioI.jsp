@@ -24,9 +24,7 @@
             color: #ebe6da; /* Cor do texto do cabeçalho */
         }
         th, td {
-            border: 1px solid #E45F15; /* Borda das células da tabela */
-            padding: 10px; /* Espaçamento interno das células */
-            text-align: left; /* Alinhamento do texto à esquerda */
+            border: 1px solid #E45F15; padding: 10px; text-align: left;
         }
         th {
             background-color: #ff7e32; /* Cor de fundo do cabeçalho */
@@ -41,17 +39,17 @@ font-family: Oswald, sans-serif;" id="selecionarAnuncioI">LISTA DE ANÚNCIOS INA
     <table class="select" style="box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);"> <!-- Tabela de anúncios com sombra -->
         <thead>
         <tr> <!-- Cabeçalho da tabela -->
-            <th>var_nota_fiscal</th> <!-- Coluna para a nota fiscal -->
-            <th>dt_data</th> <!-- Coluna para a data -->
-            <th>num_valor</th> <!-- Coluna para o valor -->
-            <th>var_produto</th> <!-- Coluna para o nome do produto -->
-            <th>int_quantidade</th> <!-- Coluna para a quantidade -->
-            <th>pk_int_id_anuncio</th> <!-- Coluna para o ID do anúncio -->
-            <th>var_status_venda</th> <!-- Coluna para o status de venda -->
-            <th>createdat</th> <!-- Coluna para a data de criação -->
-            <th>deletedat</th> <!-- Coluna para a data de exclusão -->
-            <th>fk_int_id_usuario</th> <!-- Coluna para o ID do usuário -->
-            <th>updateat</th> <!-- Coluna para a data da última atualização -->
+            <th>var_nota_fiscal</th>
+            <th>dt_data</th>
+            <th>num_valor</th>
+            <th>var_produto</th>
+            <th>int_quantidade</th>
+            <th>pk_int_id_anuncio</th>
+            <th>var_status_venda</th>
+            <th>createdat</th>
+            <th>deletedat</th>
+            <th>fk_int_id_usuario</th>
+            <th>updateat</th>
         </tr>
         </thead>
         <tbody>
@@ -64,17 +62,17 @@ font-family: Oswald, sans-serif;" id="selecionarAnuncioI">LISTA DE ANÚNCIOS INA
                     do {
         %>
         <tr> <!-- Início de uma linha na tabela para cada anúncio inativo -->
-            <td><p><%= AnuncioResulSet.getInt("pk_int_id_anuncio") %></p></td> <!-- ID do anúncio -->
-            <td><p><%= AnuncioResulSet.getString("var_nota_fiscal") %></p></td> <!-- Nota fiscal -->
-            <td><p><%= AnuncioResulSet.getDate("dt_data") %></p></td> <!-- Data do anúncio -->
-            <td><p><%= AnuncioResulSet.getDouble("num_valor") %></p></td> <!-- Valor do anúncio -->
-            <td><p><%= AnuncioResulSet.getString("var_produto") %></p></td> <!-- Produto anunciado -->
-            <td><p><%= AnuncioResulSet.getInt("int_quantidade") %></p></td> <!-- Quantidade disponível -->
-            <td><p><%= AnuncioResulSet.getString("var_status_venda") %></p></td> <!-- Status de venda -->
-            <td><p><%= AnuncioResulSet.getDate("createdat") %></p></td> <!-- Data de criação do anúncio -->
-            <td><p><%= AnuncioResulSet.getDate("deletedat") %></p></td> <!-- Data de exclusão do anúncio -->
-            <td><p><%= AnuncioResulSet.getInt("fk_int_id_usuario") %></p></td> <!-- ID do usuário que criou o anúncio -->
-            <td><p><%= AnuncioResulSet.getDate("updateat") %></p></td> <!-- Data da última atualização -->
+            <td><p><%= AnuncioResulSet.getInt("pk_int_id_anuncio") %></p></td>
+            <td><p><%= AnuncioResulSet.getString("var_nota_fiscal") %></p></td>
+            <td><p><%= AnuncioResulSet.getDate("dt_data") %></p></td>
+            <td><p><%= AnuncioResulSet.getDouble("num_valor") %></p></td>
+            <td><p><%= AnuncioResulSet.getString("var_produto") %></p></td>
+            <td><p><%= AnuncioResulSet.getInt("int_quantidade") %></p></td>
+            <td><p><%= AnuncioResulSet.getString("var_status_venda") %></p></td>
+            <td><p><%= AnuncioResulSet.getDate("createdat") %></p></td>
+            <td><p><%= AnuncioResulSet.getDate("deletedat") %></p></td>
+            <td><p><%= AnuncioResulSet.getInt("fk_int_id_usuario") %></p></td>
+            <td><p><%= AnuncioResulSet.getDate("updateat") %></p></td>
         </tr>
         <%
             } while(AnuncioResulSet.next()); // Continua enquanto houver mais resultados
@@ -87,7 +85,7 @@ font-family: Oswald, sans-serif;" id="selecionarAnuncioI">LISTA DE ANÚNCIOS INA
         <% } // Fecha o bloco do if
 
         } catch (SQLException sql) { // Tratamento de exceções SQL
-            sql.printStackTrace(); // Imprime a stack trace no console
+            sql.printStackTrace();
         %>
         <tr>
             <td colspan="11"><p>Erro no banco de dados!</p></td> <!-- Mensagem de erro se houver uma exceção -->
