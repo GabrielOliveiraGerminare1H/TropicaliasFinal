@@ -1,7 +1,7 @@
 .container1 {
     width: 100%;
     background-color: #006996;
-    height: 60rem;
+    height: 45rem;
 }
 *{
     padding: 0px;
@@ -96,7 +96,7 @@ button{
     height: 3.6875rem;
     border-radius: 2.3125rem;
     border: 1px solid #3A240A;
-    background: var(--Laranja, #E45F15);
+    background: #E45F15;
     color: #EBDFC5;
     text-align: center;
     font-family: Montserrat;
@@ -131,7 +131,6 @@ section p{
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
-    height: 15rem;
 }
 
 .container2 p{

@@ -32,7 +32,7 @@
     </style>
 </head>
 <body>
-<h2 style="color: #006996; font-size: 5rem; text-align: center; line-height: 80px; font-family: Oswald, sans-serif;" id="selecionarAnuncioI">LISTA DE ANÚNCIOS INATIVOS</h2> <!-- Título da lista de anúncios inativos -->
+<h2 style="color: #006996; font-size: 5rem; text-align: center; line-height: 80px; font-family: Oswald, sans-serif;" id="selecionarAnuncioA">LISTA DE ANÚNCIOS ATIVOS</h2> <!-- Título da lista de anúncios inativos -->
 <br>
 <div class="select-container" style="overflow-x: auto; margin: 40px;"> <!-- Container para a tabela com rolagem horizontal -->
     <table class="select" style="box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);"> <!-- Tabela de anúncios com sombra -->
@@ -54,7 +54,7 @@
         <tbody>
         <%
             AnuncioDAO anuncioDAO = new AnuncioDAO(); // Criação de uma instância do DAO para acessar os anúncios inativos
-            ResultSet anuncioResultSet = anuncioDAO.selecionarAnuncioI(); // Chamada ao método que retorna anúncios inativos
+            ResultSet anuncioResultSet = anuncioDAO.selecionarAnuncioA(); // Chamada ao método que retorna anúncios inativos
             try {
                 // Verifica se o ResultSet não é nulo e se há resultados
                 if (anuncioResultSet != null && anuncioResultSet.next()) {

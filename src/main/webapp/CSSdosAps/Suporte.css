@@ -1,7 +1,7 @@
 .container1 {
     width: 100%;
     background-color: #006996;
-    height: 60rem;
+    height: 45rem;
 }
 *{
     padding: 0px;
@@ -133,7 +133,6 @@ section p{
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
-    height: 15rem;
 }
 
 .container2 p{

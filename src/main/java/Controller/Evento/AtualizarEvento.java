@@ -24,7 +24,7 @@ public class AtualizarEvento extends HttpServlet {
 
         // Converte o ID do evento de String para int
         try {
-            pkEventoInt = Integer.parseInt(pkEvento);
+                pkEventoInt = Integer.parseInt(pkEvento);
         } catch (NumberFormatException e) {
             // Caso o ID seja inválido, define mensagem de erro e redireciona
             request.setAttribute("verifica", false);

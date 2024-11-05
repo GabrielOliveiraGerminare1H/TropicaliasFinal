@@ -1,3 +1,4 @@
+
 <%-- Define o tipo de conteúdo como HTML com codificação UTF-8 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="ADM.jsp"%> <!-- Inclui o conteúdo do arquivo ADM.jsp -->
@@ -26,5 +27,5 @@
 
 <footer class="container3"> <!-- Rodapé da página -->
     <p>Desenvolvido por</p>
-    <img src="../im/mocBrancaSemFUndo.png" alt="Imagem de logo" width="10%">
+    <img src="../Assets/mocBranco.png" alt="Imagem de logo" width="10%">
 </footer>

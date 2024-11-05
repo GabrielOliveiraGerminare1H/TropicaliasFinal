@@ -14,10 +14,25 @@
             <form action="../cadastrarEvento" method="post">
 
                 <%-- Campo para o usuário inserir a data de início do evento, obrigatório --%>
-                <input type="date" name="dt_inicio" id="dt_inicio" placeholder="Data de início" required>
+                    <input
+                            type="text"
+                            placeholder="DD/MM/YYYY -- Início do evento"
+                            onfocus="this.type='date'"
+                            onblur="if (!this.value) this.type='text'"
+                            name="dt_incio"
+                            id="dt_inicio"
+                    >
+
 
                 <%-- Campo para o usuário inserir a data de término do evento, obrigatório --%>
-                <input type="date" name="dt_final" id="dt_final" placeholder="Data de término" required>
+                    <input
+                            type="text"
+                            placeholder="DD/MM/YYYY -- Final do evento"
+                            onfocus="this.type='date'"
+                            onblur="if (!this.value) this.type='text'"
+                            name="dt_final"
+                            id="dt_final"
+                    >
 
                 <%-- Campo para o usuário inserir o nome do evento, obrigatório --%>
                 <input type="text" name="var_nome" id="var_nome" placeholder="Nome" required>
@@ -47,5 +62,5 @@
 
 <footer class="container3"> <!-- Rodapé da página -->
     <p>Desenvolvido por</p>
-    <img src="../im/mocBrancaSemFUndo.png" alt="Imagem de logo" width="10%">
+    <img src="../Assets/mocBranco.png" alt="Imagem de logo" width="10%">
 </footer>
