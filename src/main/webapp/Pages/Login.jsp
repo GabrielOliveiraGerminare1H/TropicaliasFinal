@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSSdosAps/Login.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/CSSdosAps/Login.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
@@ -36,14 +36,30 @@
         </div>
 
         <section class="criar">
-            <form action="conta">
-                <input type="email" name="email" id="email" placeholder="abc@gmail.com" required>
-                <br><br>
-                <input type="password" name="senha" id="senha" placeholder="senha" required>
-                <br><br>
-                <button type="submit">Login</button>
-            </form>
-            <p>Não tem cadastro ainda? Crie sua conta!</p>
+<%--            <form action="../conta" method="post">--%>
+<%--                <input type="email" name="email" id="email" placeholder="abc@gmail.com" required>--%>
+<%--                <br><br>--%>
+<%--                <input type="password" name="senha" id="senha" placeholder="senha" required>--%>
+<%--                <br><br>--%>
+<%--                <button type="submit">Login</button>--%>
+<%--            </form>--%>
+<%--            <p>Não tem cadastro ainda? Crie sua conta!</p>--%>
+
+
+        <%-- Verifica se existe uma mensagem de erro e a exibe --%>
+
+         <form action="${pageContext.request.contextPath}/acessarConta" method="post">
+             <!-- Campos de email e senha do formulário -->
+            <input type="email" name="email" id="email" placeholder="email" required>
+            <br><br>
+            <input type="password" name="senha" id="senha" placeholder="senha" required>
+            <br><br>
+             <% String mensagemErro = (String) request.getAttribute("mensagemErro"); %>
+             <% if (mensagemErro != null) { %>
+                 <%= mensagemErro %>
+             <% } %>
+            <button type="submit">Login</button>
+        </form>
         </section>
 
     </div>
