@@ -34,18 +34,17 @@
 <body>
 <h2 style="color: #006996; font-size: 5rem; text-align: center; line-height: 80px;
 font-family: Oswald, sans-serif;" id="selecionarBarracaA">LISTA DE BARRACAS ATIVAS</h2> <%-- Título da lista de barracas ativas --%>
-<br>
 <div class="select-container" style="overflow-x: auto; margin: 40px;"> <%-- Container para a tabela com rolagem horizontal --%>
     <table class="select" style="box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);"> <%-- Tabela de barracas com sombra --%>
         <thead>
-        <tr> <%-- Cabeçalho da tabela --%>
-            <th>pk_int_id_barraca</th>
-            <th>var_nome</th>
-            <th>createdat</th>
-            <th>deletedat</th>
-            <th>fk_int_id_evento</th>
-            <th>updateat</th>
-        </tr>
+            <tr> <%-- Cabeçalho da tabela --%>
+                <th>pk_int_id_barraca</th>
+                <th>var_nome</th>
+                <th>createdat</th>
+                <th>deletedat</th>
+                <th>fk_int_id_evento</th>
+                <th>updateat</th>
+            </tr>
         </thead>
         <tbody>
         <%

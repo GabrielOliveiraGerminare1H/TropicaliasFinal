@@ -30,45 +30,40 @@ public class CadastrarEvento extends HttpServlet {
 
 
             // Declara a variável de preço como double para conversão posterior
-            double precoDouble;
+            double precoDouble = 0;
             try {
                 precoDouble = Double.parseDouble(preco.replace(",", "."));
             } catch (NumberFormatException e) {
                 setErrorMessage(request, response, "Formato de preço inválido!");
-                return;
             }
 
             // Converte e valida a data de início
-            LocalDate dt_inicioDate;
+            LocalDate dt_inicioDate = null;
             try {
                 dt_inicioDate = LocalDate.parse(dt_inicio);
             } catch (DateTimeParseException e) {
                 setErrorMessage(request, response, "Data de início inválida!");
-                return;
             }
 
             // Converte e valida a data de término
-            LocalDate dt_finalDate;
+            LocalDate dt_finalDate = null;
             try {
                 dt_finalDate = LocalDate.parse(dt_final);
             } catch (DateTimeParseException e) {
                 setErrorMessage(request, response, "Data de término inválida!");
-                return;
             }
 
             // Verifica se a data de início é anterior à data de término
             if (!dt_inicioDate.isBefore(dt_finalDate)) {
                 setErrorMessage(request, response, "A data de início deve ser anterior à data de término.");
-                return;
             }
 
             // Converte o ID do usuário para inteiro e verifica validade
-            int fk_int_id_usuarioInt;
+            int fk_int_id_usuarioInt = 0;
             try {
                 fk_int_id_usuarioInt = Integer.parseInt(fkUsuario);
             } catch (NumberFormatException e) {
                 setErrorMessage(request, response, "ID do usuário inválido!");
-                return;
             }
 
             // Cria um objeto Evento e realiza o cadastro no banco de dados

@@ -20,7 +20,7 @@ public class AtualizarCor extends HttpServlet {
         String nomeCampo = request.getParameter("nomeCampo"); // Nome do campo a ser atualizado
         String atualizacaoCampo = request.getParameter("atualizacaoCor"); // Novo valor para o campo
         String pkCorMascote = request.getParameter("pk_int_id_cor_mascote"); // ID do mascote
-        int pkCorMascoteInt;
+        int pkCorMascoteInt = 0;
 
         // Converte o ID do mascote de String para int
         try {
@@ -30,7 +30,6 @@ public class AtualizarCor extends HttpServlet {
             request.setAttribute("verifica", false);
             request.setAttribute("mensagem", "ID inválido fornecido!");
             request.getRequestDispatcher("mensagem.jsp").forward(request, response);
-            return; // Sai do método
         }
 
         // Cria uma instância do DAO e tenta atualizar a cor no banco de dados

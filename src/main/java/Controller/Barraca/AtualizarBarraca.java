@@ -18,7 +18,7 @@ public class AtualizarBarraca extends HttpServlet {
         String nomeCampo = request.getParameter("campoBarraca"); // Nome do campo a ser atualizado
         String valorNovo = request.getParameter("atualizacaoBarraca"); // Novo valor para o campo
         String pkBarraca = request.getParameter("pk_int_id_barraca"); // ID da barraca
-        int pkBarracaInt;
+        int pkBarracaInt = 0;
 
         // Converte o ID da barraca de String para int
         try {
@@ -28,7 +28,6 @@ public class AtualizarBarraca extends HttpServlet {
             request.setAttribute("verifica", false);
             request.setAttribute("mensagem", "ID inválido fornecido!");
             request.getRequestDispatcher("mensagem.jsp").forward(request, response);
-            return; // Sai do método
         }
 
         // Cria uma instância do DAO e tenta atualizar a barraca no banco de dados
