@@ -10,9 +10,6 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
     <title>Eventos</title>
     <style>
         /* Estilo para a tabela */
