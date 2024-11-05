@@ -123,7 +123,7 @@ public class EventoDAO {
         int resultado= conexao.executarUpdate(query);
 
         //Validação das linhas afetadas
-        if (resultado>0){
+        if (resultado > 0){
             return true;}
         else {
             return false;

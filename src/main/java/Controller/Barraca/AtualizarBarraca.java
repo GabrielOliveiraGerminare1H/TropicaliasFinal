@@ -45,6 +45,7 @@ public class AtualizarBarraca extends HttpServlet {
             request.setAttribute("verifica", false);
             request.setAttribute("mensagem", "Erro ao atualizar a barraca. ATENÇÃO verifique os campos e se a barraca existe");
         }
+        //Adicionar condição para mensagme se a barrca bão existe se o campo não existit
 
         // Redireciona para a página de mensagens
         request.getRequestDispatcher("mensagem.jsp").forward(request, response);

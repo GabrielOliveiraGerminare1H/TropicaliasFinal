@@ -1,9 +1,11 @@
+<%-- Define o tipo de conteúdo da página como HTML com codificação UTF-8 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!-- Importação das classes necessárias -->
 <%@ page import="Model.Usuario" %>
 <%@ page import="Daos.UsuarioDAO" %>
 <%@ page import="java.sql.ResultSet" %>
 <%@ page import="java.sql.SQLException" %>
-<%@ include file="ADM.jsp"%>
+<%@ include file="ADM.jsp"%>  <!-- Inclui o conteúdo do arquivo ADM.jsp -->
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -11,19 +13,32 @@
     <meta charset="UTF-8">
     <title>Usuários</title>
     <style>
-        table { width: 50%; margin: auto; border-collapse: collapse; font-family: Montserrat }
-        th { color: #ebe6da }
-        th, td { border: 1px solid #E45F15; padding: 10px; text-align: left; }
-        th { background-color: #ff7e32; }
+        /* Estilo para a tabela */
+        table {
+            width: 50%; /* Largura da tabela */
+            margin: auto; /* Centraliza a tabela na página */
+            border-collapse: collapse; /* Remove espaços entre bordas da tabela */
+            font-family: Montserrat; /* Define a fonte da tabela */
+        }
+        th {
+            color: #ebe6da; /* Cor do texto do cabeçalho */
+        }
+        th, td {
+            border: 1px solid #E45F15; padding: 10px; text-align: left;
+        }
+        th {
+            background-color: #ff7e32; /* Cor de fundo do cabeçalho */
+        }
     </style>
 </head>
 <body>
 <h2 style="color: #006996; font-size: 5rem; text-align: center; line-height: 80px;
-font-family: Oswald, sans-serif;" id="selecionarUsuarioI">LISTA DE USUÁRIOS INATIVOS</h2>
-<div class="select-container" style="overflow-x: auto; margin: 40px;">
-    <table class="select" style="box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);">
+font-family: Oswald, sans-serif;" id="selecionarEventosI">LISTA DE USUÁRIOS INATIVOS</h2> <%-- Título principal da página, estilizado --%>
+
+<div class="select-container" style="overflow-x: auto; margin: 40px;"> <%-- Contêiner para a tabela com rolagem horizontal --%>
+    <table class="select" style="box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);"> <%-- Início da tabela com sombra --%>
         <thead>
-        <tr>
+        <tr><%-- Cabeçalho da tabela --%>
             <th>pk_int_id_usuario</th>
             <th>text_foto</th>
             <th>var_email</th>
@@ -45,6 +60,7 @@ font-family: Oswald, sans-serif;" id="selecionarUsuarioI">LISTA DE USUÁRIOS INA
             UsuarioDAO usuarioDAO = new UsuarioDAO();
             ResultSet UsuIResultSet = usuarioDAO.selecionarUsuarioI();
             try {
+                // Verifica se há resultados e percorre  eles
                 if(UsuIResultSet.next() && UsuIResultSet != null){
 
                     do {
@@ -69,31 +85,29 @@ font-family: Oswald, sans-serif;" id="selecionarUsuarioI">LISTA DE USUÁRIOS INA
 
 
         <%
-            } while(UsuIResultSet.next());
-        }
-        else {
+            } while(UsuIResultSet.next()); // Continua a iteração enquanto houver mais registros
+        } else {// Caso não haja resultados
         %>
         <tr>
             <td colspan="5"><p>Nenhum registro encontrado.</p></td>
         </tr>
-        <%}
-
-        } catch (SQLException sql) {
+        <% }// Fim da verificação de resultados
+        } catch (SQLException sql) { // Tratamento de exceção em caso de erro no SQL
             sql.printStackTrace();
         %>
         <tr>
-            <td colspan="5"><p>Erro no banco de dados!</p></td>
+            <td colspan="5"><p>Erro no banco de dados!</p></td> <%-- Mensagem de erro exibida na tabela --%>
         </tr>
         <%
-            }
+            } // Fim do bloco try-catch
         %>
         </tbody>
     </table>
 </div>
 <br><br><br>
-<footer class="container3"> <%-- footer da página --%>
-    <p>Desenvolvido por</p> <%-- Texto no footer --%>
-    <img src="../Assets/mocBranco.png" alt="img6" width="10%"> <%-- Imagem no footer --%>
+<footer class="container3"> <%-- Rodapé da página --%>
+    <p>Desenvolvido por</p>
+    <img src="../Assets/mocBranco.png" alt="img6" width="10%">
 </footer>
 </body>
 </html>

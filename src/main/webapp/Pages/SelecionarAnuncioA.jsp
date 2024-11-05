@@ -15,7 +15,7 @@
         table {
             width: 50%; /* Largura da tabela */
             margin: auto; /* Centraliza a tabela na página */
-            border-collapse: collapse; /* Remove espaços entre bordas da tabela */
+            border-collapse: collapse; /* Remove os espaços entre bordas da tabela */
             font-family: Montserrat; /* Define a fonte da tabela */
         }
         th {
@@ -57,11 +57,11 @@ font-family: Oswald, sans-serif;" id="selecionarAnuncioA">LISTA DE ANUNCIOS ATIV
             AnuncioDAO anuncioDAO = new AnuncioDAO(); // Criação de uma instância do DAO para acessar os anúncios
             ResultSet AnuncioResulSet = anuncioDAO.selecionarAnuncioA(); // Chamada ao método que retorna anúncios ativos
             try {
-                // Verifica se há resultados e itera sobre eles
+                // Verifica se há resultados e percorre sobre eles
                 if(AnuncioResulSet.next() && AnuncioResulSet != null){
                     do {
         %>
-        <tr> <!-- Início de uma linha na tabela para cada anúncio -->
+        <tr> <!-- Início de uma linha na tabela para cada anúncio ativo -->
             <td><p><%= AnuncioResulSet.getInt("pk_int_id_anuncio") %></p></td>
             <td><p><%= AnuncioResulSet.getString("var_nota_fiscal") %></p></td>
             <td><p><%= AnuncioResulSet.getDate("dt_data") %></p></td>
@@ -74,6 +74,8 @@ font-family: Oswald, sans-serif;" id="selecionarAnuncioA">LISTA DE ANUNCIOS ATIV
             <td><p><%= AnuncioResulSet.getInt("fk_int_id_usuario") %></p></td>
             <td><p><%= AnuncioResulSet.getDate("updateat") %></p></td>
         </tr>
+
+
         <%
             } while(AnuncioResulSet.next()); // Continua enquanto houver mais resultados
         }
@@ -85,7 +87,7 @@ font-family: Oswald, sans-serif;" id="selecionarAnuncioA">LISTA DE ANUNCIOS ATIV
         <% } // Fecha o bloco do if
 
         } catch (SQLException sql) { // Tratamento de exceções SQL
-            sql.printStackTrace(); // Imprime a stack trace no console
+            sql.printStackTrace();
         %>
         <tr>
             <td colspan="11"><p>Erro no banco de dados!</p></td> <!-- Mensagem de erro se houver uma exceção -->

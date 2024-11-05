@@ -1,9 +1,11 @@
+<%-- Define o tipo de conteúdo da página como HTML com codificação UTF-8 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!-- Importação das classes necessárias -->
 <%@ page import="Model.Evento" %>
 <%@ page import="Daos.EventoDAO" %>
 <%@ page import="java.sql.ResultSet" %>
 <%@ page import="java.sql.SQLException" %>
-<%@ include file="ADM.jsp"%>
+<%@ include file="ADM.jsp"%> <!-- Inclui o conteúdo do arquivo ADM.jsp -->
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -13,19 +15,30 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
     <title>Eventos</title>
     <style>
-        table { width: 50%; margin: auto; border-collapse: collapse; font-family: Montserrat }
-        th { color: #ebe6da }
-        th, td { border: 1px solid #E45F15; padding: 10px; text-align: left; }
-        th { background-color: #ff7e32; }
+        /* Estilo para a tabela */
+        table {
+            width: 50%; /* Largura da tabela */
+            margin: auto; /* Centraliza a tabela na página */
+            border-collapse: collapse; /* Remove espaços entre bordas da tabela */
+            font-family: Montserrat; /* Define a fonte da tabela */
+        }
+        th {
+            color: #ebe6da; /* Cor do texto do cabeçalho */
+        }
+        th, td {
+            border: 1px solid #E45F15; padding: 10px; text-align: left;
+        }
+        th {
+            background-color: #ff7e32; /* Cor de fundo do cabeçalho */
+        }
     </style>
 </head>
 <body>
 <h2 style="color: #006996; font-size: 5rem; text-align: center; line-height: 80px;
-font-family: Oswald, sans-serif;" id="selecionarEventosA">LISTA DE EVENTO ATIVOS</h2>
-<br>
-<div class="select-container" style="overflow-x: auto; margin: 40px;">
-    <table class="select" style="box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);">
-        <thead>
+font-family: Oswald, sans-serif;" id="selecionarEventosA">LISTA DE EVENTO ATIVOS</h2><%-- Título da seção centralizado e com cor personalizada --%>
+<div class="select-container" style="overflow-x: auto; margin: 40px;"><%-- Contêiner para a tabela --%>
+    <table class="select" style="box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);"><%-- Início da tabela para exibir os dados das cores dos mascotes --%>
+        <thead><%-- Cabeçalho da tabela --%>
         <tr>
             <th>dt_inicio</th>
             <th>dt_final</th>
@@ -42,15 +55,19 @@ font-family: Oswald, sans-serif;" id="selecionarEventosA">LISTA DE EVENTO ATIVOS
 
         </tr>
         </thead>
-        <tbody>
+        <tbody> <%-- Corpo da tabela onde os dados serão exibidos --%>
         <%
+            // Cria uma instância do DAO para acessar os dados dos eventos
             EventoDAO eventoDAO = new EventoDAO();
+            // Chama o método que seleciona os eventos ativos
             ResultSet EventoResultSet = eventoDAO.selecionarEventoA();
             try {
+                // Verifica se há resultados e percorre  eles
                 if(EventoResultSet != null && EventoResultSet.next()){
+                    // Loop para percorrer todos os registros retornados
                     do {
         %>
-        <tr>
+        <tr> <%-- Início da linha da tabela para cada evento ativo --%>
             <td><p><%= EventoResultSet.getString("dt_inicio") %></p></td>
             <td><p><%= EventoResultSet.getString("dt_final") %></p></td>
             <td><p><%= EventoResultSet.getString("var_nome") %></p></td>
@@ -66,29 +83,29 @@ font-family: Oswald, sans-serif;" id="selecionarEventosA">LISTA DE EVENTO ATIVOS
 
         </tr>
         <%
-            } while(EventoResultSet.next());
-        } else {
+            } while(EventoResultSet.next()); // Continua a iteração enquanto houver mais registros
+        } else {// Caso não haja resultados
         %>
         <tr>
             <td colspan="10"><p>Nenhum registro encontrado.</p></td>
         </tr>
-        <% }
-        } catch (SQLException sql) {
+        <% }// Fim da verificação de resultados
+        } catch (SQLException sql) { // Tratamento de exceção em caso de erro no SQL
             sql.printStackTrace();
         %>
         <tr>
-            <td colspan="10"><p>Erro no banco de dados!</p></td>
+            <td colspan="10"><p>Erro no banco de dados!</p></td> <%-- Mensagem de erro exibida na tabela --%>
         </tr>
         <%
-            }
+            } // Fim do bloco try-catch
         %>
         </tbody>
     </table>
 </div>
 <br><br><br>
 <footer class="container3"> <%-- footer da página --%>
-    <p>Desenvolvido por</p> <%-- Texto no footer --%>
-    <img src="${pageContext.request.contextPath}/Assets/mocBrancaSemFUndo.png" alt="img6" width="10%"> <%-- Imagem no footer --%>
+    <p>Desenvolvido por</p>
+    <img src="${pageContext.request.contextPath}/Assets/mocBrancaSemFUndo.png" alt="img6" width="10%">
 </footer>
 </body>
 </html>

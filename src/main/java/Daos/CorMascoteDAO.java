@@ -65,7 +65,7 @@ public class CorMascoteDAO {
                 int resultado = pstmt.executeUpdate();
 
                 //Validação das linhas afetadas
-                if (resultado>0){
+                if (resultado > 0){
                     return true;}
                 else {
                     return false;
@@ -95,7 +95,7 @@ public class CorMascoteDAO {
             int resultado= conexao.executarUpdate(query);
 
             //Validação das linhas afetadas
-            if (resultado>0){
+            if (resultado > 0){
                 return true;}
             else {
                 return false;
@@ -124,7 +124,7 @@ public class CorMascoteDAO {
             int resultado= conexao.executarUpdate(query);
 
             //Validação das linhas afetadas
-            if (resultado>0){
+            if (resultado > 0){
                 return true;}
             else {
                 return false;

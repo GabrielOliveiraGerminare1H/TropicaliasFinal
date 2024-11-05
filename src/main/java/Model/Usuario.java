@@ -12,7 +12,7 @@ public class Usuario {
     private String descricaoUsua;  // Descrição do perfil do usuário
     private Long cpf;              // CPF do usuário
     private String nome;           // Nome do usuário
-    private int fkEndereco;// Chave estrangeira para o endereço do usuário
+    private int fkEndereco;        // Chave estrangeira para o endereço do usuário
     private String varRole;        // Tipo de usuário
 
     // Método construtor da classe
