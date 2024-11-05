@@ -20,12 +20,12 @@
 <div class="container1">
     <div class="navbar"> <!-- Menu superior que contém links de navegação -->
         <ul>
-            <li><img src="../Assets/araci.png" alt="Logo do aplicativo"></li> <!-- Logo do aplicativo -->
-            <li><a href="../index.html">Início</a></li> <!-- Link para a página inicial -->
-            <li><a href="../Eventos.html">Evento</a></li> <!-- Link para a página de eventos -->
-            <li><a href="../Suporte.html">Suporte</a></li> <!-- Link para a página de suporte -->
-            <li><a href="../Termos.html">Termos</a></li> <!-- Link para a página de termos de uso -->
-            <li><a href="Login.jsp">Área restrita</a></li> <!-- Link para a página de login -->
+            <li><img src="${pageContext.request.contextPath}/Assets/araci.png" alt="Logo do aplicativo"></li> <!-- Logo do aplicativo -->
+            <li><a href="${pageContext.request.contextPath}/index.html">Início</a></li> <!-- Link para a página inicial -->
+            <li><a href="${pageContext.request.contextPath}/Eventos.html">Evento</a></li> <!-- Link para a página de eventos -->
+            <li><a href="${pageContext.request.contextPath}/Suporte.html">Suporte</a></li> <!-- Link para a página de suporte -->
+            <li><a href="${pageContext.request.contextPath}/Termos.html">Termos</a></li> <!-- Link para a página de termos de uso -->
+            <li><a href="${pageContext.request.contextPath}Login.jsp">Área restrita</a></li> <!-- Link para a página de login -->
         </ul>
     </div>
 </div>
@@ -33,7 +33,7 @@
 <div class="container"> <!-- Container principal da página -->
     <div class="menuCima"> <!-- Menu superior -->
         <div class="opcaoEvento"> <!-- Seção para opções de eventos -->
-            <img src="../Assets/calendario.png" alt="Ícone de eventos"> <!-- Ícone de eventos -->
+            <img src="${pageContext.request.contextPath}/Assets/calendario.svg" alt="Ícone de eventos"> <!-- Ícone de eventos -->
             <h1>Evento</h1>
             <!-- Links que redirecionam para as páginas .jsp de cada função dos botões de evento -->
             <ul>
@@ -46,7 +46,7 @@
         </div>
 
         <div class="opcaoMascote"> <!-- Seção para opções de mascote -->
-            <img src="../Assets/cores.png" alt="Ícone de cores"> <!-- Ícone de cores -->
+            <img src="${pageContext.request.contextPath}/Assets/cores.png" alt="Ícone de cores"> <!-- Ícone de cores -->
             <h1>Mascote</h1>
             <!-- Links que redirecionam para as páginas .jsp de cada função dos botões de mascote -->
             <ul>
@@ -61,7 +61,7 @@
 
     <div class="menuBaixo"> <!-- Menu inferior -->
         <div class="opcaoAnuncio"> <!-- Seção para opções de anúncios -->
-            <img src="../Assets/anuncios.png" alt="Ícone de anúncios"> <!-- Ícone de anúncios -->
+            <img src="${pageContext.request.contextPath}/Assets/anuncios.png" alt="Ícone de anúncios"> <!-- Ícone de anúncios -->
             <h1>Anúncios</h1>
             <!-- Links que redirecionam para as páginas .jsp de cada função dos botões de anúncio -->
             <ul>
@@ -71,7 +71,7 @@
         </div>
 
         <div class="opcaoUsuario"> <!-- Seção para opções de usuários -->
-            <img src="../Assets/user.png" alt="Ícone de usuários"> <!-- Ícone de usuários -->
+            <img src="${pageContext.request.contextPath}/Assets/user.png" alt="Ícone de usuários"> <!-- Ícone de usuários -->
             <h1>Usuários</h1>
             <!-- Links que redirecionam para as páginas .jsp de cada função dos botões de usuário -->
             <ul>
@@ -81,7 +81,7 @@
         </div>
 
         <div class="opcaoBarraca"> <!-- Seção para opções de barracas -->
-            <img src="../Assets/barraca.png" alt="Ícone de barracas"> <!-- Ícone de barracas -->
+            <img src="${pageContext.request.contextPath}/Assets/barraca.png" alt="Ícone de barracas"> <!-- Ícone de barracas -->
             <h1>Barraca</h1>
             <!-- Links que redirecionam para as páginas .jsp de cada função dos botões de barraca -->
             <ul>
