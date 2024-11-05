@@ -18,9 +18,9 @@
 <body>
 
 <div class="container1">
-    <div class="navbar"> <!-- Navbar que contém links de navegação -->
+    <div class="navbar"> <!-- Menu superior que contém links de navegação -->
         <ul>
-            <img src="../Assets/araci.png" alt=""> <!-- Logo ou imagem do site -->
+            <img src="../Assets/araci.png" alt=""> <!-- Logo do aplicativo -->
             <li><a href="../index.html">Inicio</a></li> <!-- Link para a página inicial -->
             <li><a href="../Eventos.html">Evento</a></li> <!-- Link para a página de eventos -->
             <li><a href="../Suporte.html">Suporte</a></li> <!-- Link para a página de suporte -->
@@ -30,7 +30,7 @@
     </div>
 </div>
 
-<div class="container"> <!-- Container principal para o conteúdo da página -->
+<div class="container"> <!-- Container principal da página -->
     <div class="menuCima"> <!-- Menu superior -->
         <div class="opcaoEvento"> <!-- Seção para opções de eventos -->
             <img src="../Assets/calendario.png" alt=""> <!-- Ícone de eventos -->

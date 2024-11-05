@@ -59,7 +59,7 @@ font-family: Oswald, sans-serif;" id="selecionarAnuncioI">LISTA DE ANÚNCIOS INA
             AnuncioDAO anuncioDAO = new AnuncioDAO(); // Criação de uma instância do DAO para acessar os anúncios inativos
             ResultSet AnuncioResulSet = anuncioDAO.selecionarAnuncioI(); // Chamada ao método que retorna anúncios inativos
             try {
-                // Verifica se há resultados e itera sobre eles
+                // Verifica se há resultados e percorre sobre eles
                 if(AnuncioResulSet.next() && AnuncioResulSet != null){
                     do {
         %>
