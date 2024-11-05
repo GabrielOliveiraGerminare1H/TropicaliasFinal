@@ -5,8 +5,7 @@
 <%@ page import="Daos.AnuncioDAO" %>
 <%@ page import="java.sql.ResultSet" %>
 <%@ page import="java.sql.SQLException" %>
-<%@ include file="ADM.jsp"%> <!-- Inclui o conteúdo do arquivo ADM.jsp -->
-
+<%@ include file="ADM.jsp"%>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -34,7 +33,7 @@
 </head>
 <body>
 <h2 style="color: #006996; font-size: 5rem; text-align: center; line-height: 80px;
-font-family: Oswald, sans-serif;" id="selecionarAnuncioI">LISTA DE ANÚNCIOS INATIVOS</h2>
+font-family: Oswald, sans-serif;" id="selecionarAnuncioI">LISTA DE ANÚNCIOS INATIVOS</h2> <!-- Título da lista de anúncios inativos -->
 <br>
 <div class="select-container" style="overflow-x: auto; margin: 40px;"> <!-- Container para a tabela com rolagem horizontal -->
     <table class="select" style="box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);"> <!-- Tabela de anúncios com sombra -->
@@ -58,7 +57,7 @@ font-family: Oswald, sans-serif;" id="selecionarAnuncioI">LISTA DE ANÚNCIOS INA
             AnuncioDAO anuncioDAO = new AnuncioDAO(); // Criação de uma instância do DAO para acessar os anúncios inativos
             ResultSet AnuncioResulSet = anuncioDAO.selecionarAnuncioI(); // Chamada ao método que retorna anúncios inativos
             try {
-                // Verifica se há resultados e percorre eles
+                // Verifica se há resultados e percorre sobre eles
                 if(AnuncioResulSet.next() && AnuncioResulSet != null){
                     do {
         %>
@@ -99,8 +98,8 @@ font-family: Oswald, sans-serif;" id="selecionarAnuncioI">LISTA DE ANÚNCIOS INA
 </div>
 <br><br><br>
 <footer class="container3"> <!-- Rodapé da página -->
-    <p>Desenvolvido por</p>
-    <img src="../Assets/mocBranco.png" alt="img6" width="10%">
+    <p>Desenvolvido por</p> <!-- Texto do rodapé -->
+    <img src="../Assets/mocBranco.png" alt="img6" width="10%"> <!-- Imagem do rodapé -->
 </footer>
 </body>
 </html>

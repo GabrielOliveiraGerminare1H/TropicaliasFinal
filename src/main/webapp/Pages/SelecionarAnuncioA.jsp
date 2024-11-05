@@ -15,7 +15,7 @@
         table {
             width: 50%; /* Largura da tabela */
             margin: auto; /* Centraliza a tabela na página */
-            border-collapse: collapse; /* Remove espaços entre bordas da tabela */
+            border-collapse: collapse; /* Remove os espaços entre bordas da tabela */
             font-family: Montserrat; /* Define a fonte da tabela */
         }
         th {
@@ -57,7 +57,7 @@ font-family: Oswald, sans-serif;" id="selecionarAnuncioA">LISTA DE ANUNCIOS ATIV
             AnuncioDAO anuncioDAO = new AnuncioDAO(); // Criação de uma instância do DAO para acessar os anúncios
             ResultSet AnuncioResulSet = anuncioDAO.selecionarAnuncioA(); // Chamada ao método que retorna anúncios ativos
             try {
-                // Verifica se há resultados e percorre eles
+                // Verifica se há resultados e percorre sobre eles
                 if(AnuncioResulSet.next() && AnuncioResulSet != null){
                     do {
         %>

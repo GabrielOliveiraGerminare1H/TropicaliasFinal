@@ -27,6 +27,7 @@
             </form>
         </section>
     </div>
+    <br>
 </main>
 
 <footer class="container3"> <!-- Rodapé da página -->

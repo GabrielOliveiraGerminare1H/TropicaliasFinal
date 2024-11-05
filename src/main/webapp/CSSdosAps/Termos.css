@@ -1,11 +1,12 @@
 body{
     background-color: #006996;
-
 }
+
 body, html {
     overflow-x: hidden;
     font-family: Montserrat, sans-serif;
 }
+
 *{
     padding: 0px;
     margin: 0px;
@@ -14,6 +15,7 @@ body, html {
 .navbar img{
     margin-top: 25px;
 }
+
 li {
     margin-left: 20px;
     cursor: pointer;
