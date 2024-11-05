@@ -8,10 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-            href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
             rel="stylesheet"
     />
     <title>Navegação Tropicalias</title>
@@ -26,7 +23,7 @@
         <li><a href="../Eventos.html">Evento</a></li>
         <li><a href="../Suporte.html">Ajuda</a></li>
         <li><a href="../Termos.html">Termos</a></li>
-        <li><a href="Login.jsp">Área Restrita</a></li>
+        <li><a href="Login.jsp">Área restrita</a></li>
     </ul>
 
     <div class="display1">
@@ -53,12 +50,15 @@
             <input type="email" name="email" id="email" placeholder="email" required>
             <br><br>
             <input type="password" name="senha" id="senha" placeholder="senha" required>
-            <br><br>
-             <% String mensagemErro = (String) request.getAttribute("mensagemErro"); %>
-             <% if (mensagemErro != null) { %>
+             <br><br>
+             <button type="submit">Login</button>
+             <br>
+             <p style="margin-left: 20%; color: #ebe6da"> <% String mensagemErro = (String) request.getAttribute("mensagemErro"); %>
+                 <% if (mensagemErro != null) { %>
                  <%= mensagemErro %>
-             <% } %>
-            <button type="submit">Login</button>
+                 <% } %>
+             </p>
+             <br>
         </form>
         </section>
 
