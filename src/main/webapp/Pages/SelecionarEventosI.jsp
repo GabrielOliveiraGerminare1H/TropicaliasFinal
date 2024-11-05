@@ -10,8 +10,8 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8"> <%-- Define a codificação de caracteres como UTF-8 --%>
-    <title>Eventos</title> <%-- Título da página --%>
+    <meta charset="UTF-8">
+    <title>Eventos</title>
     <style>
         /* Estilo para a tabela */
         table {
@@ -37,18 +37,18 @@ font-family: Oswald, sans-serif;" id="selecionarEventosI">LISTA DE EVENTOS INATI
 
 <div class="select-container" style="overflow-x: auto; margin: 40px;"> <%-- Contêiner para a tabela com rolagem horizontal --%>
     <table class="select" style="box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);"> <%-- Início da tabela com sombra --%>
-        <thead> <%-- Cabeçalho da tabela --%>
-        <tr>
-            <th>dt_inicio</th> <%-- Coluna para a data de início --%>
-            <th>dt_final</th> <%-- Coluna para a data final --%>
-            <th>var_nome</th> <%-- Coluna para o nome do evento --%>
-            <th>var_local</th> <%-- Coluna para o local do evento --%>
-            <th>num_preco_ticket</th> <%-- Coluna para o preço do ticket --%>
-            <th>createdat</th> <%-- Coluna para a data de criação --%>
-            <th>deletedat</th> <%-- Coluna para a data de exclusão --%>
-            <th>pk_int_id_evento</th> <%-- Coluna para a chave primária do evento --%>
-            <th>fk_int_id_usuario</th> <%-- Coluna para o ID do usuário responsável --%>
-            <th>updateat</th> <%-- Coluna para a data de atualização --%>
+        <thead>
+        <tr> <%-- Cabeçalho da tabela --%>
+            <th>dt_inicio</th>
+            <th>dt_final</th>
+            <th>var_nome</th>
+            <th>var_local</th>
+            <th>num_preco_ticket</th>
+            <th>createdat</th>
+            <th>deletedat</th>
+            <th>pk_int_id_evento</th>
+            <th>fk_int_id_usuario</th>
+            <th>updateat</th>
         </tr>
         </thead>
         <tbody> <%-- Corpo da tabela onde os dados serão exibidos --%>
@@ -58,40 +58,39 @@ font-family: Oswald, sans-serif;" id="selecionarEventosI">LISTA DE EVENTOS INATI
             // Chama o método que seleciona os eventos ativos
             ResultSet EventoResultSet = eventoDAO.selecionarEventoI();
             try {
-                // Verifica se há resultados no ResultSet
+                // Verifica se há resultados e percorre  eles
                 if(EventoResultSet != null && EventoResultSet.next()){
                     // Loop para percorrer todos os registros retornados
                     do {
         %>
-        <tr> <%-- Linha da tabela para exibir cada registro de evento --%>
-            <td><p><%= EventoResultSet.getString("dt_inicio") %></p></td> <%-- Exibe a data de início --%>
-            <td><p><%= EventoResultSet.getString("dt_final") %></p></td> <%-- Exibe a data final --%>
-            <td><p><%= EventoResultSet.getString("var_nome") %></p></td> <%-- Exibe o nome do evento --%>
-            <td><p><%= EventoResultSet.getString("var_local") %></p></td> <%-- Exibe o local do evento --%>
-            <td><p><%= EventoResultSet.getString("num_preco_ticket") %></p></td> <%-- Exibe o preço do ticket --%>
-            <td><p><%= EventoResultSet.getString("createdat") %></p></td> <%-- Exibe a data de criação --%>
-            <td><p><%= EventoResultSet.getString("deletedat") %></p></td> <%-- Exibe a data de exclusão --%>
-            <td><p><%= EventoResultSet.getString("pk_int_id_evento") %></p></td> <%-- Exibe o ID do evento --%>
-            <td><p><%= EventoResultSet.getString("fk_int_id_usuario") %></p></td> <%-- Exibe o ID do usuário responsável --%>
-            <td><p><%= EventoResultSet.getString("updateat") %></p></td> <%-- Exibe a data de atualização --%>
+        <tr> <%-- Início da linha da tabela para cada evento inativo --%>
+            <td><p><%= EventoResultSet.getString("dt_inicio") %></p></td>
+            <td><p><%= EventoResultSet.getString("dt_final") %></p></td>
+            <td><p><%= EventoResultSet.getString("var_nome") %></p></td>
+            <td><p><%= EventoResultSet.getString("var_local") %></p></td>
+            <td><p><%= EventoResultSet.getString("num_preco_ticket") %></p></td>
+            <td><p><%= EventoResultSet.getString("createdat") %></p></td>
+            <td><p><%= EventoResultSet.getString("deletedat") %></p></td>
+            <td><p><%= EventoResultSet.getString("pk_int_id_evento") %></p></td>
+            <td><p><%= EventoResultSet.getString("fk_int_id_usuario") %></p></td>
+            <td><p><%= EventoResultSet.getString("updateat") %></p></td>
         </tr>
         <%
-            } while (EventoResultSet.next()); <%-- Continua exibindo os registros enquanto houver dados --%>
-        } else { // Caso não haja registros
+            } while(EventoResultSet.next()); // Continua a iteração enquanto houver mais registros
+        } else {// Caso não haja resultados
         %>
         <tr>
-            <td colspan="10"><p>Nenhum registro encontrado.</p></td> <%-- Mensagem exibida se não houver registros --%>
+            <td colspan="10"><p>Nenhum registro encontrado.</p></td>
         </tr>
-        <%
-            }
-            } catch (SQLException sql) { // Tratamento de exceção para erros de SQL
+        <% }// Fim da verificação de resultados
+        } catch (SQLException sql) { // Tratamento de exceção em caso de erro no SQL
             sql.printStackTrace();
         %>
         <tr>
             <td colspan="10"><p>Erro no banco de dados!</p></td> <%-- Mensagem de erro exibida na tabela --%>
         </tr>
         <%
-            }
+            } // Fim do bloco try-catch
         %>
         </tbody>
     </table>

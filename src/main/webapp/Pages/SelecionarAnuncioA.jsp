@@ -61,7 +61,7 @@ font-family: Oswald, sans-serif;" id="selecionarAnuncioA">LISTA DE ANUNCIOS ATIV
                 if(AnuncioResulSet.next() && AnuncioResulSet != null){
                     do {
         %>
-        <tr> <!-- Início de uma linha na tabela para cada anúncio -->
+        <tr> <!-- Início de uma linha na tabela para cada anúncio ativo -->
             <td><p><%= AnuncioResulSet.getInt("pk_int_id_anuncio") %></p></td>
             <td><p><%= AnuncioResulSet.getString("var_nota_fiscal") %></p></td>
             <td><p><%= AnuncioResulSet.getDate("dt_data") %></p></td>
@@ -74,6 +74,8 @@ font-family: Oswald, sans-serif;" id="selecionarAnuncioA">LISTA DE ANUNCIOS ATIV
             <td><p><%= AnuncioResulSet.getInt("fk_int_id_usuario") %></p></td>
             <td><p><%= AnuncioResulSet.getDate("updateat") %></p></td>
         </tr>
+
+
         <%
             } while(AnuncioResulSet.next()); // Continua enquanto houver mais resultados
         }

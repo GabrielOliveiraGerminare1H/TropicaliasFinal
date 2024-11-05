@@ -33,11 +33,12 @@
 </head>
 <body>
 <h2 style="color: #006996; font-size: 5rem; text-align: center; line-height: 80px;
-font-family: Oswald, sans-serif;" id="selecionarUsuarioA">LISTA DE USUÁRIOS ATIVOS</h2> <%-- Título principal da página, estilizado --%>
-<div class="select-container" style="overflow-x: auto; margin: 40px;">
-    <table class="select" style="box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);">
+font-family: Oswald, sans-serif;" id="selecionarEventosI">LISTA DE USUÁRIOS ATIVOS</h2> <%-- Título principal da página, estilizado --%>
+
+<div class="select-container" style="overflow-x: auto; margin: 40px;"> <%-- Contêiner para a tabela com rolagem horizontal --%>
+    <table class="select" style="box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);"> <%-- Início da tabela com sombra --%>
         <thead>
-        <tr>
+        <tr><%-- Cabeçalho da tabela --%>
             <th>pk_int_id_usuario</th>
             <th>text_foto</th>
             <th>var_email</th>
@@ -59,6 +60,7 @@ font-family: Oswald, sans-serif;" id="selecionarUsuarioA">LISTA DE USUÁRIOS ATI
         UsuarioDAO usuarioDAO = new UsuarioDAO();
         ResultSet UsuAResultSet = usuarioDAO.selecionarUsuarioA();
         try {
+            // Verifica se há resultados e percorre  eles
             if(UsuAResultSet.next() && UsuAResultSet != null){
 
                 do {
@@ -81,32 +83,29 @@ font-family: Oswald, sans-serif;" id="selecionarUsuarioA">LISTA DE USUÁRIOS ATI
     </tr>
 
     <%
-            } while(UsuAResultSet.next());
-    }
-            else {
+        } while(UsuAResultSet.next()); // Continua a iteração enquanto houver mais registros
+    } else {// Caso não haja resultados
     %>
     <tr>
         <td colspan="5"><p>Nenhum registro encontrado.</p></td>
     </tr>
-    <%}
-
-        } catch (SQLException sql) {
+    <% }// Fim da verificação de resultados
+    } catch (SQLException sql) { // Tratamento de exceção em caso de erro no SQL
         sql.printStackTrace();
     %>
     <tr>
-        <td colspan="5"><p>Erro no banco de dados!</p></td>
+        <td colspan="5"><p>Erro no banco de dados!</p></td> <%-- Mensagem de erro exibida na tabela --%>
     </tr>
     <%
-        }
+        } // Fim do bloco try-catch
     %>
         </tbody>
     </table>
 </div>
 <br><br><br>
-<footer class="container3"> <%-- footer da página --%>
-    <p>Desenvolvido por</p> <%-- Texto no footer --%>
-    <img src="../Assets/mocBranco.png" alt="img6" width="10%"> <%-- Imagem no footer --%>
+<footer class="container3"> <%-- Rodapé da página --%>
+    <p>Desenvolvido por</p>
+    <img src="../Assets/mocBranco.png" alt="img6" width="10%">
 </footer>
 </body>
 </html>
-

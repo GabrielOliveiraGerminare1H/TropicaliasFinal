@@ -50,15 +50,15 @@ font-family: Oswald, sans-serif;" id="selecionarCoresI">LISTA CORES INATIVAS DO 
         <%
             // Cria uma instância do DAO para acessar os dados das cores de mascote
             CorMascoteDAO corMascoteDAO = new CorMascoteDAO();
-            // Chama o método que seleciona as cores de mascote
+            // Chama o método que seleciona as cores de mascote inativas
             ResultSet CorAResultSet = corMascoteDAO.selecionarCorMascoteI();
             try {
-                // Verifica se há resultados no ResultSet
+                // Verifica se há resultados e percorre  eles
                 if (CorAResultSet.next() && CorAResultSet != null) {
                     // Loop para percorrer todos os registros retornados
                     do {
         %>
-        <tr> <%-- Início da linha da tabela para cada cor do mascote --%>
+        <tr> <%-- Início da linha da tabela para cada cor do mascote inativa --%>
             <td><p> <%= CorAResultSet.getInt("pk_int_id_cor_mascote") %></p></td>
             <td><p> <%= CorAResultSet.getString("text_fundo") %></p></td>
             <td><p> <%= CorAResultSet.getString("createdat") %></p></td>

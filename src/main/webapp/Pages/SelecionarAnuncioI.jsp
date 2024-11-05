@@ -59,6 +59,7 @@ font-family: Oswald, sans-serif;" id="selecionarAnuncioI">LISTA DE ANÚNCIOS INA
             try {
                 // Verifica se há resultados e percorre sobre eles
                 if(AnuncioResulSet.next() && AnuncioResulSet != null){
+                    // Loop para percorrer todos os registros retornados
                     do {
         %>
         <tr> <!-- Início de uma linha na tabela para cada anúncio inativo -->

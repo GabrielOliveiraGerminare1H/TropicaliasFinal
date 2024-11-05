@@ -52,7 +52,9 @@ font-family: Oswald, sans-serif;" id="selecionarBarracaI">LISTA DE BARRACAS INAT
             BarracaDAO barracaDAO = new BarracaDAO(); // Criação de uma instância do DAO para acessar as barracas inativas
             ResultSet BarracaResultSet = barracaDAO.selecionarBarracaI(); // Chamada ao método que retorna as barracas inativas
             try {
-                if(BarracaResultSet.next() && BarracaResultSet != null){ // Verifica se há resultados e itera sobre eles
+                // Verifica se há resultados e percorre  eles
+                if(BarracaResultSet.next() && BarracaResultSet != null){
+                    // Loop para percorrer todos os registros retornados
                     do {
         %>
         <tr> <%-- Linha da tabela para cada barraca inativa --%>

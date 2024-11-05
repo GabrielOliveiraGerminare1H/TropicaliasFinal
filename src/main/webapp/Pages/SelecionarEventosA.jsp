@@ -62,7 +62,7 @@ font-family: Oswald, sans-serif;" id="selecionarEventosA">LISTA DE EVENTO ATIVOS
             // Chama o método que seleciona os eventos ativos
             ResultSet EventoResultSet = eventoDAO.selecionarEventoA();
             try {
-                // Verifica se há resultados no ResultSet
+                // Verifica se há resultados e percorre  eles
                 if(EventoResultSet != null && EventoResultSet.next()){
                     // Loop para percorrer todos os registros retornados
                     do {

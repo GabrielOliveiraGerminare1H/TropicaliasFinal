@@ -54,11 +54,12 @@ font-family: Oswald, sans-serif;" id="selecionarCoresA">LISTA CORES ATIVAS DO MA
             // Chama o método que seleciona as cores de mascote que não foram deletadas
             ResultSet CorAResultSet = corMascoteDAO.selecionarCorMascoteA();
             try {
-                // Verifica se há resultados
+                // Verifica se há resultados e percorre eles
                 if (CorAResultSet.next() && CorAResultSet != null) {
+                    // Loop para percorrer todos os registros retornados
                     do {
         %>
-        <tr> <%-- Início da linha da tabela para cada cor do mascote --%>
+        <tr> <%-- Início da linha da tabela para cada cor do mascote ativa --%>
             <td><p> <%= CorAResultSet.getInt("pk_int_id_cor_mascote") %>></p></td>
             <td><p> <%= CorAResultSet.getString("text_fundo") %>></p></td>
             <td><p> <%= CorAResultSet.getString("createdat") %>></p></td>

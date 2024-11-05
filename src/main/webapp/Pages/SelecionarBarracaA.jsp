@@ -52,7 +52,9 @@ font-family: Oswald, sans-serif;" id="selecionarBarracaA">LISTA DE BARRACAS ATIV
             BarracaDAO barracaDAO = new BarracaDAO(); // Criação de uma instância do DAO para acessar as barracas ativas
             ResultSet BarracaResultSet = barracaDAO.selecionarBarracaA(); // Chamada ao método que retorna as barracas ativas
             try {
-                if(BarracaResultSet.next() && BarracaResultSet != null){ // Verifica se há resultados e itera sobre eles
+                // Verifica se há resultados e percorre eles
+                if(BarracaResultSet.next() && BarracaResultSet != null){
+                    // Loop para percorrer todos os registros retornados
                     do {
         %>
         <tr> <%-- Linha da tabela para cada barraca ativa --%>
