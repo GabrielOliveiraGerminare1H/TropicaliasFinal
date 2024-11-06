@@ -2,6 +2,9 @@ package Controller.Evento;
 
 import Daos.EventoDAO;
 import java.io.IOException;
+import java.sql.SQLException;
+
+import Daos.JDBC.Conexao;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -13,38 +16,30 @@ public class DeletarEvento extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        Conexao conexao = new Conexao();
+
         // Obtém o parâmetro que representa a chave primária do evento
-        String pkEvento = request.getParameter("pk_int_id_evento");
-        int pkEventoInt;
+        int pkEvento = Integer.parseInt(request.getParameter("pk_int_id_evento"));
 
-        // Tenta converter o parâmetro para um inteiro
-        try {
-            pkEventoInt = Integer.parseInt(pkEvento);
-        } catch (NumberFormatException e) {
-            // Se a conversão falhar, define mensagem de erro e redireciona
-            request.setAttribute("verifica", false);
-            request.setAttribute("mensagem", "ID de evento inválido!");
-            request.getRequestDispatcher("mensagem.jsp").forward(request, response);
-            return; // Interrompe a execução do método
-        }
 
-        // Cria uma instância do DAO para interagir com o banco de dados
-        EventoDAO eventoDAO = new EventoDAO();
+            // Cria uma instância do DAO para interagir com o banco de dados
+            EventoDAO eventoDAO = new EventoDAO();
 
-        // Tenta realizar a "exclusão" (SOFTDELETE) do evento
-        boolean verifica = eventoDAO.softDeleteEvento(pkEventoInt);
+            // Tenta realizar a "exclusão" (SOFTDELETE) do evento
+            boolean verifica = eventoDAO.softDeleteEvento(pkEvento);
 
-        // Define mensagens de sucesso ou erro com base no resultado da operação
+            // Define mensagens de sucesso ou erro com base no resultado da operação
         if (verifica) {
             request.setAttribute("verifica", true);
-            request.setAttribute("mensagem", "Evento deletado com sucesso!");
+            request.setAttribute("mensagem", "Barraca deletada com sucesso!");
         } else {
             request.setAttribute("verifica", false);
-            request.setAttribute("mensagem", "Não foi possível deletar o evento!");
+            request.setAttribute("mensagem", "Não foi possível deletar a evento! Erro na pk");
         }
 
-        // Redireciona para a página de mensagens com o feedback da operação
-        request.getRequestDispatcher("mensagem.jsp").forward(request, response);
+            // Redireciona para a página de mensagens com o feedback da operação
+            request.getRequestDispatcher("mensagem.jsp").forward(request, response);
+
     }
 }
 

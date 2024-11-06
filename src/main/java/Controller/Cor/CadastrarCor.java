@@ -1,6 +1,7 @@
 package Controller.Cor;
 
 import Daos.CorMascoteDAO;
+import Daos.JDBC.Conexao;
 import Model.CorMascote;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -14,9 +15,12 @@ import java.sql.SQLException;
 
 @WebServlet(name = "cadastrarCor", value = "/cadastrarCor")
 public class CadastrarCor extends HttpServlet {
+
     // Método que trata requisições POST para cadastrar uma nova cor de mascote
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
+        Conexao conexao = new Conexao();
 
         // Obtém os parâmetros da requisição que representam as cores
         String textFundo = request.getParameter("text_fundo"); // Cor de fundo
@@ -26,24 +30,32 @@ public class CadastrarCor extends HttpServlet {
         // Cria uma instância do DAO para interagir com o banco de dados
         CorMascoteDAO corMascoteDAO = new CorMascoteDAO();
 
-        // Valida se todas as cores estão em formato hexadecimal
+        // Define mensagem de acordo com o resultado da atualização
         if ((textFundo.matches("^#([A-Fa-f0-9]{6})$")) &&
                 (textPrimaria.matches("^#([A-Fa-f0-9]{6})$")) &&
                 (textSecundaria.matches("^#([A-Fa-f0-9]{6})$"))) {
 
-            // Se a validação for bem-sucedida, cria um novo objeto CorMascote
+            // Se a validação do padrão RGB for bem-sucedida, cria um novo objeto CorMascote
             CorMascote corMascote = new CorMascote(textFundo, textPrimaria, textSecundaria);
-            boolean verifica = corMascoteDAO.cadastrarCorMascote(corMascote); // Tenta cadastrar a cor
 
-            if (verifica) {
+            //Armazenando valor booleano na variável de acordo com o retorno do método
+            boolean verifica = corMascoteDAO.cadastrarCorMascote(corMascote);
+
+            if (!verifica) {
                 // Se o cadastro for bem-sucedido, define mensagens de sucesso
+                request.setAttribute("verifica", false);
+                request.setAttribute("mensagem", "Não foi possível realizar o cadastro!");
+                request.getRequestDispatcher("mensagem.jsp").forward(request, response); // Redireciona para a página de mensagens
+
+            }
+
+            else {
+                // Se o cadastro falhar, define mensagem de erro
+
                 request.setAttribute("verifica", true);
                 request.setAttribute("mensagem", "Cadastro realizado com sucesso!");
                 request.getRequestDispatcher("mensagem.jsp").forward(request, response); // Redireciona para a página de mensagens
-            } else {
-                // Se o cadastro falhar, define mensagem de erro
-                request.setAttribute("verifica", false);
-                request.setAttribute("mensagem", "Não foi possível realizar o cadastro!");
+
             }
         } else {
             // Se as cores estiverem em formato inválido, define mensagem de erro
@@ -51,6 +63,7 @@ public class CadastrarCor extends HttpServlet {
             request.setAttribute("mensagem", "Você digitou o código de cor RGB de maneira errada!");
             request.getRequestDispatcher("mensagem.jsp").forward(request, response); // Redireciona para a página de mensagens
         }
+
     }
 }
 

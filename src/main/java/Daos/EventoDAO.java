@@ -89,18 +89,15 @@ public class EventoDAO {
             conexao.conectar();
 
             //Comando SQL
-            String query ="UPDATE tb_evento SET " + nomeCampo + " = '" + campoAtualizado +
-                    "' ,updateat = current_date WHERE pkEvento = " + pkEvento + "and deletedat is null";
+            String query ="UPDATE tb_evento SET " + nomeCampo + " = ? ,updateat = current_date WHERE pk_int_id_evento = ? and deletedat is null";
+            PreparedStatement pstmt = conexao.getConn().prepareStatement(query);
 
-            // Método chamado para executar a query e retornar um integer da quantidade de linhas afetadas
-            int resultado= conexao.executarUpdate(query);
+            //Setandos os parâmetros
+            pstmt.setString(1, campoAtualizado);
+            pstmt.setInt(2, pkEvento);
 
-            //Validação das linhas afetadas
-            if (resultado>0){
-                return true;}
-            else {
-                return false;
-            }
+            //Retorno true se as linhas alteradas forem mais de 0
+            return pstmt.executeUpdate()>0;
 
         } catch (SQLException sqle) {
             sqle.printStackTrace();
@@ -108,6 +105,7 @@ public class EventoDAO {
         } finally {
             conexao.desconectar(); // Fechando a conexão com o banco de dados
         }
+
     }
 
     public boolean softDeleteEvento(int idEvento) {
@@ -120,7 +118,7 @@ public class EventoDAO {
                 " updateat = current_date WHERE pk_int_id_evento = " + idEvento;
 
         // Método chamado para executar a query e retornar um integer da quantidade de linhas afetadas
-        int resultado= conexao.executarUpdate(query);
+        int resultado= conexao.executarDelete(query);
 
         //Validação das linhas afetadas
         if (resultado > 0){

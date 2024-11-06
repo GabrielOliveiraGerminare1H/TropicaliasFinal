@@ -15,24 +15,13 @@ public class DeletarBarraca extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Obtém o parâmetro que representa a chave primária da barraca
-        String pkBarraca = request.getParameter("pk_int_id_barraca");
-        int pkBarracaInt = 0;
-
-        // Tenta converter o parâmetro para um inteiro
-        try {
-            pkBarracaInt = Integer.parseInt(pkBarraca);
-        } catch (NumberFormatException e) {
-            // Se a conversão falhar, define mensagem de erro e redireciona
-            request.setAttribute("verifica", false);
-            request.setAttribute("mensagem", "ID inválido fornecido!");
-            request.getRequestDispatcher("mensagem.jsp").forward(request, response);
-        }
+        int pkBarraca = Integer.parseInt(request.getParameter("pk_int_id_barraca"));
 
         // Cria uma instância do DAO para interagir com o banco de dados
         BarracaDAO barracaDAO = new BarracaDAO();
 
         // Tenta realizar a "exclusão" (SOFTDELETE) da barraca
-        boolean verifica = barracaDAO.softDeleteBarraca(pkBarracaInt);
+        boolean verifica = barracaDAO.softDeleteBarraca(pkBarraca);
 
         // Define mensagens de sucesso ou erro com base no resultado da operação
         if (verifica) {
@@ -40,12 +29,14 @@ public class DeletarBarraca extends HttpServlet {
             request.setAttribute("mensagem", "Barraca deletada com sucesso!");
         } else {
             request.setAttribute("verifica", false);
-            request.setAttribute("mensagem", "Não foi possível deletar a barraca!");
+            request.setAttribute("mensagem", "Não foi possível deletar a barraca! Erro na pk");
         }
 
         // Redireciona para a página de mensagens com o feedback da operação
         request.getRequestDispatcher("mensagem.jsp").forward(request, response);
+
     }
 }
+
 
 

@@ -81,33 +81,30 @@ public class BarracaDAO {
     }
 
 
-    public boolean atualizarBarraca(String nomeCampo, String campoAtualizado, int pkCampo) {
 
+    public boolean atualizarBarraca(String nomeCampo, String campoAtualizado, int pkCampo) {
         try {
             // Abre a conexão com o banco de dados
             conexao.conectar();
 
             //Comando SQL
-            String query = "UPDATE tb_barraca SET " + nomeCampo + " = '" + campoAtualizado +
-                    "', updateat = current_date WHERE pk_int_id_barraca = " + pkCampo + "and deletedat is null";
+            String query ="UPDATE tb_barraca SET " + nomeCampo + " = ? ,updateat = current_date WHERE pk_int_id_barraca = ? and deletedat is null";
+            PreparedStatement pstmt = conexao.getConn().prepareStatement(query);
 
-            // Método chamado para executar a query e retornar um integer da quantidade de linhas afetadas
-            int resultado= conexao.executarUpdate(query);
+            //Setandos os parâmetros
+            pstmt.setString(1, campoAtualizado);
+            pstmt.setInt(2, pkCampo);
 
-            //Validação das linhas afetadas
-            if (resultado > 0){
-                return true;}
-            else {
+            //Retorno true se as linhas alteradas forem mais de 0
+            return pstmt.executeUpdate()>0;
+
+            } catch (SQLException sqle) {
+                sqle.printStackTrace();
                 return false;
+            } finally {
+                conexao.desconectar(); // Fechando a conexão com o banco de dados
             }
-
-        } catch (SQLException sqle) {
-            sqle.printStackTrace();
-            return false;
-        } finally {
-            conexao.desconectar(); // Fechando a conexão com o banco de dados
         }
-    }
 
 
     public boolean softDeleteBarraca(int idBarraca){
@@ -120,7 +117,7 @@ public class BarracaDAO {
                     " updateat = current_date WHERE pk_int_id_barraca = " + idBarraca;
 
             // Método chamado para executar a query e retornar um integer da quantidade de linhas afetadas
-            int resultado= conexao.executarUpdate(query);
+            int resultado= conexao.executarDelete(query);
 
             //Validação das linhas afetadas
             if (resultado > 0){

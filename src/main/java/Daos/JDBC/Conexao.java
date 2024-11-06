@@ -53,13 +53,76 @@ public class Conexao {
 
 
     // Método executarUpdate que executa o comando SQL do parâmetro
-    public int executarUpdate(String query) throws SQLException {
+    public int executarDelete(String query) throws SQLException {
         try (PreparedStatement pstmt = conn.prepareStatement(query)){
 
             // Executa a consulta e retorna o número de linhas afetadas
             return pstmt.executeUpdate();
         }
     }
+
+    // Método que verifica se a PK existe na tabela do banco de dados
+    public boolean isPkValida(String nomeTabela , String campoPk, int pkTabela)
+            throws SQLException {
+        try {
+            //Abrindo conexão com o banco de dados
+            conectar();
+
+            //Comando sql
+            PreparedStatement pstmt = conn.prepareStatement("select * from ? where ? = ?");
+
+            //Setando os parãmetros
+            pstmt.setString(1, nomeTabela);
+            pstmt.setString(2, campoPk);
+            pstmt.setInt(3, pkTabela);
+
+            //Excutando comando
+
+            pstmt.executeQuery();
+            return true;
+
+
+        } catch (SQLException sqle) {
+            sqle.printStackTrace();
+            return false;
+        }
+        finally {
+            desconectar(); //Fechando conexão com o banco de dados
+        }
+
+    }
+
+    // Método que verifica se a FK existe na tabela do banco de dados
+    public boolean isFkValida(String nomeTabela , String campoFk, int fkTabela)
+            throws SQLException {
+        try {
+            //Abrindo conexão com o banco de dados
+            conectar();
+
+            //Comando sql
+            PreparedStatement pstmt = conn.prepareStatement("select * from ? where ? = ?");
+
+            //Setando os parãmetros
+            pstmt.setString(1, nomeTabela);
+            pstmt.setString(2, campoFk);
+            pstmt.setInt(3, fkTabela);
+
+            //Excutando comando
+
+            pstmt.executeQuery();
+            return true;
+
+
+        } catch (SQLException sqle) {
+            sqle.printStackTrace();
+            return false;
+        }
+        finally {
+            desconectar(); //Fechando conexão com o banco de dados
+        }
+
+    }
+
 
 
 }

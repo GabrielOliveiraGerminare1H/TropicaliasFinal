@@ -87,17 +87,22 @@ public class CorMascoteDAO {
             // Abre a conexão com o banco de dados
             conexao.conectar();
 
-            //Comando SQL
-            String query ="UPDATE tb_cor_mascote SET " + nomeCampo + " = '" + campoAtualizado +
-                    "' ,updateat = current_date WHERE pk_int_id_cor_mascote = " + pkCorMascote + "and deletedat is null";
+            // Monta a query SQL
+            String query = "UPDATE tb_cor_mascote SET " + nomeCampo + " = ?, updateat = current_date " +
+                    "WHERE pk_int_id_cor_mascote = ? AND deletedat IS NULL";
 
-            // Método chamado para executar a query e retornar um integer da quantidade de linhas afetadas
-            int resultado= conexao.executarUpdate(query);
+            //Valida se o novo valor da cor está em formato hexadecimal correto
+            if (campoAtualizado.matches("^#([A-Fa-f0-9]{6})$")){
+                PreparedStatement pstmt = conexao.getConn().prepareStatement(query);
+                // Define os valores dos parâmetros
+                pstmt.setString(1, campoAtualizado);
+                pstmt.setInt(2, pkCorMascote);
 
-            //Validação das linhas afetadas
-            if (resultado > 0){
-                return true;}
-            else {
+                // Executa a atualização e retorna true se pelo menos uma linha foi alterada
+                return pstmt.executeUpdate() > 0;
+            }
+
+            else{
                 return false;
             }
 
@@ -105,9 +110,13 @@ public class CorMascoteDAO {
             sqle.printStackTrace();
             return false;
         } finally {
-            conexao.desconectar(); // Fechando a conexão com o banco de dados
+            conexao.desconectar(); // Fecha a conexão com o banco de dados
         }
     }
+
+
+
+
 
 
 
@@ -121,7 +130,7 @@ public class CorMascoteDAO {
                     "updateat = current_date WHERE pk_int_id_cor_mascote = " + idCorMascote;
 
             // Método chamado para executar a query e retornar um integer da quantidade de linhas afetadas
-            int resultado= conexao.executarUpdate(query);
+            int resultado= conexao.executarDelete(query);
 
             //Validação das linhas afetadas
             if (resultado > 0){
