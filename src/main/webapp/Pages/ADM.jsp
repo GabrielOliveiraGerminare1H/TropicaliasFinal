@@ -1,5 +1,10 @@
 <!-- Define o tipo de conteúdo e a codificação da página para suportar caracteres acentuados -->
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<% if (request.getSession().getAttribute("logado") == null) {
+    request.getRequestDispatcher("../Pages/Login.jsp").forward(request, response);
+    return;
+} %>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -33,7 +38,7 @@
 <div class="container"> <!-- Container principal da página -->
     <div class="menuCima"> <!-- Menu superior -->
         <div class="opcaoEvento"> <!-- Seção para opções de eventos -->
-            <img src="${pageContext.request.contextPath}/Assets/eventos.png" alt="Ícone de eventos"> <!-- Ícone de eventos -->
+            <img src="${pageContext.request.contextPath}/Assets/eventos.svg" alt="Ícone de cores"> <!-- Ícone de cores -->
             <h1>Evento</h1>
             <!-- Links que redirecionam para as páginas .jsp de cada função dos botões de evento -->
             <ul>

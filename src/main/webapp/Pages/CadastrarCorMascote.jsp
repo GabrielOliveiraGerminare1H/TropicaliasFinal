@@ -1,5 +1,9 @@
 <%-- Define o tipo de conteúdo da página e a linguagem utilizada --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<% if (request.getSession().getAttribute("logado") == null) {
+    request.getRequestDispatcher("../Pages/Login.jsp").forward(request, response);
+    return;
+} %>
 <%@ include file="ADM.jsp"%> <!-- Inclui o conteúdo do arquivo ADM.jsp -->
 
 <main>
