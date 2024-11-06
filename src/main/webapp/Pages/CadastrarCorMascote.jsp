@@ -1,5 +1,6 @@
 <%-- Define o tipo de conteúdo da página e a linguagem utilizada --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <%@ include file="ADM.jsp"%> <!-- Inclui o conteúdo do arquivo ADM.jsp -->
 
 <main>

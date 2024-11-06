@@ -19,60 +19,50 @@ public class AtualizarEvento extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        Conexao conexao = new Conexao();
+        Conexao conexao = null;
+        try {
+            // Instancia a conexão e obtém os parâmetros da requisição
+            conexao = new Conexao();
+            String nomeCampo = request.getParameter("nomeCampo");
+            String atualizacaoCampo = request.getParameter("atualizacaoCampo");
+            int pkEvento = Integer.parseInt(request.getParameter("pk_int_id_evento"));
 
-        // Obtém parâmetros da requisição
-        String nomeCampo = request.getParameter("nomeCampo"); // Nome do campo a ser atualizado
-        String atualizacaoCampo = request.getParameter("atualizacaoCampo"); // Novo valor para o campo
-        int pkEvento = Integer.parseInt(request.getParameter("pk_int_id_evento")); // PK do evento
+            // Cria instância do DAO e tenta realizar a atualização
+            EventoDAO eventoDAO = new EventoDAO();
+            boolean verifica = eventoDAO.atualizarEvento(nomeCampo, atualizacaoCampo, pkEvento);
 
-
-        // Criação da instância do DAO e tenta atualizar o evento no banco de dados
-        EventoDAO eventoDAO = new EventoDAO();
-
-        //Armazenando valor booleano na variável de acordo com o retorno do método
-        boolean verifica = eventoDAO.atualizarEvento(nomeCampo, atualizacaoCampo, pkEvento);
-
-        // Define mensagem de acordo com o resultado da atualização
-        if (!verifica) {
-            // Se a atualização foi mal-sucedida, define mensagem de erro
-            request.setAttribute("verifica", false);
-            request.setAttribute("mensagem", "Erro ao atualizar evento");
-
-            if (!validarNomeCampo(nomeCampo)) {
-                // Se o nome de campo inserido não exisitir no banco de dados
-                request.setAttribute("verifica", false);
-                request.setAttribute("mensagem", "Nome do campo inválido.");
-            }
-            else {
-                try {
-                    // Se a PK de evento inserida não exisitir no banco, define mensagem de erro
-                    if (!conexao.isPkValida("tb_evento","pk_int_id_evento",pkEvento)) {
-                        request.setAttribute("verifica", false);
-                        request.setAttribute("mensagem", "Pk não existe no banco de dados. Tente novamente");
-                    }
-                } catch (SQLException e) {
-                    throw new RuntimeException(e);
+            // Define mensagens com base no resultado da operação
+            if (!verifica) {
+                if (!validarNomeCampo(nomeCampo)) {
+                    request.setAttribute("verifica", false);
+                    request.setAttribute("mensagem", "Nome do campo inválido.");
+                } else if (!conexao.isPkValida("tb_evento", "pk_int_id_evento", pkEvento)) {
+                    request.setAttribute("verifica", false);
+                    request.setAttribute("mensagem", "Pk não existe no banco de dados. Tente novamente.");
                 }
+            } else {
+                request.setAttribute("verifica", true);
+                request.setAttribute("mensagem", "Evento atualizado com sucesso!");
             }
+            request.getRequestDispatcher("mensagem.jsp").forward(request, response);
 
-        } else {
-            // Se a atualização foi bem-sucedida, define mensagem de sucesso
-            request.setAttribute("verifica", true);
-            request.setAttribute("mensagem", "Evento atualizado com sucesso! ");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            request.setAttribute("verifica", false);
+            request.setAttribute("mensagem", "Erro ao acessar o banco de dados.");
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+            request.setAttribute("verifica", false);
+            request.setAttribute("mensagem", "Formato de ID inválido.");
+
+
         }
-
-        // Redireciona para a página de mensagens
-        request.getRequestDispatcher("mensagem.jsp").forward(request, response);
     }
 
     // Método auxiliar para validar o nome do campo
     private boolean validarNomeCampo(String nomeCampo) {
-        // Verifica se o nome do campo é um dos campos da tabela no banco de dados
         return nomeCampo.equals("dt_inicio") || nomeCampo.equals("dt_final") || nomeCampo.equals("var_nome")
-                || nomeCampo.equals("var_local")|| nomeCampo.equals("num_preco_ticket")
-                || nomeCampo.equals("fk_int_id_usuario") || nomeCampo.equals("var_imagem")|| nomeCampo.equals("var_descricao");
+                || nomeCampo.equals("var_local") || nomeCampo.equals("num_preco_ticket")
+                || nomeCampo.equals("fk_int_id_usuario") || nomeCampo.equals("var_imagem") || nomeCampo.equals("var_descricao");
     }
-
-
 }
