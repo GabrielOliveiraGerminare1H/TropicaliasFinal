@@ -45,24 +45,22 @@ public class CadastrarCor extends HttpServlet {
                 // Se o cadastro for bem-sucedido, define mensagens de sucesso
                 request.setAttribute("verifica", false);
                 request.setAttribute("mensagem", "Não foi possível realizar o cadastro!");
-                request.getRequestDispatcher("mensagem.jsp").forward(request, response); // Redireciona para a página de mensagens
 
             }
-
             else {
                 // Se o cadastro falhar, define mensagem de erro
-
                 request.setAttribute("verifica", true);
                 request.setAttribute("mensagem", "Cadastro realizado com sucesso!");
-                request.getRequestDispatcher("mensagem.jsp").forward(request, response); // Redireciona para a página de mensagens
 
             }
         } else {
             // Se as cores estiverem em formato inválido, define mensagem de erro
             request.setAttribute("verifica", false);
             request.setAttribute("mensagem", "Você digitou o código de cor RGB de maneira errada!");
-            request.getRequestDispatcher("mensagem.jsp").forward(request, response); // Redireciona para a página de mensagens
+
         }
+        // Redireciona para a página de mensagens
+        request.getRequestDispatcher("mensagem.jsp").forward(request, response);
 
     }
 }

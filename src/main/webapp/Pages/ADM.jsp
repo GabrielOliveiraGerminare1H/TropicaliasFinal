@@ -1,10 +1,6 @@
 <!-- Define o tipo de conteúdo e a codificação da página para suportar caracteres acentuados -->
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<% if (request.getSession().getAttribute("logado") == null) {
-    request.getRequestDispatcher("../Pages/Login.jsp").forward(request, response);
-    return;
-} %>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>

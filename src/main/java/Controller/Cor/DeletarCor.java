@@ -30,7 +30,7 @@ public class DeletarCor extends HttpServlet {
         // Define mensagens de sucesso ou erro com base no resultado da operação
         if (verifica) {
             request.setAttribute("verifica", true);
-            request.setAttribute("mensagem", "Barraca deletada com sucesso!");
+            request.setAttribute("mensagem", "Cor deletada com sucesso!");
         } else {
             request.setAttribute("verifica", false);
             request.setAttribute("mensagem", "Não foi possível deletar a cor! Erro na pk");

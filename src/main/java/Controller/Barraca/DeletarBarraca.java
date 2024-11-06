@@ -14,6 +14,7 @@ public class DeletarBarraca extends HttpServlet {
     // Método que trata requisições POST para deletar uma barraca
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         // Obtém o parâmetro que representa a chave primária da barraca
         int pkBarraca = Integer.parseInt(request.getParameter("pk_int_id_barraca"));
 
@@ -24,17 +25,16 @@ public class DeletarBarraca extends HttpServlet {
         boolean verifica = barracaDAO.softDeleteBarraca(pkBarraca);
 
         // Define mensagens de sucesso ou erro com base no resultado da operação
-        if (verifica) {
-            request.setAttribute("verifica", true);
-            request.setAttribute("mensagem", "Barraca deletada com sucesso!");
-        } else {
-            request.setAttribute("verifica", false);
-            request.setAttribute("mensagem", "Não foi possível deletar a barraca! Erro na pk");
-        }
+           if (verifica) {
+               request.setAttribute("verifica", true);
+               request.setAttribute("mensagem", "Barraca deletada com sucesso!");
+           } else {
+               request.setAttribute("verifica", false);
+               request.setAttribute("mensagem", "Não foi possível deletar a barraca! Erro na pk");
+           }
 
-        // Redireciona para a página de mensagens com o feedback da operação
-        request.getRequestDispatcher("mensagem.jsp").forward(request, response);
-
+           // Redireciona para a página de mensagens com o feedback da operação
+           request.getRequestDispatcher("mensagem.jsp").forward(request, response);
     }
 }
 

@@ -17,43 +17,47 @@ public class CadastrarBarraca extends HttpServlet {
 
     // Método que trata requisições POST para cadastrar uma nova barraca
     @Override
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
 
-             Conexao conexao = new Conexao();
-            // Obtém parâmetros da requisição
-            String nome = request.getParameter("nome"); // Nome do campo a ser atualizado
-            int fkEvento = Integer.parseInt(request.getParameter("fk_int_id_evento")); //FK do evento relacionado á barraca
+        Conexao conexao = new Conexao();
 
-            // Cria uma nova instância da barraca com os valores fornecidos
-            Barraca barraca = new Barraca(nome, fkEvento);
+        // Obtém parâmetros da requisição
+        String nome = request.getParameter("nome"); // Nome do campo a ser atualizado
+        int fkEvento = Integer.parseInt(request.getParameter("fk_int_id_evento")); //FK do evento relacionado á barraca
 
-            // Cria uma instância do DAO para interagir com o banco de dados
-            BarracaDAO barracaDAO = new BarracaDAO();
+        // Cria uma nova instância da barraca com os valores fornecidos
+        Barraca barraca = new Barraca(nome, fkEvento);
 
-            //Armazenando valor booleano na variável de acordo com o retorno do método
-            boolean verifica = barracaDAO.cadastrarBarraca(barraca);
+        // Cria uma instância do DAO para interagir com o banco de dados
+        BarracaDAO barracaDAO = new BarracaDAO();
 
-            if (verifica) {
-                // Se o cadastro for bem-sucedido, define mensagens de sucesso
-                request.setAttribute("verifica", true);
-                request.setAttribute("mensagem", "Cadastro realizado com sucesso!");
-                request.getRequestDispatcher("mensagem.jsp").forward(request, response); // Redireciona para a página de mensagens
+        //Armazenando valor booleano na variável de acordo com o retorno do método
+        boolean verifica = barracaDAO.cadastrarBarraca(barraca);
 
-            }  else {
-                try {
-                    if (!conexao.isPkValida("tb_barraca","pk_int_id_barraca",fkEvento)) {
-                        request.setAttribute("verifica", false);
-                        request.setAttribute("mensagem", "Fk não existe no banco de dados. Tente novamente");
-                    }
+        if (verifica) {
+            // Se o cadastro for bem-sucedido, define mensagens de sucesso
+            request.setAttribute("verifica", true);
+            request.setAttribute("mensagem", "Cadastro realizado com sucesso!");
 
-                } catch (SQLException e) {
-                    throw new RuntimeException(e);
+
+        }
+        // Se a PK de barraca inserida não exisitir no banco de dados
+        else {
+            try {
+                if (!conexao.isFkValida("tb_barraca","fk_int_id_barraca",fkEvento)) {
+                    request.setAttribute("verifica", false);
+                    request.setAttribute("mensagem", "Fk não existe no banco de dados. Tente novamente");
+
                 }
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
             }
+        }
+        // Redireciona para a página de mensagens
+        request.getRequestDispatcher("mensagem.jsp").forward(request, response);
 
-            // Encaminha a requisição para "mensagem.jsp" para exibir o feedback ao usuário
-            request.getRequestDispatcher("mensagem.jsp").forward(request, response);
 
     }
 }

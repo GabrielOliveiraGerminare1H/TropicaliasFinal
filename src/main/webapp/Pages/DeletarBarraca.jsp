@@ -1,10 +1,6 @@
 
 <%-- Define o tipo de conteúdo como HTML com codificação UTF-8 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<% if (request.getSession().getAttribute("logado") == null) {
-    request.getRequestDispatcher("../Pages/Login.jsp").forward(request, response);
-    return;
-} %>
 <%@ include file="ADM.jsp"%> <!-- Inclui o conteúdo do arquivo ADM.jsp -->
 
 <main>
