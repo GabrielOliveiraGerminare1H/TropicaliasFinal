@@ -9,7 +9,7 @@
         </div>
 
         <%-- Seção específica para o formulário de cadastro da cor do mascote --%>
-        <section class="corMascote">
+        <section class="corMascote" id="cadastrarCor">
             <%-- Formulário que envia dados para o servlet "cadastrarCor" usando método POST --%>
             <form action="../cadastrarCor" method="post">
 

@@ -10,7 +10,7 @@
         </div>
 
         <%-- Seção específica para o formulário de exclusão de barracas --%>
-        <section class="deletarBarraca">
+        <section class="deletarBarraca" id="deletarBarraca">
             <%-- Formulário que envia dados para o servlet "deletarBarraca" usando o método POST --%>
             <form action="../deletarBarraca" method="post">
 

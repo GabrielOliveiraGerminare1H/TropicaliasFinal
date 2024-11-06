@@ -9,7 +9,7 @@
         </div>
 
         <%-- Seção específica para o formulário de atualização de eventos --%>
-        <section class="atualizarEvento">
+        <section class="atualizarEvento" id="atualizarEvento">
             <%-- Formulário que envia os dados para o servlet "atualizarEvento" usando o método POST --%>
             <form action="../atualizarEvento" method="post">
 

@@ -9,7 +9,7 @@
         </div>
 
         <!-- Seção específica para o formulário de atualização de informações da barraca -->
-        <section class="atualizarBarraca">
+        <section class="atualizarBarraca" id="atualizarBarraca">
 
             <!-- Formulário que envia os dados para o endpoint /atualizarBarraca usando o método POST -->
             <form action="../atualizarBarraca" method="post">

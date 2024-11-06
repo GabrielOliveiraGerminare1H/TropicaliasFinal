@@ -9,7 +9,7 @@
         </div>
 
         <%-- Seção que contém o formulário para cadastrar eventos --%>
-        <section class="cadastrarEvento">
+        <section class="cadastrarEvento" id="cadastrarEvento">
             <%-- Formulário que envia os dados para o servlet "cadastrarEvento" usando o método POST --%>
             <form action="../cadastrarEvento" method="post">
 

@@ -9,7 +9,7 @@
         </div>
 
         <%-- Seção específica para o formulário de deletar a cor do mascote --%>
-        <section class="deletarCorMascote">
+        <section class="deletarCorMascote" id="deletarCor">
             <%-- Formulário que envia dados para o servlet "deletarCor" usando método POST --%>
             <form action="../deletarCor" method="post">
                 <%-- Campo para o usuário inserir a PK da cor do mascote, obrigatório --%>

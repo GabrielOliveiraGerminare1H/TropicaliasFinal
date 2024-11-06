@@ -9,7 +9,7 @@
         </div>
 
         <%-- Seção específica para o formulário de cadastro de barracas --%>
-        <section class="cadastrarBarraca">
+        <section class="cadastrarBarraca" id="cadastrarBarraca">
             <%-- Formulário que envia os dados para o servlet "cadastrarBarraca" usando o método POST --%>
             <form action="../cadastrarBarraca" method="post">
 

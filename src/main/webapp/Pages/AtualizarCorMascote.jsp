@@ -9,7 +9,7 @@
         </div>
 
         <%-- Seção específica para o formulário de atualização de cor --%>
-        <section class="AtualizarCor">
+        <section class="AtualizarCor" id="atualizarCor">
             <%-- Formulário que envia dados para o servlet "atualizarCor" usando método POST --%>
             <form action="../atualizarCor" method="post">
 

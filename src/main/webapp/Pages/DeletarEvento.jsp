@@ -9,7 +9,7 @@
         </div>
 
         <%-- Seção específica para o formulário de exclusão de eventos --%>
-        <section class="deletarEvento">
+        <section class="deletarEvento" id="#deletarEvento">
             <%-- Formulário que envia dados para o servlet "deletarEvento" usando o método POST --%>
             <form action="../deletarEvento" method="post">
 
