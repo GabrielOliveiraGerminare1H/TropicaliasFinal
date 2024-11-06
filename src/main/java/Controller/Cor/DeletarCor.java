@@ -16,29 +16,34 @@ public class DeletarCor extends HttpServlet {
     // Método que trata requisições POST para deletar uma cor de mascote
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Obtém o parâmetro que representa a chave primária da cor do mascote
-        int pkCorMascote = Integer.parseInt(request.getParameter("pk_int_id_cor_mascote"));
-
+        // Instancia a conexão e declara variáveis de controle
         Conexao conexao = new Conexao();
+        boolean verifica = false;
 
-            // Cria uma instância do DAO para interagir com o banco de dados
+        try {
+            // Obtém o parâmetro que representa a chave primária da cor do mascote
+            int pkCorMascote = Integer.parseInt(request.getParameter("pk_int_id_cor_mascote"));
+
+            // Cria uma instância do DAO para interagir com o banco de dados e tenta realizar a exclusão
             CorMascoteDAO corMascoteDAO = new CorMascoteDAO();
+            verifica = corMascoteDAO.softDeleteCorMascote(pkCorMascote);
 
-            // Tenta realizar a "exclusão" (SOFTDELETE) da cor do mascote
-            boolean verifica = corMascoteDAO.softDeleteCorMascote(pkCorMascote);
+            // Define mensagens de sucesso ou erro com base no resultado da operação
+            if (verifica) {
+                request.setAttribute("verifica", true);
+                request.setAttribute("mensagem", "Cor deletada com sucesso!");
+            } else {
+                request.setAttribute("verifica", false);
+                request.setAttribute("mensagem", "Não foi possível deletar a cor! Erro na pk");
+            }
+            // Redireciona para a página de mensagens com o feedback da operação
+            request.getRequestDispatcher("mensagem.jsp").forward(request, response);
 
-        // Define mensagens de sucesso ou erro com base no resultado da operação
-        if (verifica) {
-            request.setAttribute("verifica", true);
-            request.setAttribute("mensagem", "Cor deletada com sucesso!");
-        } else {
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
             request.setAttribute("verifica", false);
-            request.setAttribute("mensagem", "Não foi possível deletar a cor! Erro na pk");
+            request.setAttribute("mensagem", "Formato de ID inválido.");
+
         }
-
-        // Redireciona para a página de mensagens com o feedback da operação
-        request.getRequestDispatcher("mensagem.jsp").forward(request, response);
-
     }
 }
-

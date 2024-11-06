@@ -14,26 +14,9 @@
             <form action="../cadastrarEvento" method="post">
 
                 <%-- Campo para o usuário inserir a data de início do evento, obrigatório --%>
-                    <input
-                            type="text"
-                            placeholder="DD/MM/YYYY -- Início do evento"
-                            onfocus="this.type='date'"
-                            onblur="if (!this.value) this.type='text'"
-                            name="dt_incio"
-                            id="dt_inicio"
-                    >
-
-
-                <%-- Campo para o usuário inserir a data de término do evento, obrigatório --%>
-                    <input
-                            type="text"
-                            placeholder="DD/MM/YYYY -- Final do evento"
-                            onfocus="this.type='date'"
-                            onblur="if (!this.value) this.type='text'"
-                            name="dt_final"
-                            id="dt_final"
-                    >
-
+                <input type="date" name="dt_inicio" id="dt_inicio"  required>
+                    <%-- Campo para o usuário inserir a data de início do evento, obrigatório --%>
+                    <input type="date" name="dt_final" id="dt_final"  required>
                 <%-- Campo para o usuário inserir o nome do evento, obrigatório --%>
                 <input type="text" name="var_nome" id="var_nome" placeholder="Nome" required>
 
