@@ -17,6 +17,7 @@ body, html {
 li {
     margin-left: 20px;
     cursor: pointer;
+    font-family: Montserrat;
 }
 
 .navbar {
@@ -54,23 +55,24 @@ a:hover {
     padding: 30px;
 }
 
-footer.container2 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    background-color: #E45F15;
-    width: 100%;
-    color: #EBDFC5;
+
+@media screen and (max-width: 870px){
+    .navbar a{
+        font-size: 14px;
+    }
 }
 
-.container2 p {
-    font-size: 1rem;
-    margin: 0;
-    text-align: center;
-}
 
-.container2 img {
-    width: 80px; /* Reduzido para melhorar o layout em telas pequenas */
-    margin-top: 10px;
+@media (max-width: 350px) {
+    .container1 li a{
+        font-size: 0.7rem;
+    }
+    .container1 ul img{
+        width: 20px;
+    }
+}
+@media (max-width: 280px) {
+    .container1 li a{
+        font-size: 0.5rem;
+    }
 }

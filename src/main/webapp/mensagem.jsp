@@ -10,7 +10,7 @@
 </head>
 
 <body>
- <jsp:include page="/Pages/ADM.jsp"/>
+ <jsp:include page="/pages/ADM.jsp"/>
 
 
 <%
